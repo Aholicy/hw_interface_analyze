@@ -1,0 +1,2939 @@
+{
+    "process_options": {
+        "module": "process_options",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [
+            {
+                "name": "ProcessMode",
+                "values": [
+                    {
+                        "name": "UNSPECIFIED",
+                        "ipc_id": "0"
+                    },
+                    {
+                        "name": "NEW_PROCESS_ATTACH_TO_PARENT",
+                        "ipc_id": "1"
+                    },
+                    {
+                        "name": "NEW_PROCESS_ATTACH_TO_STATUS_BAR_ITEM",
+                        "ipc_id": "2"
+                    },
+                    {
+                        "name": "ATTACH_TO_STATUS_BAR_ITEM",
+                        "ipc_id": "3"
+                    },
+                    {
+                        "name": "NEW_HIDDEN_PROCESS",
+                        "ipc_id": "4"
+                    },
+                    {
+                        "name": "NO_ATTACHMENT",
+                        "ipc_id": "99"
+                    },
+                    {
+                        "name": "END",
+                        "ipc_id": null
+                    }
+                ]
+            },
+            {
+                "name": "StartupVisibility",
+                "values": [
+                    {
+                        "name": "UNSPECIFIED",
+                        "ipc_id": "-1"
+                    },
+                    {
+                        "name": "STARTUP_HIDE",
+                        "ipc_id": "0"
+                    },
+                    {
+                        "name": "STARTUP_SHOW",
+                        "ipc_id": "1"
+                    },
+                    {
+                        "name": "END",
+                        "ipc_id": null
+                    }
+                ]
+            }
+        ],
+        "classes": {
+            "ProcessMode": {
+                "methods": [],
+                "interfaces": [
+                    {
+                        "name": "ReadFromParcel",
+                        "return_type": "bool",
+                        "parameters": "Parcel &parcel"
+                    },
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static ProcessOptions *",
+                        "parameters": "Parcel &parcel"
+                    },
+                    {
+                        "name": "ConvertInt32ToProcessMode",
+                        "return_type": "static ProcessMode",
+                        "parameters": "int32_t value"
+                    },
+                    {
+                        "name": "ConvertInt32ToStartupVisibility",
+                        "return_type": "static StartupVisibility",
+                        "parameters": "int32_t value"
+                    },
+                    {
+                        "name": "IsNewProcessMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsAttachToStatusBarMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsValidProcessMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsNoAttachmentMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsAttachToStatusBarItemMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    }
+                ]
+            },
+            "StartupVisibility": {
+                "methods": [],
+                "interfaces": [
+                    {
+                        "name": "ReadFromParcel",
+                        "return_type": "bool",
+                        "parameters": "Parcel &parcel"
+                    },
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static ProcessOptions *",
+                        "parameters": "Parcel &parcel"
+                    },
+                    {
+                        "name": "ConvertInt32ToProcessMode",
+                        "return_type": "static ProcessMode",
+                        "parameters": "int32_t value"
+                    },
+                    {
+                        "name": "ConvertInt32ToStartupVisibility",
+                        "return_type": "static StartupVisibility",
+                        "parameters": "int32_t value"
+                    },
+                    {
+                        "name": "IsNewProcessMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsAttachToStatusBarMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsValidProcessMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsNoAttachmentMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    },
+                    {
+                        "name": "IsAttachToStatusBarItemMode",
+                        "return_type": "static bool",
+                        "parameters": "ProcessMode value"
+                    }
+                ]
+            }
+        }
+    },
+    "start_options": {
+        "module": "start_options",
+        "includes": [
+            "ability_info.h",
+            "ability_window_configuration.h",
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "window_config": {
+        "module": "window_config",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_first_frame_state_observer_stub": {
+        "module": "ability_first_frame_state_observer_stub",
+        "includes": [
+            "ability_first_frame_state_observer_interface.h",
+            "iremote_stub.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_manager_interface": {
+        "module": "ability_manager_interface",
+        "includes": [
+            "ability_connect_callback_interface.h",
+            "ability_manager_ipc_interface_code.h",
+            "ability_running_info.h",
+            "ability_scheduler_interface.h",
+            "ability_start_setting.h",
+            "ability_state.h",
+            "ability_state_data.h",
+            "app_debug_listener_interface.h",
+            "auto_startup_info.h",
+            "dms_continueInfo.h",
+            "exit_reason.h",
+            "extension_running_info.h",
+            "free_install_observer_interface.h",
+            "iability_controller.h",
+            "iability_manager_collaborator.h",
+            "iacquire_share_data_callback_interface.h",
+            "insight_intent/insight_intent_execute_param.h",
+            "insight_intent/insight_intent_execute_result.h",
+            "iprepare_terminate_callback_interface.h",
+            "keep_alive_info.h",
+            "mission_info.h",
+            "mission_listener_interface.h",
+            "mission_snapshot.h",
+            "query_erms_observer_interface.h",
+            "remote_mission_listener_interface.h",
+            "remote_on_listener_interface.h",
+            "running_process_info.h",
+            "sender_info.h",
+            "snapshot.h",
+            "start_options.h",
+            "user_callback.h",
+            "system_memory_attr.h",
+            "ui_extension/ui_extension_ability_connect_info.h",
+            "ui_extension/ui_extension_host_info.h",
+            "ui_extension/ui_extension_session_info.h",
+            "ui_extension_window_command.h",
+            "uri.h",
+            "want.h",
+            "want_receiver_interface.h",
+            "want_sender_info.h",
+            "want_sender_interface.h",
+            "dialog_session_info.h",
+            "window_config.h",
+            "intent_exemption_info.h",
+            "window_manager_service_handler.h",
+            "ability_first_frame_state_observer_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "query_erms_observer_interface": {
+        "module": "query_erms_observer_interface",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "lifecycle_state_info": {
+        "module": "lifecycle_state_info",
+        "includes": [
+            "ability_start_setting.h",
+            "caller_info.h",
+            "launch_param.h",
+            "parcel.h"
+        ],
+        "enums": [
+            {
+                "name": "ErrorLifecycleState",
+                "values": [
+                    {
+                        "name": "ABILITY_STATE_LOAD_TIMEOUT",
+                        "ipc_id": "0"
+                    },
+                    {
+                        "name": "ABILITY_STATE_FOREGROUND_TIMEOUT",
+                        "ipc_id": null
+                    },
+                    {
+                        "name": "ABILITY_STATE_DIED",
+                        "ipc_id": null
+                    }
+                ]
+            }
+        ],
+        "classes": {
+            "ErrorLifecycleState": {
+                "methods": [],
+                "interfaces": [
+                    {
+                        "name": "ReadFromParcel",
+                        "return_type": "bool",
+                        "parameters": "Parcel &parcel"
+                    },
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static LifeCycleStateInfo *",
+                        "parameters": "Parcel &parcel"
+                    }
+                ]
+            }
+        }
+    },
+    "open_link_options": {
+        "module": "open_link_options",
+        "includes": [
+            "ability_window_configuration.h",
+            "parcel.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "window_manager_service_handler_stub": {
+        "module": "window_manager_service_handler_stub",
+        "includes": [
+            "iremote_stub.h",
+            "message_parcel.h",
+            "nocopyable.h",
+            "window_manager_service_handler.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "continuation.remote_register_service_interface": {
+        "module": "continuation.remote_register_service_interface",
+        "includes": [
+            "iremote_broker.h",
+            "extra_params.h",
+            "connect_callback_interface.h"
+        ],
+        "enums": [],
+        "classes": {
+            "IRemoteRegisterService": {
+                "methods": [
+                    {
+                        "name": "Register",
+                        "return_type": "virtual int",
+                        "parameters": "const std::string &bundleName, const sptr<IRemoteObject> &token, const ExtraParams &extras,\n        const sptr<IConnectCallback> &callback",
+                        "is_const": true
+                    },
+                    {
+                        "name": "Unregister",
+                        "return_type": "virtual bool",
+                        "parameters": "int registerToken",
+                        "is_const": true
+                    },
+                    {
+                        "name": "UpdateConnectStatus",
+                        "return_type": "virtual bool",
+                        "parameters": "int registerToken, const std::string &deviceId, int status",
+                        "is_const": true
+                    },
+                    {
+                        "name": "ShowDeviceList",
+                        "return_type": "virtual bool",
+                        "parameters": "int registerToken, const ExtraParams &extras",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "continuation.connect_callback_interface": {
+        "module": "continuation.connect_callback_interface",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {
+            "IConnectCallback": {
+                "methods": [
+                    {
+                        "name": "Connect",
+                        "return_type": "virtual void",
+                        "parameters": "const string &deviceId, const string &deviceType",
+                        "is_const": true
+                    },
+                    {
+                        "name": "Disconnect",
+                        "return_type": "virtual void",
+                        "parameters": "const string &deviceId",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "task_handler_client": {
+        "module": "task_handler_client",
+        "includes": [
+            "task_handler.h"
+        ],
+        "enums": [],
+        "classes": {
+            "TaskHandlerClient": {
+                "methods": [
+                    {
+                        "name": "CreateRunner",
+                        "return_type": "bool",
+                        "parameters": "",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "user_callback_stub": {
+        "module": "user_callback_stub",
+        "includes": [
+            "user_callback.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "prepare_terminate_callback_proxy": {
+        "module": "prepare_terminate_callback_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "iprepare_terminate_callback_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "mission_info": {
+        "module": "mission_info",
+        "includes": [
+            "parcel.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "want_sender_info": {
+        "module": "want_sender_info",
+        "includes": [
+            "parcel.h",
+            "wants_info.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "acquire_share_data_callback_stub": {
+        "module": "acquire_share_data_callback_stub",
+        "includes": [
+            "event_handler.h",
+            "iacquire_share_data_callback_interface.h",
+            "want_params.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "assert_fault_proxy": {
+        "module": "assert_fault_proxy",
+        "includes": [
+            "iremote_broker.h",
+            "iremote_object.h",
+            "iremote_proxy.h",
+            "ability_connect_callback_stub.h",
+            "assert_fault_interface.h",
+            "singleton.h"
+        ],
+        "enums": [],
+        "classes": {
+            "ModalSystemAssertUIExtension": {
+                "methods": [
+                    {
+                        "name": "CreateModalUIExtension",
+                        "return_type": "bool",
+                        "parameters": "const AAFwk::Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetReqeustAssertDialogWant",
+                        "return_type": "void",
+                        "parameters": "const AAFwk::Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "OnAbilityConnectDone",
+                        "return_type": "void",
+                        "parameters": "const AppExecFwk::ElementName &element, const sptr<IRemoteObject> &remoteObject,\n            int resultCode",
+                        "is_const": true
+                    },
+                    {
+                        "name": "OnAbilityDisconnectDone",
+                        "return_type": "void",
+                        "parameters": "const AppExecFwk::ElementName &element, int resultCode",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "name": "AssertFaultProxy",
+                        "return_type": "explicit",
+                        "parameters": "const sptr<IRemoteObject> &impl"
+                    },
+                    {
+                        "name": "AssertFaultRemoteDeathRecipient",
+                        "return_type": "explicit",
+                        "parameters": "RemoteDiedHandler handler"
+                    },
+                    {
+                        "name": "DisconnectSystemUI",
+                        "return_type": "bool",
+                        "parameters": ""
+                    },
+                    {
+                        "name": "TryNotifyOneWaitingThread",
+                        "return_type": "void",
+                        "parameters": ""
+                    },
+                    {
+                        "name": "TryNotifyOneWaitingThreadInner",
+                        "return_type": "void",
+                        "parameters": ""
+                    }
+                ]
+            }
+        }
+    },
+    "ability_running_info": {
+        "module": "ability_running_info",
+        "includes": [
+            "parcel.h",
+            "ability_info.h",
+            "element_name.h",
+            "iremote_object.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "auto_startup_callback_stub": {
+        "module": "auto_startup_callback_stub",
+        "includes": [
+            "auto_startup_interface.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_manager_errors": {
+        "module": "ability_manager_errors",
+        "includes": [
+            "errors.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "task_handler": {
+        "module": "task_handler",
+        "includes": [
+            "event_handler.h",
+            "task_handler_client.h",
+            "refbase.h"
+        ],
+        "enums": [],
+        "classes": {
+            "TaskHandler": {
+                "methods": [
+                    {
+                        "name": "TaskHandler",
+                        "return_type": "explicit",
+                        "parameters": "const std::shared_ptr<EventRunner> &runner",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "remote_mission_listener_proxy": {
+        "module": "remote_mission_listener_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "remote_mission_listener_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "remote_on_listener_stub": {
+        "module": "remote_on_listener_stub",
+        "includes": [
+            "remote_on_listener_interface.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_manager_client": {
+        "module": "ability_manager_client",
+        "includes": [
+            "ability_connect_callback_interface.h",
+            "ability_manager_errors.h",
+            "ability_manager_interface.h",
+            "ability_scheduler_interface.h",
+            "auto_startup_info.h",
+            "iremote_object.h",
+            "mission_info.h",
+            "snapshot.h",
+            "system_memory_attr.h",
+            "ui_extension_window_command.h",
+            "want.h",
+            "intent_exemption_info.h"
+        ],
+        "enums": [],
+        "classes": {
+            "AbilityManagerClient": {
+                "methods": [
+                    {
+                        "name": "RemoveDeathRecipient",
+                        "return_type": "void",
+                        "parameters": "",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AttachAbilityThread",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IAbilityScheduler> scheduler, sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AbilityTransitionDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, int state, const PacMap &saveData",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AbilityWindowConfigTransitionDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, const WindowConfig &windowConfig",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ScheduleConnectAbilityDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, sptr<IRemoteObject> remoteObject",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ScheduleDisconnectAbilityDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ScheduleCommandAbilityDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ScheduleCommandAbilityWindowDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token,\n        sptr<SessionInfo> sessionInfo,\n        WindowCommand winCmd,\n        AbilityCommand abilityCmd",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetTopAbility",
+                        "return_type": "ElementName",
+                        "parameters": "bool isNeedLocalDeviceId = true",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetElementNameByToken",
+                        "return_type": "ElementName",
+                        "parameters": "sptr<IRemoteObject> token, bool isNeedLocalDeviceId = true",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityByInsightIntent",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken,\n        uint64_t intentId,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        const AbilityStartSetting &abilityStartSetting,\n        sptr<IRemoteObject> callerToken,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        const StartOptions &startOptions,\n        sptr<IRemoteObject> callerToken,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityAsCaller",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n            sptr<IRemoteObject> callerToken,\n            sptr<IRemoteObject> asCallerSourceToken,\n            int requestCode = DEFAULT_INVAL_VALUE,\n            int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityAsCaller",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n            const StartOptions &startOptions,\n            sptr<IRemoteObject> callerToken,\n            sptr<IRemoteObject> asCallerSourceToken,\n            int requestCode = DEFAULT_INVAL_VALUE,\n            int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityForResultAsCaller",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityForResultAsCaller",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        const StartOptions &startOptions,\n        sptr<IRemoteObject> callerToken,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityByUIContentSession",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken,\n        sptr<AAFwk::SessionInfo> sessionInfo,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityByUIContentSession",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        const StartOptions &startOptions,\n        sptr<IRemoteObject> callerToken,\n        sptr<AAFwk::SessionInfo> sessionInfo,\n        int requestCode = DEFAULT_INVAL_VALUE,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityOnlyUIAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken,\n        uint32_t specifyTokenId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken,\n        int32_t userId = DEFAULT_INVAL_VALUE,\n        AppExecFwk::ExtensionAbilityType extensionType = AppExecFwk::ExtensionAbilityType::UNSPECIFIED",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RequestModalUIExtension",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "PreloadUIExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, std::string &hostBundleName,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ChangeAbilityVisibility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, bool isShow",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ChangeUIAbilityVisibilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> sessionInfo, bool isShow",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartUIExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> extensionSessionInfo,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartUIAbilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> sessionInfo, bool &isColdStart, uint32_t sceneFlag = 0",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StopExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want& want,\n        sptr<IRemoteObject> callerToken,\n        int32_t userId = DEFAULT_INVAL_VALUE,\n        AppExecFwk::ExtensionAbilityType extensionType = AppExecFwk::ExtensionAbilityType::UNSPECIFIED",
+                        "is_const": false
+                    },
+                    {
+                        "name": "TerminateAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, int resultCode, const Want *resultWant",
+                        "is_const": false
+                    },
+                    {
+                        "name": "BackToCallerAbilityWithResult",
+                        "return_type": "ErrCode",
+                        "parameters": "const sptr<IRemoteObject> &token, int resultCode,\n        const Want *resultWant, int64_t callerRequestCode",
+                        "is_const": false
+                    },
+                    {
+                        "name": "TerminateUIServiceExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "TerminateUIExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> extensionSessionInfo,\n        int resultCode = DEFAULT_INVAL_VALUE, const Want *resultWant = nullptr",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CloseUIExtensionAbilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "const sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CloseUIAbilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> sessionInfo",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SendResultToAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "int requestCode, int resultCode, Want& resultWant",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MoveAbilityToBackground",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MoveUIAbilityToBackground",
+                        "return_type": "ErrCode",
+                        "parameters": "const sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CloseAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, int resultCode = DEFAULT_INVAL_VALUE,\n        const Want *resultWant = nullptr",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MinimizeAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, bool fromUser = false",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MinimizeUIExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> extensionSessionInfo, bool fromUser = false",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MinimizeUIAbilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> sessionInfo, bool fromUser = false, uint32_t sceneFlag = 0",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ConnectAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IAbilityConnection> connect, int32_t userId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ConnectAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IAbilityConnection> connect,\n        sptr<IRemoteObject> callerToken,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ConnectUIServiceExtesnionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IAbilityConnection> connect,\n        sptr<IRemoteObject> callerToken,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ConnectDataShareExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IAbilityConnection> connect,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ConnectExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IAbilityConnection> connect,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ConnectUIExtensionAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IAbilityConnection> connect,\n        sptr<SessionInfo> sessionInfo, int32_t userId = DEFAULT_INVAL_VALUE,\n        sptr<UIExtensionAbilityConnectInfo> connectInfo = nullptr",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DisconnectAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IAbilityConnection> connect",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ReleaseDataAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IAbilityScheduler> dataAbilityScheduler, sptr<IRemoteObject> callerToken",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DumpState",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &args, std::vector<std::string> &state",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DumpSysState",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string& args, std::vector<std::string>& state, bool isClient, bool isUserID, int UserID",
+                        "is_const": false
+                    },
+                    {
+                        "name": "Connect",
+                        "return_type": "ErrCode",
+                        "parameters": "",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StopServiceAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IRemoteObject> token = nullptr",
+                        "is_const": false
+                    },
+                    {
+                        "name": "KillProcess",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &bundleName, bool clearPageStack = false, int32_t appIndex = 0",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ForceTimeoutForTest",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &abilityName, const std::string &state",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ContinueMission",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &srcDeviceId, const std::string &dstDeviceId, int32_t missionId,\n        sptr<IRemoteObject> callback, AAFwk::WantParams &wantParams",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ContinueMission",
+                        "return_type": "ErrCode",
+                        "parameters": "AAFwk::ContinueMissionInfo continueMissionInfo, const sptr<IRemoteObject> &callback",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartContinuation",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IRemoteObject> abilityToken, int32_t status",
+                        "is_const": false
+                    },
+                    {
+                        "name": "NotifyCompleteContinuation",
+                        "return_type": "void",
+                        "parameters": "const std::string &deviceId, int32_t sessionId, bool isSuccess",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ContinueAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &deviceId, int32_t missionId, uint32_t versionCode",
+                        "is_const": false
+                    },
+                    {
+                        "name": "NotifyContinuationResult",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId, int32_t result",
+                        "is_const": false
+                    },
+                    {
+                        "name": "LockMissionForCleanup",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UnlockMissionForCleanup",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetLockedState",
+                        "return_type": "void",
+                        "parameters": "int32_t sessionId, bool lockedState",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterMissionListener",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IMissionListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UnRegisterMissionListener",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IMissionListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterMissionListener",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &deviceId, sptr<IRemoteMissionListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterOnListener",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &type, sptr<IRemoteOnListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterOffListener",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &type, sptr<IRemoteOnListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UnRegisterMissionListener",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &deviceId, sptr<IRemoteMissionListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetMissionInfos",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &deviceId, int32_t numMax, std::vector<MissionInfo> &missionInfos",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetMissionInfo",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &deviceId, int32_t missionId, MissionInfo &missionInfo",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetMissionSnapshot",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string& deviceId, int32_t missionId,\n        MissionSnapshot& snapshot, bool isLowResolution = false",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CleanMission",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CleanAllMissions",
+                        "return_type": "ErrCode",
+                        "parameters": "",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MoveMissionToFront",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MoveMissionToFront",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId, const StartOptions &startOptions",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MoveMissionsToForeground",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::vector<int32_t>& missionIds, int32_t topMissionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "MoveMissionsToBackground",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::vector<int32_t>& missionIds, std::vector<int32_t>& result",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetMissionIdByToken",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, int32_t &missionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityByCall",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IAbilityConnection> connect",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartAbilityByCall",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IAbilityConnection> connect,\n        sptr<IRemoteObject> callToken, int32_t accountId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CallRequestDone",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> token, sptr<IRemoteObject> callStub",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetAbilityTokenByCalleeObj",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> callStub, sptr<IRemoteObject> &token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ReleaseCall",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IAbilityConnection> connect, const AppExecFwk::ElementName &element",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetAbilityRunningInfos",
+                        "return_type": "ErrCode",
+                        "parameters": "std::vector<AbilityRunningInfo> &info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetExtensionRunningInfos",
+                        "return_type": "ErrCode",
+                        "parameters": "int upperLimit, std::vector<ExtensionRunningInfo> &info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetProcessRunningInfos",
+                        "return_type": "ErrCode",
+                        "parameters": "std::vector<AppExecFwk::RunningProcessInfo> &info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartSyncRemoteMissions",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &devId, bool fixConflict, int64_t tag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StopSyncRemoteMissions",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &devId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartUser",
+                        "return_type": "ErrCode",
+                        "parameters": "int accountId, sptr<IUserCallback> callback, bool isAppRecovery = false",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StopUser",
+                        "return_type": "ErrCode",
+                        "parameters": "int accountId, sptr<IUserCallback> callback",
+                        "is_const": false
+                    },
+                    {
+                        "name": "LogoutUser",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t accountId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterSnapshotHandler",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<ISnapshotHandler> handler",
+                        "is_const": false
+                    },
+                    {
+                        "name": "PrepareTerminateAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, sptr<IPrepareTerminateCallback> callback",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterStatusBarDelegate",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<AbilityRuntime::IStatusBarDelegate> delegate",
+                        "is_const": false
+                    },
+                    {
+                        "name": "KillProcessWithPrepareTerminate",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::vector<int32_t>& pids",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterAutoStartupSystemCallback",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> callback",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UnregisterAutoStartupSystemCallback",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> callback",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetApplicationAutoStartup",
+                        "return_type": "ErrCode",
+                        "parameters": "const AutoStartupInfo &info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CancelApplicationAutoStartup",
+                        "return_type": "ErrCode",
+                        "parameters": "const AutoStartupInfo &info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "QueryAllAutoStartupApplications",
+                        "return_type": "ErrCode",
+                        "parameters": "std::vector<AutoStartupInfo> &infoList",
+                        "is_const": false
+                    },
+                    {
+                        "name": "PrepareTerminateAbilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> sessionInfo, bool &isPrepareTerminate",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetMissionContinueState",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, const AAFwk::ContinueState &state,\n        sptr<IRemoteObject> sessionToken",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetMissionLabel",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> abilityToken, const std::string &label",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetMissionIcon",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> abilityToken,\n        std::shared_ptr<OHOS::Media::PixelMap> icon",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterWindowManagerServiceHandler",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IWindowManagerServiceHandler> handler,\n        bool animationEnabled = true",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CompleteFirstFrameDrawing",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> abilityToken",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CompleteFirstFrameDrawing",
+                        "return_type": "void",
+                        "parameters": "int32_t sessionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UpdateMissionSnapShot",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> token,\n        std::shared_ptr<OHOS::Media::PixelMap> pixelMap",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetDialogSessionInfo",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &dialogSessionId, sptr<DialogSessionInfo> &info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SendDialogResult",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, const std::string &dialogSessionId, bool isAllow",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartUserTest",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IRemoteObject> observer",
+                        "is_const": false
+                    },
+                    {
+                        "name": "FinishUserTest",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &msg, const int64_t &resultCode, const std::string &bundleName",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetTopAbility",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> &token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CheckUIExtensionIsFocused",
+                        "return_type": "ErrCode",
+                        "parameters": "uint32_t uiExtensionTokenId, bool& isFocused",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DelegatorDoAbilityForeground",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DelegatorDoAbilityBackground",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DoAbilityForeground",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, uint32_t flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DoAbilityBackground",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, uint32_t flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetAbilityController",
+                        "return_type": "virtual int",
+                        "parameters": "sptr<AppExecFwk::IAbilityController> abilityController,\n        bool imAStabilityTest",
+                        "is_const": false
+                    },
+                    {
+                        "name": "FreeInstallAbilityFromRemote",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, sptr<IRemoteObject> callback, int32_t userId,\n        int requestCode = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DumpAbilityInfoDone",
+                        "return_type": "ErrCode",
+                        "parameters": "std::vector<std::string> &infos, sptr<IRemoteObject> callerToken",
+                        "is_const": false
+                    },
+                    {
+                        "name": "EnableRecoverAbility",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SubmitSaveRecoveryInfo",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ScheduleRecoverAbility",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> token, int32_t reason, const Want *want = nullptr",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ScheduleClearRecoveryPageStack",
+                        "return_type": "void",
+                        "parameters": "",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AddFreeInstallObserver",
+                        "return_type": "ErrCode",
+                        "parameters": "const sptr<IRemoteObject> callToken,\n        const sptr<AbilityRuntime::IFreeInstallObserver> observer",
+                        "is_const": false
+                    },
+                    {
+                        "name": "IsValidMissionIds",
+                        "return_type": "int32_t",
+                        "parameters": "const std::vector<int32_t> &missionIds, std::vector<MissionValidResult> &results",
+                        "is_const": false
+                    },
+                    {
+                        "name": "VerifyPermission",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &permission, int pid, int uid",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AcquireShareData",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId, sptr<IAcquireShareDataCallback> shareData",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ShareDataDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, int32_t resultCode, int32_t uniqueId, WantParams &wantParam",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RequestDialogService",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want,\n        sptr<IRemoteObject> callerToken",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ForceExitApp",
+                        "return_type": "ErrCode",
+                        "parameters": "const int32_t pid, const ExitReason &exitReason",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RecordAppExitReason",
+                        "return_type": "ErrCode",
+                        "parameters": "const ExitReason &exitReason",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RecordProcessExitReason",
+                        "return_type": "int32_t",
+                        "parameters": "const int32_t pid, const ExitReason &exitReason",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetRootSceneSession",
+                        "return_type": "void",
+                        "parameters": "sptr<IRemoteObject> rootSceneSession",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CallUIAbilityBySCB",
+                        "return_type": "void",
+                        "parameters": "sptr<SessionInfo> sessionInfo, bool &isColdStart",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartSpecifiedAbilityBySCB",
+                        "return_type": "void",
+                        "parameters": "const Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "NotifySaveAsResult",
+                        "return_type": "ErrCode",
+                        "parameters": "const Want &want, int resultCode, int requestCode",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetSessionManagerService",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> sessionManagerService",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ReportDrawnCompleted",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterIAbilityManagerCollaborator",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t type, sptr<IAbilityManagerCollaborator> impl",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UnregisterIAbilityManagerCollaborator",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t type",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterSessionHandler",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> object",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RegisterAppDebugListener",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<AppExecFwk::IAppDebugListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UnregisterAppDebugListener",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<AppExecFwk::IAppDebugListener> listener",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AttachAppDebug",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &bundleName",
+                        "is_const": false
+                    },
+                    {
+                        "name": "DetachAppDebug",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::string &bundleName",
+                        "is_const": false
+                    },
+                    {
+                        "name": "IsAbilityControllerStart",
+                        "return_type": "bool",
+                        "parameters": "const Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "OpenFile",
+                        "return_type": "int32_t",
+                        "parameters": "const Uri& uri, uint32_t flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ExecuteIntent",
+                        "return_type": "ErrCode",
+                        "parameters": "uint64_t key, sptr<IRemoteObject> callerToken,\n        const InsightIntentExecuteParam &param",
+                        "is_const": false
+                    },
+                    {
+                        "name": "ExecuteInsightIntentDone",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> token, uint64_t intentId,\n        const InsightIntentExecuteResult &result",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetForegroundUIAbilities",
+                        "return_type": "int32_t",
+                        "parameters": "std::vector<AppExecFwk::AbilityStateData> &list",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UpdateSessionInfoBySCB",
+                        "return_type": "int32_t",
+                        "parameters": "std::list<SessionInfo> &sessionInfos, int32_t userId,\n        std::vector<int32_t> &sessionIds",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RestartApp",
+                        "return_type": "int32_t",
+                        "parameters": "const AAFwk::Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetUIExtensionRootHostInfo",
+                        "return_type": "ErrCode",
+                        "parameters": "const sptr<IRemoteObject> token, UIExtensionHostInfo &hostInfo,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetUIExtensionSessionInfo",
+                        "return_type": "ErrCode",
+                        "parameters": "const sptr<IRemoteObject> token, UIExtensionSessionInfo &uiExtensionSessionInfo,\n        int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "OpenAtomicService",
+                        "return_type": "int32_t",
+                        "parameters": "Want& want, const StartOptions &options, sptr<IRemoteObject> callerToken,\n        int32_t requestCode = DEFAULT_INVAL_VALUE, int32_t userId = DEFAULT_INVAL_VALUE",
+                        "is_const": false
+                    },
+                    {
+                        "name": "IsEmbeddedOpenAllowed",
+                        "return_type": "bool",
+                        "parameters": "sptr<IRemoteObject> callerToken, const std::string &appId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RequestAssertFaultDialog",
+                        "return_type": "int32_t",
+                        "parameters": "const sptr<IRemoteObject> &callback, const AAFwk::WantParams &wantParams",
+                        "is_const": false
+                    },
+                    {
+                        "name": "NotifyDebugAssertResult",
+                        "return_type": "int32_t",
+                        "parameters": "uint64_t assertFaultSessionId, AAFwk::UserStatus userStatus",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetResidentProcessEnabled",
+                        "return_type": "int32_t",
+                        "parameters": "const std::string &bundleName, bool enable",
+                        "is_const": false
+                    },
+                    {
+                        "name": "StartShortcut",
+                        "return_type": "int32_t",
+                        "parameters": "const Want &want, const StartOptions &startOptions",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetAbilityStateByPersistentId",
+                        "return_type": "int32_t",
+                        "parameters": "int32_t persistentId, bool &state",
+                        "is_const": false
+                    },
+                    {
+                        "name": "TransferAbilityResultForExtension",
+                        "return_type": "int32_t",
+                        "parameters": "const sptr<IRemoteObject> &callerToken, int32_t resultCode,\n        const Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "NotifyFrozenProcessByRSS",
+                        "return_type": "void",
+                        "parameters": "const std::vector<int32_t> &pidList, int32_t uid",
+                        "is_const": false
+                    },
+                    {
+                        "name": "PreStartMission",
+                        "return_type": "int32_t",
+                        "parameters": "const std::string& bundleName, const std::string& moduleName,\n        const std::string& abilityName, const std::string& startTime",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CleanUIAbilityBySCB",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<SessionInfo> sessionInfo",
+                        "is_const": false
+                    },
+                    {
+                        "name": "OpenLink",
+                        "return_type": "int32_t",
+                        "parameters": "const Want& want, sptr<IRemoteObject> callerToken, int32_t userId, int requestCode",
+                        "is_const": false
+                    },
+                    {
+                        "name": "TerminateMission",
+                        "return_type": "ErrCode",
+                        "parameters": "int32_t missionId",
+                        "is_const": false
+                    },
+                    {
+                        "name": "BlockAllAppStart",
+                        "return_type": "ErrCode",
+                        "parameters": "bool flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UpdateAssociateConfigList",
+                        "return_type": "ErrCode",
+                        "parameters": "const std::map<std::string, std::list<std::string>>& configs,\n        const std::list<std::string>& exportConfigs, int32_t flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GetAllIntentExemptionInfo",
+                        "return_type": "ErrCode",
+                        "parameters": "std::vector<AppExecFwk::IntentExemptionInfo>& info",
+                        "is_const": false
+                    },
+                    {
+                        "name": "AddQueryERMSObserver",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> callerToken,\n        sptr<AbilityRuntime::IQueryERMSObserver> observer",
+                        "is_const": false
+                    },
+                    {
+                        "name": "QueryAtomicServiceStartupRule",
+                        "return_type": "ErrCode",
+                        "parameters": "sptr<IRemoteObject> callerToken,\n        const std::string &appId, const std::string &startTime, AtomicServiceStartupRule &rule",
+                        "is_const": false
+                    },
+                    {
+                        "name": "OnRemoteDied",
+                        "return_type": "void",
+                        "parameters": "const wptr<IRemoteObject>& remote",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "name": "ResetProxy",
+                        "return_type": "void",
+                        "parameters": "wptr<IRemoteObject> remote"
+                    },
+                    {
+                        "name": "HandleDlpApp",
+                        "return_type": "void",
+                        "parameters": "Want &want"
+                    }
+                ]
+            }
+        }
+    },
+    "dialog_session_info": {
+        "module": "dialog_session_info",
+        "includes": [
+            "application_info.h",
+            "json_serializer.h",
+            "parcel.h",
+            "refbase.h",
+            "want_params_wrapper.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "auto_startup_callback_proxy": {
+        "module": "auto_startup_callback_proxy",
+        "includes": [
+            "ability_manager_ipc_interface_code.h",
+            "auto_startup_interface.h",
+            "iremote_proxy.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "prepare_terminate_callback_stub": {
+        "module": "prepare_terminate_callback_stub",
+        "includes": [
+            "iprepare_terminate_callback_interface.h",
+            "iremote_stub.h",
+            "message_parcel.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "iability_manager_collaborator": {
+        "module": "iability_manager_collaborator",
+        "includes": [
+            "ability_info.h",
+            "iremote_broker.h",
+            "iremote_object.h",
+            "mission_info.h",
+            "session_info.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {
+            "IAbilityManagerCollaborator": {
+                "methods": [
+                    {
+                        "name": "NotifyStartAbility",
+                        "return_type": "virtual int32_t",
+                        "parameters": "const AppExecFwk::AbilityInfo &abilityInfo,\n        int32_t userId, Want &want, uint64_t accessTokenIDEx",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "state_pattern_naive": {
+        "module": "state_pattern_naive",
+        "includes": [],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_manager_ipc_interface_code": {
+        "module": "ability_manager_ipc_interface_code",
+        "includes": [],
+        "enums": [
+            {
+                "name": "AbilityManagerInterfaceCode",
+                "values": [
+                    {
+                        "name": "COMMAND_ABILITY_WINDOW_DONE",
+                        "ipc_id": "63",
+                        "comment": "prepare terminate ability (62)\n    PREPARE_TERMINATE_ABILITY = 62"
+                    },
+                    {
+                        "name": "MOVE_ABILITY_TO_BACKGROUND",
+                        "ipc_id": "65",
+                        "comment": "prepare terminate ability (64)\n    CALL_ABILITY_BY_SCB = 64"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_SENDER",
+                        "ipc_id": "1006",
+                        "comment": "ipc id for starting ability by caller(1005)\n    START_ABILITY_ADD_CALLER = 1005"
+                    },
+                    {
+                        "name": "SEND_PENDING_WANT_SENDER",
+                        "ipc_id": "1007"
+                    },
+                    {
+                        "name": "CANCEL_PENDING_WANT_SENDER",
+                        "ipc_id": "1008"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_UID",
+                        "ipc_id": "1009"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_BUNDLENAME",
+                        "ipc_id": "1010"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_USERID",
+                        "ipc_id": "1011"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_TYPE",
+                        "ipc_id": "1012"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_CODE",
+                        "ipc_id": "1013"
+                    },
+                    {
+                        "name": "REGISTER_CANCEL_LISTENER",
+                        "ipc_id": "1014"
+                    },
+                    {
+                        "name": "UNREGISTER_CANCEL_LISTENER",
+                        "ipc_id": "1015"
+                    },
+                    {
+                        "name": "GET_PENDING_REQUEST_WANT",
+                        "ipc_id": "1016"
+                    },
+                    {
+                        "name": "GET_PENDING_WANT_SENDER_INFO",
+                        "ipc_id": "1017"
+                    },
+                    {
+                        "name": "SET_SHOW_ON_LOCK_SCREEN",
+                        "ipc_id": "1018"
+                    },
+                    {
+                        "name": "SEND_APP_NOT_RESPONSE_PROCESS_ID",
+                        "ipc_id": "1019"
+                    },
+                    {
+                        "name": "GET_ABILITY_MISSION_SNAPSHOT",
+                        "ipc_id": "1021",
+                        "comment": "ipc id for starting ability by settings(1020)\n    START_ABILITY_FOR_SETTINGS = 1020"
+                    },
+                    {
+                        "name": "GET_APP_MEMORY_SIZE",
+                        "ipc_id": "1022"
+                    },
+                    {
+                        "name": "IS_RAM_CONSTRAINED_DEVICE",
+                        "ipc_id": "1023"
+                    },
+                    {
+                        "name": "GET_ABILITY_RUNNING_INFO",
+                        "ipc_id": "1024"
+                    },
+                    {
+                        "name": "GET_EXTENSION_RUNNING_INFO",
+                        "ipc_id": "1025"
+                    },
+                    {
+                        "name": "GET_PROCESS_RUNNING_INFO",
+                        "ipc_id": "1026"
+                    },
+                    {
+                        "name": "START_ABILITY_FOR_OPTIONS",
+                        "ipc_id": "1028"
+                    },
+                    {
+                        "name": "RELEASE_CALL_ABILITY",
+                        "ipc_id": "1033",
+                        "comment": "ipc id for call ability\n    START_CALL_ABILITY = 1032"
+                    },
+                    {
+                        "name": "CONNECT_ABILITY_WITH_TYPE",
+                        "ipc_id": "1034"
+                    },
+                    {
+                        "name": "CALL_REQUEST_DONE",
+                        "ipc_id": "1036",
+                        "comment": "start ui extension ability\n    START_UI_EXTENSION_ABILITY = 1035"
+                    },
+                    {
+                        "name": "START_ABILITY_AS_CALLER_BY_TOKEN",
+                        "ipc_id": "1037"
+                    },
+                    {
+                        "name": "START_ABILITY_AS_CALLER_FOR_OPTIONS",
+                        "ipc_id": "1038"
+                    },
+                    {
+                        "name": "CHECK_UI_EXTENSION_IS_FOCUSED",
+                        "ipc_id": "1042",
+                        "comment": "ipc id for connect ui extension ability\n    CONNECT_UI_EXTENSION_ABILITY = 1041"
+                    },
+                    {
+                        "name": "START_UI_ABILITY_BY_SCB",
+                        "ipc_id": "1043"
+                    },
+                    {
+                        "name": "START_UI_SESSION_ABILITY_FOR_OPTIONS",
+                        "ipc_id": "1052",
+                        "comment": "start ui session ability\n    START_UI_SESSION_ABILITY_ADD_CALLER = 1051"
+                    },
+                    {
+                        "name": "NOTIFY_CONTINUATION_RESULT",
+                        "ipc_id": "1102",
+                        "comment": "ipc id for continue ability(1101)\n    START_CONTINUATION = 1101"
+                    },
+                    {
+                        "name": "NOTIFY_COMPLETE_CONTINUATION",
+                        "ipc_id": "1103"
+                    },
+                    {
+                        "name": "CONTINUE_ABILITY",
+                        "ipc_id": "1104"
+                    },
+                    {
+                        "name": "CONTINUE_MISSION",
+                        "ipc_id": "1105"
+                    },
+                    {
+                        "name": "SEND_RESULT_TO_ABILITY",
+                        "ipc_id": "1106"
+                    },
+                    {
+                        "name": "REGISTER_REMOTE_ON_LISTENER",
+                        "ipc_id": "1107"
+                    },
+                    {
+                        "name": "REGISTER_REMOTE_OFF_LISTENER",
+                        "ipc_id": "1108"
+                    },
+                    {
+                        "name": "CONTINUE_MISSION_OF_BUNDLENAME",
+                        "ipc_id": "1109"
+                    },
+                    {
+                        "name": "UNREGISTER_REMOTE_MISSION_LISTENER",
+                        "ipc_id": "1111",
+                        "comment": "ipc id for mission manager(1110)\n    REGISTER_REMOTE_MISSION_LISTENER = 1110"
+                    },
+                    {
+                        "name": "START_SYNC_MISSIONS",
+                        "ipc_id": "1112"
+                    },
+                    {
+                        "name": "STOP_SYNC_MISSIONS",
+                        "ipc_id": "1113"
+                    },
+                    {
+                        "name": "REGISTER_SNAPSHOT_HANDLER",
+                        "ipc_id": "1114"
+                    },
+                    {
+                        "name": "GET_MISSION_SNAPSHOT_INFO",
+                        "ipc_id": "1115"
+                    },
+                    {
+                        "name": "MOVE_MISSIONS_TO_FOREGROUND",
+                        "ipc_id": "1117"
+                    },
+                    {
+                        "name": "MOVE_MISSIONS_TO_BACKGROUND",
+                        "ipc_id": "1118"
+                    },
+                    {
+                        "name": "UPDATE_MISSION_SNAPSHOT_FROM_WMS",
+                        "ipc_id": null
+                    },
+                    {
+                        "name": "FINISH_USER_TEST",
+                        "ipc_id": "1121",
+                        "comment": "ipc id for user test(1120)\n    START_USER_TEST = 1120"
+                    },
+                    {
+                        "name": "DELEGATOR_DO_ABILITY_FOREGROUND",
+                        "ipc_id": "1122"
+                    },
+                    {
+                        "name": "DELEGATOR_DO_ABILITY_BACKGROUND",
+                        "ipc_id": "1123"
+                    },
+                    {
+                        "name": "GET_TOP_ABILITY_TOKEN",
+                        "ipc_id": "1124"
+                    },
+                    {
+                        "name": "REGISTER_ABILITY_FIRST_FRAME_STATE_OBSERVER",
+                        "ipc_id": "1126",
+                        "comment": "ipc id for starting ability with specify token id(1125)\n    START_ABILITY_WITH_SPECIFY_TOKENID = 1125"
+                    },
+                    {
+                        "name": "UNREGISTER_ABILITY_FIRST_FRAME_STATE_OBSERVER",
+                        "ipc_id": "1127"
+                    },
+                    {
+                        "name": "TRANSFER_ABILITY_RESULT",
+                        "ipc_id": "1129",
+                        "comment": "ipc for get ability state by persistent id\n    GET_ABILITY_STATE_BY_PERSISTENT_ID = 1128"
+                    },
+                    {
+                        "name": "DUMPSYS_STATE",
+                        "ipc_id": "2002",
+                        "comment": "ipc id 2001-3000 for tools\n    // ipc id for dumping state (2001)\n    DUMP_STATE = 2001"
+                    },
+                    {
+                        "name": "FORCE_TIMEOUT",
+                        "ipc_id": null
+                    },
+                    {
+                        "name": "REGISTER_WMS_HANDLER",
+                        "ipc_id": "2500"
+                    },
+                    {
+                        "name": "COMPLETEFIRSTFRAMEDRAWING",
+                        "ipc_id": "2501"
+                    },
+                    {
+                        "name": "REGISTER_CONNECTION_OBSERVER",
+                        "ipc_id": "2502"
+                    },
+                    {
+                        "name": "UNREGISTER_CONNECTION_OBSERVER",
+                        "ipc_id": "2503"
+                    },
+                    {
+                        "name": "GET_DLP_CONNECTION_INFOS",
+                        "ipc_id": "2504"
+                    },
+                    {
+                        "name": "GET_CONNECTION_DATA",
+                        "ipc_id": "2505"
+                    },
+                    {
+                        "name": "COMPLETE_FIRST_FRAME_DRAWING_BY_SCB",
+                        "ipc_id": "2506"
+                    },
+                    {
+                        "name": "GET_TOP_ABILITY",
+                        "ipc_id": "3000"
+                    },
+                    {
+                        "name": "FREE_INSTALL_ABILITY_FROM_REMOTE",
+                        "ipc_id": "3001"
+                    },
+                    {
+                        "name": "ADD_FREE_INSTALL_OBSERVER",
+                        "ipc_id": "3002"
+                    },
+                    {
+                        "name": "GET_ELEMENT_NAME_BY_TOKEN",
+                        "ipc_id": "3003"
+                    },
+                    {
+                        "name": "ABILITY_RECOVERY_ENABLE",
+                        "ipc_id": "3011",
+                        "comment": "ipc id for app recovery(3010)\n    ABILITY_RECOVERY = 3010"
+                    },
+                    {
+                        "name": "QUERY_MISSION_VAILD",
+                        "ipc_id": "3012"
+                    },
+                    {
+                        "name": "VERIFY_PERMISSION",
+                        "ipc_id": "3013"
+                    },
+                    {
+                        "name": "CLEAR_RECOVERY_PAGE_STACK",
+                        "ipc_id": "3014"
+                    },
+                    {
+                        "name": "ABILITY_RECOVERY_SUBMITINFO",
+                        "ipc_id": "3015"
+                    },
+                    {
+                        "name": "ACQUIRE_SHARE_DATA",
+                        "ipc_id": "4001"
+                    },
+                    {
+                        "name": "SHARE_DATA_DONE",
+                        "ipc_id": "4002"
+                    },
+                    {
+                        "name": "UNREGISTER_COLLABORATOR",
+                        "ipc_id": "4051",
+                        "comment": "ipc id for collborator\n    REGISTER_COLLABORATOR = 4050"
+                    },
+                    {
+                        "name": "IS_ABILITY_CONTROLLER_START",
+                        "ipc_id": "4054"
+                    },
+                    {
+                        "name": "OPEN_FILE",
+                        "ipc_id": "4055"
+                    },
+                    {
+                        "name": "GET_ABILITY_TOKEN",
+                        "ipc_id": "5001"
+                    },
+                    {
+                        "name": "REGISTER_STATUS_BAR_DELEGATE",
+                        "ipc_id": "5100"
+                    },
+                    {
+                        "name": "KILL_PROCESS_WITH_PREPARE_TERMINATE",
+                        "ipc_id": "5101"
+                    },
+                    {
+                        "name": "FORCE_EXIT_APP",
+                        "ipc_id": "6001"
+                    },
+                    {
+                        "name": "RECORD_APP_EXIT_REASON",
+                        "ipc_id": "6002"
+                    },
+                    {
+                        "name": "RECORD_PROCESS_EXIT_REASON",
+                        "ipc_id": "6003"
+                    },
+                    {
+                        "name": "UPGRADE_APP",
+                        "ipc_id": "6004"
+                    },
+                    {
+                        "name": "MOVE_UI_ABILITY_TO_BACKGROUND",
+                        "ipc_id": "6005"
+                    },
+                    {
+                        "name": "GET_INTENT_EXEMPTION_INFO",
+                        "ipc_id": "6125",
+                        "comment": "get keep-alive applications by EDM\n    GET_APPLICATIONS_KEEP_ALIVE_BY_EDM = 6124"
+                    }
+                ]
+            }
+        ],
+        "classes": {
+            "AbilityManagerInterfaceCode": {
+                "methods": [],
+                "interfaces": []
+            }
+        }
+    },
+    "system_ability_token_callback_stub": {
+        "module": "system_ability_token_callback_stub",
+        "includes": [
+            "iremote_object.h",
+            "iremote_stub.h",
+            "system_ability_token_callback.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "caller_info": {
+        "module": "caller_info",
+        "includes": [
+            "parcel.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_auto_startup_client": {
+        "module": "ability_auto_startup_client",
+        "includes": [
+            "ability_manager_errors.h",
+            "ability_manager_interface.h",
+            "auto_startup_info.h",
+            "iremote_object.h"
+        ],
+        "enums": [],
+        "classes": {
+            "AbilityAutoStartupClient": {
+                "methods": [
+                    {
+                        "name": "Connect",
+                        "return_type": "ErrCode",
+                        "parameters": "",
+                        "is_const": false
+                    },
+                    {
+                        "name": "SetApplicationAutoStartupByEDM",
+                        "return_type": "ErrCode",
+                        "parameters": "const AutoStartupInfo &info, bool flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "CancelApplicationAutoStartupByEDM",
+                        "return_type": "ErrCode",
+                        "parameters": "const AutoStartupInfo &info, bool flag",
+                        "is_const": false
+                    },
+                    {
+                        "name": "QueryAllAutoStartupApplications",
+                        "return_type": "ErrCode",
+                        "parameters": "std::vector<AutoStartupInfo> &infoList",
+                        "is_const": false
+                    },
+                    {
+                        "name": "OnRemoteDied",
+                        "return_type": "void",
+                        "parameters": "const wptr<IRemoteObject>& remote",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "name": "ResetProxy",
+                        "return_type": "void",
+                        "parameters": "wptr<IRemoteObject> remote"
+                    }
+                ]
+            }
+        }
+    },
+    "wants_info": {
+        "module": "wants_info",
+        "includes": [
+            "parcel.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "iacquire_share_data_callback_interface": {
+        "module": "iacquire_share_data_callback_interface",
+        "includes": [
+            "iremote_broker.h",
+            "iremote_object.h",
+            "want_params.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "mission_listener_stub": {
+        "module": "mission_listener_stub",
+        "includes": [
+            "mission_listener_interface.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "insight_intent.insight_intent_execute_callback_interface": {
+        "module": "insight_intent.insight_intent_execute_callback_interface",
+        "includes": [
+            "insight_intent_execute_result.h",
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "insight_intent.insight_intent_execute_param": {
+        "module": "insight_intent.insight_intent_execute_param",
+        "includes": [
+            "parcel.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {
+            "InsightIntentExecuteParam": {
+                "methods": [
+                    {
+                        "name": "ReadFromParcel",
+                        "return_type": "bool",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    },
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static InsightIntentExecuteParam *",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    },
+                    {
+                        "name": "IsInsightIntentExecute",
+                        "return_type": "static bool",
+                        "parameters": "const AAFwk::Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "GenerateFromWant",
+                        "return_type": "static bool",
+                        "parameters": "const AAFwk::Want &want, InsightIntentExecuteParam &executeParam",
+                        "is_const": false
+                    },
+                    {
+                        "name": "RemoveInsightIntent",
+                        "return_type": "static bool",
+                        "parameters": "AAFwk::Want &want",
+                        "is_const": false
+                    },
+                    {
+                        "name": "UpdateInsightIntentCallerInfo",
+                        "return_type": "static void",
+                        "parameters": "const WantParams &wantParams, WantParams &insightIntentParam",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "insight_intent.insight_intent_constant": {
+        "module": "insight_intent.insight_intent_constant",
+        "includes": [
+            "ability_manager_errors.h"
+        ],
+        "enums": [
+            {
+                "name": "InsightIntentExecuteMode",
+                "values": [
+                    {
+                        "name": "UIABILITY_FOREGROUND",
+                        "ipc_id": null
+                    },
+                    {
+                        "name": "UIABILITY_BACKGROUND",
+                        "ipc_id": null
+                    },
+                    {
+                        "name": "UIEXTENSION_ABILITY",
+                        "ipc_id": null
+                    },
+                    {
+                        "name": "SERVICE_EXTENSION_ABILITY",
+                        "ipc_id": null
+                    }
+                ]
+            }
+        ],
+        "classes": {
+            "InsightIntentExecuteMode": {
+                "methods": [],
+                "interfaces": []
+            }
+        }
+    },
+    "insight_intent.insight_intent_execute_callback_stub": {
+        "module": "insight_intent.insight_intent_execute_callback_stub",
+        "includes": [
+            "event_handler.h",
+            "insight_intent_execute_callback_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "insight_intent.insight_intent_execute_callback_proxy": {
+        "module": "insight_intent.insight_intent_execute_callback_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "insight_intent_execute_callback_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "insight_intent.insight_intent_utils": {
+        "module": "insight_intent.insight_intent_utils",
+        "includes": [
+            "bundlemgr/bundle_mgr_interface.h",
+            "element_name.h",
+            "insight_intent_execute_param.h"
+        ],
+        "enums": [],
+        "classes": {
+            "InsightIntentUtils": {
+                "methods": [
+                    {
+                        "name": "GetSrcEntry",
+                        "return_type": "static uint32_t",
+                        "parameters": "const AppExecFwk::ElementName &elementName, const std::string &intentName,\n        const AppExecFwk::ExecuteMode &executeMode, std::string &srcEntry",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "insight_intent.insight_intent_execute_result": {
+        "module": "insight_intent.insight_intent_execute_result",
+        "includes": [
+            "insight_intent_constant.h",
+            "parcel.h",
+            "want_params.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_first_frame_state_observer_proxy": {
+        "module": "ability_first_frame_state_observer_proxy",
+        "includes": [
+            "ability_first_frame_state_observer_interface.h",
+            "iremote_broker.h",
+            "iremote_object.h",
+            "iremote_proxy.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "dms_continueInfo": {
+        "module": "dms_continueInfo",
+        "includes": [
+            "parcel.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "launch_param": {
+        "module": "launch_param",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_start_setting": {
+        "module": "ability_start_setting",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_state": {
+        "module": "ability_state",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "system_ability_token_callback": {
+        "module": "system_ability_token_callback",
+        "includes": [
+            "iremote_broker.h",
+            "iremote_object.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "sender_info": {
+        "module": "sender_info",
+        "includes": [
+            "parcel.h",
+            "start_options.h",
+            "want.h",
+            "want_receiver_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_manager_client_c": {
+        "module": "ability_manager_client_c",
+        "includes": [],
+        "enums": [],
+        "classes": {}
+    },
+    "window_info": {
+        "module": "window_info",
+        "includes": [
+            "ability_info.h",
+            "iremote_object.h",
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "mission_snapshot": {
+        "module": "mission_snapshot",
+        "includes": [
+            "parcel.h",
+            "element_name.h",
+            "pixel_map.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "atomic_service_status_callback_proxy": {
+        "module": "atomic_service_status_callback_proxy",
+        "includes": [
+            "iremote_broker.h",
+            "iremote_object.h",
+            "iremote_proxy.h",
+            "ability_info.h",
+            "atomic_service_status_callback_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "snapshot": {
+        "module": "snapshot",
+        "includes": [
+            "pixel_map.h"
+        ],
+        "enums": [],
+        "classes": {
+            "Snapshot": {
+                "methods": [],
+                "interfaces": []
+            }
+        }
+    },
+    "window_manager_service_handler_proxy": {
+        "module": "window_manager_service_handler_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "window_manager_service_handler.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "extension_running_info": {
+        "module": "extension_running_info",
+        "includes": [
+            "parcel.h",
+            "element_name.h",
+            "iremote_object.h",
+            "extension_ability_info.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "atomic_service_status_callback_interface": {
+        "module": "atomic_service_status_callback_interface",
+        "includes": [
+            "ability_info.h",
+            "element_name.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {
+            "IAtomicServiceStatusCallback": {
+                "methods": [
+                    {
+                        "name": "OnInstallFinished",
+                        "return_type": "virtual void",
+                        "parameters": "int resultCode, const Want &want, int32_t userId",
+                        "is_const": true
+                    },
+                    {
+                        "name": "OnRemoteInstallFinished",
+                        "return_type": "virtual void",
+                        "parameters": "int resultCode, const Want &want, int32_t userId",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "want_sender_interface": {
+        "module": "want_sender_interface",
+        "includes": [
+            "want.h",
+            "sender_info.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "intent_exemption_info": {
+        "module": "intent_exemption_info",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "recovery_param": {
+        "module": "recovery_param",
+        "includes": [],
+        "enums": [],
+        "classes": {}
+    },
+    "remote_mission_listener_stub": {
+        "module": "remote_mission_listener_stub",
+        "includes": [
+            "remote_mission_listener_interface.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "remote_on_listener_interface": {
+        "module": "remote_on_listener_interface",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_window_configuration": {
+        "module": "ability_window_configuration",
+        "includes": [],
+        "enums": [],
+        "classes": {}
+    },
+    "user_callback_proxy": {
+        "module": "user_callback_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "user_callback.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_connect_callback_interface": {
+        "module": "ability_connect_callback_interface",
+        "includes": [
+            "want.h",
+            "element_name.h",
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "status_bar_delegate.status_bar_delegate_proxy": {
+        "module": "status_bar_delegate.status_bar_delegate_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "status_bar_delegate_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "status_bar_delegate.status_bar_delegate_interface": {
+        "module": "status_bar_delegate.status_bar_delegate_interface",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "status_bar_delegate.status_bar_delegate_stub": {
+        "module": "status_bar_delegate.status_bar_delegate_stub",
+        "includes": [
+            "nocopyable.h",
+            "status_bar_delegate_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "keep_alive_info": {
+        "module": "keep_alive_info",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "free_install_observer_interface": {
+        "module": "free_install_observer_interface",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "assert_fault_interface": {
+        "module": "assert_fault_interface",
+        "includes": [
+            "ability_state.h"
+        ],
+        "enums": [],
+        "classes": {
+            "IAssertFaultInterface": {
+                "methods": [
+                    {
+                        "name": "NotifyDebugAssertResult",
+                        "return_type": "virtual void",
+                        "parameters": "AAFwk::UserStatus status",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "ability_connect_callback_stub": {
+        "module": "ability_connect_callback_stub",
+        "includes": [
+            "ability_connect_callback_interface.h",
+            "nocopyable.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "mission_listener_interface": {
+        "module": "mission_listener_interface",
+        "includes": [
+            "iremote_broker.h",
+            "pixel_map.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ui_extension.ui_extension_host_info": {
+        "module": "ui_extension.ui_extension_host_info",
+        "includes": [
+            "element_name.h",
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {
+            "UIExtensionHostInfo": {
+                "methods": [
+                    {
+                        "name": "ReadFromParcel",
+                        "return_type": "bool",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    },
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static UIExtensionHostInfo *",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "ui_extension.ui_extension_ability_connect_info": {
+        "module": "ui_extension.ui_extension_ability_connect_info",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {
+            "UIExtensionAbilityConnectInfo": {
+                "methods": [
+                    {
+                        "name": "ReadFromParcel",
+                        "return_type": "bool",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    },
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static UIExtensionAbilityConnectInfo *",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "ui_extension.ui_extension_session_info": {
+        "module": "ui_extension.ui_extension_session_info",
+        "includes": [
+            "element_name.h",
+            "extension_ability_info.h",
+            "parcel.h",
+            "session_info_constants.h"
+        ],
+        "enums": [],
+        "classes": {
+            "UIExtensionSessionInfo": {
+                "methods": [
+                    {
+                        "name": "Unmarshalling",
+                        "return_type": "static UIExtensionSessionInfo *",
+                        "parameters": "Parcel &parcel",
+                        "is_const": false
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "ability_scheduler_interface": {
+        "module": "ability_scheduler_interface",
+        "includes": [
+            "lifecycle_state_info.h",
+            "pac_map.h",
+            "ui_extension_window_command.h",
+            "want.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "atomic_service_status_callback_stub": {
+        "module": "atomic_service_status_callback_stub",
+        "includes": [
+            "nocopyable.h",
+            "atomic_service_status_callback_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "window_manager_service_handler": {
+        "module": "window_manager_service_handler",
+        "includes": [
+            "iremote_broker.h",
+            "pixel_map.h",
+            "window_info.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "auto_startup_interface": {
+        "module": "auto_startup_interface",
+        "includes": [
+            "auto_startup_info.h",
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_first_frame_state_data": {
+        "module": "ability_first_frame_state_data",
+        "includes": [
+            "parcel.h",
+            "app_mgr_constants.h",
+            "iremote_object.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "remote_on_listener_proxy": {
+        "module": "remote_on_listener_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "remote_on_listener_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "user_callback": {
+        "module": "user_callback",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "auto_startup_info": {
+        "module": "auto_startup_info",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "iprepare_terminate_callback_interface": {
+        "module": "iprepare_terminate_callback_interface",
+        "includes": [
+            "iremote_broker.h",
+            "iremote_object.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "mission_listener_proxy": {
+        "module": "mission_listener_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "mission_listener_interface.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "acquire_share_data_callback_proxy": {
+        "module": "acquire_share_data_callback_proxy",
+        "includes": [
+            "iremote_proxy.h",
+            "iacquire_share_data_callback_interface.h",
+            "want_params.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "want_receiver_interface": {
+        "module": "want_receiver_interface",
+        "includes": [
+            "want.h",
+            "want_params.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "exit_reason": {
+        "module": "exit_reason",
+        "includes": [
+            "ability_state.h",
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "ability_first_frame_state_observer_interface": {
+        "module": "ability_first_frame_state_observer_interface",
+        "includes": [
+            "ability_first_frame_state_data.h",
+            "iremote_broker.h",
+            "iremote_object.h"
+        ],
+        "enums": [
+            {
+                "name": "Message",
+                "values": [
+                    {
+                        "name": "ON_ABILITY_FIRST_FRAME_STATE",
+                        "ipc_id": null
+                    }
+                ]
+            }
+        ],
+        "classes": {
+            "IAbilityFirstFrameStateObserver": {
+                "methods": [
+                    {
+                        "name": "OnAbilityFirstFrameState",
+                        "return_type": "virtual void",
+                        "parameters": "const AbilityFirstFrameStateData &abilityFirstFrameStateData",
+                        "is_const": true
+                    }
+                ],
+                "interfaces": []
+            }
+        }
+    },
+    "start_window_option": {
+        "module": "start_window_option",
+        "includes": [
+            "parcel.h"
+        ],
+        "enums": [],
+        "classes": {}
+    },
+    "remote_mission_listener_interface": {
+        "module": "remote_mission_listener_interface",
+        "includes": [
+            "iremote_broker.h"
+        ],
+        "enums": [],
+        "classes": {}
+    }
+}
