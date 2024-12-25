@@ -17,20 +17,13 @@ def parse_header_file(file_path, module_name):
         enum_name = match.group(1).strip()
         enum_values = []
 
-        # 清理枚举值中的注释并提取有效的枚举值和IPC ID
+        # 提取枚举值
         enum_lines = match.group(2).split(',')
-        current_comment = None  # 存储当前的注释内容
 
         for enum_value in enum_lines:
             enum_value = enum_value.strip()
-
-            # 如果这行是注释行（以 // 开头），提取注释内容并跳过它
-            if enum_value.startswith("//"):
-                current_comment = enum_value.lstrip("//").strip()  # 存储注释内容
-                continue  # 跳过注释行
-
             # 清理行内注释（例如 // ipc id 1-1000 for kit）
-            enum_value_clean = re.sub(r'//.*$', '', enum_value).strip()
+            enum_value_clean = re.sub(r'//.*', '', enum_value).strip()
 
             if enum_value_clean:  # 只处理非空的枚举值
                 parts = enum_value_clean.split('=')
@@ -40,10 +33,6 @@ def parse_header_file(file_path, module_name):
                     'name': value,
                     'ipc_id': ipc_id
                 }
-                # 如果有注释，存储在当前枚举值的 `comment` 字段中
-                if current_comment:
-                    enum_dict['comment'] = current_comment
-                    current_comment = None  # 清空注释内容
                 enum_values.append(enum_dict)
 
         enums.append({
@@ -94,9 +83,13 @@ def parse_header_file(file_path, module_name):
                     'parameters': parameters
                 })
 
+        # 提取类所在的命名空间
+        namespaces = extract_namespaces(content)
+
         classes[class_name] = {
             'methods': methods,
-            'interfaces': interfaces
+            'interfaces': interfaces,
+            'namespaces': namespaces
         }
 
     return {
@@ -105,6 +98,15 @@ def parse_header_file(file_path, module_name):
         'enums': enums,
         'classes': classes
     }
+
+def extract_namespaces(content):
+    """提取文件中的所有命名空间（包括嵌套的命名空间）"""
+    namespaces = []
+    namespace_pattern = re.compile(r'namespace\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\{')
+    for match in namespace_pattern.finditer(content):
+        namespace = match.group(1)
+        namespaces.append(namespace)
+    return namespaces
 
 def parse_folder(folder_path, module_prefix=""):
     """递归解析文件夹中的头文件和子文件夹"""

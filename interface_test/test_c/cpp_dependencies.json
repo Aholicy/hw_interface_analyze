@@ -1,0 +1,752 @@
+{
+    "ability_first_frame_state_observer_proxy": {
+        "module": "ability_first_frame_state_observer_proxy",
+        "includes": [
+            "ability_first_frame_state_observer_proxy.h",
+            "hilog_tag_wrapper.h",
+            "ipc_types.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write Token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"write abilityFirstFrameStateData failed\""
+            },
+            {
+                "function": "Remote",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"null remote\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", ret"
+            }
+        ]
+    },
+    "window_manager_service_handler_proxy": {
+        "module": "window_manager_service_handler_proxy",
+        "includes": [
+            "window_manager_service_handler_proxy.h",
+            "ability_manager_errors.h",
+            "hilog_tag_wrapper.h",
+            "parcel.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write fromInfo failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write toInfo failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write animaEnabled failed\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_NOTIFY_WINDOW_TRANSITION, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", error"
+            },
+            {
+                "function": "ReadBool",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_GET_FOCUS_ABILITY, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", error"
+            },
+            {
+                "function": "ReadInt32",
+                "arguments": ""
+            },
+            {
+                "function": "ReadRemoteObject",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"ending\""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to write token\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write info failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write pixelMap failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to write bgColor\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_COLD_STARTING_WINDOW, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", error"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write info failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to write pixelMap\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_HOT_STARTING_WINDOW, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", error"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to write false\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write true failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write abilityToken failed\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_CANCEL_STARTING_WINDOW, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", error"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to write info\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_NOTIFY_ANIMATION_ABILITY_DIED, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d\", error"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"WriteInterfaceToken failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write missionIds failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to write TopMissionId\""
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_MOVE_MISSINONS_TO_FOREGROUND, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendoRequest error: %{public}d\", error"
+            },
+            {
+                "function": "ReadInt32",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"WriteInterfaceToken failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write missionIds failed\""
+            },
+            {
+                "function": "SendTransactCmd",
+                "arguments": "WMSCmd::ON_MOVE_MISSIONS_TO_BACKGROUND, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendoRequest error: %{public}d\", error"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Read hide result failed\""
+            },
+            {
+                "function": "ReadInt32",
+                "arguments": ""
+            },
+            {
+                "function": "Remote",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"null remote\""
+            },
+            {
+                "function": "SendRequest",
+                "arguments": "code, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest failed. code: %{public}d, ret: %{public}d\", code, ret"
+            }
+        ]
+    },
+    "ability_foreground_state_observer_stub": {
+        "module": "ability_foreground_state_observer_stub",
+        "includes": [
+            "ability_foreground_state_observer_stub.h",
+            "appexecfwk_errors.h",
+            "hilog_tag_wrapper.h",
+            "ipc_types.h",
+            "iremote_object.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "AbilityForegroundStateObserverStub::GetDescriptor",
+                "arguments": ""
+            },
+            {
+                "function": "ReadInterfaceToken",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"invalid descriptor\""
+            },
+            {
+                "function": "HandleOnAbilityStateChanged",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "IPCObjectStub::OnRemoteRequest",
+                "arguments": "code, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"null abilityStateData\""
+            },
+            {
+                "function": "OnAbilityStateChanged",
+                "arguments": "*abilityStateData"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Remote died\""
+            },
+            {
+                "function": "handler_",
+                "arguments": "remote"
+            }
+        ]
+    },
+    "ability_manager_client_c": {
+        "module": "ability_manager_client_c",
+        "includes": [
+            "ability_manager_client_c.h",
+            "ability_manager_client.h",
+            "ability_state.h",
+            "exit_reason.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "exitMsgStr",
+                "arguments": "exitMsg"
+            },
+            {
+                "function": "AbilityManagerClient::GetInstance",
+                "arguments": ""
+            },
+            {
+                "function": "RecordAppExitReason",
+                "arguments": "exitReasonData"
+            }
+        ]
+    },
+    "ability_first_frame_state_observer_stub": {
+        "module": "ability_first_frame_state_observer_stub",
+        "includes": [
+            "ability_first_frame_state_observer_stub.h",
+            "hilog_tag_wrapper.h",
+            "appexecfwk_errors.h",
+            "ipc_types.h",
+            "iremote_object.h",
+            "ability_first_frame_state_data.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "AbilityFirstFrameStateObserverStub::GetDescriptor",
+                "arguments": ""
+            },
+            {
+                "function": "ReadInterfaceToken",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"invalid descriptor\""
+            },
+            {
+                "function": "HandleOnAbilityFirstFrameStateChanged",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "IPCObjectStub::OnRemoteRequest",
+                "arguments": "code, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"null stateData\""
+            },
+            {
+                "function": "OnAbilityFirstFrameState",
+                "arguments": "*stateData"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Remote died\""
+            },
+            {
+                "function": "handler_",
+                "arguments": "remote"
+            }
+        ]
+    },
+    "window_manager_service_handler_stub": {
+        "module": "window_manager_service_handler_stub",
+        "includes": [
+            "window_manager_service_handler_stub.h",
+            "ability_manager_errors.h",
+            "hilog_tag_wrapper.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "Init",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"invalid descriptor\""
+            },
+            {
+                "function": "NotifyWindowTransitionInner",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "GetFocusWindowInner",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "StartingWindowCold",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "StartingWindowHot",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "CancelStartingWindowInner",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "NotifyAnimationAbilityDiedInner",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "MoveMissionsToForegroundInner",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "MoveMissionsToBackgroundInner",
+                "arguments": "data, reply"
+            },
+            {
+                "function": "TAG_LOGW",
+                "arguments": "AAFwkTag::ABILITYMGR, \"default case to be checked\""
+            },
+            {
+                "function": "IPCObjectStub::OnRemoteRequest",
+                "arguments": "code, data, reply, option"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"read fromInfo failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"read toInfo failed\""
+            },
+            {
+                "function": "ReadBool",
+                "arguments": ""
+            },
+            {
+                "function": "NotifyWindowTransition",
+                "arguments": "fromInfo, toInfo, animaEnabled"
+            },
+            {
+                "function": "WriteBool",
+                "arguments": "animaEnabled"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "GetFocusWindow",
+                "arguments": "abilityToken"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"write result failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"write true failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"write abilityToken failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"write false failed\""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"read info failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"read pixelMap failed\""
+            },
+            {
+                "function": "ReadUint32",
+                "arguments": ""
+            },
+            {
+                "function": "StartingWindow",
+                "arguments": "info, pixelMap, bgColor"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"read info failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Failed to read pixelMap\""
+            },
+            {
+                "function": "StartingWindow",
+                "arguments": "info, pixelMap"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"valid abilityToken\""
+            },
+            {
+                "function": "ReadRemoteObject",
+                "arguments": ""
+            },
+            {
+                "function": "CancelStartingWindow",
+                "arguments": "abilityToken"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"read info failed\""
+            },
+            {
+                "function": "NotifyAnimationAbilityDied",
+                "arguments": "info"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "ReadInt32Vector",
+                "arguments": "&missionIds"
+            },
+            {
+                "function": "ReadInt32",
+                "arguments": ""
+            },
+            {
+                "function": "MoveMissionsToForeground",
+                "arguments": "missionIds, topMissionId"
+            },
+            {
+                "function": "WriteInt32",
+                "arguments": "errCode"
+            },
+            {
+                "function": "TAG_LOGD",
+                "arguments": "AAFwkTag::ABILITYMGR, \"called\""
+            },
+            {
+                "function": "ReadInt32Vector",
+                "arguments": "&missionIds"
+            },
+            {
+                "function": "MoveMissionsToBackground",
+                "arguments": "missionIds, result"
+            },
+            {
+                "function": "WriteInt32Vector",
+                "arguments": "result"
+            }
+        ]
+    },
+    "ability_first_frame_state_data": {
+        "module": "ability_first_frame_state_data",
+        "includes": [
+            "ability_first_frame_state_data.h",
+            "hilog_tag_wrapper.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "ReadString",
+                "arguments": ""
+            },
+            {
+                "function": "ReadString",
+                "arguments": ""
+            },
+            {
+                "function": "ReadString",
+                "arguments": ""
+            },
+            {
+                "function": "ReadInt32",
+                "arguments": ""
+            },
+            {
+                "function": "ReadBool",
+                "arguments": ""
+            },
+            {
+                "function": "AbilityFirstFrameStateData",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGW",
+                "arguments": "AAFwkTag::APPMGR, \"ReadFromParcel failed\""
+            }
+        ]
+    },
+    "ability_foreground_state_observer_proxy": {
+        "module": "ability_foreground_state_observer_proxy",
+        "includes": [
+            "ability_foreground_state_observer_proxy.h",
+            "hilog_tag_wrapper.h",
+            "ipc_types.h"
+        ],
+        "classes": [],
+        "function_calls": [
+            {
+                "function": "0",
+                "arguments": "the \"License\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"Write Token failed\""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"write abilityStateData failed\""
+            },
+            {
+                "function": "Remote",
+                "arguments": ""
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"null remote\""
+            },
+            {
+                "function": "option",
+                "arguments": "MessageOption::TF_ASYNC"
+            },
+            {
+                "function": "TAG_LOGE",
+                "arguments": "AAFwkTag::ABILITYMGR, \"SendRequest error: %{public}d.\", ret"
+            }
+        ]
+    }
+}

@@ -109,6 +109,10 @@
                         "return_type": "static bool",
                         "parameters": "ProcessMode value"
                     }
+                ],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
                 ]
             },
             "StartupVisibility": {
@@ -159,6 +163,10 @@
                         "return_type": "static bool",
                         "parameters": "ProcessMode value"
                     }
+                ],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
                 ]
             }
         }
@@ -292,6 +300,10 @@
                         "return_type": "static LifeCycleStateInfo *",
                         "parameters": "Parcel &parcel"
                     }
+                ],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
                 ]
             }
         }
@@ -353,7 +365,11 @@
                         "is_const": true
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk"
+                ]
             }
         }
     },
@@ -379,7 +395,11 @@
                         "is_const": true
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk"
+                ]
             }
         }
     },
@@ -399,7 +419,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk"
+                ]
             }
         }
     },
@@ -514,6 +538,10 @@
                         "return_type": "void",
                         "parameters": ""
                     }
+                ],
+                "namespaces": [
+                    "OHOS",
+                    "AbilityRuntime"
                 ]
             }
         }
@@ -564,7 +592,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk"
+                ]
             }
         }
     },
@@ -1692,6 +1724,10 @@
                         "return_type": "void",
                         "parameters": "Want &want"
                     }
+                ],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
                 ]
             }
         }
@@ -1750,7 +1786,13 @@
                         "is_const": true
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk",
+                    "OHOS",
+                    "AAFwk"
+                ]
             }
         }
     },
@@ -1768,19 +1810,336 @@
                 "name": "AbilityManagerInterfaceCode",
                 "values": [
                     {
+                        "name": "TERMINATE_ABILITY",
+                        "ipc_id": "1"
+                    },
+                    {
+                        "name": "ATTACH_ABILITY_THREAD",
+                        "ipc_id": "2"
+                    },
+                    {
+                        "name": "ABILITY_TRANSITION_DONE",
+                        "ipc_id": "3"
+                    },
+                    {
+                        "name": "CONNECT_ABILITY_DONE",
+                        "ipc_id": "4"
+                    },
+                    {
+                        "name": "DISCONNECT_ABILITY_DONE",
+                        "ipc_id": "5"
+                    },
+                    {
+                        "name": "ADD_WINDOW_INFO",
+                        "ipc_id": "6"
+                    },
+                    {
+                        "name": "LIST_STACK_INFO",
+                        "ipc_id": "8"
+                    },
+                    {
+                        "name": "GET_RECENT_MISSION",
+                        "ipc_id": "9"
+                    },
+                    {
+                        "name": "REMOVE_MISSION",
+                        "ipc_id": "10"
+                    },
+                    {
+                        "name": "REMOVE_STACK",
+                        "ipc_id": "11"
+                    },
+                    {
+                        "name": "COMMAND_ABILITY_DONE",
+                        "ipc_id": "12"
+                    },
+                    {
+                        "name": "GET_MISSION_SNAPSHOT",
+                        "ipc_id": "13"
+                    },
+                    {
+                        "name": "ACQUIRE_DATA_ABILITY",
+                        "ipc_id": "14"
+                    },
+                    {
+                        "name": "RELEASE_DATA_ABILITY",
+                        "ipc_id": "15"
+                    },
+                    {
+                        "name": "MOVE_MISSION_TO_TOP",
+                        "ipc_id": "16"
+                    },
+                    {
+                        "name": "KILL_PROCESS",
+                        "ipc_id": "17"
+                    },
+                    {
+                        "name": "UNINSTALL_APP",
+                        "ipc_id": "18"
+                    },
+                    {
+                        "name": "MOVE_MISSION_TO_FLOATING_STACK",
+                        "ipc_id": "20"
+                    },
+                    {
+                        "name": "MOVE_MISSION_TO_SPLITSCREEN_STACK",
+                        "ipc_id": "21"
+                    },
+                    {
+                        "name": "CHANGE_FOCUS_ABILITY",
+                        "ipc_id": "22"
+                    },
+                    {
+                        "name": "MINIMIZE_MULTI_WINDOW",
+                        "ipc_id": "23"
+                    },
+                    {
+                        "name": "MAXIMIZE_MULTI_WINDOW",
+                        "ipc_id": "24"
+                    },
+                    {
+                        "name": "GET_FLOATING_MISSIONS",
+                        "ipc_id": "25"
+                    },
+                    {
+                        "name": "CLOSE_MULTI_WINDOW",
+                        "ipc_id": "26"
+                    },
+                    {
+                        "name": "MOVE_MISSION_TO_END",
+                        "ipc_id": "27"
+                    },
+                    {
+                        "name": "COMPEL_VERIFY_PERMISSION",
+                        "ipc_id": "28"
+                    },
+                    {
+                        "name": "POWER_OFF",
+                        "ipc_id": "29"
+                    },
+                    {
+                        "name": "POWER_ON",
+                        "ipc_id": "30"
+                    },
+                    {
+                        "name": "LUCK_MISSION",
+                        "ipc_id": "31"
+                    },
+                    {
+                        "name": "UNLUCK_MISSION",
+                        "ipc_id": "32"
+                    },
+                    {
+                        "name": "SET_MISSION_INFO",
+                        "ipc_id": "33"
+                    },
+                    {
+                        "name": "GET_MISSION_LOCK_MODE_STATE",
+                        "ipc_id": "34"
+                    },
+                    {
+                        "name": "MINIMIZE_ABILITY",
+                        "ipc_id": "35"
+                    },
+                    {
+                        "name": "LOCK_MISSION_FOR_CLEANUP",
+                        "ipc_id": "36"
+                    },
+                    {
+                        "name": "UNLOCK_MISSION_FOR_CLEANUP",
+                        "ipc_id": "37"
+                    },
+                    {
+                        "name": "REGISTER_MISSION_LISTENER",
+                        "ipc_id": "38"
+                    },
+                    {
+                        "name": "UNREGISTER_MISSION_LISTENER",
+                        "ipc_id": "39"
+                    },
+                    {
+                        "name": "GET_MISSION_INFOS",
+                        "ipc_id": "40"
+                    },
+                    {
+                        "name": "GET_MISSION_INFO_BY_ID",
+                        "ipc_id": "41"
+                    },
+                    {
+                        "name": "CLEAN_MISSION",
+                        "ipc_id": "42"
+                    },
+                    {
+                        "name": "CLEAN_ALL_MISSIONS",
+                        "ipc_id": "43"
+                    },
+                    {
+                        "name": "MOVE_MISSION_TO_FRONT",
+                        "ipc_id": "44"
+                    },
+                    {
+                        "name": "GET_MISSION_SNAPSHOT_BY_ID",
+                        "ipc_id": "45"
+                    },
+                    {
+                        "name": "START_USER",
+                        "ipc_id": "46"
+                    },
+                    {
+                        "name": "STOP_USER",
+                        "ipc_id": "47"
+                    },
+                    {
+                        "name": "SET_ABILITY_CONTROLLER",
+                        "ipc_id": "48"
+                    },
+                    {
+                        "name": "IS_USER_A_STABILITY_TEST",
+                        "ipc_id": "49"
+                    },
+                    {
+                        "name": "SET_MISSION_LABEL",
+                        "ipc_id": "50"
+                    },
+                    {
+                        "name": "DO_ABILITY_FOREGROUND",
+                        "ipc_id": "51"
+                    },
+                    {
+                        "name": "DO_ABILITY_BACKGROUND",
+                        "ipc_id": "52"
+                    },
+                    {
+                        "name": "MOVE_MISSION_TO_FRONT_BY_OPTIONS",
+                        "ipc_id": "53"
+                    },
+                    {
+                        "name": "GET_MISSION_ID_BY_ABILITY_TOKEN",
+                        "ipc_id": "54"
+                    },
+                    {
+                        "name": "SET_MISSION_ICON",
+                        "ipc_id": "55"
+                    },
+                    {
+                        "name": "DUMP_ABILITY_INFO_DONE",
+                        "ipc_id": "56"
+                    },
+                    {
+                        "name": "START_EXTENSION_ABILITY",
+                        "ipc_id": "57"
+                    },
+                    {
+                        "name": "STOP_EXTENSION_ABILITY",
+                        "ipc_id": "58"
+                    },
+                    {
+                        "name": "SET_ROOT_SCENE_SESSION",
+                        "ipc_id": "61"
+                    },
+                    {
+                        "name": "PREPARE_TERMINATE_ABILITY",
+                        "ipc_id": "62"
+                    },
+                    {
                         "name": "COMMAND_ABILITY_WINDOW_DONE",
-                        "ipc_id": "63",
-                        "comment": "prepare terminate ability (62)\n    PREPARE_TERMINATE_ABILITY = 62"
+                        "ipc_id": "63"
+                    },
+                    {
+                        "name": "CALL_ABILITY_BY_SCB",
+                        "ipc_id": "64"
                     },
                     {
                         "name": "MOVE_ABILITY_TO_BACKGROUND",
-                        "ipc_id": "65",
-                        "comment": "prepare terminate ability (64)\n    CALL_ABILITY_BY_SCB = 64"
+                        "ipc_id": "65"
+                    },
+                    {
+                        "name": "SET_MISSION_CONTINUE_STATE",
+                        "ipc_id": "66"
+                    },
+                    {
+                        "name": "SET_SESSION_LOCKED_STATE",
+                        "ipc_id": "67"
+                    },
+                    {
+                        "name": "REGISTER_APP_DEBUG_LISTENER",
+                        "ipc_id": "68"
+                    },
+                    {
+                        "name": "UNREGISTER_APP_DEBUG_LISTENER",
+                        "ipc_id": "69"
+                    },
+                    {
+                        "name": "ATTACH_APP_DEBUG",
+                        "ipc_id": "70"
+                    },
+                    {
+                        "name": "DETACH_APP_DEBUG",
+                        "ipc_id": "71"
+                    },
+                    {
+                        "name": "EXECUTE_INTENT",
+                        "ipc_id": "72"
+                    },
+                    {
+                        "name": "EXECUTE_INSIGHT_INTENT_DONE",
+                        "ipc_id": "73"
+                    },
+                    {
+                        "name": "LOGOUT_USER",
+                        "ipc_id": "74"
+                    },
+                    {
+                        "name": "GET_FOREGROUND_UI_ABILITIES",
+                        "ipc_id": "75"
+                    },
+                    {
+                        "name": "OPEN_ATOMIC_SERVICE",
+                        "ipc_id": "77"
+                    },
+                    {
+                        "name": "IS_EMBEDDED_OPEN_ALLOWED",
+                        "ipc_id": "78"
+                    },
+                    {
+                        "name": "START_SHORTCUT",
+                        "ipc_id": "79"
+                    },
+                    {
+                        "name": "SET_RESIDENT_PROCESS_ENABLE",
+                        "ipc_id": "80"
+                    },
+                    {
+                        "name": "ABILITY_WINDOW_CONFIG_TRANSITION_DONE",
+                        "ipc_id": "81"
+                    },
+                    {
+                        "name": "BACK_TO_CALLER_UIABILITY",
+                        "ipc_id": "82"
+                    },
+                    {
+                        "name": "START_ABILITY",
+                        "ipc_id": "1001"
+                    },
+                    {
+                        "name": "CONNECT_ABILITY",
+                        "ipc_id": "1002"
+                    },
+                    {
+                        "name": "DISCONNECT_ABILITY",
+                        "ipc_id": "1003"
+                    },
+                    {
+                        "name": "STOP_SERVICE_ABILITY",
+                        "ipc_id": "1004"
+                    },
+                    {
+                        "name": "START_ABILITY_ADD_CALLER",
+                        "ipc_id": "1005"
                     },
                     {
                         "name": "GET_PENDING_WANT_SENDER",
-                        "ipc_id": "1006",
-                        "comment": "ipc id for starting ability by caller(1005)\n    START_ABILITY_ADD_CALLER = 1005"
+                        "ipc_id": "1006"
                     },
                     {
                         "name": "SEND_PENDING_WANT_SENDER",
@@ -1835,9 +2194,12 @@
                         "ipc_id": "1019"
                     },
                     {
+                        "name": "START_ABILITY_FOR_SETTINGS",
+                        "ipc_id": "1020"
+                    },
+                    {
                         "name": "GET_ABILITY_MISSION_SNAPSHOT",
-                        "ipc_id": "1021",
-                        "comment": "ipc id for starting ability by settings(1020)\n    START_ABILITY_FOR_SETTINGS = 1020"
+                        "ipc_id": "1021"
                     },
                     {
                         "name": "GET_APP_MEMORY_SIZE",
@@ -1864,18 +2226,24 @@
                         "ipc_id": "1028"
                     },
                     {
+                        "name": "START_CALL_ABILITY",
+                        "ipc_id": "1032"
+                    },
+                    {
                         "name": "RELEASE_CALL_ABILITY",
-                        "ipc_id": "1033",
-                        "comment": "ipc id for call ability\n    START_CALL_ABILITY = 1032"
+                        "ipc_id": "1033"
                     },
                     {
                         "name": "CONNECT_ABILITY_WITH_TYPE",
                         "ipc_id": "1034"
                     },
                     {
+                        "name": "START_UI_EXTENSION_ABILITY",
+                        "ipc_id": "1035"
+                    },
+                    {
                         "name": "CALL_REQUEST_DONE",
-                        "ipc_id": "1036",
-                        "comment": "start ui extension ability\n    START_UI_EXTENSION_ABILITY = 1035"
+                        "ipc_id": "1036"
                     },
                     {
                         "name": "START_ABILITY_AS_CALLER_BY_TOKEN",
@@ -1886,23 +2254,136 @@
                         "ipc_id": "1038"
                     },
                     {
+                        "name": "MINIMIZE_UI_EXTENSION_ABILITY",
+                        "ipc_id": "1039"
+                    },
+                    {
+                        "name": "TERMINATE_UI_EXTENSION_ABILITY",
+                        "ipc_id": "1040"
+                    },
+                    {
+                        "name": "CONNECT_UI_EXTENSION_ABILITY",
+                        "ipc_id": "1041"
+                    },
+                    {
                         "name": "CHECK_UI_EXTENSION_IS_FOCUSED",
-                        "ipc_id": "1042",
-                        "comment": "ipc id for connect ui extension ability\n    CONNECT_UI_EXTENSION_ABILITY = 1041"
+                        "ipc_id": "1042"
                     },
                     {
                         "name": "START_UI_ABILITY_BY_SCB",
                         "ipc_id": "1043"
                     },
                     {
+                        "name": "MINIMIZE_UI_ABILITY_BY_SCB",
+                        "ipc_id": "1044"
+                    },
+                    {
+                        "name": "CLOSE_UI_ABILITY_BY_SCB",
+                        "ipc_id": "1045"
+                    },
+                    {
+                        "name": "REQUEST_DIALOG_SERVICE",
+                        "ipc_id": "1046"
+                    },
+                    {
+                        "name": "START_SPECIFIED_ABILITY_BY_SCB",
+                        "ipc_id": "1047"
+                    },
+                    {
+                        "name": "SET_SESSIONMANAGERSERVICE",
+                        "ipc_id": "1048"
+                    },
+                    {
+                        "name": "REPORT_DRAWN_COMPLETED",
+                        "ipc_id": "1049"
+                    },
+                    {
+                        "name": "PREPARE_TERMINATE_ABILITY_BY_SCB",
+                        "ipc_id": "1050"
+                    },
+                    {
+                        "name": "START_UI_SESSION_ABILITY_ADD_CALLER",
+                        "ipc_id": "1051"
+                    },
+                    {
                         "name": "START_UI_SESSION_ABILITY_FOR_OPTIONS",
-                        "ipc_id": "1052",
-                        "comment": "start ui session ability\n    START_UI_SESSION_ABILITY_ADD_CALLER = 1051"
+                        "ipc_id": "1052"
+                    },
+                    {
+                        "name": "START_ABILITY_BY_INSIGHT_INTENT",
+                        "ipc_id": "1053"
+                    },
+                    {
+                        "name": "GET_DIALOG_SESSION_INFO",
+                        "ipc_id": "1054"
+                    },
+                    {
+                        "name": "SEND_DIALOG_RESULT",
+                        "ipc_id": "1055"
+                    },
+                    {
+                        "name": "REQUESET_MODAL_UIEXTENSION",
+                        "ipc_id": "1056"
+                    },
+                    {
+                        "name": "GET_UI_EXTENSION_ROOT_HOST_INFO",
+                        "ipc_id": "1057"
+                    },
+                    {
+                        "name": "CHANGE_ABILITY_VISIBILITY",
+                        "ipc_id": "1058"
+                    },
+                    {
+                        "name": "CHANGE_UI_ABILITY_VISIBILITY_BY_SCB",
+                        "ipc_id": "1059"
+                    },
+                    {
+                        "name": "START_ABILITY_FOR_RESULT_AS_CALLER",
+                        "ipc_id": "1060"
+                    },
+                    {
+                        "name": "START_ABILITY_FOR_RESULT_AS_CALLER_FOR_OPTIONS",
+                        "ipc_id": "1061"
+                    },
+                    {
+                        "name": "PRELOAD_UIEXTENSION_ABILITY",
+                        "ipc_id": "1062"
+                    },
+                    {
+                        "name": "START_UI_EXTENSION_ABILITY_EMBEDDED",
+                        "ipc_id": "1063"
+                    },
+                    {
+                        "name": "START_UI_EXTENSION_CONSTRAINED_EMBEDDED",
+                        "ipc_id": "1064"
+                    },
+                    {
+                        "name": "GET_UI_EXTENSION_SESSION_INFO",
+                        "ipc_id": "1065"
+                    },
+                    {
+                        "name": "CLEAN_UI_ABILITY_BY_SCB",
+                        "ipc_id": "1066"
+                    },
+                    {
+                        "name": "START_ABILITY_ONLY_UI_ABILITY",
+                        "ipc_id": "1067"
+                    },
+                    {
+                        "name": "TERMINATE_UI_SERVICE_EXTENSION_ABILITY",
+                        "ipc_id": "1068"
+                    },
+                    {
+                        "name": "CLOSE_UI_EXTENSION_ABILITY_BY_SCB",
+                        "ipc_id": "1069"
+                    },
+                    {
+                        "name": "START_CONTINUATION",
+                        "ipc_id": "1101"
                     },
                     {
                         "name": "NOTIFY_CONTINUATION_RESULT",
-                        "ipc_id": "1102",
-                        "comment": "ipc id for continue ability(1101)\n    START_CONTINUATION = 1101"
+                        "ipc_id": "1102"
                     },
                     {
                         "name": "NOTIFY_COMPLETE_CONTINUATION",
@@ -1933,9 +2414,12 @@
                         "ipc_id": "1109"
                     },
                     {
+                        "name": "REGISTER_REMOTE_MISSION_LISTENER",
+                        "ipc_id": "1110"
+                    },
+                    {
                         "name": "UNREGISTER_REMOTE_MISSION_LISTENER",
-                        "ipc_id": "1111",
-                        "comment": "ipc id for mission manager(1110)\n    REGISTER_REMOTE_MISSION_LISTENER = 1110"
+                        "ipc_id": "1111"
                     },
                     {
                         "name": "START_SYNC_MISSIONS",
@@ -1966,9 +2450,12 @@
                         "ipc_id": null
                     },
                     {
+                        "name": "START_USER_TEST",
+                        "ipc_id": "1120"
+                    },
+                    {
                         "name": "FINISH_USER_TEST",
-                        "ipc_id": "1121",
-                        "comment": "ipc id for user test(1120)\n    START_USER_TEST = 1120"
+                        "ipc_id": "1121"
                     },
                     {
                         "name": "DELEGATOR_DO_ABILITY_FOREGROUND",
@@ -1983,23 +2470,44 @@
                         "ipc_id": "1124"
                     },
                     {
+                        "name": "START_ABILITY_WITH_SPECIFY_TOKENID",
+                        "ipc_id": "1125"
+                    },
+                    {
                         "name": "REGISTER_ABILITY_FIRST_FRAME_STATE_OBSERVER",
-                        "ipc_id": "1126",
-                        "comment": "ipc id for starting ability with specify token id(1125)\n    START_ABILITY_WITH_SPECIFY_TOKENID = 1125"
+                        "ipc_id": "1126"
                     },
                     {
                         "name": "UNREGISTER_ABILITY_FIRST_FRAME_STATE_OBSERVER",
                         "ipc_id": "1127"
                     },
                     {
+                        "name": "GET_ABILITY_STATE_BY_PERSISTENT_ID",
+                        "ipc_id": "1128"
+                    },
+                    {
                         "name": "TRANSFER_ABILITY_RESULT",
-                        "ipc_id": "1129",
-                        "comment": "ipc for get ability state by persistent id\n    GET_ABILITY_STATE_BY_PERSISTENT_ID = 1128"
+                        "ipc_id": "1129"
+                    },
+                    {
+                        "name": "NOTIFY_FROZEN_PROCESS_BY_RSS",
+                        "ipc_id": "1130"
+                    },
+                    {
+                        "name": "PRE_START_MISSION",
+                        "ipc_id": "1135"
+                    },
+                    {
+                        "name": "OPEN_LINK",
+                        "ipc_id": "1140"
+                    },
+                    {
+                        "name": "DUMP_STATE",
+                        "ipc_id": "2001"
                     },
                     {
                         "name": "DUMPSYS_STATE",
-                        "ipc_id": "2002",
-                        "comment": "ipc id 2001-3000 for tools\n    // ipc id for dumping state (2001)\n    DUMP_STATE = 2001"
+                        "ipc_id": "2002"
                     },
                     {
                         "name": "FORCE_TIMEOUT",
@@ -2050,9 +2558,12 @@
                         "ipc_id": "3003"
                     },
                     {
+                        "name": "ABILITY_RECOVERY",
+                        "ipc_id": "3010"
+                    },
+                    {
                         "name": "ABILITY_RECOVERY_ENABLE",
-                        "ipc_id": "3011",
-                        "comment": "ipc id for app recovery(3010)\n    ABILITY_RECOVERY = 3010"
+                        "ipc_id": "3011"
                     },
                     {
                         "name": "QUERY_MISSION_VAILD",
@@ -2079,9 +2590,16 @@
                         "ipc_id": "4002"
                     },
                     {
+                        "name": "NOTIFY_SAVE_AS_RESULT",
+                        "ipc_id": "4201"
+                    },
+                    {
+                        "name": "REGISTER_COLLABORATOR",
+                        "ipc_id": "4050"
+                    },
+                    {
                         "name": "UNREGISTER_COLLABORATOR",
-                        "ipc_id": "4051",
-                        "comment": "ipc id for collborator\n    REGISTER_COLLABORATOR = 4050"
+                        "ipc_id": "4051"
                     },
                     {
                         "name": "IS_ABILITY_CONTROLLER_START",
@@ -2124,9 +2642,100 @@
                         "ipc_id": "6005"
                     },
                     {
+                        "name": "REGISTER_AUTO_STARTUP_SYSTEM_CALLBACK",
+                        "ipc_id": "6101"
+                    },
+                    {
+                        "name": "UNREGISTER_AUTO_STARTUP_SYSTEM_CALLBACK",
+                        "ipc_id": "6102"
+                    },
+                    {
+                        "name": "SET_APPLICATION_AUTO_STARTUP",
+                        "ipc_id": "6103"
+                    },
+                    {
+                        "name": "CANCEL_APPLICATION_AUTO_STARTUP",
+                        "ipc_id": "6104"
+                    },
+                    {
+                        "name": "QUERY_ALL_AUTO_STARTUP_APPLICATION",
+                        "ipc_id": "6105"
+                    },
+                    {
+                        "name": "ON_AUTO_STARTUP_ON",
+                        "ipc_id": "6111"
+                    },
+                    {
+                        "name": "ON_AUTO_STARTUP_OFF",
+                        "ipc_id": "6112"
+                    },
+                    {
+                        "name": "REGISTER_SESSION_HANDLER",
+                        "ipc_id": "6010"
+                    },
+                    {
+                        "name": "UPDATE_SESSION_INFO",
+                        "ipc_id": "6011"
+                    },
+                    {
+                        "name": "SET_APPLICATION_AUTO_STARTUP_BY_EDM",
+                        "ipc_id": "6113"
+                    },
+                    {
+                        "name": "CANCEL_APPLICATION_AUTO_STARTUP_BY_EDM",
+                        "ipc_id": "6114"
+                    },
+                    {
+                        "name": "RESTART_APP",
+                        "ipc_id": "6115"
+                    },
+                    {
+                        "name": "REQUEST_ASSERT_FAULT_DIALOG",
+                        "ipc_id": "6116"
+                    },
+                    {
+                        "name": "NOTIFY_DEBUG_ASSERT_RESULT",
+                        "ipc_id": "6117"
+                    },
+                    {
+                        "name": "TERMINATE_MISSION",
+                        "ipc_id": "6118"
+                    },
+                    {
+                        "name": "BLOCK_ALL_APP_START",
+                        "ipc_id": "6119"
+                    },
+                    {
+                        "name": "UPDATE_ASSOCIATE_CONFIG_LIST",
+                        "ipc_id": "6120"
+                    },
+                    {
+                        "name": "SET_APPLICATION_KEEP_ALLIVE",
+                        "ipc_id": "6121"
+                    },
+                    {
+                        "name": "GET_APPLICATIONS_KEEP_ALIVE",
+                        "ipc_id": "6122"
+                    },
+                    {
+                        "name": "SET_APPLICATION_KEEP_ALLIVE_BY_EDM",
+                        "ipc_id": "6123"
+                    },
+                    {
+                        "name": "GET_APPLICATIONS_KEEP_ALIVE_BY_EDM",
+                        "ipc_id": "6124"
+                    },
+                    {
                         "name": "GET_INTENT_EXEMPTION_INFO",
-                        "ipc_id": "6125",
-                        "comment": "get keep-alive applications by EDM\n    GET_APPLICATIONS_KEEP_ALIVE_BY_EDM = 6124"
+                        "ipc_id": "6125"
+                    },
+                    {
+                        "name": "ADD_QUERY_ERMS_OBSERVER",
+                        "ipc_id": "6130"
+                    },
+                    {
+                        "name": "QUERY_ATOMIC_SERVICE_STARTUP_RULE",
+                        "ipc_id": "6131"
                     }
                 ]
             }
@@ -2134,7 +2743,11 @@
         "classes": {
             "AbilityManagerInterfaceCode": {
                 "methods": [],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
+                ]
             }
         }
     },
@@ -2206,6 +2819,10 @@
                         "return_type": "void",
                         "parameters": "wptr<IRemoteObject> remote"
                     }
+                ],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
                 ]
             }
         }
@@ -2294,7 +2911,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk"
+                ]
             }
         }
     },
@@ -2322,6 +2943,10 @@
                     {
                         "name": "SERVICE_EXTENSION_ABILITY",
                         "ipc_id": null
+                    },
+                    {
+                        "name": "Count",
+                        "ipc_id": null
                     }
                 ]
             }
@@ -2329,7 +2954,8 @@
         "classes": {
             "InsightIntentExecuteMode": {
                 "methods": [],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": []
             }
         }
     },
@@ -2369,7 +2995,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AbilityRuntime"
+                ]
             }
         }
     },
@@ -2495,7 +3125,11 @@
         "classes": {
             "Snapshot": {
                 "methods": [],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
+                ]
             }
         }
     },
@@ -2543,7 +3177,11 @@
                         "is_const": true
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AAFwk"
+                ]
             }
         }
     },
@@ -2670,7 +3308,11 @@
                         "is_const": true
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AbilityRuntime"
+                ]
             }
         }
     },
@@ -2715,7 +3357,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AbilityRuntime"
+                ]
             }
         }
     },
@@ -2741,7 +3387,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AbilityRuntime"
+                ]
             }
         }
     },
@@ -2764,7 +3414,11 @@
                         "is_const": false
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AbilityRuntime"
+                ]
             }
         }
     },
@@ -2916,7 +3570,11 @@
                         "is_const": true
                     }
                 ],
-                "interfaces": []
+                "interfaces": [],
+                "namespaces": [
+                    "OHOS",
+                    "AppExecFwk"
+                ]
             }
         }
     },
