@@ -42,10 +42,11 @@ def parse_header_file(file_path, module_name):
 
     # 提取类信息和方法
     classes = {}
-    class_pattern = re.compile(r'class\s+(\w+)\s*(?::\s*public\s+\w+)?\s*\{([^}]*)\}', re.DOTALL)
+    class_pattern = re.compile(r'class\s+(\w+)\s*(?::\s*public\s+([\w:]+))?\s*\{([^}]*)\}', re.DOTALL)
     for class_match in class_pattern.finditer(content):
         class_name = class_match.group(1).strip()
-        class_body = class_match.group(2).strip()
+        base_class = class_match.group(2).strip() if class_match.group(2) else None
+        class_body = class_match.group(3).strip()
 
         # 提取类方法
         method_pattern = re.compile(
@@ -58,45 +59,38 @@ def parse_header_file(file_path, module_name):
             parameters = method_match.group(3).strip()
             is_const = method_match.group(4) is not None
 
+            # 解析参数，提取类型和名称
+            param_list = parse_parameters(parameters)
+
             methods.append({
                 'name': method_name,
                 'return_type': return_type,
-                'parameters': parameters,
+                'parameters': param_list,
                 'is_const': is_const
             })
 
-        # 将类方法与接口方法结合起来
-        interfaces = []
-        interface_pattern = re.compile(
-            r'([a-zA-Z_][a-zA-Z0-9_ ]*\s+\*?\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*;'
-        )
-        for match in interface_pattern.finditer(content):
-            return_type = match.group(1).strip()
-            interface_name = match.group(2).strip()
-            parameters = match.group(3).strip()
-
-            # 检查是否属于当前类
-            if interface_name not in [m['name'] for m in methods]:
-                interfaces.append({
-                    'name': interface_name,
-                    'return_type': return_type,
-                    'parameters': parameters
-                })
-
-        # 提取类所在的命名空间
-        namespaces = extract_namespaces(content)
+        # 提取使用了命名空间的成员（通过 "::" 符号）
+        namespace_uses = extract_namespace_uses(class_body)
 
         classes[class_name] = {
+            'base_class': base_class,
             'methods': methods,
-            'interfaces': interfaces,
-            'namespaces': namespaces
+            'namespace_uses': namespace_uses,
         }
+
+    # 提取命名空间
+    namespaces = extract_namespaces(content)
+
+    # 提取顶级 namespace 使用
+    namespace_uses = extract_namespace_uses(content)
 
     return {
         'module': module_name,
         'includes': includes,
         'enums': enums,
-        'classes': classes
+        'classes': classes,
+        'namespaces': namespaces,
+        'namespace_uses': namespace_uses  # 确保字段存在
     }
 
 def extract_namespaces(content):
@@ -104,9 +98,34 @@ def extract_namespaces(content):
     namespaces = []
     namespace_pattern = re.compile(r'namespace\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\{')
     for match in namespace_pattern.finditer(content):
-        namespace = match.group(1)
-        namespaces.append(namespace)
+        namespaces.append(match.group(1).strip())
     return namespaces
+
+def extract_namespace_uses(content):
+    """提取文件中使用了命名空间的所有符号，去重"""
+    namespace_uses = set()  # 使用集合避免重复
+    use_pattern = re.compile(r'\b([a-zA-Z_][\w:]+)::')
+    for match in use_pattern.finditer(content):
+        namespace_uses.add(match.group(1).strip())  # 添加到集合
+    return list(namespace_uses)  # 转为列表返回
+
+def parse_parameters(parameters):
+    """解析方法参数为类型和名称的列表"""
+    param_list = []
+    if not parameters.strip():
+        return param_list
+    params = parameters.split(',')
+    for param in params:
+        param = param.strip()
+        if param:
+            match = re.match(r'([a-zA-Z_][\w:<>*&\s]+)\s+([a-zA-Z_][\w]*)', param)
+            if match:
+                param_type = match.group(1).strip()
+                param_name = match.group(2).strip()
+                param_list.append({'type': param_type, 'name': param_name})
+            else:
+                param_list.append({'type': param, 'name': None})  # 处理无法解析的情况
+    return param_list
 
 def parse_folder(folder_path, module_prefix=""):
     """递归解析文件夹中的头文件和子文件夹"""

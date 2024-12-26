@@ -64,12 +64,20 @@
             "ProcessMode": {
                 "base_class": null,
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             },
             "StartupVisibility": {
                 "base_class": null,
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [
@@ -150,7 +158,16 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "AbilityFirstFrameStateObserverRecipient": {},
+                        "OnRemoteDied": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_first_frame_state_observer_interface.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -364,7 +381,28 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
+                    "parameters": {
+                        "StartAbility": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/want_receiver_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_first_frame_state_observer_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h"
+                        },
+                        "StartAbilityWithSpecifyTokenId": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/want_receiver_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_first_frame_state_observer_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h"
+                        },
+                        "StartAbilityByInsightIntent": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_first_frame_state_observer_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
+                            "uint64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/insight_intent/insight_intent_execute_param.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -419,7 +457,13 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnQueryFinished": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -462,7 +506,11 @@
             "ErrorLifecycleState": {
                 "base_class": null,
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [
@@ -588,7 +636,16 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "Register": {},
+                        "Unregister": {},
+                        "UpdateConnectStatus": {},
+                        "ShowDeviceList": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -636,7 +693,14 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "Connect": {},
+                        "Disconnect": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -666,7 +730,13 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "CreateRunner": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -796,7 +866,18 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h",
+                    "parameters": {
+                        "AssertFaultRemoteDeathRecipient": {
+                            "RemoteDiedHandler": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
+                        },
+                        "OnRemoteDied": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
+                        }
+                    }
+                }
             },
             "ModalSystemAssertUIExtension": {
                 "base_class": null,
@@ -862,7 +943,26 @@
                     "OHOS::AAFwk",
                     "AppExecFwk",
                     "AAFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "CreateModalUIExtension": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
+                        },
+                        "SetReqeustAssertDialogWant": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
+                        },
+                        "OnAbilityConnectDone": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
+                        },
+                        "OnAbilityDisconnectDone": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -949,7 +1049,13 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "TaskHandler": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -3863,7 +3969,502 @@
                     "AAFwk",
                     "AppExecFwk::ExtensionAbilityType",
                     "Want"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "RemoveDeathRecipient": {},
+                        "AttachAbilityThread": {},
+                        "AbilityTransitionDone": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "AbilityWindowConfigTransitionDone": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ScheduleConnectAbilityDone": {},
+                        "ScheduleDisconnectAbilityDone": {},
+                        "ScheduleCommandAbilityDone": {},
+                        "ScheduleCommandAbilityWindowDone": {
+                            "WindowCommand": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "AbilityCommand": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "GetTopAbility": {
+                            "sptr<IRemoteObject> &token": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "GetElementNameByToken": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartAbility": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartAbilityByInsightIntent": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "uint64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartAbilityAsCaller": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartAbilityForResultAsCaller": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartAbilityByUIContentSession": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartAbilityOnlyUIAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "StartExtensionAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "AppExecFwk::ExtensionAbilityType": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RequestModalUIExtension": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "PreloadUIExtensionAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "std::string &hostBundleName": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ChangeAbilityVisibility": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ChangeUIAbilityVisibilityBySCB": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartUIExtensionAbility": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartUIAbilityBySCB": {
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "bool &isColdStart": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "StopExtensionAbility": {
+                            "AppExecFwk::ExtensionAbilityType": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "TerminateAbility": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "BackToCallerAbilityWithResult": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "TerminateUIServiceExtensionAbility": {},
+                        "TerminateUIExtensionAbility": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CloseUIExtensionAbilityBySCB": {},
+                        "CloseUIAbilityBySCB": {},
+                        "SendResultToAbility": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "MoveAbilityToBackground": {},
+                        "MoveUIAbilityToBackground": {},
+                        "CloseAbility": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "MinimizeAbility": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "MinimizeUIExtensionAbility": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "MinimizeUIAbilityBySCB": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "ConnectAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ConnectUIServiceExtesnionAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ConnectDataShareExtensionAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ConnectExtensionAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ConnectUIExtensionAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "DisconnectAbility": {},
+                        "ReleaseDataAbility": {},
+                        "DumpState": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "std::vector<std::string> &state": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "DumpSysState": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "Connect": {},
+                        "StopServiceAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "KillProcess": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ForceTimeoutForTest": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ContinueMission": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "AAFwk::ContinueMissionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "StartContinuation": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "NotifyCompleteContinuation": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ContinueAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "NotifyContinuationResult": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "LockMissionForCleanup": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "UnlockMissionForCleanup": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "SetLockedState": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RegisterMissionListener": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "UnRegisterMissionListener": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RegisterOnListener": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RegisterOffListener": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetMissionInfos": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "std::vector<MissionInfo> &missionInfos": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetMissionInfo": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "MissionInfo &missionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "GetMissionSnapshot": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CleanMission": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CleanAllMissions": {},
+                        "MoveMissionToFront": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "MoveMissionsToForeground": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "MoveMissionsToBackground": {},
+                        "GetMissionIdByToken": {
+                            "int32_t &missionId": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "StartAbilityByCall": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CallRequestDone": {},
+                        "GetAbilityTokenByCalleeObj": {
+                            "sptr<IRemoteObject> &token": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "ReleaseCall": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetAbilityRunningInfos": {
+                            "std::vector<AbilityRunningInfo> &info": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "GetExtensionRunningInfos": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "std::vector<ExtensionRunningInfo> &info": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "GetProcessRunningInfos": {
+                            "std::vector<AppExecFwk::RunningProcessInfo> &info": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "StartSyncRemoteMissions": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StopSyncRemoteMissions": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartUser": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StopUser": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "LogoutUser": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RegisterSnapshotHandler": {},
+                        "PrepareTerminateAbility": {},
+                        "RegisterStatusBarDelegate": {},
+                        "KillProcessWithPrepareTerminate": {},
+                        "RegisterAutoStartupSystemCallback": {},
+                        "UnregisterAutoStartupSystemCallback": {},
+                        "SetApplicationAutoStartup": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CancelApplicationAutoStartup": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "QueryAllAutoStartupApplications": {
+                            "std::vector<AutoStartupInfo> &infoList": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "PrepareTerminateAbilityBySCB": {
+                            "bool &isPrepareTerminate": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "SetMissionContinueState": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "SetMissionLabel": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "SetMissionIcon": {},
+                        "RegisterWindowManagerServiceHandler": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CompleteFirstFrameDrawing": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "UpdateMissionSnapShot": {},
+                        "GetDialogSessionInfo": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "SendDialogResult": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartUserTest": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "FinishUserTest": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "CheckUIExtensionIsFocused": {
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "DelegatorDoAbilityForeground": {},
+                        "DelegatorDoAbilityBackground": {},
+                        "DoAbilityForeground": {
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "DoAbilityBackground": {
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "SetAbilityController": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "FreeInstallAbilityFromRemote": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "DumpAbilityInfoDone": {
+                            "std::vector<std::string> &infos": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "EnableRecoverAbility": {},
+                        "SubmitSaveRecoveryInfo": {},
+                        "ScheduleRecoverAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ScheduleClearRecoveryPageStack": {},
+                        "AddFreeInstallObserver": {},
+                        "IsValidMissionIds": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "std::vector<MissionValidResult> &results": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "VerifyPermission": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "AcquireShareData": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ShareDataDone": {
+                            "WantParams &wantParam": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RequestDialogService": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "ForceExitApp": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "const int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "RecordAppExitReason": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RecordProcessExitReason": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "const int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "SetRootSceneSession": {},
+                        "CallUIAbilityBySCB": {
+                            "bool &isColdStart": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "StartSpecifiedAbilityBySCB": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "NotifySaveAsResult": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "SetSessionManagerService": {},
+                        "ReportDrawnCompleted": {},
+                        "RegisterIAbilityManagerCollaborator": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "UnregisterIAbilityManagerCollaborator": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RegisterSessionHandler": {},
+                        "RegisterAppDebugListener": {},
+                        "UnregisterAppDebugListener": {},
+                        "AttachAppDebug": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "DetachAppDebug": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "IsAbilityControllerStart": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "OpenFile": {
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                        },
+                        "ExecuteIntent": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "uint64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "ExecuteInsightIntentDone": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "uint64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "GetForegroundUIAbilities": {
+                            "std::vector<AppExecFwk::AbilityStateData> &list": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "UpdateSessionInfoBySCB": {
+                            "std::vector<int32_t> &sessionIds": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "std::list<SessionInfo> &sessionInfos": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "RestartApp": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetUIExtensionRootHostInfo": {
+                            "UIExtensionHostInfo &hostInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetUIExtensionSessionInfo": {
+                            "UIExtensionSessionInfo &uiExtensionSessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "OpenAtomicService": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "IsEmbeddedOpenAllowed": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "RequestAssertFaultDialog": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "NotifyDebugAssertResult": {
+                            "uint64_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "AAFwk::UserStatus": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "SetResidentProcessEnabled": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "StartShortcut": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetAbilityStateByPersistentId": {
+                            "bool &state": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "TransferAbilityResultForExtension": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "NotifyFrozenProcessByRSS": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "PreStartMission": {},
+                        "CleanUIAbilityBySCB": {},
+                        "OpenLink": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "TerminateMission": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "BlockAllAppStart": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "UpdateAssociateConfigList": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h"
+                        },
+                        "GetAllIntentExemptionInfo": {},
+                        "AddQueryERMSObserver": {},
+                        "QueryAtomicServiceStartupRule": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/intent_exemption_info.h",
+                            "AtomicServiceStartupRule &rule": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "OnRemoteDied": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -3977,7 +4578,16 @@
                 "namespace_uses": [
                     "std",
                     "AppExecFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "NotifyStartAbility": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -4942,7 +5552,11 @@
             "AbilityManagerInterfaceCode": {
                 "base_class": null,
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [
@@ -5057,7 +5671,25 @@
                 "namespace_uses": [
                     "IRemoteObject",
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "Connect": {},
+                        "SetApplicationAutoStartupByEDM": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
+                        },
+                        "CancelApplicationAutoStartupByEDM": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
+                        },
+                        "QueryAllAutoStartupApplications": {
+                            "std::vector<AutoStartupInfo> &infoList": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                        },
+                        "OnRemoteDied": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5114,7 +5746,13 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "AcquireShareDataDone": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5172,7 +5810,13 @@
                 ],
                 "namespace_uses": [
                     "AppExecFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnExecuteDone": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5273,7 +5917,18 @@
                 "namespace_uses": [
                     "std",
                     "AAFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "ReadFromParcel": {},
+                        "Unmarshalling": {},
+                        "IsInsightIntentExecute": {},
+                        "GenerateFromWant": {},
+                        "RemoveInsightIntent": {},
+                        "UpdateInsightIntentCallerInfo": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5322,7 +5977,11 @@
             "InsightIntentExecuteMode": {
                 "base_class": null,
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [],
@@ -5403,7 +6062,13 @@
                 "namespace_uses": [
                     "std",
                     "AppExecFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "GetSrcEntry": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5554,7 +6219,13 @@
                 ],
                 "namespace_uses": [
                     "OHOS::AAFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "SendResult": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5661,12 +6332,20 @@
                 "namespace_uses": [
                     "OHOS::Media",
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             },
             "ISnapshotHandler": {
                 "base_class": "OHOS::IRemoteBroker",
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [
@@ -5767,7 +6446,14 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnInstallFinished": {},
+                        "OnRemoteInstallFinished": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5799,7 +6485,13 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "Send": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5888,7 +6580,13 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnCallback": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -5976,7 +6674,14 @@
                 ],
                 "namespace_uses": [
                     "AppExecFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnAbilityConnectDone": {},
+                        "OnAbilityDisconnectDone": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6014,7 +6719,11 @@
             "IStatusBarDelegate": {
                 "base_class": "OHOS::IRemoteBroker",
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [
@@ -6112,7 +6821,14 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnInstallFinished": {},
+                        "OnInstallFinishedByUrl": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6148,7 +6864,13 @@
                 ],
                 "namespace_uses": [
                     "AAFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "NotifyDebugAssertResult": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6195,7 +6917,16 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "AbilityConnectCallbackRecipient": {},
+                        "OnRemoteDied": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_interface.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6264,7 +6995,16 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnMissionCreated": {},
+                        "OnMissionDestroyed": {},
+                        "OnMissionSnapshotChanged": {},
+                        "OnMissionMovedToFront": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6313,7 +7053,14 @@
                 ],
                 "namespace_uses": [
                     "AppExecFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "ReadFromParcel": {},
+                        "Unmarshalling": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6359,7 +7106,14 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "ReadFromParcel": {},
+                        "Unmarshalling": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6400,7 +7154,13 @@
                     "AppExecFwk::ExtensionAbilityType",
                     "AAFwk::UIExtensionUsage",
                     "AAFwk"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "Unmarshalling": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6827,7 +7587,95 @@
                     "AppExecFwk",
                     "std",
                     "NativeRdb"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "ScheduleAbilityTransaction": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleShareData": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "SendResult": {
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleConnectAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleDisconnectAbility": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleCommandAbility": {
+                            "bool": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h",
+                            "int": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h",
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleCommandAbilityWindow": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "SchedulePrepareTerminateAbility": {},
+                        "ScheduleSaveAbilityState": {},
+                        "ScheduleRestoreAbilityState": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "OpenFile": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "OpenRawFile": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "Insert": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "Update": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "Delete": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "GetType": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "Reload": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "BatchInsert": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleRegisterObserver": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleUnregisterObserver": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ScheduleNotifyChange": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "NormalizeUri": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "DenormalizeUri": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "ContinueAbility": {
+                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "NotifyContinuationResult": {},
+                        "DumpAbilityInfo": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "CreateModalUIExtension": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "OnExecuteIntent": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
+                        },
+                        "CallRequest": {},
+                        "UpdateSessionToken": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -6990,7 +7838,21 @@
                 "namespace_uses": [
                     "std",
                     "Media"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "NotifyWindowTransition": {},
+                        "GetFocusWindow": {},
+                        "StartingWindow": {},
+                        "CancelStartingWindow": {},
+                        "NotifyAnimationAbilityDied": {},
+                        "MoveMissionsToForeground": {
+                            "int32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_info.h"
+                        },
+                        "MoveMissionsToBackground": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -7037,7 +7899,18 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnAutoStartupOn": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
+                        },
+                        "OnAutoStartupOff": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -7122,7 +7995,14 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnStopUserDone": {},
+                        "OnStartUserDone": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -7159,7 +8039,11 @@
             "IPrepareTerminateCallback": {
                 "base_class": "OHOS::IRemoteBroker",
                 "methods": [],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {}
+                }
             }
         },
         "namespaces": [
@@ -7263,7 +8147,14 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "Send": {},
+                        "PerformReceive": {}
+                    }
+                }
             }
         },
         "namespaces": [
@@ -7326,7 +8217,15 @@
                         "is_const": true
                     }
                 ],
-                "namespace_uses": []
+                "namespace_uses": [],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "OnAbilityFirstFrameState": {
+                            "const": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_first_frame_state_data.h"
+                        }
+                    }
+                }
             }
         },
         "namespaces": [
@@ -7406,7 +8305,15 @@
                 ],
                 "namespace_uses": [
                     "std"
-                ]
+                ],
+                "dependencies": {
+                    "inheritance": null,
+                    "parameters": {
+                        "NotifyMissionsChanged": {},
+                        "NotifySnapshot": {},
+                        "NotifyNetDisconnect": {}
+                    }
+                }
             }
         },
         "namespaces": [
