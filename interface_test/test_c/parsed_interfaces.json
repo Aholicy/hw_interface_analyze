@@ -77,9 +77,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "ProcessMode",
+            "StartupVisibility",
             "std",
-            "StartupVisibility"
+            "ProcessMode"
         ]
     },
     "start_options": {
@@ -96,9 +96,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
+            "AppExecFwk",
             "AbilityWindowConfiguration",
-            "AppExecFwk"
+            "std"
         ]
     },
     "window_config": {
@@ -127,7 +127,7 @@
                 "methods": [
                     {
                         "name": "AbilityFirstFrameStateObserverRecipient",
-                        "return_type": "explicit",
+                        "return_type": "",
                         "parameters": [
                             {
                                 "type": "RemoteDiedHandler",
@@ -141,8 +141,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "wptr"
+                                "type": "const wptr<IRemoteObject> &",
+                                "name": "remote"
                             }
                         ],
                         "is_const": true
@@ -158,8 +158,8 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "IRemoteObject",
-            "std"
+            "std",
+            "IRemoteObject"
         ]
     },
     "ability_manager_interface": {
@@ -222,8 +222,8 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "int32_t",
@@ -241,12 +241,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callerToken"
                             },
                             {
                                 "type": "int32_t",
@@ -264,12 +264,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callerToken"
                             },
                             {
                                 "type": "uint32_t",
@@ -291,12 +291,12 @@
                         "return_type": "virtual int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callerToken"
                             },
                             {
                                 "type": "uint64_t",
@@ -314,16 +314,16 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "AbilityStartSetting"
+                                "type": "const AbilityStartSetting &",
+                                "name": "abilityStartSetting"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callerToken"
                             },
                             {
                                 "type": "int32_t",
@@ -341,16 +341,16 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callerToken"
                             },
                             {
                                 "type": "int32_t",
@@ -373,14 +373,14 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AppExecFwk",
             "AbilityRuntime",
-            "OHOS::Media",
-            "std",
-            "OHOS",
             "AAFwk",
+            "OHOS::Media",
             "AppExecFwk::ExtensionAbilityType",
-            "Want"
+            "Want",
+            "OHOS",
+            "std",
+            "AppExecFwk"
         ]
     },
     "query_erms_observer_interface": {
@@ -398,16 +398,16 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "appId"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "startTime"
                             },
                             {
-                                "type": "const",
-                                "name": "AtomicServiceStartupRule"
+                                "type": "const AtomicServiceStartupRule &",
+                                "name": "rule"
                             },
                             {
                                 "type": "int",
@@ -427,8 +427,8 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "std",
-            "OHOS"
+            "OHOS",
+            "std"
         ]
     },
     "lifecycle_state_info": {
@@ -470,8 +470,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityLifeCycleState",
-            "std"
+            "std",
+            "AbilityLifeCycleState"
         ]
     },
     "open_link_options": {
@@ -522,20 +522,20 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "token"
                             },
                             {
-                                "type": "const",
-                                "name": "ExtraParams"
+                                "type": "const ExtraParams &",
+                                "name": "extras"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IConnectCallback> &",
+                                "name": "callback"
                             }
                         ],
                         "is_const": true
@@ -560,8 +560,8 @@
                                 "name": "registerToken"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "int",
@@ -579,8 +579,8 @@
                                 "name": "registerToken"
                             },
                             {
-                                "type": "const",
-                                "name": "ExtraParams"
+                                "type": "const ExtraParams &",
+                                "name": "extras"
                             }
                         ],
                         "is_const": true
@@ -614,12 +614,12 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "string"
+                                "type": "const string &",
+                                "name": "deviceId"
                             },
                             {
-                                "type": "const",
-                                "name": "string"
+                                "type": "const string &",
+                                "name": "deviceType"
                             }
                         ],
                         "is_const": true
@@ -629,8 +629,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "string"
+                                "type": "const string &",
+                                "name": "deviceId"
                             }
                         ],
                         "is_const": true
@@ -718,8 +718,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "ContinueState"
+            "ContinueState",
+            "std"
         ]
     },
     "want_sender_info": {
@@ -752,8 +752,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "AppExecFwk"
+            "AppExecFwk",
+            "std"
         ]
     },
     "assert_fault_proxy": {
@@ -773,7 +773,7 @@
                 "methods": [
                     {
                         "name": "AssertFaultRemoteDeathRecipient",
-                        "return_type": "explicit",
+                        "return_type": "",
                         "parameters": [
                             {
                                 "type": "RemoteDiedHandler",
@@ -787,8 +787,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "wptr"
+                                "type": "const wptr<IRemoteObject> &",
+                                "name": "remote"
                             }
                         ],
                         "is_const": true
@@ -806,8 +806,8 @@
                         "return_type": "bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -817,8 +817,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -828,12 +828,12 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ElementName &",
+                                "name": "element"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "remoteObject"
                             },
                             {
                                 "type": "int",
@@ -847,8 +847,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ElementName &",
+                                "name": "element"
                             },
                             {
                                 "type": "int",
@@ -870,11 +870,11 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "AppExecFwk",
-            "IRemoteObject",
+            "AAFwk",
             "std",
             "OHOS::AAFwk",
-            "AAFwk"
+            "IRemoteObject",
+            "AppExecFwk"
         ]
     },
     "ability_running_info": {
@@ -892,8 +892,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "AppExecFwk"
+            "AppExecFwk",
+            "std"
         ]
     },
     "auto_startup_callback_stub": {
@@ -937,11 +937,11 @@
                 "methods": [
                     {
                         "name": "TaskHandler",
-                        "return_type": "explicit",
+                        "return_type": "",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::shared_ptr<EventRunner> &",
+                                "name": "runner"
                             }
                         ],
                         "is_const": false
@@ -1046,8 +1046,8 @@
                                 "name": "state"
                             },
                             {
-                                "type": "const",
-                                "name": "PacMap"
+                                "type": "const PacMap &",
+                                "name": "saveData"
                             }
                         ],
                         "is_const": false
@@ -1061,8 +1061,8 @@
                                 "name": "token"
                             },
                             {
-                                "type": "const",
-                                "name": "WindowConfig"
+                                "type": "const WindowConfig &",
+                                "name": "windowConfig"
                             }
                         ],
                         "is_const": false
@@ -1158,8 +1158,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "int",
@@ -1177,8 +1177,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1200,8 +1200,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1223,12 +1223,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "AbilityStartSetting"
+                                "type": "const AbilityStartSetting &",
+                                "name": "abilityStartSetting"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1250,12 +1250,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1277,8 +1277,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1304,12 +1304,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1335,8 +1335,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1358,12 +1358,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1385,8 +1385,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1412,12 +1412,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1443,8 +1443,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1462,8 +1462,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -1485,8 +1485,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -1496,12 +1496,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "std::string &hostBundleName",
-                                "name": null
+                                "type": "std::string &",
+                                "name": "hostBundleName"
                             },
                             {
                                 "type": "int32_t",
@@ -1564,8 +1564,8 @@
                                 "name": "sessionInfo"
                             },
                             {
-                                "type": "bool &isColdStart",
-                                "name": null
+                                "type": "bool &",
+                                "name": "isColdStart"
                             },
                             {
                                 "type": "uint32_t",
@@ -1579,7 +1579,7 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const Want&",
+                                "type": "const Want &",
                                 "name": "want"
                             },
                             {
@@ -1610,8 +1610,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "Want *resultWant",
+                                "name": null
                             }
                         ],
                         "is_const": false
@@ -1621,16 +1621,16 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "token"
                             },
                             {
                                 "type": "int",
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "Want *resultWant",
+                                "name": null
                             },
                             {
                                 "type": "int64_t",
@@ -1663,8 +1663,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "Want *resultWant = nullptr",
+                                "name": null
                             }
                         ],
                         "is_const": false
@@ -1704,7 +1704,7 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "Want&",
+                                "type": "Want &",
                                 "name": "resultWant"
                             }
                         ],
@@ -1745,8 +1745,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "Want *resultWant = nullptr",
+                                "name": null
                             }
                         ],
                         "is_const": false
@@ -1805,8 +1805,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -1824,8 +1824,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -1847,8 +1847,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -1870,8 +1870,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -1889,8 +1889,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -1908,8 +1908,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -1961,12 +1961,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "args"
                             },
                             {
-                                "type": "std::vector<std::string> &state",
-                                "name": null
+                                "type": "std::vector<std::string> &",
+                                "name": "state"
                             }
                         ],
                         "is_const": false
@@ -1976,11 +1976,11 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "args"
                             },
                             {
-                                "type": "std::vector<std::string>&",
+                                "type": "std::vector<std::string> &",
                                 "name": "state"
                             },
                             {
@@ -2009,8 +2009,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -2024,8 +2024,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             },
                             {
                                 "type": "bool",
@@ -2043,12 +2043,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "abilityName"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "state"
                             }
                         ],
                         "is_const": false
@@ -2058,12 +2058,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "srcDeviceId"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "dstDeviceId"
                             },
                             {
                                 "type": "int32_t",
@@ -2074,8 +2074,8 @@
                                 "name": "callback"
                             },
                             {
-                                "type": "AAFwk::WantParams &wantParams",
-                                "name": null
+                                "type": "AAFwk::WantParams &",
+                                "name": "wantParams"
                             }
                         ],
                         "is_const": false
@@ -2089,8 +2089,8 @@
                                 "name": "continueMissionInfo"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callback"
                             }
                         ],
                         "is_const": false
@@ -2100,8 +2100,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -2119,8 +2119,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "int32_t",
@@ -2138,8 +2138,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "int32_t",
@@ -2231,8 +2231,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "sptr<IRemoteMissionListener>",
@@ -2246,8 +2246,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "type"
                             },
                             {
                                 "type": "sptr<IRemoteOnListener>",
@@ -2261,8 +2261,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "type"
                             },
                             {
                                 "type": "sptr<IRemoteOnListener>",
@@ -2276,8 +2276,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "sptr<IRemoteMissionListener>",
@@ -2291,16 +2291,16 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "int32_t",
                                 "name": "numMax"
                             },
                             {
-                                "type": "std::vector<MissionInfo> &missionInfos",
-                                "name": null
+                                "type": "std::vector<MissionInfo> &",
+                                "name": "missionInfos"
                             }
                         ],
                         "is_const": false
@@ -2310,16 +2310,16 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "deviceId"
                             },
                             {
                                 "type": "int32_t",
                                 "name": "missionId"
                             },
                             {
-                                "type": "MissionInfo &missionInfo",
-                                "name": null
+                                "type": "MissionInfo &",
+                                "name": "missionInfo"
                             }
                         ],
                         "is_const": false
@@ -2329,7 +2329,7 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "deviceId"
                             },
                             {
@@ -2337,7 +2337,7 @@
                                 "name": "missionId"
                             },
                             {
-                                "type": "MissionSnapshot&",
+                                "type": "MissionSnapshot &",
                                 "name": "snapshot"
                             },
                             {
@@ -2384,8 +2384,8 @@
                                 "name": "missionId"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             }
                         ],
                         "is_const": false
@@ -2395,7 +2395,7 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const std::vector<int32_t>&",
+                                "type": "const std::vector<int32_t> &",
                                 "name": "missionIds"
                             },
                             {
@@ -2410,11 +2410,11 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const std::vector<int32_t>&",
+                                "type": "const std::vector<int32_t> &",
                                 "name": "missionIds"
                             },
                             {
-                                "type": "std::vector<int32_t>&",
+                                "type": "std::vector<int32_t> &",
                                 "name": "result"
                             }
                         ],
@@ -2429,8 +2429,8 @@
                                 "name": "token"
                             },
                             {
-                                "type": "int32_t &missionId",
-                                "name": null
+                                "type": "int32_t &",
+                                "name": "missionId"
                             }
                         ],
                         "is_const": false
@@ -2440,8 +2440,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -2455,8 +2455,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IAbilityConnection>",
@@ -2497,8 +2497,8 @@
                                 "name": "callStub"
                             },
                             {
-                                "type": "sptr<IRemoteObject> &token",
-                                "name": null
+                                "type": "sptr<IRemoteObject> &",
+                                "name": "token"
                             }
                         ],
                         "is_const": false
@@ -2512,8 +2512,8 @@
                                 "name": "connect"
                             },
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ElementName &",
+                                "name": "element"
                             }
                         ],
                         "is_const": false
@@ -2523,8 +2523,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "std::vector<AbilityRunningInfo> &info",
-                                "name": null
+                                "type": "std::vector<AbilityRunningInfo> &",
+                                "name": "info"
                             }
                         ],
                         "is_const": false
@@ -2538,8 +2538,8 @@
                                 "name": "upperLimit"
                             },
                             {
-                                "type": "std::vector<ExtensionRunningInfo> &info",
-                                "name": null
+                                "type": "std::vector<ExtensionRunningInfo> &",
+                                "name": "info"
                             }
                         ],
                         "is_const": false
@@ -2549,8 +2549,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "std::vector<AppExecFwk::RunningProcessInfo> &info",
-                                "name": null
+                                "type": "std::vector<AppExecFwk::RunningProcessInfo> &",
+                                "name": "info"
                             }
                         ],
                         "is_const": false
@@ -2560,8 +2560,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "devId"
                             },
                             {
                                 "type": "bool",
@@ -2579,8 +2579,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "devId"
                             }
                         ],
                         "is_const": false
@@ -2672,7 +2672,7 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const std::vector<int32_t>&",
+                                "type": "const std::vector<int32_t> &",
                                 "name": "pids"
                             }
                         ],
@@ -2705,8 +2705,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AutoStartupInfo"
+                                "type": "const AutoStartupInfo &",
+                                "name": "info"
                             }
                         ],
                         "is_const": false
@@ -2716,8 +2716,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AutoStartupInfo"
+                                "type": "const AutoStartupInfo &",
+                                "name": "info"
                             }
                         ],
                         "is_const": false
@@ -2727,8 +2727,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "std::vector<AutoStartupInfo> &infoList",
-                                "name": null
+                                "type": "std::vector<AutoStartupInfo> &",
+                                "name": "infoList"
                             }
                         ],
                         "is_const": false
@@ -2742,8 +2742,8 @@
                                 "name": "sessionInfo"
                             },
                             {
-                                "type": "bool &isPrepareTerminate",
-                                "name": null
+                                "type": "bool &",
+                                "name": "isPrepareTerminate"
                             }
                         ],
                         "is_const": false
@@ -2757,8 +2757,8 @@
                                 "name": "token"
                             },
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::ContinueState &",
+                                "name": "state"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -2776,8 +2776,8 @@
                                 "name": "abilityToken"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "label"
                             }
                         ],
                         "is_const": false
@@ -2854,12 +2854,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "dialogSessionId"
                             },
                             {
-                                "type": "sptr<DialogSessionInfo> &info",
-                                "name": null
+                                "type": "sptr<DialogSessionInfo> &",
+                                "name": "info"
                             }
                         ],
                         "is_const": false
@@ -2869,12 +2869,12 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "dialogSessionId"
                             },
                             {
                                 "type": "bool",
@@ -2888,8 +2888,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -2903,16 +2903,16 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "msg"
                             },
                             {
-                                "type": "const",
-                                "name": "int64_t"
+                                "type": "const int64_t &",
+                                "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             }
                         ],
                         "is_const": false
@@ -2922,8 +2922,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "sptr<IRemoteObject> &token",
-                                "name": null
+                                "type": "sptr<IRemoteObject> &",
+                                "name": "token"
                             }
                         ],
                         "is_const": false
@@ -2937,7 +2937,7 @@
                                 "name": "uiExtensionTokenId"
                             },
                             {
-                                "type": "bool&",
+                                "type": "bool &",
                                 "name": "isFocused"
                             }
                         ],
@@ -3015,8 +3015,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -3038,8 +3038,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "std::vector<std::string> &infos",
-                                "name": null
+                                "type": "std::vector<std::string> &",
+                                "name": "infos"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -3083,8 +3083,8 @@
                                 "name": "reason"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "Want *want = nullptr",
+                                "name": null
                             }
                         ],
                         "is_const": false
@@ -3115,12 +3115,12 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::vector<int32_t> &",
+                                "name": "missionIds"
                             },
                             {
-                                "type": "std::vector<MissionValidResult> &results",
-                                "name": null
+                                "type": "std::vector<MissionValidResult> &",
+                                "name": "results"
                             }
                         ],
                         "is_const": false
@@ -3130,8 +3130,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "permission"
                             },
                             {
                                 "type": "int",
@@ -3176,8 +3176,8 @@
                                 "name": "uniqueId"
                             },
                             {
-                                "type": "WantParams &wantParam",
-                                "name": null
+                                "type": "WantParams &",
+                                "name": "wantParam"
                             }
                         ],
                         "is_const": false
@@ -3187,8 +3187,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -3206,8 +3206,8 @@
                                 "name": "pid"
                             },
                             {
-                                "type": "const",
-                                "name": "ExitReason"
+                                "type": "const ExitReason &",
+                                "name": "exitReason"
                             }
                         ],
                         "is_const": false
@@ -3217,8 +3217,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "ExitReason"
+                                "type": "const ExitReason &",
+                                "name": "exitReason"
                             }
                         ],
                         "is_const": false
@@ -3232,8 +3232,8 @@
                                 "name": "pid"
                             },
                             {
-                                "type": "const",
-                                "name": "ExitReason"
+                                "type": "const ExitReason &",
+                                "name": "exitReason"
                             }
                         ],
                         "is_const": false
@@ -3258,8 +3258,8 @@
                                 "name": "sessionInfo"
                             },
                             {
-                                "type": "bool &isColdStart",
-                                "name": null
+                                "type": "bool &",
+                                "name": "isColdStart"
                             }
                         ],
                         "is_const": false
@@ -3269,8 +3269,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -3280,8 +3280,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "int",
@@ -3380,8 +3380,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             }
                         ],
                         "is_const": false
@@ -3391,8 +3391,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             }
                         ],
                         "is_const": false
@@ -3402,8 +3402,8 @@
                         "return_type": "bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -3413,7 +3413,7 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const Uri&",
+                                "type": "const Uri &",
                                 "name": "uri"
                             },
                             {
@@ -3436,8 +3436,8 @@
                                 "name": "callerToken"
                             },
                             {
-                                "type": "const",
-                                "name": "InsightIntentExecuteParam"
+                                "type": "const InsightIntentExecuteParam &",
+                                "name": "param"
                             }
                         ],
                         "is_const": false
@@ -3455,8 +3455,8 @@
                                 "name": "intentId"
                             },
                             {
-                                "type": "const",
-                                "name": "InsightIntentExecuteResult"
+                                "type": "const InsightIntentExecuteResult &",
+                                "name": "result"
                             }
                         ],
                         "is_const": false
@@ -3466,8 +3466,8 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "std::vector<AppExecFwk::AbilityStateData> &list",
-                                "name": null
+                                "type": "std::vector<AppExecFwk::AbilityStateData> &",
+                                "name": "list"
                             }
                         ],
                         "is_const": false
@@ -3477,16 +3477,16 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "std::list<SessionInfo> &sessionInfos",
-                                "name": null
+                                "type": "std::list<SessionInfo> &",
+                                "name": "sessionInfos"
                             },
                             {
                                 "type": "int32_t",
                                 "name": "userId"
                             },
                             {
-                                "type": "std::vector<int32_t> &sessionIds",
-                                "name": null
+                                "type": "std::vector<int32_t> &",
+                                "name": "sessionIds"
                             }
                         ],
                         "is_const": false
@@ -3496,8 +3496,8 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -3511,8 +3511,8 @@
                                 "name": "token"
                             },
                             {
-                                "type": "UIExtensionHostInfo &hostInfo",
-                                "name": null
+                                "type": "UIExtensionHostInfo &",
+                                "name": "hostInfo"
                             },
                             {
                                 "type": "int32_t",
@@ -3530,8 +3530,8 @@
                                 "name": "token"
                             },
                             {
-                                "type": "UIExtensionSessionInfo &uiExtensionSessionInfo",
-                                "name": null
+                                "type": "UIExtensionSessionInfo &",
+                                "name": "uiExtensionSessionInfo"
                             },
                             {
                                 "type": "int32_t",
@@ -3545,12 +3545,12 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "Want&",
+                                "type": "Want &",
                                 "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "options"
                             },
                             {
                                 "type": "sptr<IRemoteObject>",
@@ -3576,8 +3576,8 @@
                                 "name": "callerToken"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "appId"
                             }
                         ],
                         "is_const": false
@@ -3587,12 +3587,12 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callback"
                             },
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::WantParams &",
+                                "name": "wantParams"
                             }
                         ],
                         "is_const": false
@@ -3617,8 +3617,8 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             },
                             {
                                 "type": "bool",
@@ -3632,12 +3632,12 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "StartOptions"
+                                "type": "const StartOptions &",
+                                "name": "startOptions"
                             }
                         ],
                         "is_const": false
@@ -3651,8 +3651,8 @@
                                 "name": "persistentId"
                             },
                             {
-                                "type": "bool &state",
-                                "name": null
+                                "type": "bool &",
+                                "name": "state"
                             }
                         ],
                         "is_const": false
@@ -3662,16 +3662,16 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "callerToken"
                             },
                             {
                                 "type": "int32_t",
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -3681,8 +3681,8 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::vector<int32_t> &",
+                                "name": "pidList"
                             },
                             {
                                 "type": "int32_t",
@@ -3696,19 +3696,19 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "bundleName"
                             },
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "moduleName"
                             },
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "abilityName"
                             },
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "startTime"
                             }
                         ],
@@ -3730,7 +3730,7 @@
                         "return_type": "int32_t",
                         "parameters": [
                             {
-                                "type": "const Want&",
+                                "type": "const Want &",
                                 "name": "want"
                             },
                             {
@@ -3775,15 +3775,15 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "std::map<std::string",
+                                "name": null
                             },
                             {
-                                "type": "std::list<std::string>>&",
+                                "type": "std::list<std::string>> &",
                                 "name": "configs"
                             },
                             {
-                                "type": "const std::list<std::string>&",
+                                "type": "const std::list<std::string> &",
                                 "name": "exportConfigs"
                             },
                             {
@@ -3798,7 +3798,7 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "std::vector<AppExecFwk::IntentExemptionInfo>&",
+                                "type": "std::vector<AppExecFwk::IntentExemptionInfo> &",
                                 "name": "info"
                             }
                         ],
@@ -3828,16 +3828,16 @@
                                 "name": "callerToken"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "appId"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "startTime"
                             },
                             {
-                                "type": "AtomicServiceStartupRule &rule",
-                                "name": null
+                                "type": "AtomicServiceStartupRule &",
+                                "name": "rule"
                             }
                         ],
                         "is_const": false
@@ -3847,7 +3847,7 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const wptr<IRemoteObject>&",
+                                "type": "const wptr<IRemoteObject> &",
                                 "name": "remote"
                             }
                         ],
@@ -3855,14 +3855,14 @@
                     }
                 ],
                 "namespace_uses": [
-                    "AppExecFwk",
                     "AbilityRuntime",
-                    "OHOS::Media",
-                    "IRemoteObject",
-                    "std",
                     "AAFwk",
+                    "OHOS::Media",
                     "AppExecFwk::ExtensionAbilityType",
-                    "Want"
+                    "Want",
+                    "std",
+                    "IRemoteObject",
+                    "AppExecFwk"
                 ]
             }
         },
@@ -3871,14 +3871,14 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AppExecFwk",
             "AbilityRuntime",
-            "OHOS::Media",
-            "IRemoteObject",
-            "std",
             "AAFwk",
+            "OHOS::Media",
             "AppExecFwk::ExtensionAbilityType",
-            "Want"
+            "Want",
+            "std",
+            "IRemoteObject",
+            "AppExecFwk"
         ]
     },
     "dialog_session_info": {
@@ -3897,8 +3897,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
             "AppExecFwk",
+            "std",
             "AAFwk"
         ]
     },
@@ -3955,16 +3955,16 @@
                         "return_type": "virtual int32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::AbilityInfo &",
+                                "name": "abilityInfo"
                             },
                             {
                                 "type": "int32_t",
                                 "name": "userId"
                             },
                             {
-                                "type": "Want &want",
-                                "name": null
+                                "type": "Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "uint64_t",
@@ -3975,8 +3975,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "AppExecFwk"
+                    "AppExecFwk",
+                    "std"
                 ]
             }
         },
@@ -3987,9 +3987,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
+            "Want",
             "AppExecFwk",
-            "Want"
+            "std"
         ]
     },
     "state_pattern_naive": {
@@ -5006,8 +5006,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AutoStartupInfo"
+                                "type": "const AutoStartupInfo &",
+                                "name": "info"
                             },
                             {
                                 "type": "bool",
@@ -5021,8 +5021,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AutoStartupInfo"
+                                "type": "const AutoStartupInfo &",
+                                "name": "info"
                             },
                             {
                                 "type": "bool",
@@ -5036,8 +5036,8 @@
                         "return_type": "ErrCode",
                         "parameters": [
                             {
-                                "type": "std::vector<AutoStartupInfo> &infoList",
-                                "name": null
+                                "type": "std::vector<AutoStartupInfo> &",
+                                "name": "infoList"
                             }
                         ],
                         "is_const": false
@@ -5047,7 +5047,7 @@
                         "return_type": "void",
                         "parameters": [
                             {
-                                "type": "const wptr<IRemoteObject>&",
+                                "type": "const wptr<IRemoteObject> &",
                                 "name": "remote"
                             }
                         ],
@@ -5055,8 +5055,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "IRemoteObject",
-                    "std"
+                    "std",
+                    "IRemoteObject"
                 ]
             }
         },
@@ -5066,8 +5066,8 @@
         ],
         "namespace_uses": [
             "AbilityRuntime",
-            "IRemoteObject",
-            "std"
+            "std",
+            "IRemoteObject"
         ]
     },
     "wants_info": {
@@ -5107,8 +5107,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "WantParams &wantParam",
-                                "name": null
+                                "type": "WantParams &",
+                                "name": "wantParam"
                             }
                         ],
                         "is_const": true
@@ -5163,8 +5163,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::InsightIntentExecuteResult &",
+                                "name": "executeResult"
                             }
                         ],
                         "is_const": true
@@ -5180,8 +5180,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "OHOS",
-            "AppExecFwk"
+            "AppExecFwk",
+            "OHOS"
         ]
     },
     "insight_intent.insight_intent_execute_param": {
@@ -5200,8 +5200,8 @@
                         "return_type": "bool",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
@@ -5211,8 +5211,8 @@
                         "return_type": "static InsightIntentExecuteParam *",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
@@ -5222,8 +5222,8 @@
                         "return_type": "static bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -5233,12 +5233,12 @@
                         "return_type": "static bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AAFwk"
+                                "type": "const AAFwk::Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "InsightIntentExecuteParam &executeParam",
-                                "name": null
+                                "type": "InsightIntentExecuteParam &",
+                                "name": "executeParam"
                             }
                         ],
                         "is_const": false
@@ -5248,8 +5248,8 @@
                         "return_type": "static bool",
                         "parameters": [
                             {
-                                "type": "AAFwk::Want &want",
-                                "name": null
+                                "type": "AAFwk::Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": false
@@ -5259,12 +5259,12 @@
                         "return_type": "static void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "WantParams"
+                                "type": "const WantParams &",
+                                "name": "wantParams"
                             },
                             {
-                                "type": "WantParams &insightIntentParam",
-                                "name": null
+                                "type": "WantParams &",
+                                "name": "insightIntentParam"
                             }
                         ],
                         "is_const": false
@@ -5282,8 +5282,8 @@
         ],
         "namespace_uses": [
             "std",
-            "AAFwk",
-            "OHOS::AAFwk"
+            "OHOS::AAFwk",
+            "AAFwk"
         ]
     },
     "insight_intent.insight_intent_constant": {
@@ -5344,8 +5344,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "AppExecFwk"
+            "AppExecFwk",
+            "std"
         ]
     },
     "insight_intent.insight_intent_execute_callback_proxy": {
@@ -5381,28 +5381,28 @@
                         "return_type": "static uint32_t",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ElementName &",
+                                "name": "elementName"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "intentName"
                             },
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ExecuteMode &",
+                                "name": "executeMode"
                             },
                             {
-                                "type": "std::string &srcEntry",
-                                "name": null
+                                "type": "std::string &",
+                                "name": "srcEntry"
                             }
                         ],
                         "is_const": false
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "AppExecFwk"
+                    "AppExecFwk",
+                    "std"
                 ]
             }
         },
@@ -5411,8 +5411,8 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "std",
-            "AppExecFwk"
+            "AppExecFwk",
+            "std"
         ]
     },
     "insight_intent.insight_intent_execute_result": {
@@ -5430,8 +5430,8 @@
         ],
         "namespace_uses": [
             "std",
-            "AbilityRuntime::InsightIntentInnerErr",
-            "OHOS::AAFwk"
+            "OHOS::AAFwk",
+            "AbilityRuntime::InsightIntentInnerErr"
         ]
     },
     "ability_first_frame_state_observer_proxy": {
@@ -5479,9 +5479,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "LaunchReason",
+            "LastExitReason",
             "std",
-            "LastExitReason"
+            "LaunchReason"
         ]
     },
     "ability_start_setting": {
@@ -5529,7 +5529,7 @@
                         "return_type": "virtual int32_t",
                         "parameters": [
                             {
-                                "type": "OHOS::AAFwk::Want&",
+                                "type": "OHOS::AAFwk::Want &",
                                 "name": "want"
                             },
                             {
@@ -5606,10 +5606,10 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "TransitionReason",
-            "std",
+            "AppExecFwk",
             "AppExecFwk::DisplayOrientation",
-            "AppExecFwk"
+            "TransitionReason",
+            "std"
         ]
     },
     "mission_snapshot": {
@@ -5626,9 +5626,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "OHOS::Media",
+            "AppExecFwk",
             "std",
-            "AppExecFwk"
+            "OHOS::Media"
         ]
     },
     "atomic_service_status_callback_proxy": {
@@ -5659,8 +5659,8 @@
                 "base_class": null,
                 "methods": [],
                 "namespace_uses": [
-                    "OHOS::Media",
-                    "std"
+                    "std",
+                    "OHOS::Media"
                 ]
             },
             "ISnapshotHandler": {
@@ -5674,9 +5674,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "OHOS::Media",
+            "OHOS",
             "std",
-            "OHOS"
+            "OHOS::Media"
         ]
     },
     "window_manager_service_handler_proxy": {
@@ -5692,8 +5692,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "Media"
+            "Media",
+            "std"
         ]
     },
     "extension_running_info": {
@@ -5711,9 +5711,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "AppExecFwk",
             "AppExecFwk::ExtensionAbilityType",
-            "std",
-            "AppExecFwk"
+            "std"
         ]
     },
     "atomic_service_status_callback_interface": {
@@ -5737,8 +5737,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "int32_t",
@@ -5756,8 +5756,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "int32_t",
@@ -5792,8 +5792,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "SenderInfo &senderInfo",
-                                "name": null
+                                "type": "SenderInfo &",
+                                "name": "senderInfo"
                             }
                         ],
                         "is_const": true
@@ -5867,20 +5867,20 @@
                                 "name": "ContinueState"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "srcDeviceId"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "continueType"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "srcBundleName"
                             }
                         ],
                         "is_const": true
@@ -5896,8 +5896,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "OHOS"
+            "OHOS",
+            "std"
         ]
     },
     "ability_window_configuration": {
@@ -5944,12 +5944,12 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ElementName &",
+                                "name": "element"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IRemoteObject> &",
+                                "name": "remoteObject"
                             },
                             {
                                 "type": "int",
@@ -5963,8 +5963,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AppExecFwk"
+                                "type": "const AppExecFwk::ElementName &",
+                                "name": "element"
                             },
                             {
                                 "type": "int",
@@ -5984,8 +5984,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "OHOS",
-            "AppExecFwk"
+            "AppExecFwk",
+            "OHOS"
         ]
     },
     "status_bar_delegate.status_bar_delegate_proxy": {
@@ -6022,8 +6022,8 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "std",
-            "OHOS"
+            "OHOS",
+            "std"
         ]
     },
     "status_bar_delegate.status_bar_delegate_stub": {
@@ -6052,9 +6052,9 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "KeepAliveAppType",
+            "KeepAliveSetter",
             "std",
-            "KeepAliveSetter"
+            "KeepAliveAppType"
         ]
     },
     "free_install_observer_interface": {
@@ -6072,20 +6072,20 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "bundleName"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "abilityName"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "startTime"
                             },
                             {
-                                "type": "const",
-                                "name": "int"
+                                "type": "const int &",
+                                "name": "resultCode"
                             }
                         ],
                         "is_const": true
@@ -6095,16 +6095,16 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "startTime"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "url"
                             },
                             {
-                                "type": "const",
-                                "name": "int"
+                                "type": "const int &",
+                                "name": "resultCode"
                             }
                         ],
                         "is_const": true
@@ -6120,8 +6120,8 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "std",
-            "OHOS"
+            "OHOS",
+            "std"
         ]
     },
     "assert_fault_interface": {
@@ -6172,7 +6172,7 @@
                 "methods": [
                     {
                         "name": "AbilityConnectCallbackRecipient",
-                        "return_type": "explicit",
+                        "return_type": "",
                         "parameters": [
                             {
                                 "type": "RemoteDiedHandler",
@@ -6186,8 +6186,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "wptr"
+                                "type": "const wptr<IRemoteObject> &",
+                                "name": "remote"
                             }
                         ],
                         "is_const": false
@@ -6203,9 +6203,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "IRemoteObject",
+            "AppExecFwk",
             "std",
-            "AppExecFwk"
+            "IRemoteObject"
         ]
     },
     "mission_listener_interface": {
@@ -6272,9 +6272,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "OHOS::Media",
+            "OHOS",
             "std",
-            "OHOS"
+            "OHOS::Media"
         ]
     },
     "ui_extension.ui_extension_host_info": {
@@ -6293,8 +6293,8 @@
                         "return_type": "bool",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
@@ -6304,8 +6304,8 @@
                         "return_type": "static UIExtensionHostInfo *",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
@@ -6339,8 +6339,8 @@
                         "return_type": "bool",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
@@ -6350,8 +6350,8 @@
                         "return_type": "static UIExtensionAbilityConnectInfo *",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
@@ -6388,18 +6388,18 @@
                         "return_type": "static UIExtensionSessionInfo *",
                         "parameters": [
                             {
-                                "type": "Parcel &parcel",
-                                "name": null
+                                "type": "Parcel &",
+                                "name": "parcel"
                             }
                         ],
                         "is_const": false
                     }
                 ],
                 "namespace_uses": [
-                    "AppExecFwk",
-                    "AppExecFwk::ExtensionAbilityType",
                     "AAFwk::UIExtensionUsage",
-                    "AAFwk"
+                    "AppExecFwk",
+                    "AAFwk",
+                    "AppExecFwk::ExtensionAbilityType"
                 ]
             }
         },
@@ -6408,10 +6408,10 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "AppExecFwk",
-            "AppExecFwk::ExtensionAbilityType",
             "AAFwk::UIExtensionUsage",
-            "AAFwk"
+            "AppExecFwk",
+            "AAFwk",
+            "AppExecFwk::ExtensionAbilityType"
         ]
     },
     "ability_scheduler_interface": {
@@ -6432,12 +6432,12 @@
                         "return_type": "virtual bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "LifeCycleStateInfo"
+                                "type": "const LifeCycleStateInfo &",
+                                "name": "targetState"
                             },
                             {
                                 "type": "sptr<SessionInfo>",
@@ -6451,8 +6451,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "int32_t"
+                                "type": "const int32_t &",
+                                "name": "uniqueId"
                             }
                         ],
                         "is_const": true
@@ -6470,8 +6470,8 @@
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "resultWant"
                             }
                         ],
                         "is_const": true
@@ -6481,8 +6481,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": true
@@ -6492,8 +6492,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": true
@@ -6503,8 +6503,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "bool",
@@ -6522,12 +6522,12 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<SessionInfo> &",
+                                "name": "sessionInfo"
                             },
                             {
                                 "type": "WindowCommand",
@@ -6553,8 +6553,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "PacMap"
+                                "type": "const PacMap &",
+                                "name": "inState"
                             }
                         ],
                         "is_const": true
@@ -6564,12 +6564,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "mode"
                             }
                         ],
                         "is_const": true
@@ -6579,12 +6579,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "mode"
                             }
                         ],
                         "is_const": true
@@ -6594,12 +6594,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "NativeRdb"
+                                "type": "const NativeRdb::ValuesBucket &",
+                                "name": "value"
                             }
                         ],
                         "is_const": true
@@ -6609,16 +6609,16 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "NativeRdb"
+                                "type": "const NativeRdb::ValuesBucket &",
+                                "name": "value"
                             },
                             {
-                                "type": "const",
-                                "name": "NativeRdb"
+                                "type": "const NativeRdb::DataAbilityPredicates &",
+                                "name": "predicates"
                             }
                         ],
                         "is_const": true
@@ -6628,12 +6628,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "NativeRdb"
+                                "type": "const NativeRdb::DataAbilityPredicates &",
+                                "name": "predicates"
                             }
                         ],
                         "is_const": true
@@ -6643,8 +6643,8 @@
                         "return_type": "string",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             }
                         ],
                         "is_const": true
@@ -6654,12 +6654,12 @@
                         "return_type": "virtual bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "PacMap"
+                                "type": "const PacMap &",
+                                "name": "extras"
                             }
                         ],
                         "is_const": true
@@ -6669,12 +6669,12 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::vector<NativeRdb::ValuesBucket> &",
+                                "name": "values"
                             }
                         ],
                         "is_const": true
@@ -6684,12 +6684,12 @@
                         "return_type": "virtual bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IDataAbilityObserver> &",
+                                "name": "dataObserver"
                             }
                         ],
                         "is_const": true
@@ -6699,12 +6699,12 @@
                         "return_type": "virtual bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             },
                             {
-                                "type": "const",
-                                "name": "sptr"
+                                "type": "const sptr<IDataAbilityObserver> &",
+                                "name": "dataObserver"
                             }
                         ],
                         "is_const": true
@@ -6714,8 +6714,8 @@
                         "return_type": "virtual bool",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             }
                         ],
                         "is_const": true
@@ -6725,8 +6725,8 @@
                         "return_type": "virtual Uri",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             }
                         ],
                         "is_const": true
@@ -6736,8 +6736,8 @@
                         "return_type": "virtual Uri",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Uri"
+                                "type": "const Uri &",
+                                "name": "uri"
                             }
                         ],
                         "is_const": true
@@ -6747,7 +6747,7 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "deviceId"
                             },
                             {
@@ -6773,12 +6773,12 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::vector<std::string> &",
+                                "name": "params"
                             },
                             {
-                                "type": "std::vector<std::string> &info",
-                                "name": null
+                                "type": "std::vector<std::string> &",
+                                "name": "info"
                             }
                         ],
                         "is_const": true
@@ -6788,8 +6788,8 @@
                         "return_type": "virtual int",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": true
@@ -6799,8 +6799,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             }
                         ],
                         "is_const": true
@@ -6824,9 +6824,9 @@
                     }
                 ],
                 "namespace_uses": [
+                    "NativeRdb",
                     "AppExecFwk",
-                    "std",
-                    "NativeRdb"
+                    "std"
                 ]
             }
         },
@@ -6838,8 +6838,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
             "OHOS",
+            "std",
             "OHOS::AppExecFwk",
             "NativeRdb"
         ]
@@ -6883,7 +6883,7 @@
                                 "name": "toInfo"
                             },
                             {
-                                "type": "bool&",
+                                "type": "bool &",
                                 "name": "animaEnabled"
                             }
                         ],
@@ -6894,7 +6894,7 @@
                         "return_type": "virtual int32_t",
                         "parameters": [
                             {
-                                "type": "sptr<IRemoteObject>&",
+                                "type": "sptr<IRemoteObject> &",
                                 "name": "abilityToken"
                             }
                         ],
@@ -6961,7 +6961,7 @@
                         "return_type": "virtual int32_t",
                         "parameters": [
                             {
-                                "type": "const std::vector<int32_t>&",
+                                "type": "const std::vector<int32_t> &",
                                 "name": "missionIds"
                             },
                             {
@@ -6976,11 +6976,11 @@
                         "return_type": "virtual int32_t",
                         "parameters": [
                             {
-                                "type": "const std::vector<int32_t>&",
+                                "type": "const std::vector<int32_t> &",
                                 "name": "missionIds"
                             },
                             {
-                                "type": "std::vector<int32_t>&",
+                                "type": "std::vector<int32_t> &",
                                 "name": "result"
                             }
                         ],
@@ -6988,8 +6988,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "Media"
+                    "Media",
+                    "std"
                 ]
             }
         },
@@ -6998,9 +6998,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
+            "Media",
             "OHOS",
-            "Media"
+            "std"
         ]
     },
     "auto_startup_interface": {
@@ -7019,8 +7019,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AutoStartupInfo"
+                                "type": "const AutoStartupInfo &",
+                                "name": "info"
                             }
                         ],
                         "is_const": true
@@ -7030,8 +7030,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AutoStartupInfo"
+                                "type": "const AutoStartupInfo &",
+                                "name": "info"
                             }
                         ],
                         "is_const": true
@@ -7184,8 +7184,8 @@
         ],
         "namespace_uses": [
             "IMissionListener",
-            "OHOS::Media",
-            "std"
+            "std",
+            "OHOS::Media"
         ]
     },
     "acquire_share_data_callback_proxy": {
@@ -7230,20 +7230,20 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "Want"
+                                "type": "const Want &",
+                                "name": "want"
                             },
                             {
                                 "type": "int",
                                 "name": "resultCode"
                             },
                             {
-                                "type": "const",
-                                "name": "std"
+                                "type": "const std::string &",
+                                "name": "data"
                             },
                             {
-                                "type": "const",
-                                "name": "WantParams"
+                                "type": "const WantParams &",
+                                "name": "extras"
                             },
                             {
                                 "type": "bool",
@@ -7271,8 +7271,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "OHOS"
+            "OHOS",
+            "std"
         ]
     },
     "exit_reason": {
@@ -7288,8 +7288,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "Reason",
-            "std"
+            "std",
+            "Reason"
         ]
     },
     "ability_first_frame_state_observer_interface": {
@@ -7319,8 +7319,8 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const",
-                                "name": "AbilityFirstFrameStateData"
+                                "type": "const AbilityFirstFrameStateData &",
+                                "name": "abilityFirstFrameStateData"
                             }
                         ],
                         "is_const": true
@@ -7348,8 +7348,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "Media"
+            "Media",
+            "std"
         ]
     },
     "remote_mission_listener_interface": {
@@ -7367,7 +7367,7 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "deviceId"
                             }
                         ],
@@ -7378,7 +7378,7 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "deviceId"
                             },
                             {
@@ -7393,7 +7393,7 @@
                         "return_type": "virtual void",
                         "parameters": [
                             {
-                                "type": "const std::string&",
+                                "type": "const std::string &",
                                 "name": "deviceId"
                             },
                             {
@@ -7414,8 +7414,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "OHOS"
+            "OHOS",
+            "std"
         ]
     }
 }

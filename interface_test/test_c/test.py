@@ -50,14 +50,18 @@ def parse_header_file(file_path, module_name):
 
         # 提取类方法
         method_pattern = re.compile(
-            r'([a-zA-Z_][a-zA-Z0-9_ ]*\s+\*?\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(const|override|= 0)?\s*;'
+            r'([a-zA-Z_][a-zA-Z0-9_ ]*\s+\*?\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(const|override|= 0)?\s*;|explicit\s+([a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\))'
         )
         methods = []
         for method_match in method_pattern.finditer(class_body):
-            return_type = method_match.group(1).strip()
-            method_name = method_match.group(2).strip()
-            parameters = method_match.group(3).strip()
+            return_type = method_match.group(1).strip() if method_match.group(1) else "explicit"
+            method_name = method_match.group(2).strip() if method_match.group(2) else ""
+            parameters = method_match.group(3).strip() if method_match.group(3) else ""
             is_const = method_match.group(4) is not None
+
+            # 如果识别到构造函数并且包含 explicit 关键字
+            if method_name == class_name and "explicit" in return_type:
+                return_type = ""  # 将返回类型设置为空，因为构造函数没有返回类型
 
             # 解析参数，提取类型和名称
             param_list = parse_parameters(parameters)
@@ -109,23 +113,56 @@ def extract_namespace_uses(content):
         namespace_uses.add(match.group(1).strip())  # 添加到集合
     return list(namespace_uses)  # 转为列表返回
 
+import re
+
 def parse_parameters(parameters):
     """解析方法参数为类型和名称的列表"""
     param_list = []
+    
     if not parameters.strip():
         return param_list
+    
+    # 按逗号分隔参数
     params = parameters.split(',')
     for param in params:
         param = param.strip()
+        
         if param:
-            match = re.match(r'([a-zA-Z_][\w:<>*&\s]+)\s+([a-zA-Z_][\w]*)', param)
-            if match:
-                param_type = match.group(1).strip()
-                param_name = match.group(2).strip()
-                param_list.append({'type': param_type, 'name': param_name})
+            # 检查是否以 'const' 开头
+            const_modifier = ''
+            if param.startswith('const'):
+                const_modifier = 'const'
+                param = param[len(const_modifier):].strip()
+            
+            # 检查是否有 '&' 符号，如果有，将其分为类型和参数名
+            if '&' in param:
+                type_part, name_part = param.split('&', 1)
+                type_part = type_part.strip() + ' &'  # 包括 '&' 符号作为类型的一部分
+                param_name = name_part.strip()
+                
+                # 如果有 const 修饰符，将其附加到类型前
+                if const_modifier:
+                    type_part = f"{const_modifier} {type_part}"
+                
+                param_list.append({'type': type_part, 'name': param_name})
             else:
-                param_list.append({'type': param, 'name': None})  # 处理无法解析的情况
+                # 如果没有 '&' 符号，直接用正则提取类型和名称
+                match = re.match(r'([a-zA-Z_][\w:<>*&\s]+)\s+([a-zA-Z_][\w]*)', param)
+                if match:
+                    param_type = match.group(1).strip()  # 类型
+                    param_name = match.group(2).strip()  # 参数名
+                    
+                    # 如果有 const 修饰符，将其附加到类型前
+                    if const_modifier:
+                        param_type = f"{const_modifier} {param_type}"
+                    
+                    param_list.append({'type': param_type, 'name': param_name})
+                else:
+                    # 无法匹配的情况（例如默认值），直接添加
+                    param_list.append({'type': param, 'name': None})
+    
     return param_list
+
 
 def parse_folder(folder_path, module_prefix=""):
     """递归解析文件夹中的头文件和子文件夹"""
