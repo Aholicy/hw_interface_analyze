@@ -68,32 +68,62 @@ def extract_classes(content):
 def parse_parameters(parameters):
     """解析方法参数为类型和名称的列表"""
     param_list = []
+    
     if not parameters.strip():
         return param_list
+    
+    # 按逗号分隔参数
     params = parameters.split(',')
     for param in params:
         param = param.strip()
+        
         if param:
-            match = re.match(r'([a-zA-Z_][\w:<>*&\s]+)\s+([a-zA-Z_][\w]*)', param)
-            if match:
-                param_type = match.group(1).strip()
-                param_name = match.group(2).strip()
-                param_list.append({'type': param_type, 'name': param_name})
+            # 检查是否以 'const' 开头
+            const_modifier = ''
+            if param.startswith('const'):
+                const_modifier = 'const'
+                param = param[len(const_modifier):].strip()
+            
+            # 检查是否有 '&' 符号，如果有，将其分为类型和参数名
+            if '&' in param:
+                type_part, name_part = param.split('&', 1)
+                type_part = type_part.strip() + ' &'  # 包括 '&' 符号作为类型的一部分
+                param_name = name_part.strip()
+                
+                # 如果有 const 修饰符，将其附加到类型前
+                if const_modifier:
+                    type_part = f"{const_modifier} {type_part}"
+                
+                param_list.append({'type': type_part, 'name': param_name})
             else:
-                param_list.append({'type': param, 'name': None})  # 处理无法解析的情况
+                # 如果没有 '&' 符号，直接用正则提取类型和名称
+                match = re.match(r'([a-zA-Z_][\w:<>*&\s]+)\s+([a-zA-Z_][\w]*)', param)
+                if match:
+                    param_type = match.group(1).strip()  # 类型
+                    param_name = match.group(2).strip()  # 参数名
+                    
+                    # 如果有 const 修饰符，将其附加到类型前
+                    if const_modifier:
+                        param_type = f"{const_modifier} {param_type}"
+                    
+                    param_list.append({'type': param_type, 'name': param_name})
+                else:
+                    # 无法匹配的情况（例如默认值），直接添加
+                    param_list.append({'type': param, 'name': None})
+    
     return param_list
 
-def extract_parameter_types(parameter_string):
-    """精确提取函数参数的类型"""
-    if not parameter_string.strip():
-        return []
-    parameters = parameter_string.split(',')
-    types = []
-    for param in parameters:
-        type_part = re.sub(r'[\w]+$', '', param).strip()  # 去掉变量名，仅保留类型
-        type_part = type_part.replace('*', '').replace('&', '').strip()  # 处理指针和引用
-        types.append(type_part)
-    return types
+# def extract_parameter_types(parameter_string):
+#     """精确提取函数参数的类型"""
+#     if not parameter_string.strip():
+#         return []
+#     parameters = parameter_string.split(',')
+#     types = []
+#     for param in parameters:
+#         type_part = re.sub(r'[\w]+$', '', param).strip()  # 去掉变量名，仅保留类型
+#         type_part = type_part.replace('*', '').replace('&', '').strip()  # 处理指针和引用
+#         types.append(type_part)
+#     return types
 
 def find_definitions(symbols, include_paths):
     """查找符号定义"""
@@ -113,6 +143,9 @@ def analyze_dependencies(parsed_data, folder_path):
     """分析继承类和函数参数类型的依赖"""
     all_includes = set()
 
+    # 常见类型排除列表
+    exclude_types = {'int', 'int32_t', 'int64_t', 'float', 'double', 'char', 'bool', 'short', 'long', 'string', 'std::string','uint64_t'}
+
     for module, data in parsed_data.items():
      
         all_includes.update(data['includes'])
@@ -128,10 +161,27 @@ def analyze_dependencies(parsed_data, folder_path):
                 inheritance_definitions = find_definitions([base_class], include_paths)
                 class_data['dependencies']['inheritance'] = inheritance_definitions.get(base_class)
 
-            # 方法参数依赖
+            # 方法参数依赖，排除常见类型
             param_dependencies = {}
             for method in class_data['methods']:
                 param_types = {param['type'] for param in method['parameters']}
+
+                param_types = {ptype[5:] if ptype.startswith('const') else ptype for ptype in param_types}
+                param_types = {ptype[:-1] if ptype.endswith('&') else ptype for ptype in param_types}
+
+                # 提取尖括号内的内容
+                extracted_types = set()
+                for ptype in param_types:
+                    match = re.search(r'<(.*?)>', ptype)
+                    if match:
+                        extracted_types.add(match.group(1))
+                param_types.update(extracted_types)
+
+                # 去除空格内容
+                param_types = {ptype.strip() for ptype in param_types}
+                # 过滤掉常见类型
+                param_types = {ptype for ptype in param_types if ptype.split()[0] not in exclude_types}
+
                 param_definitions = find_definitions(param_types, include_paths)
                 param_dependencies[method['name']] = param_definitions  # 按方法存储参数依赖
             
