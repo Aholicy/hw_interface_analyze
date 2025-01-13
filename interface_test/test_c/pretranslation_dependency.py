@@ -5,7 +5,7 @@ import json
 import shlex
 
 # 初始化libclang
-clang.cindex.Config.set_library_file("/usr/lib/llvm-14/lib/libclang.so")  # 修改为你的libclang路径
+clang.cindex.Config.set_library_file("/usr/lib/llvm-14/lib/libclang.so")  
 
 # 读取文件中的代码片段
 def get_source_code_from_extent(extent):
@@ -90,9 +90,9 @@ def visit_children(source, node, filename, function_dependencies, file_dependenc
         # 处理全局变量声明
         elif child.kind == clang.cindex.CursorKind.VAR_DECL:
             if child.linkage == clang.cindex.LinkageKind.EXTERNAL:  # 过滤出全局变量
-                if child.spelling != "OHOS":  # 防止错误识别为全局变量
-                    source['head']['global_variable'][str(child.spelling)] = get_source_code_from_extent(child.extent)
-                    debug_info.append(f"Global Variable found: {child.spelling}")
+                
+                source['head']['global_variable'][str(child.spelling)] = get_source_code_from_extent(child.extent)
+                debug_info.append(f"Global Variable found: {child.spelling}")
 
         # 处理typedef声明
         elif child.kind == clang.cindex.CursorKind.TYPEDEF_DECL:
@@ -152,7 +152,7 @@ def filter_source_file(filename, new_filename):
     os.system(f'clang-format -style=google -i {shlex.quote(new_filename)}')
 
 # 分析源代码文件和依赖关系
-def analyze(filename, CFLAGS = '-E', INCLUDE = '', debug_info = []):
+def analyze(filename, CFLAGS = '-E -O2 -Wall -DALLOC_TESTING', INCLUDE = '', debug_info = []):
     name, ext = os.path.splitext(filename)
     new_filename = './Output/' + os.path.basename(name) + '.tmp' + ext
 
@@ -164,7 +164,7 @@ def analyze(filename, CFLAGS = '-E', INCLUDE = '', debug_info = []):
     compile_command = [
         'clang++', CFLAGS, INCLUDE,
         '-std=c++11', '-stdlib=libc++',
-        '-I/usr/lib/llvm-14/lib/clang/14.0.0',  # 示例路径，可能需要根据你的环境调整
+        '-I/usr/lib/llvm-14/lib/clang/14.0.0',  
         '-I/usr/include/c++/11',
         '-I/usr/include/x86_64-linux-gnu/c++/11/',
         filename, '-o', new_filename,
@@ -184,7 +184,7 @@ def analyze(filename, CFLAGS = '-E', INCLUDE = '', debug_info = []):
     source['head']['global_variable'] = {}
     source['head']['typedef'] = {}
     source['head']['enum'] = {}
-    source['head']['namespace'] = {}  # 新增字段，存储namespace信息
+    source['head']['namespace'] = {}  
     source['function'] = {}
 
     # 分析预处理后的文件并获取函数依赖关系

@@ -77,9 +77,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "ProcessMode",
             "StartupVisibility",
-            "std",
-            "ProcessMode"
+            "std"
         ]
     },
     "start_options": {
@@ -158,8 +158,8 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "std",
-            "IRemoteObject"
+            "IRemoteObject",
+            "std"
         ]
     },
     "ability_manager_interface": {
@@ -373,13 +373,13 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityRuntime",
-            "AAFwk",
-            "OHOS::Media",
             "AppExecFwk::ExtensionAbilityType",
             "Want",
-            "OHOS",
             "std",
+            "AbilityRuntime",
+            "OHOS::Media",
+            "OHOS",
+            "AAFwk",
             "AppExecFwk"
         ]
     },
@@ -505,8 +505,8 @@
         ],
         "namespace_uses": []
     },
-    "continuation.remote_register_service_interface": {
-        "module": "continuation.remote_register_service_interface",
+    "continuation/remote_register_service_interface": {
+        "module": "continuation/remote_register_service_interface",
         "includes": [
             "iremote_broker.h",
             "extra_params.h",
@@ -599,8 +599,8 @@
             "std"
         ]
     },
-    "continuation.connect_callback_interface": {
-        "module": "continuation.connect_callback_interface",
+    "continuation/connect_callback_interface": {
+        "module": "continuation/connect_callback_interface",
         "includes": [
             "iremote_broker.h"
         ],
@@ -859,8 +859,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "OHOS::AAFwk",
                     "AppExecFwk",
+                    "OHOS::AAFwk",
                     "AAFwk"
                 ]
             }
@@ -870,10 +870,10 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "AAFwk",
-            "std",
             "OHOS::AAFwk",
+            "std",
             "IRemoteObject",
+            "AAFwk",
             "AppExecFwk"
         ]
     },
@@ -957,8 +957,8 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "std",
-            "InnerEvent"
+            "InnerEvent",
+            "std"
         ]
     },
     "remote_mission_listener_proxy": {
@@ -3855,13 +3855,13 @@
                     }
                 ],
                 "namespace_uses": [
-                    "AbilityRuntime",
-                    "AAFwk",
-                    "OHOS::Media",
                     "AppExecFwk::ExtensionAbilityType",
                     "Want",
+                    "AbilityRuntime",
                     "std",
+                    "OHOS::Media",
                     "IRemoteObject",
+                    "AAFwk",
                     "AppExecFwk"
                 ]
             }
@@ -3871,13 +3871,13 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityRuntime",
-            "AAFwk",
-            "OHOS::Media",
             "AppExecFwk::ExtensionAbilityType",
             "Want",
             "std",
+            "AbilityRuntime",
+            "OHOS::Media",
             "IRemoteObject",
+            "AAFwk",
             "AppExecFwk"
         ]
     },
@@ -3898,8 +3898,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
-            "AAFwk"
+            "AAFwk",
+            "std"
         ]
     },
     "auto_startup_callback_proxy": {
@@ -3987,8 +3987,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "Want",
             "AppExecFwk",
+            "Want",
             "std"
         ]
     },
@@ -5055,8 +5055,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "IRemoteObject"
+                    "IRemoteObject",
+                    "std"
                 ]
             }
         },
@@ -5065,9 +5065,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityRuntime",
             "std",
-            "IRemoteObject"
+            "IRemoteObject",
+            "AbilityRuntime"
         ]
     },
     "wants_info": {
@@ -5139,8 +5139,8 @@
         ],
         "namespace_uses": []
     },
-    "insight_intent.insight_intent_execute_callback_interface": {
-        "module": "insight_intent.insight_intent_execute_callback_interface",
+    "insight_intent/insight_intent_execute_callback_interface": {
+        "module": "insight_intent/insight_intent_execute_callback_interface",
         "includes": [
             "insight_intent_execute_result.h",
             "iremote_broker.h"
@@ -5184,8 +5184,8 @@
             "OHOS"
         ]
     },
-    "insight_intent.insight_intent_execute_param": {
-        "module": "insight_intent.insight_intent_execute_param",
+    "insight_intent/insight_intent_execute_param": {
+        "module": "insight_intent/insight_intent_execute_param",
         "includes": [
             "parcel.h",
             "want.h"
@@ -5271,8 +5271,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "AAFwk"
+                    "AAFwk",
+                    "std"
                 ]
             }
         },
@@ -5281,13 +5281,13 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "std",
             "OHOS::AAFwk",
-            "AAFwk"
+            "AAFwk",
+            "std"
         ]
     },
-    "insight_intent.insight_intent_constant": {
-        "module": "insight_intent.insight_intent_constant",
+    "insight_intent/insight_intent_constant": {
+        "module": "insight_intent/insight_intent_constant",
         "includes": [
             "ability_manager_errors.h"
         ],
@@ -5331,8 +5331,8 @@
             "AAFwk"
         ]
     },
-    "insight_intent.insight_intent_execute_callback_stub": {
-        "module": "insight_intent.insight_intent_execute_callback_stub",
+    "insight_intent/insight_intent_execute_callback_stub": {
+        "module": "insight_intent/insight_intent_execute_callback_stub",
         "includes": [
             "event_handler.h",
             "insight_intent_execute_callback_interface.h"
@@ -5348,8 +5348,8 @@
             "std"
         ]
     },
-    "insight_intent.insight_intent_execute_callback_proxy": {
-        "module": "insight_intent.insight_intent_execute_callback_proxy",
+    "insight_intent/insight_intent_execute_callback_proxy": {
+        "module": "insight_intent/insight_intent_execute_callback_proxy",
         "includes": [
             "iremote_proxy.h",
             "insight_intent_execute_callback_interface.h"
@@ -5364,8 +5364,8 @@
             "AppExecFwk"
         ]
     },
-    "insight_intent.insight_intent_utils": {
-        "module": "insight_intent.insight_intent_utils",
+    "insight_intent/insight_intent_utils": {
+        "module": "insight_intent/insight_intent_utils",
         "includes": [
             "bundlemgr/bundle_mgr_interface.h",
             "element_name.h",
@@ -5415,8 +5415,8 @@
             "std"
         ]
     },
-    "insight_intent.insight_intent_execute_result": {
-        "module": "insight_intent.insight_intent_execute_result",
+    "insight_intent/insight_intent_execute_result": {
+        "module": "insight_intent/insight_intent_execute_result",
         "includes": [
             "insight_intent_constant.h",
             "parcel.h",
@@ -5463,8 +5463,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "AAFwk"
+            "AAFwk",
+            "std"
         ]
     },
     "launch_param": {
@@ -5479,9 +5479,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "LaunchReason",
             "LastExitReason",
-            "std",
-            "LaunchReason"
+            "std"
         ]
     },
     "ability_start_setting": {
@@ -5606,8 +5606,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AppExecFwk",
             "AppExecFwk::DisplayOrientation",
+            "AppExecFwk",
             "TransitionReason",
             "std"
         ]
@@ -5627,8 +5627,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
-            "OHOS::Media"
+            "OHOS::Media",
+            "std"
         ]
     },
     "atomic_service_status_callback_proxy": {
@@ -5659,8 +5659,8 @@
                 "base_class": null,
                 "methods": [],
                 "namespace_uses": [
-                    "std",
-                    "OHOS::Media"
+                    "OHOS::Media",
+                    "std"
                 ]
             },
             "ISnapshotHandler": {
@@ -5674,9 +5674,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "OHOS::Media",
             "OHOS",
-            "std",
-            "OHOS::Media"
+            "std"
         ]
     },
     "window_manager_service_handler_proxy": {
@@ -5988,8 +5988,8 @@
             "OHOS"
         ]
     },
-    "status_bar_delegate.status_bar_delegate_proxy": {
-        "module": "status_bar_delegate.status_bar_delegate_proxy",
+    "status_bar_delegate/status_bar_delegate_proxy": {
+        "module": "status_bar_delegate/status_bar_delegate_proxy",
         "includes": [
             "iremote_proxy.h",
             "status_bar_delegate_interface.h"
@@ -6004,8 +6004,8 @@
             "std"
         ]
     },
-    "status_bar_delegate.status_bar_delegate_interface": {
-        "module": "status_bar_delegate.status_bar_delegate_interface",
+    "status_bar_delegate/status_bar_delegate_interface": {
+        "module": "status_bar_delegate/status_bar_delegate_interface",
         "includes": [
             "iremote_broker.h"
         ],
@@ -6026,8 +6026,8 @@
             "std"
         ]
     },
-    "status_bar_delegate.status_bar_delegate_stub": {
-        "module": "status_bar_delegate.status_bar_delegate_stub",
+    "status_bar_delegate/status_bar_delegate_stub": {
+        "module": "status_bar_delegate/status_bar_delegate_stub",
         "includes": [
             "nocopyable.h",
             "status_bar_delegate_interface.h"
@@ -6053,8 +6053,8 @@
         ],
         "namespace_uses": [
             "KeepAliveSetter",
-            "std",
-            "KeepAliveAppType"
+            "KeepAliveAppType",
+            "std"
         ]
     },
     "free_install_observer_interface": {
@@ -6204,8 +6204,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
-            "IRemoteObject"
+            "IRemoteObject",
+            "std"
         ]
     },
     "mission_listener_interface": {
@@ -6272,13 +6272,13 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "OHOS::Media",
             "OHOS",
-            "std",
-            "OHOS::Media"
+            "std"
         ]
     },
-    "ui_extension.ui_extension_host_info": {
-        "module": "ui_extension.ui_extension_host_info",
+    "ui_extension/ui_extension_host_info": {
+        "module": "ui_extension/ui_extension_host_info",
         "includes": [
             "element_name.h",
             "parcel.h"
@@ -6324,8 +6324,8 @@
             "AppExecFwk"
         ]
     },
-    "ui_extension.ui_extension_ability_connect_info": {
-        "module": "ui_extension.ui_extension_ability_connect_info",
+    "ui_extension/ui_extension_ability_connect_info": {
+        "module": "ui_extension/ui_extension_ability_connect_info",
         "includes": [
             "parcel.h"
         ],
@@ -6370,8 +6370,8 @@
             "std"
         ]
     },
-    "ui_extension.ui_extension_session_info": {
-        "module": "ui_extension.ui_extension_session_info",
+    "ui_extension/ui_extension_session_info": {
+        "module": "ui_extension/ui_extension_session_info",
         "includes": [
             "element_name.h",
             "extension_ability_info.h",
@@ -6396,10 +6396,10 @@
                     }
                 ],
                 "namespace_uses": [
-                    "AAFwk::UIExtensionUsage",
                     "AppExecFwk",
+                    "AppExecFwk::ExtensionAbilityType",
                     "AAFwk",
-                    "AppExecFwk::ExtensionAbilityType"
+                    "AAFwk::UIExtensionUsage"
                 ]
             }
         },
@@ -6408,10 +6408,10 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "AAFwk::UIExtensionUsage",
             "AppExecFwk",
+            "AppExecFwk::ExtensionAbilityType",
             "AAFwk",
-            "AppExecFwk::ExtensionAbilityType"
+            "AAFwk::UIExtensionUsage"
         ]
     },
     "ability_scheduler_interface": {
@@ -6837,11 +6837,11 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AppExecFwk",
-            "OHOS",
             "std",
+            "OHOS",
+            "NativeRdb",
             "OHOS::AppExecFwk",
-            "NativeRdb"
+            "AppExecFwk"
         ]
     },
     "atomic_service_status_callback_stub": {
@@ -7183,9 +7183,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "OHOS::Media",
             "IMissionListener",
-            "std",
-            "OHOS::Media"
+            "std"
         ]
     },
     "acquire_share_data_callback_proxy": {
@@ -7288,8 +7288,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "Reason"
+            "Reason",
+            "std"
         ]
     },
     "ability_first_frame_state_observer_interface": {

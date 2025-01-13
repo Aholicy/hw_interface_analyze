@@ -1,0 +1,51 @@
+{
+    
+    "ability_first_frame_state_observer_stub": {
+        "module": "ability_first_frame_state_observer_stub",
+        "includes": [
+            "ability_first_frame_state_observer_interface.h",
+            "iremote_stub.h"
+        ],
+        "enums": [],
+        "classes": {
+            "AbilityFirstFrameStateObserverRecipient": {
+                "base_class": "IRemoteObject::DeathRecipient",
+                "methods": [
+                    {
+                        "name": "AbilityFirstFrameStateObserverRecipient",
+                        "return_type": "",
+                        "parameters": [
+                            {
+                                "type": "RemoteDiedHandler",
+                                "name": "handler"
+                            }
+                        ],
+                        "is_const": false
+                    },
+                    {
+                        "name": "OnRemoteDied",
+                        "return_type": "void",
+                        "parameters": [
+                            {
+                                "type": "const wptr<IRemoteObject> &",
+                                "name": "remote"
+                            }
+                        ],
+                        "is_const": true
+                    }
+                ],
+                "namespace_uses": [
+                    "std"
+                ]
+            }
+        },
+        "namespaces": [
+            "OHOS",
+            "AppExecFwk"
+        ],
+        "namespace_uses": [
+            "IRemoteObject",
+            "std"
+        ]
+    }
+} 

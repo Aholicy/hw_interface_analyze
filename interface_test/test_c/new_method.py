@@ -125,19 +125,66 @@ def parse_parameters(parameters):
 #         types.append(type_part)
 #     return types
 
-def find_definitions(symbols, include_paths):
-    """查找符号定义"""
+# def find_definitions(symbols, include_paths):
+#     """查找符号定义"""
+#     definitions = {}
+#     for include_path in include_paths:
+#         if not os.path.exists(include_path):
+#             continue
+#         with open(include_path, 'r', encoding='utf-8') as file:
+#             content = file.read()
+
+#         for symbol in symbols:
+#             if re.search(r'\b' + re.escape(symbol) + r'\b', content):
+#                 definitions[symbol] = include_path
+#     return definitions
+def find_definitions(symbols, include_paths, checked_files=None):
+    """查找符号定义，支持递归查找，并避免重复检查"""
+    if checked_files is None:
+        checked_files = set()
+
     definitions = {}
+
+    # 遍历所有include路径
     for include_path in include_paths:
-        if not os.path.exists(include_path):
+        if not os.path.exists(include_path) or include_path in checked_files:
             continue
+
+        checked_files.add(include_path)
+
         with open(include_path, 'r', encoding='utf-8') as file:
             content = file.read()
 
+        # 查找符号的定义
         for symbol in symbols:
-            if re.search(r'\b' + re.escape(symbol) + r'\b', content):
+            # 检查符号是否是类、函数或其他符号的定义
+            # 类定义
+            class_pattern = re.compile(r'class\s+' + re.escape(symbol) + r'\s*\(', re.DOTALL)
+            function_pattern = re.compile(r'(\w[\w:<>*&\s]+)\s+' + re.escape(symbol) + r'\s*\(', re.DOTALL)
+            enum_pattern = re.compile(r'enum\s+class\s+' + re.escape(symbol) + r'\s*\{', re.DOTALL)
+
+            if class_pattern.search(content):
                 definitions[symbol] = include_path
+                continue
+            elif function_pattern.search(content):
+                definitions[symbol] = include_path
+                continue
+            elif enum_pattern.search(content):
+                definitions[symbol] = include_path
+                continue
+
+        # 递归查找#includes的文件
+        includes = re.findall(r'#include\s+"([\w./]+)"', content)
+        # 避免重复检查同一个文件，继续递归寻找定义
+        for include in includes:
+            # 构建完整路径并递归查找
+            include_full_path = os.path.join(os.path.dirname(include_path), include)
+            if include_full_path not in checked_files:
+                nested_definitions = find_definitions(symbols, [include_full_path], checked_files)
+                definitions.update(nested_definitions)
+
     return definitions
+
 
 def analyze_dependencies(parsed_data, folder_path):
     """分析继承类和函数参数类型的依赖"""

@@ -85,9 +85,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "ProcessMode",
             "StartupVisibility",
-            "std",
-            "ProcessMode"
+            "std"
         ]
     },
     "start_options": {
@@ -173,8 +173,8 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "std",
-            "IRemoteObject"
+            "IRemoteObject",
+            "std"
         ]
     },
     "ability_manager_interface": {
@@ -381,22 +381,11 @@
                 ],
                 "namespace_uses": [],
                 "dependencies": {
-                    "inheritance": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
+                    "inheritance": null,
                     "parameters": {
-                        "StartAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/want_receiver_interface.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/start_options.h"
-                        },
-                        "StartAbilityWithSpecifyTokenId": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/want_receiver_interface.h",
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h"
-                        },
-                        "StartAbilityByInsightIntent": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_manager_service_handler.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/want_receiver_interface.h"
-                        }
+                        "StartAbility": {},
+                        "StartAbilityWithSpecifyTokenId": {},
+                        "StartAbilityByInsightIntent": {}
                     }
                 }
             }
@@ -407,13 +396,13 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityRuntime",
-            "AAFwk",
-            "OHOS::Media",
             "AppExecFwk::ExtensionAbilityType",
             "Want",
-            "OHOS",
             "std",
+            "AbilityRuntime",
+            "OHOS::Media",
+            "OHOS",
+            "AAFwk",
             "AppExecFwk"
         ]
     },
@@ -549,8 +538,8 @@
         ],
         "namespace_uses": []
     },
-    "continuation.remote_register_service_interface": {
-        "module": "continuation.remote_register_service_interface",
+    "continuation/remote_register_service_interface": {
+        "module": "continuation/remote_register_service_interface",
         "includes": [
             "iremote_broker.h",
             "extra_params.h",
@@ -652,8 +641,8 @@
             "std"
         ]
     },
-    "continuation.connect_callback_interface": {
-        "module": "continuation.connect_callback_interface",
+    "continuation/connect_callback_interface": {
+        "module": "continuation/connect_callback_interface",
         "includes": [
             "iremote_broker.h"
         ],
@@ -864,14 +853,10 @@
                     "std"
                 ],
                 "dependencies": {
-                    "inheritance": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h",
+                    "inheritance": null,
                     "parameters": {
-                        "AssertFaultRemoteDeathRecipient": {
-                            "RemoteDiedHandler": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
-                        },
-                        "OnRemoteDied": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
-                        }
+                        "AssertFaultRemoteDeathRecipient": {},
+                        "OnRemoteDied": {}
                     }
                 }
             },
@@ -936,8 +921,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "OHOS::AAFwk",
                     "AppExecFwk",
+                    "OHOS::AAFwk",
                     "AAFwk"
                 ],
                 "dependencies": {
@@ -945,13 +930,8 @@
                     "parameters": {
                         "CreateModalUIExtension": {},
                         "SetReqeustAssertDialogWant": {},
-                        "OnAbilityConnectDone": {
-                            "AppExecFwk::ElementName": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h",
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
-                        },
-                        "OnAbilityDisconnectDone": {
-                            "AppExecFwk::ElementName": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_stub.h"
-                        }
+                        "OnAbilityConnectDone": {},
+                        "OnAbilityDisconnectDone": {}
                     }
                 }
             }
@@ -961,10 +941,10 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "AAFwk",
-            "std",
             "OHOS::AAFwk",
+            "std",
             "IRemoteObject",
+            "AAFwk",
             "AppExecFwk"
         ]
     },
@@ -1054,8 +1034,8 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "std",
-            "InnerEvent"
+            "InnerEvent",
+            "std"
         ]
     },
     "remote_mission_listener_proxy": {
@@ -3952,518 +3932,191 @@
                     }
                 ],
                 "namespace_uses": [
-                    "AbilityRuntime",
-                    "AAFwk",
-                    "OHOS::Media",
                     "AppExecFwk::ExtensionAbilityType",
                     "Want",
+                    "AbilityRuntime",
                     "std",
+                    "OHOS::Media",
                     "IRemoteObject",
+                    "AAFwk",
                     "AppExecFwk"
                 ],
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
                         "RemoveDeathRecipient": {},
-                        "AttachAbilityThread": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "IAbilityScheduler": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "AbilityTransitionDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "PacMap": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "AbilityWindowConfigTransitionDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "WindowConfig": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "ScheduleConnectAbilityDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ScheduleDisconnectAbilityDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ScheduleCommandAbilityDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ScheduleCommandAbilityWindowDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
-                            "WindowCommand": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
-                            "AbilityCommand": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetTopAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "GetElementNameByToken": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "StartAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "StartAbilityByInsightIntent": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "StartAbilityAsCaller": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "StartAbilityForResultAsCaller": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "StartAbilityByUIContentSession": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "AAFwk::SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "StartAbilityOnlyUIAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "StartExtensionAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "AppExecFwk::ExtensionAbilityType": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RequestModalUIExtension": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "PreloadUIExtensionAbility": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "ChangeAbilityVisibility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ChangeUIAbilityVisibilityBySCB": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "StartUIExtensionAbility": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "StartUIAbilityBySCB": {
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "StopExtensionAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "AppExecFwk::ExtensionAbilityType": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "TerminateAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want *resultWant": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "BackToCallerAbilityWithResult": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want *resultWant": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "TerminateUIServiceExtensionAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "TerminateUIExtensionAbility": {
-                            "Want *resultWant = nullptr": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "CloseUIExtensionAbilityBySCB": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "CloseUIAbilityBySCB": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "SendResultToAbility": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "MoveAbilityToBackground": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "MoveUIAbilityToBackground": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "CloseAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want *resultWant = nullptr": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "MinimizeAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "MinimizeUIExtensionAbility": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "MinimizeUIAbilityBySCB": {
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "ConnectAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "ConnectUIServiceExtesnionAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "ConnectDataShareExtensionAbility": {
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "ConnectExtensionAbility": {
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "AttachAbilityThread": {},
+                        "AbilityTransitionDone": {},
+                        "AbilityWindowConfigTransitionDone": {},
+                        "ScheduleConnectAbilityDone": {},
+                        "ScheduleDisconnectAbilityDone": {},
+                        "ScheduleCommandAbilityDone": {},
+                        "ScheduleCommandAbilityWindowDone": {},
+                        "GetTopAbility": {},
+                        "GetElementNameByToken": {},
+                        "StartAbility": {},
+                        "StartAbilityByInsightIntent": {},
+                        "StartAbilityAsCaller": {},
+                        "StartAbilityForResultAsCaller": {},
+                        "StartAbilityByUIContentSession": {},
+                        "StartAbilityOnlyUIAbility": {},
+                        "StartExtensionAbility": {},
+                        "RequestModalUIExtension": {},
+                        "PreloadUIExtensionAbility": {},
+                        "ChangeAbilityVisibility": {},
+                        "ChangeUIAbilityVisibilityBySCB": {},
+                        "StartUIExtensionAbility": {},
+                        "StartUIAbilityBySCB": {},
+                        "StopExtensionAbility": {},
+                        "TerminateAbility": {},
+                        "BackToCallerAbilityWithResult": {},
+                        "TerminateUIServiceExtensionAbility": {},
+                        "TerminateUIExtensionAbility": {},
+                        "CloseUIExtensionAbilityBySCB": {},
+                        "CloseUIAbilityBySCB": {},
+                        "SendResultToAbility": {},
+                        "MoveAbilityToBackground": {},
+                        "MoveUIAbilityToBackground": {},
+                        "CloseAbility": {},
+                        "MinimizeAbility": {},
+                        "MinimizeUIExtensionAbility": {},
+                        "MinimizeUIAbilityBySCB": {},
+                        "ConnectAbility": {},
+                        "ConnectUIServiceExtesnionAbility": {},
+                        "ConnectDataShareExtensionAbility": {},
+                        "ConnectExtensionAbility": {},
                         "ConnectUIExtensionAbility": {
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "UIExtensionAbilityConnectInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
+                            "UIExtensionAbilityConnectInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ui_extension/ui_extension_ability_connect_info.h"
                         },
-                        "DisconnectAbility": {
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "ReleaseDataAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "IAbilityScheduler": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
+                        "DisconnectAbility": {},
+                        "ReleaseDataAbility": {},
                         "DumpState": {},
                         "DumpSysState": {},
                         "Connect": {},
-                        "StopServiceAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "StopServiceAbility": {},
                         "KillProcess": {},
                         "ForceTimeoutForTest": {},
-                        "ContinueMission": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "AAFwk::ContinueMissionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "StartContinuation": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "ContinueMission": {},
+                        "StartContinuation": {},
                         "NotifyCompleteContinuation": {},
-                        "ContinueAbility": {
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
+                        "ContinueAbility": {},
                         "NotifyContinuationResult": {},
                         "LockMissionForCleanup": {},
                         "UnlockMissionForCleanup": {},
                         "SetLockedState": {},
-                        "RegisterMissionListener": {
-                            "IRemoteMissionListener": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "UnRegisterMissionListener": {
-                            "IRemoteMissionListener": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RegisterOnListener": {
-                            "IRemoteOnListener": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RegisterOffListener": {
-                            "IRemoteOnListener": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetMissionInfos": {
-                            "MissionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "GetMissionInfo": {
-                            "MissionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "GetMissionSnapshot": {
-                            "MissionSnapshot": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "RegisterMissionListener": {},
+                        "UnRegisterMissionListener": {},
+                        "RegisterOnListener": {},
+                        "RegisterOffListener": {},
+                        "GetMissionInfos": {},
+                        "GetMissionInfo": {},
+                        "GetMissionSnapshot": {},
                         "CleanMission": {},
                         "CleanAllMissions": {},
-                        "MoveMissionToFront": {
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "MoveMissionToFront": {},
                         "MoveMissionsToForeground": {},
                         "MoveMissionsToBackground": {},
-                        "GetMissionIdByToken": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "StartAbilityByCall": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "CallRequestDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "GetAbilityTokenByCalleeObj": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ReleaseCall": {
-                            "IAbilityConnection": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h",
-                            "AppExecFwk::ElementName": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetAbilityRunningInfos": {
-                            "AbilityRunningInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetExtensionRunningInfos": {
-                            "ExtensionRunningInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetProcessRunningInfos": {
-                            "AppExecFwk::RunningProcessInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "GetMissionIdByToken": {},
+                        "StartAbilityByCall": {},
+                        "CallRequestDone": {},
+                        "GetAbilityTokenByCalleeObj": {},
+                        "ReleaseCall": {},
+                        "GetAbilityRunningInfos": {},
+                        "GetExtensionRunningInfos": {},
+                        "GetProcessRunningInfos": {},
                         "StartSyncRemoteMissions": {},
                         "StopSyncRemoteMissions": {},
-                        "StartUser": {
-                            "IUserCallback": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "StopUser": {
-                            "IUserCallback": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "StartUser": {},
+                        "StopUser": {},
                         "LogoutUser": {},
-                        "RegisterSnapshotHandler": {
-                            "ISnapshotHandler": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "PrepareTerminateAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "IPrepareTerminateCallback": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RegisterStatusBarDelegate": {
-                            "AbilityRuntime::IStatusBarDelegate": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "RegisterSnapshotHandler": {},
+                        "PrepareTerminateAbility": {},
+                        "RegisterStatusBarDelegate": {},
                         "KillProcessWithPrepareTerminate": {},
-                        "RegisterAutoStartupSystemCallback": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "UnregisterAutoStartupSystemCallback": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "SetApplicationAutoStartup": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "CancelApplicationAutoStartup": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "QueryAllAutoStartupApplications": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "PrepareTerminateAbilityBySCB": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "SetMissionContinueState": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "AAFwk::ContinueState": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "SetMissionLabel": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "SetMissionIcon": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "OHOS::Media::PixelMap": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "RegisterWindowManagerServiceHandler": {
-                            "IWindowManagerServiceHandler": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "RegisterAutoStartupSystemCallback": {},
+                        "UnregisterAutoStartupSystemCallback": {},
+                        "SetApplicationAutoStartup": {},
+                        "CancelApplicationAutoStartup": {},
+                        "QueryAllAutoStartupApplications": {},
+                        "PrepareTerminateAbilityBySCB": {},
+                        "SetMissionContinueState": {},
+                        "SetMissionLabel": {},
+                        "SetMissionIcon": {},
+                        "RegisterWindowManagerServiceHandler": {},
                         "CompleteFirstFrameDrawing": {},
-                        "UpdateMissionSnapShot": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "OHOS::Media::PixelMap": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "GetDialogSessionInfo": {
-                            "DialogSessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "SendDialogResult": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "StartUserTest": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "UpdateMissionSnapShot": {},
+                        "GetDialogSessionInfo": {},
+                        "SendDialogResult": {},
+                        "StartUserTest": {},
                         "FinishUserTest": {},
-                        "CheckUIExtensionIsFocused": {
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "DelegatorDoAbilityForeground": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "DelegatorDoAbilityBackground": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "DoAbilityForeground": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "DoAbilityBackground": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "SetAbilityController": {
-                            "AppExecFwk::IAbilityController": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "FreeInstallAbilityFromRemote": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "DumpAbilityInfoDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "EnableRecoverAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "SubmitSaveRecoveryInfo": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ScheduleRecoverAbility": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want *want = nullptr": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "CheckUIExtensionIsFocused": {},
+                        "DelegatorDoAbilityForeground": {},
+                        "DelegatorDoAbilityBackground": {},
+                        "DoAbilityForeground": {},
+                        "DoAbilityBackground": {},
+                        "SetAbilityController": {},
+                        "FreeInstallAbilityFromRemote": {},
+                        "DumpAbilityInfoDone": {},
+                        "EnableRecoverAbility": {},
+                        "SubmitSaveRecoveryInfo": {},
+                        "ScheduleRecoverAbility": {},
                         "ScheduleClearRecoveryPageStack": {},
-                        "AddFreeInstallObserver": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "AbilityRuntime::IFreeInstallObserver": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "IsValidMissionIds": {
-                            "MissionValidResult": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "AddFreeInstallObserver": {},
+                        "IsValidMissionIds": {},
                         "VerifyPermission": {},
-                        "AcquireShareData": {
-                            "IAcquireShareDataCallback": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "ShareDataDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "WantParams": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RequestDialogService": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "ForceExitApp": {
-                            "ExitReason": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RecordAppExitReason": {
-                            "ExitReason": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "RecordProcessExitReason": {
-                            "ExitReason": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "SetRootSceneSession": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "CallUIAbilityBySCB": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "StartSpecifiedAbilityBySCB": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "NotifySaveAsResult": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "SetSessionManagerService": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "ReportDrawnCompleted": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "RegisterIAbilityManagerCollaborator": {
-                            "IAbilityManagerCollaborator": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "AcquireShareData": {},
+                        "ShareDataDone": {},
+                        "RequestDialogService": {},
+                        "ForceExitApp": {},
+                        "RecordAppExitReason": {},
+                        "RecordProcessExitReason": {},
+                        "SetRootSceneSession": {},
+                        "CallUIAbilityBySCB": {},
+                        "StartSpecifiedAbilityBySCB": {},
+                        "NotifySaveAsResult": {},
+                        "SetSessionManagerService": {},
+                        "ReportDrawnCompleted": {},
+                        "RegisterIAbilityManagerCollaborator": {},
                         "UnregisterIAbilityManagerCollaborator": {},
-                        "RegisterSessionHandler": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "RegisterAppDebugListener": {
-                            "AppExecFwk::IAppDebugListener": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "UnregisterAppDebugListener": {
-                            "AppExecFwk::IAppDebugListener": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "RegisterSessionHandler": {},
+                        "RegisterAppDebugListener": {},
+                        "UnregisterAppDebugListener": {},
                         "AttachAppDebug": {},
                         "DetachAppDebug": {},
-                        "IsAbilityControllerStart": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
-                        "OpenFile": {
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h",
-                            "Uri": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
+                        "IsAbilityControllerStart": {},
+                        "OpenFile": {},
                         "ExecuteIntent": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "InsightIntentExecuteParam": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                            "InsightIntentExecuteParam": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/insight_intent/insight_intent_execute_param.h"
                         },
-                        "ExecuteInsightIntentDone": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "InsightIntentExecuteResult": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetForegroundUIAbilities": {
-                            "AppExecFwk::AbilityStateData": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "UpdateSessionInfoBySCB": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "RestartApp": {
-                            "AAFwk::Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "ExecuteInsightIntentDone": {},
+                        "GetForegroundUIAbilities": {},
+                        "UpdateSessionInfoBySCB": {},
+                        "RestartApp": {},
                         "GetUIExtensionRootHostInfo": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "UIExtensionHostInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                            "UIExtensionHostInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ui_extension/ui_extension_host_info.h"
                         },
                         "GetUIExtensionSessionInfo": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "UIExtensionSessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
+                            "UIExtensionSessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ui_extension/ui_extension_session_info.h"
                         },
-                        "OpenAtomicService": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "IsEmbeddedOpenAllowed": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        },
-                        "RequestAssertFaultDialog": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "AAFwk::WantParams": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "NotifyDebugAssertResult": {
-                            "AAFwk::UserStatus": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "OpenAtomicService": {},
+                        "IsEmbeddedOpenAllowed": {},
+                        "RequestAssertFaultDialog": {},
+                        "NotifyDebugAssertResult": {},
                         "SetResidentProcessEnabled": {},
-                        "StartShortcut": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h",
-                            "StartOptions": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
+                        "StartShortcut": {},
                         "GetAbilityStateByPersistentId": {},
-                        "TransferAbilityResultForExtension": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "TransferAbilityResultForExtension": {},
                         "NotifyFrozenProcessByRSS": {},
                         "PreStartMission": {},
-                        "CleanUIAbilityBySCB": {
-                            "SessionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_scheduler_interface.h"
-                        },
-                        "OpenLink": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        },
+                        "CleanUIAbilityBySCB": {},
+                        "OpenLink": {},
                         "TerminateMission": {},
                         "BlockAllAppStart": {},
-                        "UpdateAssociateConfigList": {
-                            "std::map<std::string": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "GetAllIntentExemptionInfo": {
-                            "AppExecFwk::IntentExemptionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "AddQueryERMSObserver": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "AbilityRuntime::IQueryERMSObserver": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "QueryAtomicServiceStartupRule": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h",
-                            "AtomicServiceStartupRule": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        },
-                        "OnRemoteDied": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/snapshot.h"
-                        }
+                        "UpdateAssociateConfigList": {},
+                        "GetAllIntentExemptionInfo": {},
+                        "AddQueryERMSObserver": {},
+                        "QueryAtomicServiceStartupRule": {},
+                        "OnRemoteDied": {}
                     }
                 }
             }
@@ -4473,13 +4126,13 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityRuntime",
-            "AAFwk",
-            "OHOS::Media",
             "AppExecFwk::ExtensionAbilityType",
             "Want",
             "std",
+            "AbilityRuntime",
+            "OHOS::Media",
             "IRemoteObject",
+            "AAFwk",
             "AppExecFwk"
         ]
     },
@@ -4500,8 +4153,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
-            "AAFwk"
+            "AAFwk",
+            "std"
         ]
     },
     "auto_startup_callback_proxy": {
@@ -4583,9 +4236,7 @@
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
-                        "NotifyStartAbility": {
-                            "Want": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/mission_info.h"
-                        }
+                        "NotifyStartAbility": {}
                     }
                 }
             }
@@ -4597,8 +4248,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "Want",
             "AppExecFwk",
+            "Want",
             "std"
         ]
     },
@@ -5669,25 +5320,17 @@
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "IRemoteObject"
+                    "IRemoteObject",
+                    "std"
                 ],
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
                         "Connect": {},
-                        "SetApplicationAutoStartupByEDM": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "CancelApplicationAutoStartupByEDM": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "QueryAllAutoStartupApplications": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "OnRemoteDied": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_manager_interface.h"
-                        }
+                        "SetApplicationAutoStartupByEDM": {},
+                        "CancelApplicationAutoStartupByEDM": {},
+                        "QueryAllAutoStartupApplications": {},
+                        "OnRemoteDied": {}
                     }
                 }
             }
@@ -5697,9 +5340,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AbilityRuntime",
             "std",
-            "IRemoteObject"
+            "IRemoteObject",
+            "AbilityRuntime"
         ]
     },
     "wants_info": {
@@ -5777,8 +5420,8 @@
         ],
         "namespace_uses": []
     },
-    "insight_intent.insight_intent_execute_callback_interface": {
-        "module": "insight_intent.insight_intent_execute_callback_interface",
+    "insight_intent/insight_intent_execute_callback_interface": {
+        "module": "insight_intent/insight_intent_execute_callback_interface",
         "includes": [
             "insight_intent_execute_result.h",
             "iremote_broker.h"
@@ -5828,8 +5471,8 @@
             "OHOS"
         ]
     },
-    "insight_intent.insight_intent_execute_param": {
-        "module": "insight_intent.insight_intent_execute_param",
+    "insight_intent/insight_intent_execute_param": {
+        "module": "insight_intent/insight_intent_execute_param",
         "includes": [
             "parcel.h",
             "want.h"
@@ -5915,8 +5558,8 @@
                     }
                 ],
                 "namespace_uses": [
-                    "std",
-                    "AAFwk"
+                    "AAFwk",
+                    "std"
                 ],
                 "dependencies": {
                     "inheritance": null,
@@ -5936,13 +5579,13 @@
             "AppExecFwk"
         ],
         "namespace_uses": [
-            "std",
             "OHOS::AAFwk",
-            "AAFwk"
+            "AAFwk",
+            "std"
         ]
     },
-    "insight_intent.insight_intent_constant": {
-        "module": "insight_intent.insight_intent_constant",
+    "insight_intent/insight_intent_constant": {
+        "module": "insight_intent/insight_intent_constant",
         "includes": [
             "ability_manager_errors.h"
         ],
@@ -5990,8 +5633,8 @@
             "AAFwk"
         ]
     },
-    "insight_intent.insight_intent_execute_callback_stub": {
-        "module": "insight_intent.insight_intent_execute_callback_stub",
+    "insight_intent/insight_intent_execute_callback_stub": {
+        "module": "insight_intent/insight_intent_execute_callback_stub",
         "includes": [
             "event_handler.h",
             "insight_intent_execute_callback_interface.h"
@@ -6007,8 +5650,8 @@
             "std"
         ]
     },
-    "insight_intent.insight_intent_execute_callback_proxy": {
-        "module": "insight_intent.insight_intent_execute_callback_proxy",
+    "insight_intent/insight_intent_execute_callback_proxy": {
+        "module": "insight_intent/insight_intent_execute_callback_proxy",
         "includes": [
             "iremote_proxy.h",
             "insight_intent_execute_callback_interface.h"
@@ -6023,8 +5666,8 @@
             "AppExecFwk"
         ]
     },
-    "insight_intent.insight_intent_utils": {
-        "module": "insight_intent.insight_intent_utils",
+    "insight_intent/insight_intent_utils": {
+        "module": "insight_intent/insight_intent_utils",
         "includes": [
             "bundlemgr/bundle_mgr_interface.h",
             "element_name.h",
@@ -6080,8 +5723,8 @@
             "std"
         ]
     },
-    "insight_intent.insight_intent_execute_result": {
-        "module": "insight_intent.insight_intent_execute_result",
+    "insight_intent/insight_intent_execute_result": {
+        "module": "insight_intent/insight_intent_execute_result",
         "includes": [
             "insight_intent_constant.h",
             "parcel.h",
@@ -6128,8 +5771,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "AAFwk"
+            "AAFwk",
+            "std"
         ]
     },
     "launch_param": {
@@ -6144,9 +5787,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "LaunchReason",
             "LastExitReason",
-            "std",
-            "LaunchReason"
+            "std"
         ]
     },
     "ability_start_setting": {
@@ -6277,8 +5920,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AppExecFwk",
             "AppExecFwk::DisplayOrientation",
+            "AppExecFwk",
             "TransitionReason",
             "std"
         ]
@@ -6298,8 +5941,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
-            "OHOS::Media"
+            "OHOS::Media",
+            "std"
         ]
     },
     "atomic_service_status_callback_proxy": {
@@ -6330,8 +5973,8 @@
                 "base_class": null,
                 "methods": [],
                 "namespace_uses": [
-                    "std",
-                    "OHOS::Media"
+                    "OHOS::Media",
+                    "std"
                 ],
                 "dependencies": {
                     "inheritance": null,
@@ -6353,9 +5996,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "OHOS::Media",
             "OHOS",
-            "std",
-            "OHOS::Media"
+            "std"
         ]
     },
     "window_manager_service_handler_proxy": {
@@ -6489,9 +6132,7 @@
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
-                        "Send": {
-                            "SenderInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/sender_info.h"
-                        }
+                        "Send": {}
                     }
                 }
             }
@@ -6695,8 +6336,8 @@
             "OHOS"
         ]
     },
-    "status_bar_delegate.status_bar_delegate_proxy": {
-        "module": "status_bar_delegate.status_bar_delegate_proxy",
+    "status_bar_delegate/status_bar_delegate_proxy": {
+        "module": "status_bar_delegate/status_bar_delegate_proxy",
         "includes": [
             "iremote_proxy.h",
             "status_bar_delegate_interface.h"
@@ -6711,8 +6352,8 @@
             "std"
         ]
     },
-    "status_bar_delegate.status_bar_delegate_interface": {
-        "module": "status_bar_delegate.status_bar_delegate_interface",
+    "status_bar_delegate/status_bar_delegate_interface": {
+        "module": "status_bar_delegate/status_bar_delegate_interface",
         "includes": [
             "iremote_broker.h"
         ],
@@ -6737,8 +6378,8 @@
             "std"
         ]
     },
-    "status_bar_delegate.status_bar_delegate_stub": {
-        "module": "status_bar_delegate.status_bar_delegate_stub",
+    "status_bar_delegate/status_bar_delegate_stub": {
+        "module": "status_bar_delegate/status_bar_delegate_stub",
         "includes": [
             "nocopyable.h",
             "status_bar_delegate_interface.h"
@@ -6764,8 +6405,8 @@
         ],
         "namespace_uses": [
             "KeepAliveSetter",
-            "std",
-            "KeepAliveAppType"
+            "KeepAliveAppType",
+            "std"
         ]
     },
     "free_install_observer_interface": {
@@ -6924,9 +6565,7 @@
                     "inheritance": null,
                     "parameters": {
                         "AbilityConnectCallbackRecipient": {},
-                        "OnRemoteDied": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_connect_callback_interface.h"
-                        }
+                        "OnRemoteDied": {}
                     }
                 }
             }
@@ -6937,8 +6576,8 @@
         ],
         "namespace_uses": [
             "AppExecFwk",
-            "std",
-            "IRemoteObject"
+            "IRemoteObject",
+            "std"
         ]
     },
     "mission_listener_interface": {
@@ -7014,13 +6653,13 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "OHOS::Media",
             "OHOS",
-            "std",
-            "OHOS::Media"
+            "std"
         ]
     },
-    "ui_extension.ui_extension_host_info": {
-        "module": "ui_extension.ui_extension_host_info",
+    "ui_extension/ui_extension_host_info": {
+        "module": "ui_extension/ui_extension_host_info",
         "includes": [
             "element_name.h",
             "parcel.h"
@@ -7073,8 +6712,8 @@
             "AppExecFwk"
         ]
     },
-    "ui_extension.ui_extension_ability_connect_info": {
-        "module": "ui_extension.ui_extension_ability_connect_info",
+    "ui_extension/ui_extension_ability_connect_info": {
+        "module": "ui_extension/ui_extension_ability_connect_info",
         "includes": [
             "parcel.h"
         ],
@@ -7126,8 +6765,8 @@
             "std"
         ]
     },
-    "ui_extension.ui_extension_session_info": {
-        "module": "ui_extension.ui_extension_session_info",
+    "ui_extension/ui_extension_session_info": {
+        "module": "ui_extension/ui_extension_session_info",
         "includes": [
             "element_name.h",
             "extension_ability_info.h",
@@ -7152,10 +6791,10 @@
                     }
                 ],
                 "namespace_uses": [
-                    "AAFwk::UIExtensionUsage",
                     "AppExecFwk",
+                    "AppExecFwk::ExtensionAbilityType",
                     "AAFwk",
-                    "AppExecFwk::ExtensionAbilityType"
+                    "AAFwk::UIExtensionUsage"
                 ],
                 "dependencies": {
                     "inheritance": null,
@@ -7170,10 +6809,10 @@
             "AbilityRuntime"
         ],
         "namespace_uses": [
-            "AAFwk::UIExtensionUsage",
             "AppExecFwk",
+            "AppExecFwk::ExtensionAbilityType",
             "AAFwk",
-            "AppExecFwk::ExtensionAbilityType"
+            "AAFwk::UIExtensionUsage"
         ]
     },
     "ability_scheduler_interface": {
@@ -7593,9 +7232,7 @@
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
-                        "ScheduleAbilityTransaction": {
-                            "LifeCycleStateInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
-                        },
+                        "ScheduleAbilityTransaction": {},
                         "ScheduleShareData": {},
                         "SendResult": {},
                         "ScheduleConnectAbility": {},
@@ -7618,9 +7255,7 @@
                         "ScheduleNotifyChange": {},
                         "NormalizeUri": {},
                         "DenormalizeUri": {},
-                        "ContinueAbility": {
-                            "uint32_t": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/lifecycle_state_info.h"
-                        },
+                        "ContinueAbility": {},
                         "NotifyContinuationResult": {},
                         "DumpAbilityInfo": {},
                         "CreateModalUIExtension": {},
@@ -7638,11 +7273,11 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "AppExecFwk",
-            "OHOS",
             "std",
+            "OHOS",
+            "NativeRdb",
             "OHOS::AppExecFwk",
-            "NativeRdb"
+            "AppExecFwk"
         ]
     },
     "atomic_service_status_callback_stub": {
@@ -7798,15 +7433,11 @@
                         "NotifyWindowTransition": {
                             "AbilityTransitionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_info.h"
                         },
-                        "GetFocusWindow": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_info.h"
-                        },
+                        "GetFocusWindow": {},
                         "StartingWindow": {
                             "AbilityTransitionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_info.h"
                         },
-                        "CancelStartingWindow": {
-                            "IRemoteObject": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_info.h"
-                        },
+                        "CancelStartingWindow": {},
                         "NotifyAnimationAbilityDied": {
                             "AbilityTransitionInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/window_info.h"
                         },
@@ -7864,12 +7495,8 @@
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
-                        "OnAutoStartupOn": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        },
-                        "OnAutoStartupOff": {
-                            "AutoStartupInfo": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/auto_startup_info.h"
-                        }
+                        "OnAutoStartupOn": {},
+                        "OnAutoStartupOff": {}
                     }
                 }
             }
@@ -8028,9 +7655,9 @@
             "AAFwk"
         ],
         "namespace_uses": [
+            "OHOS::Media",
             "IMissionListener",
-            "std",
-            "OHOS::Media"
+            "std"
         ]
     },
     "acquire_share_data_callback_proxy": {
@@ -8140,8 +7767,8 @@
             "AAFwk"
         ],
         "namespace_uses": [
-            "std",
-            "Reason"
+            "Reason",
+            "std"
         ]
     },
     "ability_first_frame_state_observer_interface": {
@@ -8182,9 +7809,7 @@
                 "dependencies": {
                     "inheritance": null,
                     "parameters": {
-                        "OnAbilityFirstFrameState": {
-                            "AbilityFirstFrameStateData": "ability_ability_runtime/interfaces/inner_api/ability_manager/include/ability_first_frame_state_data.h"
-                        }
+                        "OnAbilityFirstFrameState": {}
                     }
                 }
             }
