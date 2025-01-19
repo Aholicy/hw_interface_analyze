@@ -1,0 +1,462 @@
+代码块类型: Method Declaration
+位置: 33:30
+Spell: RegisterObserver
+包含日志: 否
+代码:
+int32_t ServiceProxyAdapter::RegisterObserver(const sptr<IConnectionObserver> &observer)
+{
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid IConnectObserver");
+        return ERR_INVALID_OBSERVER;
+    }
+
+    if (!remoteObj_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+        return ERR_NO_PROXY;
+    }
+
+    int error;
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    error = remoteObj_->SendRequest(REGISTER_CONNECTION_OBSERVER, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+        return error;
+    }
+    return reply.ReadInt32();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 35:5
+Spell: 
+包含日志: 否
+代码:
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid IConnectObserver");
+        return ERR_INVALID_OBSERVER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 36:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid IConnectObserver");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 40:5
+Spell: 
+包含日志: 否
+代码:
+    if (!remoteObj_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+        return ERR_NO_PROXY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 41:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 49:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 50:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 54:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 55:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 60:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 61:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 67:30
+Spell: UnregisterObserver
+包含日志: 否
+代码:
+int32_t ServiceProxyAdapter::UnregisterObserver(const sptr<IConnectionObserver> &observer)
+{
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "IConnectObserver invalid");
+        return ERR_INVALID_OBSERVER;
+    }
+
+    if (!remoteObj_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+        return ERR_NO_PROXY;
+    }
+
+    int error;
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    error = remoteObj_->SendRequest(UNREGISTER_CONNECTION_OBSERVER, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+        return error;
+    }
+    return reply.ReadInt32();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 69:5
+Spell: 
+包含日志: 否
+代码:
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "IConnectObserver invalid");
+        return ERR_INVALID_OBSERVER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 70:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "IConnectObserver invalid");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 74:5
+Spell: 
+包含日志: 否
+代码:
+    if (!remoteObj_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+        return ERR_NO_PROXY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 75:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 83:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 84:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 88:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 89:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 94:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 95:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 149:30
+Spell: GetConnectionData
+包含日志: 否
+代码:
+int32_t ServiceProxyAdapter::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    if (!remoteObj_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+        return ERR_NO_PROXY;
+    }
+
+    int error;
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    error = remoteObj_->SendRequest(GET_CONNECTION_DATA, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+        return error;
+    }
+
+    auto result = reply.ReadInt32();
+    if (result != 0) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+        return result;
+    }
+
+    int32_t infoSize = reply.ReadInt32();
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+        return ERR_INVALID_VALUE;
+    }
+
+    for (int32_t i = 0; i < infoSize; i++) {
+        std::unique_ptr<ConnectionData> item(reply.ReadParcelable<ConnectionData>());
+        if (item == nullptr) {
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+            return ERR_READ_INFO_FAILED;
+        }
+        connectionData.emplace_back(*item);
+    }
+
+    return result;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 151:5
+Spell: 
+包含日志: 否
+代码:
+    if (!remoteObj_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+        return ERR_NO_PROXY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 152:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 160:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 161:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 166:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 167:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 172:5
+Spell: 
+包含日志: 否
+代码:
+    if (result != 0) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 173:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 178:5
+Spell: 
+包含日志: 否
+代码:
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 179:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+位置: 183:5
+Spell: 
+包含日志: 否
+代码:
+    for (int32_t i = 0; i < infoSize; i++) {
+        std::unique_ptr<ConnectionData> item(reply.ReadParcelable<ConnectionData>());
+        if (item == nullptr) {
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+            return ERR_READ_INFO_FAILED;
+        }
+        connectionData.emplace_back(*item);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 185:9
+Spell: 
+包含日志: 否
+代码:
+        if (item == nullptr) {
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+            return ERR_READ_INFO_FAILED;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 186:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 195:42
+Spell: GetProxyObject
+包含日志: 否
+代码:
+sptr<IRemoteObject> ServiceProxyAdapter::GetProxyObject() const
+{
+    return remoteObj_;
+}
+
+--------------------------------------------------------------------------------

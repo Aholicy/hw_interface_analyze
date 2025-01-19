@@ -11,7 +11,7 @@ Config.set_library_file(libclang_path)
 def traverse_ast(cursor, output_file, level=0):
     """递归遍历 AST 并输出每个节点的详细信息"""
     indent = " " * (level * 2)  # 用空格进行缩进
-    cursor_info = f"{indent}Cursor Kind: {cursor.kind} | Spelling: {cursor.spelling} | Location: {cursor.location.line}:{cursor.location.column}"
+    cursor_info = f"{indent}Cursor Kind: {cursor.kind} | Spelling: {cursor.spelling} | Location: {cursor.location.file}:{cursor.location.line}:{cursor.location.column}"
     output_file.write(cursor_info + "\n")
 
     # 遍历所有子节点
@@ -47,8 +47,31 @@ def parse_file(file_path):
         f'-I{standard_lib_path}',
         '-I/usr/include/c++/12',
         '-I/usr/include/x86_64-linux-gnu/c++/12/',
+        # '-L/usr/lib/gcc/x86_64-linux-gnu/7',
+        '-Dsize_t=unsigned long',  # 添加占位符定义
+        '-ferror-limit=1000', # 允许错误限制
     ]
-
+    # args = [
+    #     '-std=c++17',                             # 使用 C++17 标准
+    #     '-stdlib=libstdc++',                      # 指定使用 libstdc++
+    #     f'-I/usr/include/c++/12',                 # libstdc++ 的主头文件路径
+    #     # f'-I/usr/include/x86_64-linux-gnu/c++/12', # 多架构支持路径
+    #     f'-L/usr/lib/gcc/x86_64-linux-gnu/12',    # GCC 标准库链接路径
+    #     '-I/usr/lib/llvm-14/lib/clang/14.0.0/include', # Clang 自带头文件路径
+    #     '-I/usr/include',                         # 系统默认头文件路径
+    #     '-I/usr/local/include',                   # 本地用户安装路径
+    #     '-include/usr/lib/llvm-14/lib/clang/14.0.0/include/stddef.h', # 强制包含 stddef.h
+    # ]
+    # args = [
+    #     '-std=c++11',                             
+    #     '-stdlib=libc++',                      
+    #     '-std=c++11', '-stdlib=libc++',
+    #     '-I/usr/lib/llvm-14/lib/clang/14.0.0',  
+    #     '-I/usr/include/c++/11',
+    #     '-I/usr/include/x86_64-linux-gnu/c++/11/',
+    #     '-I/usr/local/include/grpc++/',
+    #     '-include/usr/lib/llvm-14/lib/clang/14.0.0/include/stddef.h',
+    # ]
     # 确保路径正确，直接扩展包含目录参数
     include_dirs_file = 'include_dirs.txt'  # 确保此文件路径正确
 
@@ -65,7 +88,7 @@ def parse_file(file_path):
         raise Exception(f"Failed to parse file: {file_path}")
     if tu.diagnostics:
         for diag in tu.diagnostics:
-            print(f"Diagnostic: {diag.spelling}")
+            print(f"Diagnostic: {diag.spelling} in {diag.location.file}:{diag.location.line}:{diag.location.column}")
     print(f"File parsed successfully: {file_path}")
     return tu.cursor
 
@@ -179,6 +202,7 @@ def contains_logging_statement(code_block):
         r'LogMessage',
         r'Logger',
         r'LBSLOG[DIWE]',
+        r'TAG_LOG[DIWEF]',
     ]
     return any(re.search(pattern, code_block, re.IGNORECASE) for pattern in logging_patterns)
 
@@ -237,7 +261,7 @@ def analyze_directory(directory_path, output_ast_dir, output_analysis_dir):
 
 def main():
     """主函数"""
-    source_dir = "../ability_ability_runtime/interfaces/inner_api/ability_manager/src"
+    source_dir = "../ability_ability_runtime/interfaces/inner_api"
     ast_output_dir = "ast_output"
     analysis_output_dir = "analysis_output"
 

@@ -1,0 +1,165 @@
+代码块类型: Method Declaration
+位置: 26:29
+Spell: OnRemoteRequest
+包含日志: 否
+代码:
+int ConnectionObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = ConnectionObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+    if (code < IConnectionObserver::CMD_MAX && code >= 0) {
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 31:5
+Spell: 
+包含日志: 否
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 32:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 35:5
+Spell: 
+包含日志: 否
+代码:
+    if (code < IConnectionObserver::CMD_MAX && code >= 0) {
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+位置: 36:9
+Spell: 
+包含日志: 否
+代码:
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 52:29
+Spell: OnExtensionConnectedInner
+包含日志: 否
+代码:
+int ConnectionObserverStub::OnExtensionConnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionConnected(*connectionData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 55:5
+Spell: 
+包含日志: 否
+代码:
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 56:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 64:29
+Spell: OnExtensionDisconnectedInner
+包含日志: 否
+代码:
+int ConnectionObserverStub::OnExtensionDisconnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionDisconnected(*connectionData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 67:5
+Spell: 
+包含日志: 否
+代码:
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 68:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+
+--------------------------------------------------------------------------------

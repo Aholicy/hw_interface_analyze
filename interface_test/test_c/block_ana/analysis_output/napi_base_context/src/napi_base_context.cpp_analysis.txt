@@ -1,0 +1,137 @@
+代码块类型: Function Declaration
+位置: 28:13
+Spell: IsStageContext
+包含日志: 否
+代码:
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+{
+    napi_value boolValue;
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+    bool value = false;
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+    stageMode = value;
+    return napi_ok;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 31:5
+Spell: 
+包含日志: 否
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 31:5
+Spell: 
+包含日志: 否
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 34:5
+Spell: 
+包含日志: 否
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 34:5
+Spell: 
+包含日志: 否
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+--------------------------------------------------------------------------------
+代码块类型: Function Declaration
+位置: 40:26
+Spell: GetStageModeContext
+包含日志: 否
+代码:
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+{
+    void* wrapped = nullptr;
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+    if (ret != napi_ok) {
+        return nullptr;
+    }
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 44:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != napi_ok) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Declaration
+位置: 52:22
+Spell: GetCurrentAbility
+包含日志: 否
+代码:
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+{
+    napi_value global;
+    napi_status status = napi_get_global(env, &global);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    napi_value abilityObj;
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+    if (status != napi_ok || abilityObj == nullptr) {
+        return nullptr;
+    }
+
+    void* pointer = nullptr;
+    status = napi_get_value_external(env, abilityObj, &pointer);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 56:5
+Spell: 
+包含日志: 否
+代码:
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 62:5
+Spell: 
+包含日志: 否
+代码:
+    if (status != napi_ok || abilityObj == nullptr) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 68:5
+Spell: 
+包含日志: 否
+代码:
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------

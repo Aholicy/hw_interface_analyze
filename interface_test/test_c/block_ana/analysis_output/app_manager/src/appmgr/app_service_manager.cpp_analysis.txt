@@ -1,0 +1,25 @@
+代码块类型: Method Declaration
+位置: 27:40
+Spell: GetAppMgrService
+包含日志: 否
+代码:
+sptr<IRemoteObject> AppServiceManager::GetAppMgrService() const
+{
+    sptr<ISystemAbilityManager> systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (!systemAbilityMgr) {
+        return nullptr;
+    }
+    return systemAbilityMgr->GetSystemAbility(APP_MGR_SERVICE_ID);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 30:5
+Spell: 
+包含日志: 否
+代码:
+    if (!systemAbilityMgr) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------

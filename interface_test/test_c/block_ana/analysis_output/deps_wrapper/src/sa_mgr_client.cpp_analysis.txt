@@ -1,0 +1,156 @@
+代码块类型: Method Declaration
+位置: 32:34
+Spell: GetSystemAbility
+包含日志: 否
+代码:
+sptr<IRemoteObject> SaMgrClient::GetSystemAbility(const int32_t systemAbilityId)
+{
+    // use single instance of saMgr_
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+    return saMgr_->GetSystemAbility(systemAbilityId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 35:5
+Spell: 
+包含日志: 否
+代码:
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 37:9
+Spell: 
+包含日志: 否
+代码:
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 39:13
+Spell: 
+包含日志: 否
+代码:
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 40:17
+Spell: 
+包含日志: 否
+代码:
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 48:34
+Spell: CheckSystemAbility
+包含日志: 否
+代码:
+sptr<IRemoteObject> SaMgrClient::CheckSystemAbility(const int32_t systemAbilityId)
+{
+    // use single instance of saMgr_
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+    return saMgr_->CheckSystemAbility(systemAbilityId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 51:5
+Spell: 
+包含日志: 否
+代码:
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 53:9
+Spell: 
+包含日志: 否
+代码:
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 55:13
+Spell: 
+包含日志: 否
+代码:
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 56:17
+Spell: 
+包含日志: 否
+代码:
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 64:19
+Spell: RegisterSystemAbility
+包含日志: 否
+代码:
+void SaMgrClient::RegisterSystemAbility(
+    const int32_t __attribute__((unused)) systemAbilityId, sptr<IRemoteObject> __attribute__((unused)) broker)
+{
+    (void)servicesMap_;
+}
+
+--------------------------------------------------------------------------------

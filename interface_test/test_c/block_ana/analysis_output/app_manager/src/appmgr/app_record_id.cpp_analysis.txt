@@ -1,0 +1,13 @@
+代码块类型: Method Declaration
+位置: 21:22
+Spell: Create
+包含日志: 否
+代码:
+int32_t AppRecordId::Create()
+{
+    // Make it atomic to avoid multi app creating concurrently.
+    static std::atomic_int id(0);
+    return ++id;
+}
+
+--------------------------------------------------------------------------------

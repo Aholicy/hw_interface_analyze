@@ -1,0 +1,220 @@
+代码块类型: Conditional Block (if)
+位置: 29:5
+Spell: 
+包含日志: 否
+代码:
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 32:5
+Spell: 
+包含日志: 否
+代码:
+    if (want != nullptr) {
+        want_ = std::make_shared<Want>(*want);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 48:5
+Spell: 
+包含日志: 否
+代码:
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 51:5
+Spell: 
+包含日志: 否
+代码:
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 58:33
+Spell: operator=
+包含日志: 否
+代码:
+const TriggerInfo &TriggerInfo::operator=(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+    resultCode_ = paramInfo.GetResultCode();
+
+    return *this;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 61:5
+Spell: 
+包含日志: 否
+代码:
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 64:5
+Spell: 
+包含日志: 否
+代码:
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 67:5
+Spell: 
+包含日志: 否
+代码:
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 75:26
+Spell: GetPermission
+包含日志: 否
+代码:
+std::string TriggerInfo::GetPermission() const
+{
+    return permission_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 80:42
+Spell: GetExtraInfo
+包含日志: 否
+代码:
+std::shared_ptr<WantParams> TriggerInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 85:36
+Spell: GetWant
+包含日志: 否
+代码:
+std::shared_ptr<Want> TriggerInfo::GetWant() const
+{
+    return want_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 90:44
+Spell: GetStartOptions
+包含日志: 否
+代码:
+std::shared_ptr<StartOptions> TriggerInfo::GetStartOptions() const
+{
+    return startOptions_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 95:18
+Spell: GetResultCode
+包含日志: 否
+代码:
+int TriggerInfo::GetResultCode() const
+{
+    return resultCode_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 103:61
+Spell: SetPermission
+包含日志: 否
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetPermission(const std::string &permission)
+{
+    permission_ = permission;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 109:61
+Spell: SetWantParams
+包含日志: 否
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWantParams(const std::shared_ptr<WantParams> &params)
+{
+    params_ = params;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 115:61
+Spell: SetWant
+包含日志: 否
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWant(const std::shared_ptr<Want> &want)
+{
+    want_ = want;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 121:61
+Spell: SetStartOptions
+包含日志: 否
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetStartOptions(
+    const std::shared_ptr<AAFwk::StartOptions> &startOptions)
+{
+    startOptions_ = startOptions;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 128:61
+Spell: SetResultCode
+包含日志: 否
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetResultCode(int resultCode)
+{
+    resultCode_ = resultCode;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 134:52
+Spell: Build
+包含日志: 否
+代码:
+std::shared_ptr<TriggerInfo> TriggerInfo::Builder::Build()
+{
+    return std::make_shared<TriggerInfo>(permission_, params_, want_, startOptions_, resultCode_);
+}
+
+--------------------------------------------------------------------------------

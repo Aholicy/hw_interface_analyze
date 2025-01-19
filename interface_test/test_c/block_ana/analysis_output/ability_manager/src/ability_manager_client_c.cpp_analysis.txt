@@ -1,0 +1,45 @@
+代码块类型: Function Declaration
+位置: 22:5
+Spell: RecordAppExitReason
+包含日志: 否
+代码:
+int RecordAppExitReason(int exitReason, const char *exitMsg)
+{
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+        return -1;
+    }
+
+    OHOS::AAFwk::Reason reason = static_cast<OHOS::AAFwk::Reason>(exitReason);
+    std::string exitMsgStr(exitMsg);
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+    auto instance = OHOS::AAFwk::AbilityManagerClient::GetInstance();
+    if (!instance) {
+        return -1;
+    }
+    return instance->RecordAppExitReason(exitReasonData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 24:5
+Spell: 
+包含日志: 否
+代码:
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+        return -1;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 34:5
+Spell: 
+包含日志: 否
+代码:
+    if (!instance) {
+        return -1;
+    }
+
+--------------------------------------------------------------------------------

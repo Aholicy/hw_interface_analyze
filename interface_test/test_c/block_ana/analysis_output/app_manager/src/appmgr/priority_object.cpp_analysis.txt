@@ -1,0 +1,343 @@
+代码块类型: Method Declaration
+位置: 22:23
+Spell: GetPid
+包含日志: 否
+代码:
+pid_t PriorityObject::GetPid() const
+{
+    return pid_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 27:25
+Spell: GetMaxAdj
+包含日志: 否
+代码:
+int32_t PriorityObject::GetMaxAdj() const
+{
+    return maxAdj_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 32:25
+Spell: GetCurAdj
+包含日志: 否
+代码:
+int32_t PriorityObject::GetCurAdj() const
+{
+    return curAdj_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 37:25
+Spell: GetCurCgroup
+包含日志: 否
+代码:
+int32_t PriorityObject::GetCurCgroup() const
+{
+    return curCgroup_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 42:25
+Spell: GetTimeLevel
+包含日志: 否
+代码:
+int32_t PriorityObject::GetTimeLevel() const
+{
+    return timeLevel_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 47:22
+Spell: GetVisibleStatus
+包含日志: 否
+代码:
+bool PriorityObject::GetVisibleStatus() const
+{
+    return visibleStatus_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 52:22
+Spell: GetPerceptibleStatus
+包含日志: 否
+代码:
+bool PriorityObject::GetPerceptibleStatus() const
+{
+    return perceptibleStatus_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 57:22
+Spell: SetPid
+包含日志: 否
+代码:
+void PriorityObject::SetPid(const pid_t pid)
+{
+    pid_ = pid;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 62:22
+Spell: SetMaxAdj
+包含日志: 否
+代码:
+void PriorityObject::SetMaxAdj(const int32_t maxAdj)
+{
+    maxAdj_ = maxAdj;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 67:22
+Spell: SetCurAdj
+包含日志: 否
+代码:
+void PriorityObject::SetCurAdj(const int32_t curAdj)
+{
+    curAdj_ = curAdj;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 72:22
+Spell: SetCurCgroup
+包含日志: 否
+代码:
+void PriorityObject::SetCurCgroup(const int32_t curCgroup)
+{
+    curCgroup_ = curCgroup;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 77:22
+Spell: SetTimeLevel
+包含日志: 否
+代码:
+void PriorityObject::SetTimeLevel(const int32_t timeLevel)
+{
+    timeLevel_ = timeLevel;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 82:22
+Spell: SetVisibleStatus
+包含日志: 否
+代码:
+void PriorityObject::SetVisibleStatus(bool status)
+{
+    visibleStatus_ = status;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 87:22
+Spell: SetPerceptibleStatus
+包含日志: 否
+代码:
+void PriorityObject::SetPerceptibleStatus(bool status)
+{
+    perceptibleStatus_ = status;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 92:22
+Spell: Marshalling
+包含日志: 否
+代码:
+bool PriorityObject::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteInt32(pid_)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(maxAdj_)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(curAdj_)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(curCgroup_)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(timeLevel_)) {
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 94:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(pid_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 97:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(maxAdj_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 100:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(curAdj_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 103:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(curCgroup_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 106:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(timeLevel_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 112:22
+Spell: ReadFromParcel
+包含日志: 否
+代码:
+bool PriorityObject::ReadFromParcel(Parcel &parcel)
+{
+    if (!parcel.ReadInt32(pid_)) {
+        return false;
+    }
+    if (!parcel.ReadInt32(maxAdj_)) {
+        return false;
+    }
+    if (!parcel.ReadInt32(curAdj_)) {
+        return false;
+    }
+    if (!parcel.ReadInt32(curCgroup_)) {
+        return false;
+    }
+    if (!parcel.ReadInt32(timeLevel_)) {
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 114:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.ReadInt32(pid_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 117:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.ReadInt32(maxAdj_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 120:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.ReadInt32(curAdj_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 123:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.ReadInt32(curCgroup_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 126:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.ReadInt32(timeLevel_)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 132:33
+Spell: Unmarshalling
+包含日志: 否
+代码:
+PriorityObject *PriorityObject::Unmarshalling(Parcel &parcel)
+{
+    PriorityObject *priorityObject = new (std::nothrow) PriorityObject();
+    if (priorityObject && !priorityObject->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete priorityObject;
+        priorityObject = nullptr;
+    }
+    return priorityObject;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 135:5
+Spell: 
+包含日志: 否
+代码:
+    if (priorityObject && !priorityObject->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete priorityObject;
+        priorityObject = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 136:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+
+--------------------------------------------------------------------------------

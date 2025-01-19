@@ -1,0 +1,170 @@
+代码块类型: Method Declaration
+位置: 28:28
+Spell: OnRemoteRequest
+包含日志: 否
+代码:
+int AbilityControllerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "OnReceived, code:%{public}u, flags:%{public}d", code,
+        option.GetFlags());
+    std::u16string descriptor = AbilityControllerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_START):
+            return HandleAllowAbilityStart(data, reply);
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_BACKGROUND):
+            return HandleAllowAbilityBackground(data, reply);
+    }
+    
+    TAG_LOGI(AAFwkTag::APPMGR, "finish");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 31:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "OnReceived, code:%{public}u, flags:%{public}d", code,
+        option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 35:5
+Spell: 
+包含日志: 否
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 36:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+位置: 40:5
+Spell: 
+包含日志: 否
+代码:
+    switch (code) {
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_START):
+            return HandleAllowAbilityStart(data, reply);
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_BACKGROUND):
+            return HandleAllowAbilityBackground(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 47:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "finish");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 51:29
+Spell: AllowAbilityStart
+包含日志: 否
+代码:
+bool AbilityControllerStub::AllowAbilityStart(const Want &want, const std::string &bundleName)
+{
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 56:29
+Spell: AllowAbilityBackground
+包含日志: 否
+代码:
+bool AbilityControllerStub::AllowAbilityBackground(const std::string &bundleName)
+{
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 61:32
+Spell: HandleAllowAbilityStart
+包含日志: 否
+代码:
+int32_t AbilityControllerStub::HandleAllowAbilityStart(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+    std::unique_ptr<Want> want(data.ReadParcelable<Want>());
+    if (!want) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+    std::string pkg = data.ReadString();
+    bool ret = AllowAbilityStart(*want, pkg);
+    reply.WriteBool(ret);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 63:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 65:5
+Spell: 
+包含日志: 否
+代码:
+    if (!want) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 66:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 75:32
+Spell: HandleAllowAbilityBackground
+包含日志: 否
+代码:
+int32_t AbilityControllerStub::HandleAllowAbilityBackground(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+    std::string pkg = data.ReadString();
+    bool ret = AllowAbilityBackground(pkg);
+    reply.WriteBool(ret);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 77:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------

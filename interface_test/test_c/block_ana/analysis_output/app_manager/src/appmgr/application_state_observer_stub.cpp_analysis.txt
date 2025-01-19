@@ -1,0 +1,930 @@
+代码块类型: Method Declaration
+位置: 25:35
+Spell: OnRemoteRequest
+包含日志: 否
+代码:
+int ApplicationStateObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = ApplicationStateObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (static_cast<Message>(code)) {
+        case Message::TRANSACT_ON_FOREGROUND_APPLICATION_CHANGED:
+            return HandleOnForegroundApplicationChanged(data, reply);
+        case Message::TRANSACT_ON_ABILITY_STATE_CHANGED:
+            return HandleOnAbilityStateChanged(data, reply);
+        case Message::TRANSACT_ON_EXTENSION_STATE_CHANGED:
+            return HandleOnExtensionStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_CREATED:
+            return HandleOnProcessCreated(data, reply);
+        case Message::TRANSACT_ON_PROCESS_STATE_CHANGED:
+            return HandleOnProcessStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_DIED:
+            return HandleOnProcessDied(data, reply);
+        case Message::TRANSACT_ON_APPLICATION_STATE_CHANGED:
+            return HandleOnApplicationStateChanged(data, reply);
+        case Message::TRANSACT_ON_APP_STATE_CHANGED:
+            return HandleOnAppStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_REUSED:
+            return HandleOnProcessReused(data, reply);
+        case Message::TRANSACT_ON_APP_STARTED:
+            return HandleOnAppStarted(data, reply);
+        case Message::TRANSACT_ON_APP_STOPPED:
+            return HandleOnAppStopped(data, reply);
+        case Message::TRANSACT_ON_PAGE_SHOW:
+            return HandleOnPageShow(data, reply);
+        case Message::TRANSACT_ON_PAGE_HIDE:
+            return HandleOnPageHide(data, reply);
+        case Message::TRANSACT_ON_APP_CACHE_STATE_CHANGED:
+            return HandleOnAppCacheStateChanged(data, reply);
+        case Message::TRANSACT_ON_WINDOW_SHOW:
+            return HandleOnWindowShow(data, reply);
+        case Message::TRANSACT_ON_WINDOW_HIDDEN:
+            return HandleOnWindowHidden(data, reply);
+    }
+    TAG_LOGW(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnRemoteRequest, default case, need check");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 30:5
+Spell: 
+包含日志: 否
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 31:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+位置: 35:5
+Spell: 
+包含日志: 否
+代码:
+    switch (static_cast<Message>(code)) {
+        case Message::TRANSACT_ON_FOREGROUND_APPLICATION_CHANGED:
+            return HandleOnForegroundApplicationChanged(data, reply);
+        case Message::TRANSACT_ON_ABILITY_STATE_CHANGED:
+            return HandleOnAbilityStateChanged(data, reply);
+        case Message::TRANSACT_ON_EXTENSION_STATE_CHANGED:
+            return HandleOnExtensionStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_CREATED:
+            return HandleOnProcessCreated(data, reply);
+        case Message::TRANSACT_ON_PROCESS_STATE_CHANGED:
+            return HandleOnProcessStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_DIED:
+            return HandleOnProcessDied(data, reply);
+        case Message::TRANSACT_ON_APPLICATION_STATE_CHANGED:
+            return HandleOnApplicationStateChanged(data, reply);
+        case Message::TRANSACT_ON_APP_STATE_CHANGED:
+            return HandleOnAppStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_REUSED:
+            return HandleOnProcessReused(data, reply);
+        case Message::TRANSACT_ON_APP_STARTED:
+            return HandleOnAppStarted(data, reply);
+        case Message::TRANSACT_ON_APP_STOPPED:
+            return HandleOnAppStopped(data, reply);
+        case Message::TRANSACT_ON_PAGE_SHOW:
+            return HandleOnPageShow(data, reply);
+        case Message::TRANSACT_ON_PAGE_HIDE:
+            return HandleOnPageHide(data, reply);
+        case Message::TRANSACT_ON_APP_CACHE_STATE_CHANGED:
+            return HandleOnAppCacheStateChanged(data, reply);
+        case Message::TRANSACT_ON_WINDOW_SHOW:
+            return HandleOnWindowShow(data, reply);
+        case Message::TRANSACT_ON_WINDOW_HIDDEN:
+            return HandleOnWindowHidden(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 69:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGW(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnRemoteRequest, default case, need check");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 73:36
+Spell: OnForegroundApplicationChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnForegroundApplicationChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 76:36
+Spell: OnAbilityStateChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnAbilityStateChanged(const AbilityStateData &abilityStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 79:36
+Spell: OnExtensionStateChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnExtensionStateChanged(const AbilityStateData &abilityStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 82:36
+Spell: OnProcessCreated
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnProcessCreated(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 85:36
+Spell: OnProcessStateChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnProcessStateChanged(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 88:36
+Spell: OnWindowShow
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnWindowShow(const ProcessData &processData)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowShow called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 90:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowShow called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 94:36
+Spell: OnWindowHidden
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnWindowHidden(const ProcessData &processData)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowHidden called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 96:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowHidden called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 100:36
+Spell: OnProcessDied
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnProcessDied(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 103:36
+Spell: OnApplicationStateChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnApplicationStateChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 106:36
+Spell: OnAppStateChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnAppStateChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 109:36
+Spell: OnProcessReused
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnProcessReused(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 112:36
+Spell: OnAppStarted
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnAppStarted(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 115:36
+Spell: OnAppStopped
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnAppStopped(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 118:36
+Spell: OnPageShow
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnPageShow(const PageStateData &pageStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 121:36
+Spell: OnPageHide
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnPageHide(const PageStateData &pageStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 124:36
+Spell: OnAppCacheStateChanged
+包含日志: 否
+代码:
+void ApplicationStateObserverStub::OnAppCacheStateChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 127:39
+Spell: HandleOnForegroundApplicationChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnForegroundApplicationChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnForegroundApplicationChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 130:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 131:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 139:39
+Spell: HandleOnAbilityStateChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    AbilityStateData* abilityStateData = nullptr;
+    {
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        abilityStateData = data.ReadParcelable<AbilityStateData>();
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+    }
+    OnAbilityStateChanged(*abilityStateData);
+    {
+        // Protect Multi Thread Deconstruct IRemoteObject
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        delete abilityStateData;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 145:9
+Spell: 
+包含日志: 否
+代码:
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 146:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 159:39
+Spell: HandleOnExtensionStateChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnExtensionStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    AbilityStateData* abilityStateData = nullptr;
+    {
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        abilityStateData = data.ReadParcelable<AbilityStateData>();
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+    }
+    OnExtensionStateChanged(*abilityStateData);
+    {
+        // Protect Multi Thread Deconstruct IRemoteObject
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        delete abilityStateData;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 165:9
+Spell: 
+包含日志: 否
+代码:
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 166:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 179:39
+Spell: HandleOnProcessCreated
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessCreated(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessCreated(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 182:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 183:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 191:39
+Spell: HandleOnProcessStateChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 194:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 195:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 203:39
+Spell: HandleOnWindowShow
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnWindowShow(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnWindowShow(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 206:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 207:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 215:39
+Spell: HandleOnWindowHidden
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnWindowHidden(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnWindowHidden(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 218:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 219:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 227:39
+Spell: HandleOnProcessDied
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessDied(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessDied(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 230:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 231:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 239:39
+Spell: HandleOnApplicationStateChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnApplicationStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnApplicationStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 242:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 243:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 251:39
+Spell: HandleOnAppStateChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 254:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 255:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 263:41
+Spell: OnRemoteDied
+包含日志: 否
+代码:
+void ApplicationStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    if (handler_) {
+        handler_(remote);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 265:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 266:5
+Spell: 
+包含日志: 否
+代码:
+    if (handler_) {
+        handler_(remote);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 271:39
+Spell: HandleOnProcessReused
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessReused(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessReused(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 274:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 275:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 283:39
+Spell: HandleOnAppStarted
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppStarted(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStarted(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 286:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 287:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 295:39
+Spell: HandleOnAppStopped
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppStopped(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStopped(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 298:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 299:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 307:39
+Spell: HandleOnPageShow
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnPageShow(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<PageStateData> pageStateData(data.ReadParcelable<PageStateData>());
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnPageShow(*pageStateData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 310:5
+Spell: 
+包含日志: 否
+代码:
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 311:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 319:39
+Spell: HandleOnPageHide
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnPageHide(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<PageStateData> pageStateData(data.ReadParcelable<PageStateData>());
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnPageHide(*pageStateData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 322:5
+Spell: 
+包含日志: 否
+代码:
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 323:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 331:39
+Spell: HandleOnAppCacheStateChanged
+包含日志: 否
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppCacheStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppCacheStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 334:5
+Spell: 
+包含日志: 否
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 335:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------

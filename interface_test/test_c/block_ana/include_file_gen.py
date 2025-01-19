@@ -11,8 +11,13 @@ Config.set_library_file(libclang_path)
 
 source_root_list = ["../ability_ability_runtime/interfaces/inner_api/ability_manager", 
                     "../ability_ability_runtime/interfaces/inner_api/app_manager",
+                    "../ability_ability_runtime/interfaces/inner_api",
                     "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal",
-                    "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/"]
+                    "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/",
+                    "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/",
+                    "/home/user/jyw/openwrt-sdk-23.05.5-armsr-armv8_gcc-12.3.0_musl.Linux-x86_64/staging_dir/toolchain-aarch64_generic_gcc-12.3.0_musl/lib/gcc/aarch64-openwrt-linux-musl/12.3.0/plugin",
+                    "/home/user/jyw/ohos5/commonlibrary/c_utils/base",
+                    "/home/user/jyw/ohos5/kernel/linux/patches/linux-6.6/prebuilts/usr/"]
 include_dirs = []
 
     # 查找所有 include 目录及其子目录

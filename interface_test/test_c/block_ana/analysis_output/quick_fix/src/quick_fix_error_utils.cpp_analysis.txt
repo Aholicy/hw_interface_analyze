@@ -1,0 +1,89 @@
+代码块类型: Method Declaration
+位置: 78:28
+Spell: GetErrorCode
+包含日志: 否
+代码:
+int32_t QuickFixErrorUtil::GetErrorCode(int32_t errCode)
+{
+    // no need to convert is errCode is external error code.
+    auto iter = EXTERNAL_ERR_MSG_MAP.find(errCode);
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        return errCode;
+    }
+
+    auto iterInternal = INTERNAL_ERR_CODE_MAP.find(errCode);
+    if (iterInternal != INTERNAL_ERR_CODE_MAP.end()) {
+        return iterInternal->second;
+    }
+
+    return ERR_QUICKFIX_INTERNAL_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 82:5
+Spell: 
+包含日志: 否
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        return errCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 87:5
+Spell: 
+包含日志: 否
+代码:
+    if (iterInternal != INTERNAL_ERR_CODE_MAP.end()) {
+        return iterInternal->second;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 94:32
+Spell: GetErrorMessage
+包含日志: 否
+代码:
+std::string QuickFixErrorUtil::GetErrorMessage(int32_t errCode)
+{
+    std::string errMsg;
+    auto externalErrCode = GetErrorCode(errCode);
+    auto iter = EXTERNAL_ERR_MSG_MAP.find(externalErrCode);
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        errMsg = iter->second;
+    } else {
+        errMsg = EXTERNAL_ERR_MSG_MAP.at(ERR_QUICKFIX_INTERNAL_ERROR);
+    }
+
+    auto iterInternal = INTERNAL_ERR_MSG_MAP.find(errCode);
+    if (iterInternal != INTERNAL_ERR_MSG_MAP.end()) {
+        errMsg += " " + iterInternal->second;
+    }
+
+    return errMsg;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 99:5
+Spell: 
+包含日志: 否
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        errMsg = iter->second;
+    } else {
+        errMsg = EXTERNAL_ERR_MSG_MAP.at(ERR_QUICKFIX_INTERNAL_ERROR);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 106:5
+Spell: 
+包含日志: 否
+代码:
+    if (iterInternal != INTERNAL_ERR_MSG_MAP.end()) {
+        errMsg += " " + iterInternal->second;
+    }
+
+--------------------------------------------------------------------------------

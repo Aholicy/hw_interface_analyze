@@ -1,0 +1,234 @@
+代码块类型: Method Declaration
+位置: 65:44
+Spell: HandleOnAcceptWantResponse
+包含日志: 否
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnAcceptWantResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnAcceptWantResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 68:5
+Spell: 
+包含日志: 否
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 69:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 79:44
+Spell: HandleOnTimeoutResponse
+包含日志: 否
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnTimeoutResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 82:5
+Spell: 
+包含日志: 否
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 83:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 92:44
+Spell: HandleOnNewProcessRequestResponse
+包含日志: 否
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnNewProcessRequestResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 95:5
+Spell: 
+包含日志: 否
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 96:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 106:44
+Spell: HandleOnNewProcessRequestTimeoutResponse
+包含日志: 否
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestTimeoutResponse(MessageParcel &data,
+    MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnNewProcessRequestTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 110:5
+Spell: 
+包含日志: 否
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 111:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 120:40
+Spell: OnRemoteRequest
+包含日志: 否
+代码:
+int StartSpecifiedAbilityResponseStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
+        code, option.GetFlags());
+    std::u16string descriptor = StartSpecifiedAbilityResponseStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    auto itFunc = responseFuncMap_.find(code);
+    if (itFunc != responseFuncMap_.end()) {
+        auto func = itFunc->second;
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 123:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
+        code, option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 127:5
+Spell: 
+包含日志: 否
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 128:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 133:5
+Spell: 
+包含日志: 否
+代码:
+    if (itFunc != responseFuncMap_.end()) {
+        auto func = itFunc->second;
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 135:9
+Spell: 
+包含日志: 否
+代码:
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+
+--------------------------------------------------------------------------------

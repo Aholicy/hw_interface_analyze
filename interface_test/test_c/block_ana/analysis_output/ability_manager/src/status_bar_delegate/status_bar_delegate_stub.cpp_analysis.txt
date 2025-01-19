@@ -1,0 +1,190 @@
+代码块类型: Method Declaration
+位置: 26:32
+Spell: OnRemoteRequest
+包含日志: 否
+代码:
+int32_t StatusBarDelegateStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = StatusBarDelegateStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code < static_cast<uint32_t>(StatusBarDelegateCmd::END)) {
+        switch (code) {
+            case static_cast<uint32_t>(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS):
+                return HandleCheckIfStatusBarItemExists(data, reply);
+            case static_cast<uint32_t>(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM):
+                return HandleAttachPidToStatusBarItem(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 31:5
+Spell: 
+包含日志: 否
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 32:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 36:5
+Spell: 
+包含日志: 否
+代码:
+    if (code < static_cast<uint32_t>(StatusBarDelegateCmd::END)) {
+        switch (code) {
+            case static_cast<uint32_t>(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS):
+                return HandleCheckIfStatusBarItemExists(data, reply);
+            case static_cast<uint32_t>(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM):
+                return HandleAttachPidToStatusBarItem(data, reply);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+位置: 37:9
+Spell: 
+包含日志: 否
+代码:
+        switch (code) {
+            case static_cast<uint32_t>(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS):
+                return HandleCheckIfStatusBarItemExists(data, reply);
+            case static_cast<uint32_t>(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM):
+                return HandleAttachPidToStatusBarItem(data, reply);
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 47:32
+Spell: HandleCheckIfStatusBarItemExists
+包含日志: 否
+代码:
+int32_t StatusBarDelegateStub::HandleCheckIfStatusBarItemExists(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    uint32_t accessTokenId = data.ReadUint32();
+    bool isExist = false;
+    auto result = CheckIfStatusBarItemExists(accessTokenId, isExist);
+    if (!reply.WriteBool(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!reply.WriteBool(isExist)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write isExist failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 49:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 53:5
+Spell: 
+包含日志: 否
+代码:
+    if (!reply.WriteBool(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 54:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 57:5
+Spell: 
+包含日志: 否
+代码:
+    if (!reply.WriteBool(isExist)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write isExist failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 58:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write isExist failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 64:32
+Spell: HandleAttachPidToStatusBarItem
+包含日志: 否
+代码:
+int32_t StatusBarDelegateStub::HandleAttachPidToStatusBarItem(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    uint32_t accessTokenId = data.ReadUint32();
+    int32_t pid = data.ReadInt32();
+    auto instanceKey = data.ReadString();
+    auto result = AttachPidToStatusBarItem(accessTokenId, pid, instanceKey);
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 66:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 71:5
+Spell: 
+包含日志: 否
+代码:
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 72:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+
+--------------------------------------------------------------------------------

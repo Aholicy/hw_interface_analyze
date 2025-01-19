@@ -1,0 +1,45 @@
+代码块类型: Method Declaration
+位置: 27:28
+Spell: ProcessEvent
+包含日志: 否
+代码:
+void AutoFillEventHandler::ProcessEvent(const AppExecFwk::InnerEvent::Pointer &event)
+{
+    TAG_LOGD(AAFwkTag::AUTOFILLMGR, "called");
+    if (event == nullptr) {
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+        return;
+    }
+#ifdef SUPPORT_GRAPHICS
+    AutoFillManager::GetInstance().HandleTimeOut(event->GetInnerEventId());
+#endif // SUPPORT_GRAPHICS
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 29:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::AUTOFILLMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 30:5
+Spell: 
+包含日志: 否
+代码:
+    if (event == nullptr) {
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 31:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+
+--------------------------------------------------------------------------------

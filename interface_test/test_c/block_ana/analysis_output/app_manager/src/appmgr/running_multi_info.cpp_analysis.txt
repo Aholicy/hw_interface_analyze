@@ -1,0 +1,180 @@
+代码块类型: Method Declaration
+位置: 26:27
+Spell: ReadFromParcel
+包含日志: 否
+代码:
+bool RunningMultiAppInfo::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = Str16ToStr8(parcel.ReadString16());
+    mode = parcel.ReadInt32();
+    int32_t runningAppClonesSize;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, runningAppClonesSize);
+    if (runningAppClonesSize > MAX_CLONE_APP_NUM) {
+        return false;
+    }
+    for (auto i = 0; i < runningAppClonesSize; i++) {
+        RunningAppClone clone;
+        clone.appCloneIndex = parcel.ReadInt32();
+        clone.uid = parcel.ReadInt32();
+        parcel.ReadInt32Vector(&clone.pids);
+        runningAppClones.emplace_back(clone);
+    }
+
+    int32_t runningMultiIntanceInfosSize;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, runningMultiIntanceInfosSize);
+    if (runningMultiIntanceInfosSize > MAX_INSTANCE_NUM) {
+        return false;
+    }
+    for (auto i = 0; i < runningMultiIntanceInfosSize; i++) {
+        RunningMultiInstanceInfo instanceInfo;
+        instanceInfo.instanceKey = Str16ToStr8(parcel.ReadString16());
+        instanceInfo.uid = parcel.ReadInt32();
+        parcel.ReadInt32Vector(&instanceInfo.pids);
+        runningMultiIntanceInfos.emplace_back(instanceInfo);
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 32:5
+Spell: 
+包含日志: 否
+代码:
+    if (runningAppClonesSize > MAX_CLONE_APP_NUM) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+位置: 35:5
+Spell: 
+包含日志: 否
+代码:
+    for (auto i = 0; i < runningAppClonesSize; i++) {
+        RunningAppClone clone;
+        clone.appCloneIndex = parcel.ReadInt32();
+        clone.uid = parcel.ReadInt32();
+        parcel.ReadInt32Vector(&clone.pids);
+        runningAppClones.emplace_back(clone);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 45:5
+Spell: 
+包含日志: 否
+代码:
+    if (runningMultiIntanceInfosSize > MAX_INSTANCE_NUM) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+位置: 48:5
+Spell: 
+包含日志: 否
+代码:
+    for (auto i = 0; i < runningMultiIntanceInfosSize; i++) {
+        RunningMultiInstanceInfo instanceInfo;
+        instanceInfo.instanceKey = Str16ToStr8(parcel.ReadString16());
+        instanceInfo.uid = parcel.ReadInt32();
+        parcel.ReadInt32Vector(&instanceInfo.pids);
+        runningMultiIntanceInfos.emplace_back(instanceInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 58:43
+Spell: Unmarshalling
+包含日志: 否
+代码:
+RunningMultiAppInfo *RunningMultiAppInfo::Unmarshalling(Parcel &parcel)
+{
+    RunningMultiAppInfo *info = new (std::nothrow) RunningMultiAppInfo();
+    if (info && !info->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 61:5
+Spell: 
+包含日志: 否
+代码:
+    if (info && !info->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete info;
+        info = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 62:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 69:27
+Spell: Marshalling
+包含日志: 否
+代码:
+bool RunningMultiAppInfo::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(bundleName));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, mode);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, runningAppClones.size());
+    if (runningAppClones.size() > MAX_CLONE_APP_NUM) {
+        return false;
+    }
+    for (auto &clone : runningAppClones) {
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, clone.appCloneIndex);
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, clone.uid);
+        if (!parcel.WriteInt32Vector(clone.pids)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "write runningAppClones failed.");
+            return false;
+        }
+    }
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, runningMultiIntanceInfos.size());
+    if (runningMultiIntanceInfos.size() > MAX_INSTANCE_NUM) {
+        return false;
+    }
+    for (auto &instanceInfo : runningMultiIntanceInfos) {
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(instanceInfo.instanceKey));
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, instanceInfo.uid);
+        if (!parcel.WriteInt32Vector(instanceInfo.pids)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "write runningMultiIntanceInfos failed.");
+            return false;
+        }
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 74:5
+Spell: 
+包含日志: 否
+代码:
+    if (runningAppClones.size() > MAX_CLONE_APP_NUM) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 86:5
+Spell: 
+包含日志: 否
+代码:
+    if (runningMultiIntanceInfos.size() > MAX_INSTANCE_NUM) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------

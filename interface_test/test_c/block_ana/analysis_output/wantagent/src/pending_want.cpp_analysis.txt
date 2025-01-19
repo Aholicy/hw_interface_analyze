@@ -1,0 +1,1019 @@
+代码块类型: Method Declaration
+位置: 40:47
+Spell: GetType
+包含日志: 否
+代码:
+WantAgentConstant::OperationType PendingWant::GetType(sptr<AAFwk::IWantSender> target)
+{
+    int32_t operationType = 0;
+    WantAgentClient::GetInstance().GetPendingWantType(target, operationType);
+    return static_cast<WantAgentConstant::OperationType>(operationType);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 47:43
+Spell: GetAbility
+包含日志: 否
+代码:
+std::shared_ptr<PendingWant> PendingWant::GetAbility(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want, unsigned int flags)
+{
+    std::shared_ptr<PendingWant> pendingWant = nullptr;
+    GetAbility(context, requestCode, want, flags, nullptr, pendingWant);
+    return pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 56:22
+Spell: GetAbility
+包含日志: 否
+代码:
+ErrCode PendingWant::GetAbility(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    const std::shared_ptr<AAFwk::Want> &want, unsigned int flags,
+    const std::shared_ptr<AAFwk::WantParams> &options,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantsInfo wantsInfo;
+    wantsInfo.want = *want;
+    wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+    if (options != nullptr && !options->IsEmpty()) {
+        wantsInfo.want.SetParams(*options);
+    }
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(WantAgentConstant::OperationType::START_ABILITY);
+    wantSenderInfo.allWants.push_back(wantsInfo);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 62:5
+Spell: 
+包含日志: 否
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 63:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 70:5
+Spell: 
+包含日志: 否
+代码:
+    if (options != nullptr && !options->IsEmpty()) {
+        wantsInfo.want.SetParams(*options);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 83:5
+Spell: 
+包含日志: 否
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 90:43
+Spell: GetAbilities
+包含日志: 否
+代码:
+std::shared_ptr<PendingWant> PendingWant::GetAbilities(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    std::vector<std::shared_ptr<Want>> &wants, unsigned int flags)
+{
+    std::shared_ptr<PendingWant> pendingWant = nullptr;
+    GetAbilities(context, requestCode, wants, flags, nullptr, pendingWant);
+    return pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 99:22
+Spell: GetAbilities
+包含日志: 否
+代码:
+ErrCode PendingWant::GetAbilities(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    std::vector<std::shared_ptr<Want>> &wants, unsigned int flags, const std::shared_ptr<WantParams> &options,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(WantAgentConstant::OperationType::START_ABILITIES);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    for (auto want : wants) {
+        WantsInfo wantsInfo;
+        if (want != nullptr) {
+            wantsInfo.want = *want;
+        }
+        wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+        if (options != nullptr && !options->IsEmpty()) {
+            wantsInfo.want.SetParams(*options);
+        }
+        wantSenderInfo.allWants.push_back(wantsInfo);
+    }
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 104:5
+Spell: 
+包含日志: 否
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 105:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 128:5
+Spell: 
+包含日志: 否
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 135:22
+Spell: GetCommonEvent
+包含日志: 否
+代码:
+ErrCode PendingWant::GetCommonEvent(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return GetCommonEventAsUser(context, requestCode, want, flags, 0, pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 143:22
+Spell: GetCommonEventAsUser
+包含日志: 否
+代码:
+ErrCode PendingWant::GetCommonEventAsUser(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want, unsigned int flags, int uid,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantsInfo wantsInfo;
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+    wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(WantAgentConstant::OperationType::SEND_COMMON_EVENT);
+    wantSenderInfo.allWants.push_back(wantsInfo);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 148:5
+Spell: 
+包含日志: 否
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 149:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 154:5
+Spell: 
+包含日志: 否
+代码:
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 168:5
+Spell: 
+包含日志: 否
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 175:22
+Spell: GetService
+包含日志: 否
+代码:
+ErrCode PendingWant::GetService(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<AAFwk::Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return BuildServicePendingWant(context, requestCode, want, flags,
+        WantAgentConstant::OperationType::START_SERVICE, pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 184:22
+Spell: GetServiceExtension
+包含日志: 否
+代码:
+ErrCode PendingWant::GetServiceExtension(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<AAFwk::Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return BuildServicePendingWant(context, requestCode, want, flags,
+        WantAgentConstant::OperationType::START_SERVICE_EXTENSION, pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 193:22
+Spell: GetForegroundService
+包含日志: 否
+代码:
+ErrCode PendingWant::GetForegroundService(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    const std::shared_ptr<Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return BuildServicePendingWant(
+        context, requestCode, want, flags, WantAgentConstant::OperationType::START_FOREGROUND_SERVICE,
+        pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 203:22
+Spell: BuildServicePendingWant
+包含日志: 否
+代码:
+ErrCode PendingWant::BuildServicePendingWant(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want,
+    unsigned int flags, WantAgentConstant::OperationType serviceKind,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantsInfo wantsInfo;
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+    wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(serviceKind);
+    wantSenderInfo.allWants.push_back(wantsInfo);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 209:5
+Spell: 
+包含日志: 否
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 210:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 215:5
+Spell: 
+包含日志: 否
+代码:
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 229:5
+Spell: 
+包含日志: 否
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 236:22
+Spell: Cancel
+包含日志: 否
+代码:
+ErrCode PendingWant::Cancel(const sptr<AAFwk::IWantSender> &target, uint32_t flags)
+{
+    return WantAgentClient::GetInstance().CancelWantSender(target, flags);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 241:19
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::Send(const sptr<AAFwk::IWantSender> &target)
+{
+    Send(0, nullptr, nullptr, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 246:19
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::Send(int resultCode, const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, nullptr, nullptr, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 251:19
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, want, nullptr, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 257:19
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::Send(
+    int resultCode, const sptr<CompletedDispatcher> &onCompleted, const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, nullptr, onCompleted, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 263:19
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, want, onCompleted, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 269:19
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const std::string &requiredPermission,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, want, onCompleted, requiredPermission, nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 276:22
+Spell: Send
+包含日志: 否
+代码:
+ErrCode PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const std::string &requiredPermission,
+    const std::shared_ptr<WantParams> &options, const std::shared_ptr<StartOptions> &startOptions,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    int result =
+        SendAndReturnResult(resultCode, want, onCompleted, requiredPermission, options, startOptions, target);
+    if (result != 0) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+    }
+    return result;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 283:5
+Spell: 
+包含日志: 否
+代码:
+    if (result != 0) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 289:18
+Spell: SendAndReturnResult
+包含日志: 否
+代码:
+int PendingWant::SendAndReturnResult(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const std::string &requiredPermission,
+    const std::shared_ptr<WantParams> &options, const std::shared_ptr<StartOptions> &startOptions,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    TAG_LOGD(AAFwkTag::WANTAGENT, "call");
+    SenderInfo senderInfo;
+    senderInfo.resolvedType = want != nullptr ? want->GetType() : "";
+    if (want != nullptr) {
+        senderInfo.want = *want;
+    }
+    if (options != nullptr) {
+        senderInfo.want.SetParams(*options);
+    }
+    if (startOptions != nullptr) {
+        senderInfo.startOptions = new (std::nothrow) StartOptions(*startOptions);
+    }
+    senderInfo.requiredPermission = requiredPermission;
+    senderInfo.code = resultCode;
+    senderInfo.finishedReceiver = onCompleted;
+    return WantAgentClient::GetInstance().SendWantSender(target, senderInfo);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 294:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::WANTAGENT, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 297:5
+Spell: 
+包含日志: 否
+代码:
+    if (want != nullptr) {
+        senderInfo.want = *want;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 300:5
+Spell: 
+包含日志: 否
+代码:
+    if (options != nullptr) {
+        senderInfo.want.SetParams(*options);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 303:5
+Spell: 
+包含日志: 否
+代码:
+    if (startOptions != nullptr) {
+        senderInfo.startOptions = new (std::nothrow) StartOptions(*startOptions);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 312:22
+Spell: IsEquals
+包含日志: 否
+代码:
+ErrCode PendingWant::IsEquals(
+    const std::shared_ptr<PendingWant> &targetPendingWant, const std::shared_ptr<PendingWant> &otherPendingWant)
+{
+    if ((targetPendingWant == nullptr) && (otherPendingWant == nullptr)) {
+        return ERR_OK;
+    }
+    if ((targetPendingWant == nullptr) || (otherPendingWant == nullptr)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    int targetCode = -1;
+    int otherCode = -1;
+    ErrCode targetErrCode = targetPendingWant->GetHashCode(targetPendingWant->GetTarget(), targetCode);
+    ErrCode otherErrCode = otherPendingWant->GetHashCode(otherPendingWant->GetTarget(), otherCode);
+    if (targetErrCode != ERR_OK) {
+        return targetErrCode;
+    }
+    if (otherErrCode != ERR_OK) {
+        return otherErrCode;
+    }
+    return targetCode == otherCode ? ERR_OK : NOTEQ;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 315:5
+Spell: 
+包含日志: 否
+代码:
+    if ((targetPendingWant == nullptr) && (otherPendingWant == nullptr)) {
+        return ERR_OK;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 318:5
+Spell: 
+包含日志: 否
+代码:
+    if ((targetPendingWant == nullptr) || (otherPendingWant == nullptr)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 325:5
+Spell: 
+包含日志: 否
+代码:
+    if (targetErrCode != ERR_OK) {
+        return targetErrCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 328:5
+Spell: 
+包含日志: 否
+代码:
+    if (otherErrCode != ERR_OK) {
+        return otherErrCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 334:32
+Spell: GetTarget
+包含日志: 否
+代码:
+sptr<IWantSender> PendingWant::GetTarget()
+{
+    return target_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 339:19
+Spell: SetTarget
+包含日志: 否
+代码:
+void PendingWant::SetTarget(const sptr<AAFwk::IWantSender> &target)
+{
+    target_ = target;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 348:35
+Spell: PerformReceive
+包含日志: 否
+代码:
+void PendingWant::CancelReceiver::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 352:35
+Spell: Send
+包含日志: 否
+代码:
+void PendingWant::CancelReceiver::Send(const int32_t resultCode)
+{
+    if (outerInstance_.lock() != nullptr) {
+        outerInstance_.lock()->NotifyCancelListeners(resultCode);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 354:5
+Spell: 
+包含日志: 否
+代码:
+    if (outerInstance_.lock() != nullptr) {
+        outerInstance_.lock()->NotifyCancelListeners(resultCode);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 359:19
+Spell: RegisterCancelListener
+包含日志: 否
+代码:
+void PendingWant::RegisterCancelListener(
+    const std::shared_ptr<CancelListener> &cancelListener, const sptr<AAFwk::IWantSender> &target)
+{
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+    std::scoped_lock<std::mutex> lock(lock_object);
+    if (cancelReceiver_ == nullptr) {
+        cancelReceiver_ = new (std::nothrow) CancelReceiver(weak_from_this());
+    }
+    bool isEmpty = cancelListeners_.empty();
+    cancelListeners_.push_back(cancelListener);
+    if (isEmpty) {
+        WantAgentClient::GetInstance().RegisterCancelListener(target, cancelReceiver_);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 362:5
+Spell: 
+包含日志: 否
+代码:
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 363:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 367:5
+Spell: 
+包含日志: 否
+代码:
+    if (cancelReceiver_ == nullptr) {
+        cancelReceiver_ = new (std::nothrow) CancelReceiver(weak_from_this());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 372:5
+Spell: 
+包含日志: 否
+代码:
+    if (isEmpty) {
+        WantAgentClient::GetInstance().RegisterCancelListener(target, cancelReceiver_);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 377:19
+Spell: NotifyCancelListeners
+包含日志: 否
+代码:
+void PendingWant::NotifyCancelListeners(int32_t resultCode)
+{
+    std::vector<std::shared_ptr<CancelListener>> cancelListeners;
+    {
+        std::scoped_lock<std::mutex> lock(lock_object);
+        cancelListeners = std::vector<std::shared_ptr<CancelListener>>(cancelListeners_);
+    }
+    for (auto cancelListener : cancelListeners) {
+        if (cancelListener != nullptr) {
+            cancelListener->OnCancelled(resultCode);
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 391:19
+Spell: UnregisterCancelListener
+包含日志: 否
+代码:
+void PendingWant::UnregisterCancelListener(
+    const std::shared_ptr<CancelListener> &cancelListener, const sptr<AAFwk::IWantSender> &target)
+{
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+
+    std::scoped_lock<std::mutex> lock(lock_object);
+    bool isEmpty = cancelListeners_.empty();
+    cancelListeners_.erase(remove_if(cancelListeners_.begin(),
+        cancelListeners_.end(),
+        [cancelListener](std::shared_ptr<CancelListener> x) { return x == cancelListener; }),
+        cancelListeners_.end());
+    if (cancelListeners_.empty() && !isEmpty) {
+        WantAgentClient::GetInstance().UnregisterCancelListener(target, cancelReceiver_);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 394:5
+Spell: 
+包含日志: 否
+代码:
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 395:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 405:5
+Spell: 
+包含日志: 否
+代码:
+    if (cancelListeners_.empty() && !isEmpty) {
+        WantAgentClient::GetInstance().UnregisterCancelListener(target, cancelReceiver_);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 410:22
+Spell: GetHashCode
+包含日志: 否
+代码:
+ErrCode PendingWant::GetHashCode(const sptr<AAFwk::IWantSender> &target, int &code)
+{
+    return WantAgentClient::GetInstance().GetPendingWantCode(target, code);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 415:22
+Spell: GetUid
+包含日志: 否
+代码:
+ErrCode PendingWant::GetUid(const sptr<AAFwk::IWantSender> &target, int32_t &uid)
+{
+    return WantAgentClient::GetInstance().GetPendingWantUid(target, uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 420:22
+Spell: GetBundleName
+包含日志: 否
+代码:
+ErrCode PendingWant::GetBundleName(const sptr<AAFwk::IWantSender> &target, std::string &bundleName)
+{
+    return WantAgentClient::GetInstance().GetPendingWantBundleName(target, bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 425:36
+Spell: GetWant
+包含日志: 否
+代码:
+std::shared_ptr<Want> PendingWant::GetWant(const sptr<AAFwk::IWantSender> &target)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    std::shared_ptr<Want> want = std::make_shared<Want>();
+    int ret = WantAgentClient::GetInstance().GetPendingRequestWant(target, want);
+    return ret ? nullptr : want;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 433:19
+Spell: Marshalling
+包含日志: 否
+代码:
+bool PendingWant::Marshalling(Parcel &parcel) const
+{
+    if (target_ == nullptr || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(target_->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "failed");
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 435:5
+Spell: 
+包含日志: 否
+代码:
+    if (target_ == nullptr || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(target_->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 436:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 443:27
+Spell: Unmarshalling
+包含日志: 否
+代码:
+PendingWant *PendingWant::Unmarshalling(Parcel &parcel)
+{
+    PendingWant *pendingWant = new (std::nothrow) PendingWant();
+    if (pendingWant == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+        return nullptr;
+    }
+    sptr<AAFwk::IWantSender> target =
+        iface_cast<AAFwk::IWantSender>((static_cast<MessageParcel*>(&parcel))->ReadRemoteObject());
+    if (target == nullptr) {
+        delete pendingWant;
+        return nullptr;
+    }
+    pendingWant->SetTarget(target);
+
+    return pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 446:5
+Spell: 
+包含日志: 否
+代码:
+    if (pendingWant == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 447:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 452:5
+Spell: 
+包含日志: 否
+代码:
+    if (target == nullptr) {
+        delete pendingWant;
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 461:46
+Spell: GetWantSenderInfo
+包含日志: 否
+代码:
+std::shared_ptr<WantSenderInfo> PendingWant::GetWantSenderInfo(const sptr<AAFwk::IWantSender> &target)
+{
+    std::shared_ptr<WantSenderInfo> info = std::make_shared<WantSenderInfo>();
+    int ret = WantAgentClient::GetInstance().GetWantSenderInfo(target, info);
+    return ret ? nullptr : info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 468:22
+Spell: GetType
+包含日志: 否
+代码:
+ErrCode PendingWant::GetType(const sptr<AAFwk::IWantSender> &target, int32_t &operType)
+{
+    ErrCode result = WantAgentClient::GetInstance().GetPendingWantType(target, operType);
+    return result;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 474:22
+Spell: GetWant
+包含日志: 否
+代码:
+ErrCode PendingWant::GetWant(const sptr<AAFwk::IWantSender> &target, std::shared_ptr<AAFwk::Want> &want)
+{
+    ErrCode result = WantAgentClient::GetInstance().GetPendingRequestWant(target, want);
+    return result;
+}
+
+--------------------------------------------------------------------------------

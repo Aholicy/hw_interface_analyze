@@ -1,0 +1,41 @@
+代码块类型: Method Declaration
+位置: 20:18
+Spell: Marshalling
+包含日志: 否
+代码:
+bool MallocInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 26:25
+Spell: Unmarshalling
+包含日志: 否
+代码:
+MallocInfo *MallocInfo::Unmarshalling(Parcel &parcel)
+{
+    MallocInfo *mallocInfo = new (std::nothrow) MallocInfo();
+    if (mallocInfo == nullptr) {
+        return nullptr;
+    }
+    mallocInfo->usmblks = parcel.ReadUint64();
+    mallocInfo->uordblks = parcel.ReadUint64();
+    mallocInfo->fordblks = parcel.ReadUint64();
+    mallocInfo->hblkhd = parcel.ReadUint64();
+    return mallocInfo;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 29:5
+Spell: 
+包含日志: 否
+代码:
+    if (mallocInfo == nullptr) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------

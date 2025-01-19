@@ -1,0 +1,364 @@
+代码块类型: Method Declaration
+位置: 22:24
+Spell: Marshalling
+包含日志: 否
+代码:
+bool AbilityStateData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(moduleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(bundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(abilityName)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(abilityState)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(pid)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(uid)) {
+        return false;
+    }
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+    }
+    if (!MarshallingOne(parcel)) {
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 24:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteString(moduleName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 27:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteString(bundleName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 30:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteString(abilityName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 33:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(abilityState)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 36:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(pid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 39:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(uid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 42:5
+Spell: 
+包含日志: 否
+代码:
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 43:9
+Spell: 
+包含日志: 否
+代码:
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 47:9
+Spell: 
+包含日志: 否
+代码:
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 50:9
+Spell: 
+包含日志: 否
+代码:
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 54:5
+Spell: 
+包含日志: 否
+代码:
+    if (!MarshallingOne(parcel)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 60:24
+Spell: MarshallingOne
+包含日志: 否
+代码:
+bool AbilityStateData::MarshallingOne(Parcel &parcel) const
+{
+    if (!parcel.WriteInt32(abilityType)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isFocused)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerBundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerAbilityName)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(appCloneIndex)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(processType)) {
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 62:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(abilityType)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 65:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteBool(isFocused)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 68:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteString(callerBundleName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 71:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteString(callerAbilityName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 74:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 77:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(appCloneIndex)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 80:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 83:5
+Spell: 
+包含日志: 否
+代码:
+    if (!parcel.WriteInt32(processType)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 89:24
+Spell: ReadFromParcel
+包含日志: 否
+代码:
+bool AbilityStateData::ReadFromParcel(Parcel &parcel)
+{
+    moduleName = parcel.ReadString();
+
+    bundleName = parcel.ReadString();
+
+    abilityName = parcel.ReadString();
+
+    abilityState = parcel.ReadInt32();
+
+    pid = parcel.ReadInt32();
+
+    uid = parcel.ReadInt32();
+
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+    abilityType = parcel.ReadInt32();
+
+    isFocused = parcel.ReadBool();
+
+    callerBundleName = parcel.ReadString();
+
+    callerAbilityName = parcel.ReadString();
+    isAtomicService = parcel.ReadBool();
+    abilityRecordId = parcel.ReadInt32();
+    appCloneIndex = parcel.ReadInt32();
+    extensionAbilityType = parcel.ReadInt32();
+    processType = parcel.ReadInt32();
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 103:5
+Spell: 
+包含日志: 否
+代码:
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 122:37
+Spell: Unmarshalling
+包含日志: 否
+代码:
+AbilityStateData *AbilityStateData::Unmarshalling(Parcel &parcel)
+{
+    AbilityStateData *abilityStateData = new (std::nothrow) AbilityStateData();
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+        delete abilityStateData;
+        abilityStateData = nullptr;
+    }
+    return abilityStateData;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 125:5
+Spell: 
+包含日志: 否
+代码:
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+        delete abilityStateData;
+        abilityStateData = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 126:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+
+--------------------------------------------------------------------------------

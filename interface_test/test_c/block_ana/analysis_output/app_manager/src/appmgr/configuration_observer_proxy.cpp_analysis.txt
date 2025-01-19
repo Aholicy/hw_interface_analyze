@@ -1,0 +1,109 @@
+代码块类型: Method Declaration
+位置: 27:34
+Spell: WriteInterfaceToken
+包含日志: 否
+代码:
+bool ConfigurationObserverProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(ConfigurationObserverProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 29:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInterfaceToken(ConfigurationObserverProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 30:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 36:34
+Spell: OnConfigurationUpdated
+包含日志: 否
+代码:
+void ConfigurationObserverProxy::OnConfigurationUpdated(const Configuration& configuration)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    data.WriteParcelable(&configuration);
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+        return;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IConfigurationObserver::Message::TRANSACT_ON_CONFIGURATION_UPDATED),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 41:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 46:5
+Spell: 
+包含日志: 否
+代码:
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 47:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 53:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 54:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------

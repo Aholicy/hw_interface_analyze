@@ -1,0 +1,133 @@
+代码块类型: Method Declaration
+位置: 155:31
+Spell: Throw
+包含日志: 否
+代码:
+bool AbilityRuntimeErrorUtil::Throw(napi_env env, int32_t errCode, const std::string &errMessage)
+{
+    std::string eMes = errMessage;
+    if (eMes.empty()) {
+        eMes = ERROR_MSG_MAP.at(errCode);
+    }
+    napi_value error = nullptr;
+    napi_create_error(env, CreateJsValue(env, errCode), CreateJsValue(env, eMes), &error);
+    if (error == nullptr) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "create error");
+        return false;
+    }
+    napi_throw(env, error);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 158:5
+Spell: 
+包含日志: 否
+代码:
+    if (eMes.empty()) {
+        eMes = ERROR_MSG_MAP.at(errCode);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 163:5
+Spell: 
+包含日志: 否
+代码:
+    if (error == nullptr) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "create error");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 164:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "create error");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 171:31
+Spell: ThrowByInternalErrCode
+包含日志: 否
+代码:
+bool AbilityRuntimeErrorUtil::ThrowByInternalErrCode(napi_env env, int32_t errCode)
+{
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return false;
+    }
+    return Throw(env, ERROR_CODE_MAP.at(errCode));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 173:5
+Spell: 
+包含日志: 否
+代码:
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 174:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 180:37
+Spell: CreateErrorByInternalErrCode
+包含日志: 否
+代码:
+napi_value AbilityRuntimeErrorUtil::CreateErrorByInternalErrCode(napi_env env, int32_t errCode)
+{
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return nullptr;
+    }
+    int32_t externalErrCode = ERROR_CODE_MAP.at(errCode);
+    return CreateJsError(env, externalErrCode, ERROR_MSG_MAP.at(externalErrCode));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 182:5
+Spell: 
+包含日志: 否
+代码:
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 183:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 190:38
+Spell: GetErrMessage
+包含日志: 否
+代码:
+std::string AbilityRuntimeErrorUtil::GetErrMessage(int32_t errCode)
+{
+    auto iter = ERROR_MSG_MAP.find(errCode);
+    std::string errMsg = (iter != ERROR_MSG_MAP.end()) ? iter->second : "";
+    return errMsg;
+}
+
+--------------------------------------------------------------------------------

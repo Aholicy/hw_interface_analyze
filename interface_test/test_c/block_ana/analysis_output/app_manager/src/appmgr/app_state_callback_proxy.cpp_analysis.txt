@@ -1,0 +1,788 @@
+代码块类型: Method Declaration
+位置: 28:29
+Spell: WriteInterfaceToken
+包含日志: 否
+代码:
+bool AppStateCallbackProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AppStateCallbackProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 30:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInterfaceToken(AppStateCallbackProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 31:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 37:29
+Spell: OnAbilityRequestDone
+包含日志: 否
+代码:
+void AppStateCallbackProxy::OnAbilityRequestDone(const sptr<IRemoteObject> &token, const AbilityState state)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "begin");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    if (token) {
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(token.GetRefPtr())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag and token");
+            return;
+        }
+    } else {
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag");
+            return;
+        }
+    }
+
+    int32_t abilityState = static_cast<int32_t>(state);
+    data.WriteInt32(abilityState);
+    int32_t ret = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_ABILITY_REQUEST_DONE), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "end");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 39:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "begin");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 43:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 47:5
+Spell: 
+包含日志: 否
+代码:
+    if (token) {
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(token.GetRefPtr())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag and token");
+            return;
+        }
+    } else {
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag");
+            return;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 48:9
+Spell: 
+包含日志: 否
+代码:
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(token.GetRefPtr())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag and token");
+            return;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 49:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag and token");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 53:9
+Spell: 
+包含日志: 否
+代码:
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag");
+            return;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 54:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write flag");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 63:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 64:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 66:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "end");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 69:29
+Spell: OnAppStateChanged
+包含日志: 否
+代码:
+void AppStateCallbackProxy::OnAppStateChanged(const AppProcessData &appProcessData)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "begin");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    data.WriteParcelable(&appProcessData);
+    int32_t ret = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_STATE_CHANGED), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "end");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 71:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "begin");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 75:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 81:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 82:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 84:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "end");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 87:29
+Spell: NotifyConfigurationChange
+包含日志: 否
+代码:
+void AppStateCallbackProxy::NotifyConfigurationChange(const AppExecFwk::Configuration &config, int32_t userId)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return;
+    }
+    if (!data.WriteParcelable(&config)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write config failed.");
+        return;
+    }
+    if (!data.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write usr failed.");
+        return;
+    }
+    auto error = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_CONFIG_CHANGE), data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send config error: %{public}d", error);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 92:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 93:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 96:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteParcelable(&config)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write config failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 97:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Write config failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 100:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write usr failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 101:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Write usr failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 106:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send config error: %{public}d", error);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 107:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Send config error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 111:29
+Spell: NotifyStartResidentProcess
+包含日志: 否
+代码:
+void AppStateCallbackProxy::NotifyStartResidentProcess(std::vector<AppExecFwk::BundleInfo> &bundleInfos)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+    if (!data.WriteInt32(bundleInfos.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundle info size failed.");
+        return;
+    }
+
+    for (auto &bundleInfo : bundleInfos) {
+        if (!data.WriteParcelable(&bundleInfo)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "write bundle info failed");
+            return;
+        }
+    }
+    auto ret = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_START_RESIDENT_PROCESS),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 116:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 117:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 121:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(bundleInfos.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundle info size failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 122:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundle info size failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 135:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 136:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 140:29
+Spell: NotifyStartKeepAliveProcess
+包含日志: 否
+代码:
+void AppStateCallbackProxy::NotifyStartKeepAliveProcess(std::vector<AppExecFwk::BundleInfo> &bundleInfos)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+    if (!data.WriteInt32(bundleInfos.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundle info size failed.");
+        return;
+    }
+
+    for (auto &bundleInfo : bundleInfos) {
+        if (!data.WriteParcelable(&bundleInfo)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "write bundle info failed");
+            return;
+        }
+    }
+    auto ret = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_START_KEEP_ALIVE_PROCESS),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 145:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 146:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 150:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(bundleInfos.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundle info size failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 151:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundle info size failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 164:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 165:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 169:29
+Spell: OnAppRemoteDied
+包含日志: 否
+代码:
+void AppStateCallbackProxy::OnAppRemoteDied(const std::vector<sptr<IRemoteObject>> &abilityTokens)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+    if (!data.WriteInt32(abilityTokens.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write token size failed.");
+        return;
+    }
+
+    for (auto &token : abilityTokens) {
+        if (!data.WriteRemoteObject(token.GetRefPtr())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
+            return;
+        }
+    }
+    auto ret = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_REMOTE_DIED),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 174:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 175:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 179:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(abilityTokens.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write token size failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 180:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write token size failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 193:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 194:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 198:29
+Spell: NotifyAppPreCache
+包含日志: 否
+代码:
+void AppStateCallbackProxy::NotifyAppPreCache(int32_t pid, int32_t userId)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+    if (!data.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write pid failed.");
+        return;
+    }
+
+    if (!data.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write userId failed.");
+        return;
+    }
+
+    auto ret = SendTransactCmd(
+        static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_PRE_CACHE),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 203:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 204:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "WriteInterfaceToken failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 208:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write pid failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 209:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write pid failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 213:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write userId failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 214:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write userId failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 221:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 222:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 226:32
+Spell: SendTransactCmd
+包含日志: 否
+代码:
+int32_t AppStateCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return ERR_NULL_OBJECT;
+    }
+
+    auto ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error code: %{public}d", ret);
+        return ret;
+    }
+    return ret;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 230:5
+Spell: 
+包含日志: 否
+代码:
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return ERR_NULL_OBJECT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 231:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 236:5
+Spell: 
+包含日志: 否
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error code: %{public}d", ret);
+        return ret;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 237:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error code: %{public}d", ret);
+
+--------------------------------------------------------------------------------

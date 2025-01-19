@@ -1,0 +1,137 @@
+代码块类型: Method Declaration
+位置: 29:53
+Spell: GetInstance
+包含日志: 否
+代码:
+ConnectionObserverClient& ConnectionObserverClient::GetInstance()
+{
+    static ConnectionObserverClient instance;
+    return instance;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 35:35
+Spell: RegisterObserver
+包含日志: 否
+代码:
+int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->RegisterObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 37:5
+Spell: 
+包含日志: 否
+代码:
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 38:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 45:35
+Spell: UnregisterObserver
+包含日志: 否
+代码:
+int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->UnregisterObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 47:5
+Spell: 
+包含日志: 否
+代码:
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 48:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 55:35
+Spell: GetDlpConnectionInfos
+包含日志: 否
+代码:
+int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+{
+#ifdef WITH_DLP
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetDlpConnectionInfos(infos);
+#else
+    return ERR_READ_INFO_FAILED;
+#endif // WITH_DLP
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 69:35
+Spell: GetConnectionData
+包含日志: 否
+代码:
+int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetConnectionData(connectionData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 71:5
+Spell: 
+包含日志: 否
+代码:
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 72:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+--------------------------------------------------------------------------------

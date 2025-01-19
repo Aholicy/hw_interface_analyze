@@ -1,0 +1,4623 @@
+代码块类型: Method Declaration
+位置: 40:10
+Spell: SetServiceManager
+包含日志: 否
+代码:
+    void SetServiceManager(std::unique_ptr<AppServiceManager> serviceMgr)
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        serviceManager_ = std::move(serviceMgr);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 46:22
+Spell: ConnectAppMgrService
+包含日志: 否
+代码:
+    AppMgrResultCode ConnectAppMgrService()
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        return ConnectAppMgrServiceInner();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 52:25
+Spell: GetRemoteObject
+包含日志: 否
+代码:
+    sptr<IRemoteObject> GetRemoteObject()
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        if (!remote_) {
+            (void) ConnectAppMgrServiceInner();
+        }
+        return remote_;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 55:9
+Spell: 
+包含日志: 否
+代码:
+        if (!remote_) {
+            (void) ConnectAppMgrServiceInner();
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 62:10
+Spell: HandleRemoteDied
+包含日志: 否
+代码:
+    void HandleRemoteDied(const wptr<IRemoteObject>& remote)
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        if (!remote_) {
+            return;
+        }
+
+        if (remote_ == remote.promote()) {
+            remote_->RemoveDeathRecipient(deathRecipient_);
+            remote_ = nullptr;
+            deathRecipient_ = nullptr;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 65:9
+Spell: 
+包含日志: 否
+代码:
+        if (!remote_) {
+            return;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 69:9
+Spell: 
+包含日志: 否
+代码:
+        if (remote_ == remote.promote()) {
+            remote_->RemoveDeathRecipient(deathRecipient_);
+            remote_ = nullptr;
+            deathRecipient_ = nullptr;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 76:22
+Spell: ConnectAppMgrServiceInner
+包含日志: 否
+代码:
+    AppMgrResultCode ConnectAppMgrServiceInner()
+    {
+        if (!serviceManager_) {
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+        if (remote_) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        TAG_LOGI(AAFwkTag::APPMGR, "get AppMgrRemote object");
+        remote_ = serviceManager_->GetAppMgrService();
+        if (!remote_) {
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+        auto me = shared_from_this();
+        deathRecipient_ = sptr<IRemoteObject::DeathRecipient>(new AppMgrDeathRecipient(me));
+        if (deathRecipient_ == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "create AppMgrDeathRecipient failed");
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+        if ((remote_->IsProxyObject()) && (!remote_->AddDeathRecipient(deathRecipient_))) {
+            TAG_LOGE(AAFwkTag::APPMGR, "AddDeathRecipient to AppMs failed");
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+        return AppMgrResultCode::RESULT_OK;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 78:9
+Spell: 
+包含日志: 否
+代码:
+        if (!serviceManager_) {
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 81:9
+Spell: 
+包含日志: 否
+代码:
+        if (remote_) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 84:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGI(AAFwkTag::APPMGR, "get AppMgrRemote object");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 86:9
+Spell: 
+包含日志: 否
+代码:
+        if (!remote_) {
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 92:9
+Spell: 
+包含日志: 否
+代码:
+        if (deathRecipient_ == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "create AppMgrDeathRecipient failed");
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 93:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "create AppMgrDeathRecipient failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 96:9
+Spell: 
+包含日志: 否
+代码:
+        if ((remote_->IsProxyObject()) && (!remote_->AddDeathRecipient(deathRecipient_))) {
+            TAG_LOGE(AAFwkTag::APPMGR, "AddDeathRecipient to AppMs failed");
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 97:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "AddDeathRecipient to AppMs failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 110:14
+Spell: OnRemoteDied
+包含日志: 否
+代码:
+        void OnRemoteDied(const wptr<IRemoteObject>& remote) override
+        {
+            std::shared_ptr<AppMgrRemoteHolder> holder = owner_.lock();
+            if (holder) {
+                holder->HandleRemoteDied(remote);
+            }
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 113:13
+Spell: 
+包含日志: 否
+代码:
+            if (holder) {
+                holder->HandleRemoteDied(remote);
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 137:32
+Spell: LoadAbility
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::LoadAbility(const AbilityInfo &abilityInfo, const ApplicationInfo &appInfo,
+    const AAFwk::Want &want, AbilityRuntime::LoadParam loadParam)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            // From here, separate AbilityInfo and ApplicationInfo from AA.
+            std::shared_ptr<AbilityInfo> abilityInfoPtr = std::make_shared<AbilityInfo>(abilityInfo);
+            std::shared_ptr<ApplicationInfo> appInfoPtr = std::make_shared<ApplicationInfo>(appInfo);
+            std::shared_ptr<AAFwk::Want> wantPtr = std::make_shared<AAFwk::Want>(want);
+            auto loadParamPtr = std::make_shared<AbilityRuntime::LoadParam>(loadParam);
+            amsService->LoadAbility(abilityInfoPtr, appInfoPtr, wantPtr, loadParamPtr);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 141:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            // From here, separate AbilityInfo and ApplicationInfo from AA.
+            std::shared_ptr<AbilityInfo> abilityInfoPtr = std::make_shared<AbilityInfo>(abilityInfo);
+            std::shared_ptr<ApplicationInfo> appInfoPtr = std::make_shared<ApplicationInfo>(appInfo);
+            std::shared_ptr<AAFwk::Want> wantPtr = std::make_shared<AAFwk::Want>(want);
+            auto loadParamPtr = std::make_shared<AbilityRuntime::LoadParam>(loadParam);
+            amsService->LoadAbility(abilityInfoPtr, appInfoPtr, wantPtr, loadParamPtr);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 143:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            // From here, separate AbilityInfo and ApplicationInfo from AA.
+            std::shared_ptr<AbilityInfo> abilityInfoPtr = std::make_shared<AbilityInfo>(abilityInfo);
+            std::shared_ptr<ApplicationInfo> appInfoPtr = std::make_shared<ApplicationInfo>(appInfo);
+            std::shared_ptr<AAFwk::Want> wantPtr = std::make_shared<AAFwk::Want>(want);
+            auto loadParamPtr = std::make_shared<AbilityRuntime::LoadParam>(loadParam);
+            amsService->LoadAbility(abilityInfoPtr, appInfoPtr, wantPtr, loadParamPtr);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 156:32
+Spell: TerminateAbility
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::TerminateAbility(const sptr<IRemoteObject> &token, bool clearMissionFlag)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->TerminateAbility(token, clearMissionFlag);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 159:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->TerminateAbility(token, clearMissionFlag);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 161:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->TerminateAbility(token, clearMissionFlag);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 169:32
+Spell: UpdateAbilityState
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::UpdateAbilityState(const sptr<IRemoteObject> &token, const AbilityState state)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->UpdateAbilityState(token, state);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 172:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->UpdateAbilityState(token, state);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 174:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->UpdateAbilityState(token, state);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 182:32
+Spell: UpdateExtensionState
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::UpdateExtensionState(const sptr<IRemoteObject> &token, const ExtensionState state)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->UpdateExtensionState(token, state);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 185:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->UpdateExtensionState(token, state);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 187:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->UpdateExtensionState(token, state);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 195:32
+Spell: RegisterAppStateCallback
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::RegisterAppStateCallback(const sptr<IAppStateCallback> &callback)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->RegisterAppStateCallback(callback);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 198:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->RegisterAppStateCallback(callback);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 200:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->RegisterAppStateCallback(callback);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 208:32
+Spell: KillProcessByAbilityToken
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillProcessByAbilityToken(const sptr<IRemoteObject> &token)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->KillProcessByAbilityToken(token);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 211:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->KillProcessByAbilityToken(token);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 213:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->KillProcessByAbilityToken(token);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 221:32
+Spell: KillProcessesByUserId
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillProcessesByUserId(int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->KillProcessesByUserId(userId);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 224:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->KillProcessesByUserId(userId);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 226:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->KillProcessesByUserId(userId);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 234:32
+Spell: KillProcessesByPids
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillProcessesByPids(std::vector<int32_t> &pids)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->KillProcessesByPids(pids);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 237:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->KillProcessesByPids(pids);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 239:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->KillProcessesByPids(pids);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 247:32
+Spell: AttachPidToParent
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::AttachPidToParent(const sptr<IRemoteObject> &token,
+    const sptr<IRemoteObject> &callerToken)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->AttachPidToParent(token, callerToken);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 251:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->AttachPidToParent(token, callerToken);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 253:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->AttachPidToParent(token, callerToken);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 261:32
+Spell: UpdateApplicationInfoInstalled
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::UpdateApplicationInfoInstalled(const std::string &bundleName, const int uid)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->UpdateApplicationInfoInstalled(bundleName, uid);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 264:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->UpdateApplicationInfoInstalled(bundleName, uid);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 266:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            int32_t result = amsService->UpdateApplicationInfoInstalled(bundleName, uid);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 268:13
+Spell: 
+包含日志: 否
+代码:
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 277:32
+Spell: KillApplication
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillApplication(const std::string &bundleName, bool clearPageStack, int32_t appIndex)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplication(bundleName, clearPageStack, appIndex);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 280:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplication(bundleName, clearPageStack, appIndex);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 282:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplication(bundleName, clearPageStack, appIndex);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 284:13
+Spell: 
+包含日志: 否
+代码:
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 293:32
+Spell: ForceKillApplication
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::ForceKillApplication(const std::string &bundleName,
+    const int userId, const int appIndex)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->ForceKillApplication(bundleName, userId, appIndex);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 297:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->ForceKillApplication(bundleName, userId, appIndex);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 299:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            int32_t result = amsService->ForceKillApplication(bundleName, userId, appIndex);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 301:13
+Spell: 
+包含日志: 否
+代码:
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 310:32
+Spell: KillProcessesByAccessTokenId
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillProcessesByAccessTokenId(const uint32_t accessTokenId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillProcessesByAccessTokenId(accessTokenId);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 313:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillProcessesByAccessTokenId(accessTokenId);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 315:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillProcessesByAccessTokenId(accessTokenId);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 317:13
+Spell: 
+包含日志: 否
+代码:
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 326:32
+Spell: KillApplicationByUid
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillApplicationByUid(const std::string &bundleName, const int uid,
+    const std::string& reason)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplicationByUid(bundleName, uid, reason);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 330:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplicationByUid(bundleName, uid, reason);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 332:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplicationByUid(bundleName, uid, reason);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 334:13
+Spell: 
+包含日志: 否
+代码:
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 343:32
+Spell: KillApplicationSelf
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::KillApplicationSelf(const bool clearPageStack, const std::string& reason)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplicationSelf(clearPageStack, reason);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_KILL_APPLICATION;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 346:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplicationSelf(clearPageStack, reason);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_KILL_APPLICATION;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 348:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            int32_t result = amsService->KillApplicationSelf(clearPageStack, reason);
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+            return AppMgrResultCode::ERROR_KILL_APPLICATION;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 350:13
+Spell: 
+包含日志: 否
+代码:
+            if (result == ERR_OK) {
+                return AppMgrResultCode::RESULT_OK;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 359:32
+Spell: ClearUpApplicationData
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::ClearUpApplicationData(const std::string &bundleName, int32_t appCloneIndex,
+    int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->ClearUpApplicationData(bundleName, appCloneIndex, userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 363:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->ClearUpApplicationData(bundleName, appCloneIndex, userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 365:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 373:32
+Spell: ClearUpApplicationDataBySelf
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::ClearUpApplicationDataBySelf(int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->ClearUpApplicationDataBySelf(userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 376:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->ClearUpApplicationDataBySelf(userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 378:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 386:32
+Spell: GetAllRunningProcesses
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetAllRunningProcesses(std::vector<RunningProcessInfo> &info)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetAllRunningProcesses(info);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 389:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetAllRunningProcesses(info);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 391:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 399:32
+Spell: GetProcessRunningInfosByUserId
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetProcessRunningInfosByUserId(std::vector<RunningProcessInfo> &info, int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetProcessRunningInfosByUserId(info, userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 402:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetProcessRunningInfosByUserId(info, userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 404:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 412:32
+Spell: GetProcessRunningInformation
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetProcessRunningInformation(AppExecFwk::RunningProcessInfo &info)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetProcessRunningInformation(info);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 415:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetProcessRunningInformation(info);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 417:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 425:32
+Spell: GetAllRunningInstanceKeysBySelf
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetAllRunningInstanceKeysBySelf(std::vector<std::string> &instanceKeys)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetAllRunningInstanceKeysBySelf(instanceKeys);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        TAG_LOGE(AAFwkTag::APPMGR, "GetAllRunningInstanceKeysBySelf returns result=%{public}d", result);
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 428:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetAllRunningInstanceKeysBySelf(instanceKeys);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        TAG_LOGE(AAFwkTag::APPMGR, "GetAllRunningInstanceKeysBySelf returns result=%{public}d", result);
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 430:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 433:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "GetAllRunningInstanceKeysBySelf returns result=%{public}d", result);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 436:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 440:32
+Spell: GetAllRunningInstanceKeysByBundleName
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetAllRunningInstanceKeysByBundleName(const std::string &bundleName,
+    std::vector<std::string> &instanceKeys, int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetAllRunningInstanceKeysByBundleName(bundleName, instanceKeys, userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        TAG_LOGE(AAFwkTag::APPMGR, "GetAllRunningInstanceKeysByBundleName returns result=%{public}d", result);
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 444:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetAllRunningInstanceKeysByBundleName(bundleName, instanceKeys, userId);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        TAG_LOGE(AAFwkTag::APPMGR, "GetAllRunningInstanceKeysByBundleName returns result=%{public}d", result);
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 446:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 449:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "GetAllRunningInstanceKeysByBundleName returns result=%{public}d", result);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 452:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 456:32
+Spell: GetAllRenderProcesses
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetAllRenderProcesses(std::vector<RenderProcessInfo> &info)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetAllRenderProcesses(info);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 459:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetAllRenderProcesses(info);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 461:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 486:32
+Spell: NotifyMemoryLevel
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::NotifyMemoryLevel(MemoryLevel level)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return AppMgrResultCode(service->NotifyMemoryLevel(level));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 490:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 491:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 497:32
+Spell: NotifyProcMemoryLevel
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::NotifyProcMemoryLevel(const std::map<pid_t, MemoryLevel> &procLevelMap) const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return AppMgrResultCode(service->NotifyProcMemoryLevel(procLevelMap));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 501:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 502:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 508:32
+Spell: DumpHeapMemory
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::DumpHeapMemory(const int32_t pid, OHOS::AppExecFwk::MallocInfo &mallocInfo)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "DumpHeapMemory: service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return AppMgrResultCode(service->DumpHeapMemory(pid, mallocInfo));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 511:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "DumpHeapMemory: service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 512:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "DumpHeapMemory: service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 518:32
+Spell: DumpJsHeapMemory
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::DumpJsHeapMemory(OHOS::AppExecFwk::JsHeapDumpInfo &info)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "DumpJsHeapMemory: service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return AppMgrResultCode(service->DumpJsHeapMemory(info));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 521:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "DumpJsHeapMemory: service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 522:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "DumpJsHeapMemory: service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 528:32
+Spell: GetConfiguration
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::GetConfiguration(Configuration& config)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->GetConfiguration(config);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 531:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->GetConfiguration(config);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 533:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 541:32
+Spell: ConnectAppMgrService
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::ConnectAppMgrService()
+{
+    if (mgrHolder_) {
+        return mgrHolder_->ConnectAppMgrService();
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 543:5
+Spell: 
+包含日志: 否
+代码:
+    if (mgrHolder_) {
+        return mgrHolder_->ConnectAppMgrService();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 549:20
+Spell: IsProcessContainsOnlyUIAbility
+包含日志: 否
+代码:
+bool AppMgrClient::IsProcessContainsOnlyUIAbility(const pid_t pid)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            return amsService->IsProcessContainsOnlyUIAbility(pid);
+        }
+    }
+    return false;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 552:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            return amsService->IsProcessContainsOnlyUIAbility(pid);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 554:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            return amsService->IsProcessContainsOnlyUIAbility(pid);
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 561:20
+Spell: SetServiceManager
+包含日志: 否
+代码:
+void AppMgrClient::SetServiceManager(std::unique_ptr<AppServiceManager> serviceMgr)
+{
+    if (!mgrHolder_) {
+        mgrHolder_ = std::make_shared<AppMgrRemoteHolder>();
+    }
+    mgrHolder_->SetServiceManager(std::move(serviceMgr));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 563:5
+Spell: 
+包含日志: 否
+代码:
+    if (!mgrHolder_) {
+        mgrHolder_ = std::make_shared<AppMgrRemoteHolder>();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 569:20
+Spell: AbilityAttachTimeOut
+包含日志: 否
+代码:
+void AppMgrClient::AbilityAttachTimeOut(const sptr<IRemoteObject> &token)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->AbilityAttachTimeOut(token);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 572:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 576:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 582:20
+Spell: PrepareTerminate
+包含日志: 否
+代码:
+void AppMgrClient::PrepareTerminate(const sptr<IRemoteObject> &token, bool clearMissionFlag)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->PrepareTerminate(token, clearMissionFlag);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 585:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 589:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 595:20
+Spell: GetRunningProcessInfoByToken
+包含日志: 否
+代码:
+void AppMgrClient::GetRunningProcessInfoByToken(const sptr<IRemoteObject> &token, AppExecFwk::RunningProcessInfo &info)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->GetRunningProcessInfoByToken(token, info);
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 599:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->GetRunningProcessInfoByToken(token, info);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 601:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->GetRunningProcessInfoByToken(token, info);
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 607:23
+Spell: GetRunningProcessInfoByPid
+包含日志: 否
+代码:
+int32_t AppMgrClient::GetRunningProcessInfoByPid(const pid_t pid, OHOS::AppExecFwk::RunningProcessInfo &info) const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->GetRunningProcessInfoByPid(pid, info);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 610:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 611:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 617:20
+Spell: SetAbilityForegroundingFlagToAppRecord
+包含日志: 否
+代码:
+void AppMgrClient::SetAbilityForegroundingFlagToAppRecord(const pid_t pid) const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->SetAbilityForegroundingFlagToAppRecord(pid);
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 620:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->SetAbilityForegroundingFlagToAppRecord(pid);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 622:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->SetAbilityForegroundingFlagToAppRecord(pid);
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 628:20
+Spell: AddAbilityStageDone
+包含日志: 否
+代码:
+void AppMgrClient::AddAbilityStageDone(const int32_t recordId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return;
+    }
+
+    service->AddAbilityStageDone(recordId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 631:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 632:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 639:20
+Spell: StartupResidentProcess
+包含日志: 否
+代码:
+void AppMgrClient::StartupResidentProcess(const std::vector<AppExecFwk::BundleInfo> &bundleInfos)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return;
+    }
+
+    service->StartupResidentProcess(bundleInfos);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 642:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 643:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 650:19
+Spell: StartUserTestProcess
+包含日志: 否
+代码:
+int AppMgrClient::StartUserTestProcess(
+    const AAFwk::Want &want, const sptr<IRemoteObject> &observer, const BundleInfo &bundleInfo, int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return service->StartUserTestProcess(want, observer, bundleInfo, userId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 654:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 655:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 661:19
+Spell: FinishUserTest
+包含日志: 否
+代码:
+int AppMgrClient::FinishUserTest(const std::string &msg, const int64_t &resultCode, const std::string &bundleName)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return service->FinishUserTest(msg, resultCode, bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 664:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 665:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 671:20
+Spell: StartSpecifiedAbility
+包含日志: 否
+代码:
+void AppMgrClient::StartSpecifiedAbility(const AAFwk::Want &want, const AppExecFwk::AbilityInfo &abilityInfo,
+    int32_t requestId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->StartSpecifiedAbility(want, abilityInfo, requestId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 675:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 679:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 685:20
+Spell: SetKeepAliveEnableState
+包含日志: 否
+代码:
+void AppMgrClient::SetKeepAliveEnableState(const std::string &bundleName, bool enable, int32_t uid)
+{
+    if (!IsAmsServiceReady()) {
+        return;
+    }
+    amsService_->SetKeepAliveEnableState(bundleName, enable, uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 687:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 693:20
+Spell: SetKeepAliveDkv
+包含日志: 否
+代码:
+void AppMgrClient::SetKeepAliveDkv(const std::string &bundleName, bool enable, int32_t uid)
+{
+    if (!IsAmsServiceReady()) {
+        return;
+    }
+    amsService_->SetKeepAliveDkv(bundleName, enable, uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 695:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 701:20
+Spell: StartSpecifiedProcess
+包含日志: 否
+代码:
+void AppMgrClient::StartSpecifiedProcess(const AAFwk::Want &want, const AppExecFwk::AbilityInfo &abilityInfo,
+    int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "call.");
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->StartSpecifiedProcess(want, abilityInfo, requestId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 704:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "call.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 706:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 710:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 716:20
+Spell: RegisterStartSpecifiedAbilityResponse
+包含日志: 否
+代码:
+void AppMgrClient::RegisterStartSpecifiedAbilityResponse(const sptr<IStartSpecifiedAbilityResponse> &response)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->RegisterStartSpecifiedAbilityResponse(response);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 719:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 723:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 729:20
+Spell: ScheduleAcceptWantDone
+包含日志: 否
+代码:
+void AppMgrClient::ScheduleAcceptWantDone(const int32_t recordId, const AAFwk::Want &want, const std::string &flag)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return;
+    }
+
+    service->ScheduleAcceptWantDone(recordId, want, flag);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 732:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 733:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 740:32
+Spell: UpdateConfiguration
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::UpdateConfiguration(const Configuration &config, const int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    service->UpdateConfiguration(config, userId);
+    return AppMgrResultCode::RESULT_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 743:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 750:32
+Spell: UpdateConfigurationByBundleName
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::UpdateConfigurationByBundleName(const Configuration &config, const std::string &name,
+    int32_t appIndex)
+{
+    if (!mgrHolder_) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    service->UpdateConfigurationByBundleName(config, name, appIndex);
+    return AppMgrResultCode::RESULT_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 753:5
+Spell: 
+包含日志: 否
+代码:
+    if (!mgrHolder_) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 757:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 764:32
+Spell: RegisterConfigurationObserver
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::RegisterConfigurationObserver(const sptr<IConfigurationObserver> &observer)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->RegisterConfigurationObserver(observer);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 767:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->RegisterConfigurationObserver(observer);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 769:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 777:32
+Spell: UnregisterConfigurationObserver
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::UnregisterConfigurationObserver(const sptr<IConfigurationObserver> &observer)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        int32_t result = service->UnregisterConfigurationObserver(observer);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 780:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        int32_t result = service->UnregisterConfigurationObserver(observer);
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+        return AppMgrResultCode::ERROR_SERVICE_NOT_READY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 782:9
+Spell: 
+包含日志: 否
+代码:
+        if (result == ERR_OK) {
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 790:19
+Spell: GetAbilityRecordsByProcessID
+包含日志: 否
+代码:
+int AppMgrClient::GetAbilityRecordsByProcessID(const int pid, std::vector<sptr<IRemoteObject>> &tokens)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+    return service->GetAbilityRecordsByProcessID(pid, tokens);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 793:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 794:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 801:19
+Spell: GetApplicationInfoByProcessID
+包含日志: 否
+代码:
+int AppMgrClient::GetApplicationInfoByProcessID(const int pid, AppExecFwk::ApplicationInfo &application, bool &debug)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService->GetApplicationInfoByProcessID(pid, application, debug);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 804:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 805:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 809:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 810:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 816:23
+Spell: NotifyAppMgrRecordExitReason
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyAppMgrRecordExitReason(int32_t pid, int32_t reason, const std::string &exitMsg)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService->NotifyAppMgrRecordExitReason(pid, reason, exitMsg);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 819:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 820:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 824:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 825:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 831:23
+Spell: StartNativeProcessForDebugger
+包含日志: 否
+代码:
+int32_t AppMgrClient::StartNativeProcessForDebugger(const AAFwk::Want &want)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->StartNativeProcessForDebugger(want);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 834:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 835:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "service is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 841:19
+Spell: PreStartNWebSpawnProcess
+包含日志: 否
+代码:
+int AppMgrClient::PreStartNWebSpawnProcess()
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "PreStartNWebSpawnProcess");
+
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        return service->PreStartNWebSpawnProcess();
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 843:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "PreStartNWebSpawnProcess");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 846:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        return service->PreStartNWebSpawnProcess();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 852:19
+Spell: StartRenderProcess
+包含日志: 否
+代码:
+int AppMgrClient::StartRenderProcess(const std::string &renderParam,
+                                     int32_t ipcFd, int32_t sharedFd,
+                                     int32_t crashFd, pid_t &renderPid, bool isGPU)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        return service->StartRenderProcess(renderParam, ipcFd, sharedFd, crashFd,
+                                           renderPid, isGPU);
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 857:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        return service->StartRenderProcess(renderParam, ipcFd, sharedFd, crashFd,
+                                           renderPid, isGPU);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 864:20
+Spell: AttachRenderProcess
+包含日志: 否
+代码:
+void AppMgrClient::AttachRenderProcess(const sptr<IRenderScheduler> &renderScheduler)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    if (!renderScheduler) {
+        TAG_LOGI(AAFwkTag::APPMGR, "renderScheduler is nullptr");
+        return;
+    }
+
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        TAG_LOGI(AAFwkTag::APPMGR, "AttachRenderProcess");
+        service->AttachRenderProcess(renderScheduler->AsObject());
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 867:5
+Spell: 
+包含日志: 否
+代码:
+    if (!renderScheduler) {
+        TAG_LOGI(AAFwkTag::APPMGR, "renderScheduler is nullptr");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 868:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGI(AAFwkTag::APPMGR, "renderScheduler is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 873:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        TAG_LOGI(AAFwkTag::APPMGR, "AttachRenderProcess");
+        service->AttachRenderProcess(renderScheduler->AsObject());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 874:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGI(AAFwkTag::APPMGR, "AttachRenderProcess");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 879:19
+Spell: GetRenderProcessTerminationStatus
+包含日志: 否
+代码:
+int AppMgrClient::GetRenderProcessTerminationStatus(pid_t renderPid, int &status)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        return service->GetRenderProcessTerminationStatus(renderPid, status);
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 882:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        return service->GetRenderProcessTerminationStatus(renderPid, status);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 888:35
+Spell: GetRemoteObject
+包含日志: 否
+代码:
+sptr<IRemoteObject> AppMgrClient::GetRemoteObject()
+{
+    return mgrHolder_->GetRemoteObject();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 893:20
+Spell: SetCurrentUserId
+包含日志: 否
+代码:
+void AppMgrClient::SetCurrentUserId(const int32_t userId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->SetCurrentUserId(userId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 896:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 900:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 906:20
+Spell: SetEnableStartProcessFlagByUserId
+包含日志: 否
+代码:
+void AppMgrClient::SetEnableStartProcessFlagByUserId(int32_t userId, bool enableStartProcess)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return;
+    }
+    amsService->SetEnableStartProcessFlagByUserId(userId, enableStartProcess);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 909:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 913:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 919:23
+Spell: GetBundleNameByPid
+包含日志: 否
+代码:
+int32_t AppMgrClient::GetBundleNameByPid(const int pid, std::string &bundleName, int32_t &uid)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService != nullptr) {
+        return amsService->GetBundleNameByPid(pid, bundleName, uid);
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 922:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 927:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService != nullptr) {
+        return amsService->GetBundleNameByPid(pid, bundleName, uid);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 933:23
+Spell: NotifyAppFault
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyAppFault(const FaultData &faultData)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->NotifyAppFault(faultData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 936:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 942:23
+Spell: NotifyAppFaultBySA
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyAppFaultBySA(const AppFaultDataBySA &faultData)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->NotifyAppFaultBySA(faultData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 945:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 951:20
+Spell: SetAppFreezeFilter
+包含日志: 否
+代码:
+bool AppMgrClient::SetAppFreezeFilter(int32_t pid)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return false;
+    }
+    return service->SetAppFreezeFilter(pid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 954:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 960:23
+Spell: ChangeAppGcState
+包含日志: 否
+代码:
+int32_t AppMgrClient::ChangeAppGcState(pid_t pid, int32_t state)
+{
+    if (mgrHolder_ == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->ChangeAppGcState(pid, state);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 962:5
+Spell: 
+包含日志: 否
+代码:
+    if (mgrHolder_ == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 966:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 972:23
+Spell: RegisterAppDebugListener
+包含日志: 否
+代码:
+int32_t AppMgrClient::RegisterAppDebugListener(const sptr<IAppDebugListener> &listener)
+{
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->RegisterAppDebugListener(listener);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 974:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 980:23
+Spell: UnregisterAppDebugListener
+包含日志: 否
+代码:
+int32_t AppMgrClient::UnregisterAppDebugListener(const sptr<IAppDebugListener> &listener)
+{
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->UnregisterAppDebugListener(listener);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 982:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 988:23
+Spell: AttachAppDebug
+包含日志: 否
+代码:
+int32_t AppMgrClient::AttachAppDebug(const std::string &bundleName)
+{
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->AttachAppDebug(bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 990:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 996:23
+Spell: DetachAppDebug
+包含日志: 否
+代码:
+int32_t AppMgrClient::DetachAppDebug(const std::string &bundleName)
+{
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->DetachAppDebug(bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 998:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1004:23
+Spell: SetAppWaitingDebug
+包含日志: 否
+代码:
+int32_t AppMgrClient::SetAppWaitingDebug(const std::string &bundleName, bool isPersist)
+{
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->SetAppWaitingDebug(bundleName, isPersist);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1006:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1007:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1013:23
+Spell: CancelAppWaitingDebug
+包含日志: 否
+代码:
+int32_t AppMgrClient::CancelAppWaitingDebug()
+{
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->CancelAppWaitingDebug();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1015:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1016:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1022:23
+Spell: GetWaitingDebugApp
+包含日志: 否
+代码:
+int32_t AppMgrClient::GetWaitingDebugApp(std::vector<std::string> &debugInfoList)
+{
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->GetWaitingDebugApp(debugInfoList);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1024:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1025:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1031:20
+Spell: IsWaitingDebugApp
+包含日志: 否
+代码:
+bool AppMgrClient::IsWaitingDebugApp(const std::string &bundleName)
+{
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return false;
+    }
+    return amsService_->IsWaitingDebugApp(bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1033:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1034:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1040:20
+Spell: ClearNonPersistWaitingDebugFlag
+包含日志: 否
+代码:
+void AppMgrClient::ClearNonPersistWaitingDebugFlag()
+{
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return;
+    }
+    amsService_->ClearNonPersistWaitingDebugFlag();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1042:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1043:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is not ready.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1049:23
+Spell: RegisterAbilityDebugResponse
+包含日志: 否
+代码:
+int32_t AppMgrClient::RegisterAbilityDebugResponse(const sptr<IAbilityDebugResponse> &response)
+{
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return amsService_->RegisterAbilityDebugResponse(response);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1051:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1057:20
+Spell: IsAttachDebug
+包含日志: 否
+代码:
+bool AppMgrClient::IsAttachDebug(const std::string &bundleName)
+{
+    if (!IsAmsServiceReady()) {
+        return false;
+    }
+    return amsService_->IsAttachDebug(bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1059:5
+Spell: 
+包含日志: 否
+代码:
+    if (!IsAmsServiceReady()) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1065:20
+Spell: IsAmsServiceReady
+包含日志: 否
+代码:
+bool AppMgrClient::IsAmsServiceReady()
+{
+    if (mgrHolder_ == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "mgrHolder_ is nullptr.");
+        return false;
+    }
+
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is nullptr.");
+        return false;
+    }
+
+    amsService_ = service->GetAmsMgr();
+    if (amsService_ == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService_ is nullptr.");
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1067:5
+Spell: 
+包含日志: 否
+代码:
+    if (mgrHolder_ == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "mgrHolder_ is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1068:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "mgrHolder_ is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1073:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1074:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "App manager service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1079:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService_ == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService_ is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1080:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService_ is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1086:23
+Spell: RegisterApplicationStateObserver
+包含日志: 否
+代码:
+int32_t AppMgrClient::RegisterApplicationStateObserver(const sptr<IApplicationStateObserver> &observer,
+    const std::vector<std::string> &bundleNameList)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->RegisterApplicationStateObserver(observer, bundleNameList);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1090:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1096:23
+Spell: UnregisterApplicationStateObserver
+包含日志: 否
+代码:
+int32_t AppMgrClient::UnregisterApplicationStateObserver(const sptr<IApplicationStateObserver> &observer)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->UnregisterApplicationStateObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1099:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1105:23
+Spell: NotifyPageShow
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyPageShow(const sptr<IRemoteObject> &token, const PageStateData &pageStateData)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->NotifyPageShow(token, pageStateData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1108:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1114:23
+Spell: NotifyPageHide
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyPageHide(const sptr<IRemoteObject> &token, const PageStateData &pageStateData)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->NotifyPageHide(token, pageStateData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1117:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1123:23
+Spell: RegisterAppRunningStatusListener
+包含日志: 否
+代码:
+int32_t AppMgrClient::RegisterAppRunningStatusListener(const sptr<IRemoteObject> &listener)
+{
+    if (listener == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Listener is nullptr.");
+        return ERR_INVALID_DATA;
+    }
+
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->RegisterAppRunningStatusListener(listener);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1125:5
+Spell: 
+包含日志: 否
+代码:
+    if (listener == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Listener is nullptr.");
+        return ERR_INVALID_DATA;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1126:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Listener is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1131:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1132:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1138:23
+Spell: UnregisterAppRunningStatusListener
+包含日志: 否
+代码:
+int32_t AppMgrClient::UnregisterAppRunningStatusListener(const sptr<IRemoteObject> &listener)
+{
+    if (listener == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Listener is nullptr.");
+        return ERR_INVALID_DATA;
+    }
+
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->UnregisterAppRunningStatusListener(listener);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1140:5
+Spell: 
+包含日志: 否
+代码:
+    if (listener == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Listener is nullptr.");
+        return ERR_INVALID_DATA;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1141:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Listener is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1146:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1147:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1153:20
+Spell: ClearProcessByToken
+包含日志: 否
+代码:
+void AppMgrClient::ClearProcessByToken(sptr<IRemoteObject> token) const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+        return;
+    }
+    amsService->ClearProcessByToken(token);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1156:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1157:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1161:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1162:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1168:20
+Spell: IsFinalAppProcess
+包含日志: 否
+代码:
+bool AppMgrClient::IsFinalAppProcess()
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return false;
+    }
+    return service->IsFinalAppProcess();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1171:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1172:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1178:23
+Spell: RegisterRenderStateObserver
+包含日志: 否
+代码:
+int32_t AppMgrClient::RegisterRenderStateObserver(const sptr<IRenderStateObserver> &observer)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->RegisterRenderStateObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1181:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1187:23
+Spell: UnregisterRenderStateObserver
+包含日志: 否
+代码:
+int32_t AppMgrClient::UnregisterRenderStateObserver(const sptr<IRenderStateObserver> &observer)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->UnregisterRenderStateObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1190:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1196:23
+Spell: UpdateRenderState
+包含日志: 否
+代码:
+int32_t AppMgrClient::UpdateRenderState(pid_t renderPid, int32_t state)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->UpdateRenderState(renderPid, state);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1199:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1205:23
+Spell: GetAppRunningUniqueIdByPid
+包含日志: 否
+代码:
+int32_t AppMgrClient::GetAppRunningUniqueIdByPid(pid_t pid, std::string &appRunningUniqueId)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->GetAppRunningUniqueIdByPid(pid, appRunningUniqueId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1208:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1209:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1215:23
+Spell: GetAllUIExtensionRootHostPid
+包含日志: 否
+代码:
+int32_t AppMgrClient::GetAllUIExtensionRootHostPid(pid_t pid, std::vector<pid_t> &hostPids)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->GetAllUIExtensionRootHostPid(pid, hostPids);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1218:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1219:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1225:23
+Spell: GetAllUIExtensionProviderPid
+包含日志: 否
+代码:
+int32_t AppMgrClient::GetAllUIExtensionProviderPid(pid_t hostPid, std::vector<pid_t> &providerPids)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->GetAllUIExtensionProviderPid(hostPid, providerPids);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1228:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1229:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1235:23
+Spell: NotifyMemorySizeStateChanged
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyMemorySizeStateChanged(bool isMemorySizeSufficient)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->NotifyMemorySizeStateChanged(isMemorySizeSufficient);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1238:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1239:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1245:20
+Spell: IsMemorySizeSufficent
+包含日志: 否
+代码:
+bool AppMgrClient::IsMemorySizeSufficent() const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return true;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+        return true;
+    }
+    return amsService->IsMemorySizeSufficent();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1248:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return true;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1249:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1253:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+        return true;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1254:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1260:23
+Spell: PreloadApplication
+包含日志: 否
+代码:
+int32_t AppMgrClient::PreloadApplication(const std::string &bundleName, int32_t userId,
+    AppExecFwk::PreloadMode preloadMode, int32_t appIndex)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->PreloadApplication(bundleName, userId, preloadMode, appIndex);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1264:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1270:23
+Spell: SetSupportedProcessCacheSelf
+包含日志: 否
+代码:
+int32_t AppMgrClient::SetSupportedProcessCacheSelf(bool isSupport)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "Called");
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->SetSupportedProcessCacheSelf(isSupport);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1272:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "Called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1274:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1275:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1281:23
+Spell: SetSupportedProcessCache
+包含日志: 否
+代码:
+int32_t AppMgrClient::SetSupportedProcessCache(int32_t pid, bool isSupport)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "Called");
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    return service->SetSupportedProcessCache(pid, isSupport);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1283:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "Called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1285:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1286:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1292:20
+Spell: SaveBrowserChannel
+包含日志: 否
+代码:
+void AppMgrClient::SaveBrowserChannel(sptr<IRemoteObject> browser)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return;
+    }
+    service->SaveBrowserChannel(browser);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1295:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1296:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1302:23
+Spell: CheckCallingIsUserTestMode
+包含日志: 否
+代码:
+int32_t AppMgrClient::CheckCallingIsUserTestMode(const pid_t pid, bool &isUserTest)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        return service->CheckCallingIsUserTestMode(pid, isUserTest);
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1305:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        return service->CheckCallingIsUserTestMode(pid, isUserTest);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1311:32
+Spell: AttachedToStatusBar
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::AttachedToStatusBar(const sptr<IRemoteObject> &token)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->AttachedToStatusBar(token);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    TAG_LOGE(AAFwkTag::APPMGR, "Service is not connected.");
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1314:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->AttachedToStatusBar(token);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1316:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->AttachedToStatusBar(token);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1321:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGE(AAFwkTag::APPMGR, "Service is not connected.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1325:23
+Spell: NotifyProcessDependedOnWeb
+包含日志: 否
+代码:
+int32_t AppMgrClient::NotifyProcessDependedOnWeb()
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+    return service->NotifyProcessDependedOnWeb();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1328:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1329:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1332:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1336:20
+Spell: KillProcessDependedOnWeb
+包含日志: 否
+代码:
+void AppMgrClient::KillProcessDependedOnWeb()
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+    service->KillProcessDependedOnWeb();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1339:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1340:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1343:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1347:32
+Spell: BlockProcessCacheByPids
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::BlockProcessCacheByPids(const std::vector<int32_t> &pids)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->BlockProcessCacheByPids(pids);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1350:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        sptr<IAmsMgr> amsService = service->GetAmsMgr();
+        if (amsService != nullptr) {
+            amsService->BlockProcessCacheByPids(pids);
+            return AppMgrResultCode::RESULT_OK;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1352:9
+Spell: 
+包含日志: 否
+代码:
+        if (amsService != nullptr) {
+            amsService->BlockProcessCacheByPids(pids);
+            return AppMgrResultCode::RESULT_OK;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1360:20
+Spell: IsKilledForUpgradeWeb
+包含日志: 否
+代码:
+bool AppMgrClient::IsKilledForUpgradeWeb(const std::string &bundleName)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return false;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+        return false;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+    return amsService->IsKilledForUpgradeWeb(bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1363:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1364:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1368:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1369:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "amsService is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1372:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1376:20
+Spell: CleanAbilityByUserRequest
+包含日志: 否
+代码:
+bool AppMgrClient::CleanAbilityByUserRequest(const sptr<IRemoteObject> &token)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "get appmgrservice is nullptr.");
+        return false;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "get abilityms service is nullptr.");
+        return false;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+    return amsService->CleanAbilityByUserRequest(token);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1379:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "get appmgrservice is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1380:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "get appmgrservice is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1384:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "get abilityms service is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1385:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "get abilityms service is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1388:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1392:20
+Spell: IsProcessAttached
+包含日志: 否
+代码:
+bool AppMgrClient::IsProcessAttached(sptr<IRemoteObject> token) const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return false;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return false;
+    }
+    return amsService->IsProcessAttached(token);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1395:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1399:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1405:20
+Spell: IsCallerKilling
+包含日志: 否
+代码:
+bool AppMgrClient::IsCallerKilling(const std::string& callerKey) const
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        return false;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        return false;
+    }
+    return amsService->IsCallerKilling(callerKey);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1408:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1412:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1418:32
+Spell: IsAppRunningByBundleNameAndUserId
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::IsAppRunningByBundleNameAndUserId(const std::string &bundleName, int32_t userId,
+    bool &isRunning)
+{
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service != nullptr) {
+        return AppMgrResultCode(service->IsAppRunningByBundleNameAndUserId(bundleName, userId, isRunning));
+    }
+    return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1422:5
+Spell: 
+包含日志: 否
+代码:
+    if (service != nullptr) {
+        return AppMgrResultCode(service->IsAppRunningByBundleNameAndUserId(bundleName, userId, isRunning));
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 1428:32
+Spell: SendAppSpawnUninstallDebugHapMsg
+包含日志: 否
+代码:
+AppMgrResultCode AppMgrClient::SendAppSpawnUninstallDebugHapMsg(int32_t userId)
+{
+    if (mgrHolder_ == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null mgrHolder_");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    sptr<IAppMgr> service = iface_cast<IAppMgr>(mgrHolder_->GetRemoteObject());
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null service");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    sptr<IAmsMgr> amsService = service->GetAmsMgr();
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null amsService");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+    amsService->SendAppSpawnUninstallDebugHapMsg(userId);
+    return AppMgrResultCode::RESULT_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1430:5
+Spell: 
+包含日志: 否
+代码:
+    if (mgrHolder_ == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null mgrHolder_");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1431:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "null mgrHolder_");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1435:5
+Spell: 
+包含日志: 否
+代码:
+    if (service == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null service");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1436:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "null service");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 1440:5
+Spell: 
+包含日志: 否
+代码:
+    if (amsService == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null amsService");
+        return AppMgrResultCode::ERROR_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 1441:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "null amsService");
+
+--------------------------------------------------------------------------------

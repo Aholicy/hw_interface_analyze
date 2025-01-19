@@ -1,0 +1,1416 @@
+代码块类型: Method Declaration
+位置: 31:35
+Spell: GetInstance
+包含日志: 否
+代码:
+WantAgentClient &WantAgentClient::GetInstance()
+{
+    static WantAgentClient client;
+    return client;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 41:26
+Spell: GetWantSender
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetWantSender(
+    const WantSenderInfo &wantSenderInfo, const sptr<IRemoteObject> &callerToken, sptr<IWantSender> &wantSender,
+    int32_t uid)
+{
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    if (!data.WriteParcelable(&wantSenderInfo)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    if (callerToken) {
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag and callerToken write failed");
+            return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        }
+    } else {
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag write failed");
+            return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        }
+    }
+
+    if (!data.WriteInt32(uid)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "uid write fail");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    auto error = abms->SendRequest(static_cast<uint32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_SENDER),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT;
+    }
+    wantSender = iface_cast<IWantSender>(reply.ReadRemoteObject());
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 50:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 53:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteParcelable(&wantSenderInfo)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 54:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 57:5
+Spell: 
+包含日志: 否
+代码:
+    if (callerToken) {
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag and callerToken write failed");
+            return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        }
+    } else {
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag write failed");
+            return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 58:9
+Spell: 
+包含日志: 否
+代码:
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag and callerToken write failed");
+            return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 59:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag and callerToken write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 63:9
+Spell: 
+包含日志: 否
+代码:
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag write failed");
+            return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 64:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::WANTAGENT, "flag write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 69:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInt32(uid)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "uid write fail");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 70:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "uid write fail");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 76:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 83:26
+Spell: SendWantSender
+包含日志: 否
+代码:
+ErrCode WantAgentClient::SendWantSender(sptr<IWantSender> target, const SenderInfo &senderInfo)
+{
+    CHECK_POINTER_AND_RETURN(target, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    if (target == nullptr || !data.WriteRemoteObject(target->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT;
+    }
+    if (!data.WriteParcelable(&senderInfo)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "senderInfo write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    auto error = abms->SendRequest(static_cast<uint32_t>(AbilityManagerInterfaceCode::SEND_PENDING_WANT_SENDER),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+    return reply.ReadInt32();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 91:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 94:5
+Spell: 
+包含日志: 否
+代码:
+    if (target == nullptr || !data.WriteRemoteObject(target->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 95:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 98:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteParcelable(&senderInfo)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "senderInfo write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 99:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "senderInfo write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 105:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 111:26
+Spell: CancelWantSender
+包含日志: 否
+代码:
+ErrCode WantAgentClient::CancelWantSender(const sptr<IWantSender> &sender, uint32_t flags)
+{
+    CHECK_POINTER_AND_RETURN(sender, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    ErrCode error;
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    if (sender == nullptr || !data.WriteRemoteObject(sender->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT;
+    }
+
+    if (!data.WriteUint32(flags)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "flags write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    error = abms->SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::CANCEL_PENDING_WANT_SENDER),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+    }
+
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 120:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 124:5
+Spell: 
+包含日志: 否
+代码:
+    if (sender == nullptr || !data.WriteRemoteObject(sender->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 125:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 129:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteUint32(flags)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "flags write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 130:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "flags write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 136:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 143:26
+Spell: GetPendingWantUid
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetPendingWantUid(const sptr<IWantSender> &target, int32_t &uid)
+{
+    CHECK_POINTER_AND_RETURN(target, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    ErrCode error;
+    MessageParcel reply;
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_UID),
+        abms, target->AsObject(), reply, error)) {
+        return error;
+    }
+    uid = reply.ReadInt32();
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 150:5
+Spell: 
+包含日志: 否
+代码:
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_UID),
+        abms, target->AsObject(), reply, error)) {
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 158:26
+Spell: GetPendingWantUserId
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetPendingWantUserId(const sptr<IWantSender> &target, int32_t &userId)
+{
+    CHECK_POINTER_AND_RETURN(target, INVALID_PARAMETERS_ERR);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ABILITY_SERVICE_NOT_CONNECTED);
+    ErrCode error;
+    MessageParcel reply;
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_USERID),
+        abms, target->AsObject(), reply, error)) {
+        return error;
+    }
+    userId = reply.ReadInt32();
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 165:5
+Spell: 
+包含日志: 否
+代码:
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_USERID),
+        abms, target->AsObject(), reply, error)) {
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 173:26
+Spell: GetPendingWantBundleName
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetPendingWantBundleName(const sptr<IWantSender> &target, std::string &bundleName)
+{
+    CHECK_POINTER_AND_RETURN(target, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    ErrCode error;
+    MessageParcel reply;
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_BUNDLENAME),
+        abms, target->AsObject(), reply, error)) {
+        return error;
+    }
+    bundleName = Str16ToStr8(reply.ReadString16());
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 180:5
+Spell: 
+包含日志: 否
+代码:
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_BUNDLENAME),
+        abms, target->AsObject(), reply, error)) {
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 188:26
+Spell: GetPendingWantCode
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetPendingWantCode(const sptr<IWantSender> &target, int32_t &code)
+{
+    CHECK_POINTER_AND_RETURN(target, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    ErrCode error;
+    MessageParcel reply;
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_CODE),
+        abms, target->AsObject(), reply, error)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+    code = reply.ReadInt32();
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 195:5
+Spell: 
+包含日志: 否
+代码:
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_CODE),
+        abms, target->AsObject(), reply, error)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 203:26
+Spell: GetPendingWantType
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetPendingWantType(sptr<IWantSender> target, int32_t &type)
+{
+    CHECK_POINTER_AND_RETURN(target, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    ErrCode error;
+    MessageParcel reply;
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_TYPE),
+        abms, target->AsObject(), reply, error)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+    type = reply.ReadInt32();
+    type < 0 ? type = 0 : type;
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 210:5
+Spell: 
+包含日志: 否
+代码:
+    if (!SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_TYPE),
+        abms, target->AsObject(), reply, error)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 219:23
+Spell: RegisterCancelListener
+包含日志: 否
+代码:
+void WantAgentClient::RegisterCancelListener(const sptr<IWantSender> &sender, const sptr<IWantReceiver> &receiver)
+{
+    if (!CheckSenderAndRecevier(sender, receiver)) {
+        return;
+    }
+    auto abms = GetAbilityManager();
+    if (!abms) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ability proxy is nullptr");
+        return;
+    }
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteRemoteObject(sender->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+        return;
+    }
+    if (!data.WriteRemoteObject(receiver->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver write failed");
+        return;
+    }
+    auto error = abms->SendRequest(static_cast<uint32_t>(AbilityManagerInterfaceCode::REGISTER_CANCEL_LISTENER),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        return;
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 221:5
+Spell: 
+包含日志: 否
+代码:
+    if (!CheckSenderAndRecevier(sender, receiver)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 225:5
+Spell: 
+包含日志: 否
+代码:
+    if (!abms) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ability proxy is nullptr");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 226:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ability proxy is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 232:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 235:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(sender->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 236:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 239:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(receiver->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver write failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 240:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 245:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 250:23
+Spell: UnregisterCancelListener
+包含日志: 否
+代码:
+void WantAgentClient::UnregisterCancelListener(
+    const sptr<IWantSender> &sender, const sptr<IWantReceiver> &receiver)
+{
+    if (!CheckSenderAndRecevier(sender, receiver)) {
+        return;
+    }
+    auto abms = GetAbilityManager();
+    if (!abms) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ability proxy is nullptr");
+        return;
+    }
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteRemoteObject(sender->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+        return;
+    }
+    if (!data.WriteRemoteObject(receiver->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver write failed");
+        return;
+    }
+    auto error = abms->SendRequest(static_cast<uint32_t>(AbilityManagerInterfaceCode::UNREGISTER_CANCEL_LISTENER),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        return;
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 253:5
+Spell: 
+包含日志: 否
+代码:
+    if (!CheckSenderAndRecevier(sender, receiver)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 257:5
+Spell: 
+包含日志: 否
+代码:
+    if (!abms) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ability proxy is nullptr");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 258:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ability proxy is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 264:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 267:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(sender->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 268:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 271:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(receiver->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver write failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 272:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 277:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 282:26
+Spell: GetPendingRequestWant
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetPendingRequestWant(const sptr<IWantSender> &target, std::shared_ptr<Want> &want)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    CHECK_POINTER_AND_RETURN(target, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT);
+    CHECK_POINTER_AND_RETURN(want, INVALID_PARAMETERS_ERR);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY);
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    sptr<IRemoteObject> obj = target->AsObject();
+    if (obj == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Input Param target is invalid");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    if (!data.WriteRemoteObject(obj)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    if (!data.WriteParcelable(want.get())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "want write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    auto error = abms->SendRequest(static_cast<int32_t>(AbilityManagerInterfaceCode::GET_PENDING_REQUEST_WANT),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Send request error: %{public}d", error);
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+    std::unique_ptr<Want> wantInfo(reply.ReadParcelable<Want>());
+    if (!wantInfo) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ReadParcelable failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    want = std::move(wantInfo);
+
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 292:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 297:5
+Spell: 
+包含日志: 否
+代码:
+    if (obj == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Input Param target is invalid");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 298:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Input Param target is invalid");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 302:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(obj)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 303:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 306:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteParcelable(want.get())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "want write failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 307:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "want write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 312:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Send request error: %{public}d", error);
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 313:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 317:5
+Spell: 
+包含日志: 否
+代码:
+    if (!wantInfo) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ReadParcelable failed");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 318:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "ReadParcelable failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 326:26
+Spell: GetWantSenderInfo
+包含日志: 否
+代码:
+ErrCode WantAgentClient::GetWantSenderInfo(const sptr<IWantSender> &target, std::shared_ptr<WantSenderInfo> &info)
+{
+    CHECK_POINTER_AND_RETURN(target, INVALID_PARAMETERS_ERR);
+    CHECK_POINTER_AND_RETURN(info, INVALID_PARAMETERS_ERR);
+    auto abms = GetAbilityManager();
+    CHECK_POINTER_AND_RETURN(abms, ABILITY_SERVICE_NOT_CONNECTED);
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        return INNER_ERR;
+    }
+    if (!data.WriteRemoteObject(target->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteParcelable(info.get())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "info write failed");
+        return INNER_ERR;
+    }
+    auto error = abms->SendRequest(static_cast<uint32_t>(AbilityManagerInterfaceCode::GET_PENDING_WANT_SENDER_INFO),
+        data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Send request error: %{public}d", error);
+        return error;
+    }
+    std::unique_ptr<WantSenderInfo> wantSenderInfo(reply.ReadParcelable<WantSenderInfo>());
+    if (!wantSenderInfo) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "readParcelable Info failed");
+        return INNER_ERR;
+    }
+    info = std::move(wantSenderInfo);
+
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 335:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 338:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(target->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 339:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "target write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 342:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteParcelable(info.get())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "info write failed");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 343:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "info write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 348:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Send request error: %{public}d", error);
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 349:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 353:5
+Spell: 
+包含日志: 否
+代码:
+    if (!wantSenderInfo) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "readParcelable Info failed");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 354:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "readParcelable Info failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 362:38
+Spell: GetAbilityManager
+包含日志: 否
+代码:
+sptr<IRemoteObject> WantAgentClient::GetAbilityManager()
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (proxy_ == nullptr) {
+        auto systemManager = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+        if (systemManager == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to get registry");
+            return nullptr;
+        }
+        auto remoteObj = systemManager->GetSystemAbility(ABILITY_MGR_SERVICE_ID);
+        if (remoteObj == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to connect ability manager service");
+            return nullptr;
+        }
+
+        deathRecipient_ = sptr<IRemoteObject::DeathRecipient>(new (std::nothrow) WantAgentDeathRecipient());
+        if (deathRecipient_ == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Failed to create DeathRecipient");
+            return nullptr;
+        }
+        if (!remoteObj->AddDeathRecipient(deathRecipient_)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Add death recipient to failed");
+        }
+        proxy_ = remoteObj;
+    }
+
+    return proxy_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 366:5
+Spell: 
+包含日志: 否
+代码:
+    if (proxy_ == nullptr) {
+        auto systemManager = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+        if (systemManager == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to get registry");
+            return nullptr;
+        }
+        auto remoteObj = systemManager->GetSystemAbility(ABILITY_MGR_SERVICE_ID);
+        if (remoteObj == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to connect ability manager service");
+            return nullptr;
+        }
+
+        deathRecipient_ = sptr<IRemoteObject::DeathRecipient>(new (std::nothrow) WantAgentDeathRecipient());
+        if (deathRecipient_ == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Failed to create DeathRecipient");
+            return nullptr;
+        }
+        if (!remoteObj->AddDeathRecipient(deathRecipient_)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Add death recipient to failed");
+        }
+        proxy_ = remoteObj;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 368:9
+Spell: 
+包含日志: 否
+代码:
+        if (systemManager == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to get registry");
+            return nullptr;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 369:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to get registry");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 373:9
+Spell: 
+包含日志: 否
+代码:
+        if (remoteObj == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to connect ability manager service");
+            return nullptr;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 374:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Fail to connect ability manager service");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 379:9
+Spell: 
+包含日志: 否
+代码:
+        if (deathRecipient_ == nullptr) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Failed to create DeathRecipient");
+            return nullptr;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 380:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Failed to create DeathRecipient");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 383:9
+Spell: 
+包含日志: 否
+代码:
+        if (!remoteObj->AddDeathRecipient(deathRecipient_)) {
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Add death recipient to failed");
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 384:13
+Spell: 
+包含日志: 否
+代码:
+            TAG_LOGE(AAFwkTag::WANTAGENT, "Add death recipient to failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 392:48
+Spell: OnRemoteDied
+包含日志: 否
+代码:
+void WantAgentClient::WantAgentDeathRecipient::OnRemoteDied(const wptr<IRemoteObject>& remote)
+{
+    TAG_LOGI(AAFwkTag::WANTAGENT, "call");
+    WantAgentClient::GetInstance().ResetProxy(remote);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 394:5
+Spell: 
+包含日志: 否
+代码:
+    TAG_LOGI(AAFwkTag::WANTAGENT, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 398:23
+Spell: ResetProxy
+包含日志: 否
+代码:
+void WantAgentClient::ResetProxy(const wptr<IRemoteObject>& remote)
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (!proxy_) {
+        return;
+    }
+    if (proxy_ == remote.promote()) {
+        proxy_->RemoveDeathRecipient(deathRecipient_);
+    }
+    proxy_ = nullptr;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 401:5
+Spell: 
+包含日志: 否
+代码:
+    if (!proxy_) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 404:5
+Spell: 
+包含日志: 否
+代码:
+    if (proxy_ == remote.promote()) {
+        proxy_->RemoveDeathRecipient(deathRecipient_);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 410:23
+Spell: WriteInterfaceToken
+包含日志: 否
+代码:
+bool WantAgentClient::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(IAbilityManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 412:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteInterfaceToken(IAbilityManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write interface token failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 413:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write interface token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 419:23
+Spell: CheckSenderAndRecevier
+包含日志: 否
+代码:
+bool WantAgentClient::CheckSenderAndRecevier(const sptr<IWantSender> &sender, const sptr<IWantReceiver> &receiver)
+{
+    if (sender == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender is nullptr");
+        return false;
+    }
+    if (receiver == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver is nullptr");
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 421:5
+Spell: 
+包含日志: 否
+代码:
+    if (sender == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender is nullptr");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 422:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "sender is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 425:5
+Spell: 
+包含日志: 否
+代码:
+    if (receiver == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver is nullptr");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 426:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "receiver is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+位置: 433:23
+Spell: SendRequest
+包含日志: 否
+代码:
+bool WantAgentClient::SendRequest(int32_t operation, const sptr<IRemoteObject> &abms,
+    const sptr<IRemoteObject> &remoteObject, MessageParcel &reply, ErrCode &error)
+{
+    MessageParcel data;
+    MessageOption option;
+    if (!WriteInterfaceToken(data)) {
+        error = ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        return false;
+    }
+    if (!data.WriteRemoteObject(remoteObject)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write failed");
+        error = ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        return false;
+    }
+    error = abms->SendRequest(operation, data, reply, option);
+    if (error != NO_ERROR) {
+        error = ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 438:5
+Spell: 
+包含日志: 否
+代码:
+    if (!WriteInterfaceToken(data)) {
+        error = ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 442:5
+Spell: 
+包含日志: 否
+代码:
+    if (!data.WriteRemoteObject(remoteObject)) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write failed");
+        error = ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do)
+位置: 443:9
+Spell: 
+包含日志: 否
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+位置: 448:5
+Spell: 
+包含日志: 否
+代码:
+    if (error != NO_ERROR) {
+        error = ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+        return false;
+    }
+
+--------------------------------------------------------------------------------
