@@ -1,7 +1,111 @@
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+AbilityForegroundStateObserverProxy::AbilityForegroundStateObserverProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IAbilityForegroundStateObserver>(impl)
+{}
+
+bool AbilityForegroundStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AbilityForegroundStateObserverProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return false;
+    }
+    return true;
+}
+
+void AbilityForegroundStateObserverProxy::OnAbilityStateChanged(const AbilityStateData &abilityStateData)
+{
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write Token failed");
+        return;
+    }
+    if (!data.WriteParcelable(&abilityStateData)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write abilityStateData failed");
+        return;
+    }
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return;
+    }
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+AbilityForegroundStateObserverProxy::AbilityForegroundStateObserverProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IAbilityForegroundStateObserver>(impl)
+{}
+
+bool AbilityForegroundStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AbilityForegroundStateObserverProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return false;
+    }
+    return true;
+}
+
+void AbilityForegroundStateObserverProxy::OnAbilityStateChanged(const AbilityStateData &abilityStateData)
+{
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write Token failed");
+        return;
+    }
+    if (!data.WriteParcelable(&abilityStateData)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write abilityStateData failed");
+        return;
+    }
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return;
+    }
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 23:38
+Spell: AbilityForegroundStateObserverProxy
+包含日志: 否
+代码:
+AbilityForegroundStateObserverProxy::AbilityForegroundStateObserverProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IAbilityForegroundStateObserver>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 27:43
 Spell: WriteInterfaceToken
-包含日志: 否
+包含日志: 是
 代码:
 bool AbilityForegroundStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
 {
@@ -16,7 +120,7 @@ bool AbilityForegroundStateObserverProxy::WriteInterfaceToken(MessageParcel &dat
 代码块类型: Conditional Block (if)
 位置: 29:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(AbilityForegroundStateObserverProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
@@ -27,7 +131,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 30:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
 
@@ -35,7 +139,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 36:43
 Spell: OnAbilityStateChanged
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityForegroundStateObserverProxy::OnAbilityStateChanged(const AbilityStateData &abilityStateData)
 {
@@ -66,7 +170,7 @@ void AbilityForegroundStateObserverProxy::OnAbilityStateChanged(const AbilitySta
 代码块类型: Conditional Block (if)
 位置: 39:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!WriteInterfaceToken(data)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write Token failed");
@@ -77,7 +181,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 40:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write Token failed");
 
@@ -85,7 +189,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 43:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&abilityStateData)) {
         TAG_LOGE(AAFwkTag::APPMGR, "write abilityStateData failed");
@@ -96,7 +200,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 44:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write abilityStateData failed");
 
@@ -104,7 +208,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 48:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
@@ -115,7 +219,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 49:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
 
@@ -123,7 +227,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 56:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
@@ -133,7 +237,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 57:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
 

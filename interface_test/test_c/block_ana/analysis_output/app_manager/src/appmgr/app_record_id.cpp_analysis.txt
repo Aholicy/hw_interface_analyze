@@ -1,3 +1,35 @@
+代码块类型: Namespace Declaration
+位置: 19:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+int32_t AppRecordId::Create()
+{
+    // Make it atomic to avoid multi app creating concurrently.
+    static std::atomic_int id(0);
+    return ++id;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: AppExecFwk
+包含日志: 否
+代码:
+namespace AppExecFwk {
+int32_t AppRecordId::Create()
+{
+    // Make it atomic to avoid multi app creating concurrently.
+    static std::atomic_int id(0);
+    return ++id;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 21:22
 Spell: Create

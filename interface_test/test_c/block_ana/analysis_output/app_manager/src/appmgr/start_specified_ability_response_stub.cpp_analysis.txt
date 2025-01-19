@@ -1,7 +1,313 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+using namespace std::placeholders;
+StartSpecifiedAbilityResponseStub::StartSpecifiedAbilityResponseStub()
+{
+    auto handleOnAcceptWantResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnAcceptWantResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_ACCEPT_WANT_RESPONSE),
+        std::move(handleOnAcceptWantResponse));
+
+    auto handleOnTimeoutResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return  HandleOnTimeoutResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_TIMEOUT_RESPONSE),
+        std::move(handleOnTimeoutResponse));
+
+    auto handleOnNewProcessRequestResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnNewProcessRequestResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_RESPONSE),
+        std::move(handleOnNewProcessRequestResponse));
+
+    auto handleOnNewProcessRequestTimeoutResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnNewProcessRequestTimeoutResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_TIMEOUT_RESPONSE),
+        std::move(handleOnNewProcessRequestTimeoutResponse));
+}
+
+StartSpecifiedAbilityResponseStub::~StartSpecifiedAbilityResponseStub()
+{
+    responseFuncMap_.clear();
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnAcceptWantResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnAcceptWantResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnTimeoutResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnNewProcessRequestResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestTimeoutResponse(MessageParcel &data,
+    MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnNewProcessRequestTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int StartSpecifiedAbilityResponseStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
+        code, option.GetFlags());
+    std::u16string descriptor = StartSpecifiedAbilityResponseStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    auto itFunc = responseFuncMap_.find(code);
+    if (itFunc != responseFuncMap_.end()) {
+        auto func = itFunc->second;
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+using namespace std::placeholders;
+StartSpecifiedAbilityResponseStub::StartSpecifiedAbilityResponseStub()
+{
+    auto handleOnAcceptWantResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnAcceptWantResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_ACCEPT_WANT_RESPONSE),
+        std::move(handleOnAcceptWantResponse));
+
+    auto handleOnTimeoutResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return  HandleOnTimeoutResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_TIMEOUT_RESPONSE),
+        std::move(handleOnTimeoutResponse));
+
+    auto handleOnNewProcessRequestResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnNewProcessRequestResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_RESPONSE),
+        std::move(handleOnNewProcessRequestResponse));
+
+    auto handleOnNewProcessRequestTimeoutResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnNewProcessRequestTimeoutResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_TIMEOUT_RESPONSE),
+        std::move(handleOnNewProcessRequestTimeoutResponse));
+}
+
+StartSpecifiedAbilityResponseStub::~StartSpecifiedAbilityResponseStub()
+{
+    responseFuncMap_.clear();
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnAcceptWantResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnAcceptWantResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnTimeoutResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnNewProcessRequestResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestTimeoutResponse(MessageParcel &data,
+    MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnNewProcessRequestTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+int StartSpecifiedAbilityResponseStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
+        code, option.GetFlags());
+    std::u16string descriptor = StartSpecifiedAbilityResponseStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    auto itFunc = responseFuncMap_.find(code);
+    if (itFunc != responseFuncMap_.end()) {
+        auto func = itFunc->second;
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 25:36
+Spell: StartSpecifiedAbilityResponseStub
+包含日志: 否
+代码:
+StartSpecifiedAbilityResponseStub::StartSpecifiedAbilityResponseStub()
+{
+    auto handleOnAcceptWantResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnAcceptWantResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_ACCEPT_WANT_RESPONSE),
+        std::move(handleOnAcceptWantResponse));
+
+    auto handleOnTimeoutResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return  HandleOnTimeoutResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_TIMEOUT_RESPONSE),
+        std::move(handleOnTimeoutResponse));
+
+    auto handleOnNewProcessRequestResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnNewProcessRequestResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_RESPONSE),
+        std::move(handleOnNewProcessRequestResponse));
+
+    auto handleOnNewProcessRequestTimeoutResponse = [this](OHOS::MessageParcel &arg1, OHOS::MessageParcel &arg2) {
+        return HandleOnNewProcessRequestTimeoutResponse(arg1, arg2);
+    };
+
+    responseFuncMap_.emplace(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_TIMEOUT_RESPONSE),
+        std::move(handleOnNewProcessRequestTimeoutResponse));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 60:36
+Spell: ~StartSpecifiedAbilityResponseStub
+包含日志: 否
+代码:
+StartSpecifiedAbilityResponseStub::~StartSpecifiedAbilityResponseStub()
+{
+    responseFuncMap_.clear();
+}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 65:44
 Spell: HandleOnAcceptWantResponse
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StartSpecifiedAbilityResponseStub::HandleOnAcceptWantResponse(MessageParcel &data, MessageParcel &reply)
 {
@@ -21,7 +327,7 @@ int32_t StartSpecifiedAbilityResponseStub::HandleOnAcceptWantResponse(MessagePar
 代码块类型: Conditional Block (if)
 位置: 68:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (want == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
@@ -32,7 +338,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 69:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
 
@@ -40,7 +346,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 79:44
 Spell: HandleOnTimeoutResponse
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StartSpecifiedAbilityResponseStub::HandleOnTimeoutResponse(MessageParcel &data, MessageParcel &reply)
 {
@@ -59,7 +365,7 @@ int32_t StartSpecifiedAbilityResponseStub::HandleOnTimeoutResponse(MessageParcel
 代码块类型: Conditional Block (if)
 位置: 82:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (want == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
@@ -70,7 +376,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 83:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
 
@@ -78,7 +384,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 92:44
 Spell: HandleOnNewProcessRequestResponse
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestResponse(MessageParcel &data, MessageParcel &reply)
 {
@@ -98,7 +404,7 @@ int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestResponse(Mes
 代码块类型: Conditional Block (if)
 位置: 95:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (want == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
@@ -109,7 +415,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 96:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
 
@@ -117,7 +423,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 106:44
 Spell: HandleOnNewProcessRequestTimeoutResponse
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestTimeoutResponse(MessageParcel &data,
     MessageParcel &reply)
@@ -137,7 +443,7 @@ int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestTimeoutRespo
 代码块类型: Conditional Block (if)
 位置: 110:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (want == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
@@ -148,7 +454,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 111:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
 
@@ -156,7 +462,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 120:40
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int StartSpecifiedAbilityResponseStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -184,7 +490,7 @@ int StartSpecifiedAbilityResponseStub::OnRemoteRequest(
 代码块类型: Loop Block (do)
 位置: 123:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
         code, option.GetFlags());
@@ -193,7 +499,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 127:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
@@ -204,7 +510,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 128:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
 

@@ -1,7 +1,128 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AAFwk {
+bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    bundleVersionCode = parcel.ReadUint32();
+    bundleVersionName = parcel.ReadString();
+    std::unique_ptr<AppExecFwk::AppqfInfo> qfInfo(parcel.ReadParcelable<AppExecFwk::AppqfInfo>());
+    if (qfInfo == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+        return false;
+    }
+    appqfInfo = *qfInfo;
+    return true;
+}
+
+bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+        return false;
+    }
+    if (!parcel.WriteUint32(bundleVersionCode)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+        return false;
+    }
+    if (!parcel.WriteString(bundleVersionName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+        return false;
+    }
+    if (!parcel.WriteParcelable(&appqfInfo)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+        return false;
+    }
+    return true;
+}
+
+ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
+{
+    ApplicationQuickFixInfo *info = new (std::nothrow) ApplicationQuickFixInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+        delete info;
+        return nullptr;
+    }
+
+    return info;
+}
+} // namespace AAFwk
+} // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AAFwk
+包含日志: 是
+代码:
+namespace AAFwk {
+bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    bundleVersionCode = parcel.ReadUint32();
+    bundleVersionName = parcel.ReadString();
+    std::unique_ptr<AppExecFwk::AppqfInfo> qfInfo(parcel.ReadParcelable<AppExecFwk::AppqfInfo>());
+    if (qfInfo == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+        return false;
+    }
+    appqfInfo = *qfInfo;
+    return true;
+}
+
+bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+        return false;
+    }
+    if (!parcel.WriteUint32(bundleVersionCode)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+        return false;
+    }
+    if (!parcel.WriteString(bundleVersionName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+        return false;
+    }
+    if (!parcel.WriteParcelable(&appqfInfo)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+        return false;
+    }
+    return true;
+}
+
+ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
+{
+    ApplicationQuickFixInfo *info = new (std::nothrow) ApplicationQuickFixInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+        delete info;
+        return nullptr;
+    }
+
+    return info;
+}
+} // namespace AAFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 22:31
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
 {
@@ -21,7 +142,7 @@ bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 28:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (qfInfo == nullptr) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
@@ -32,7 +153,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 29:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
 
@@ -40,7 +161,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 36:31
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
 {
@@ -67,7 +188,7 @@ bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
 代码块类型: Conditional Block (if)
 位置: 38:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(bundleName)) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
@@ -78,7 +199,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 39:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
 
@@ -86,7 +207,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 42:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteUint32(bundleVersionCode)) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
@@ -97,7 +218,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 43:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
 
@@ -105,7 +226,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 46:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(bundleVersionName)) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
@@ -116,7 +237,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 47:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
 
@@ -124,7 +245,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 50:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteParcelable(&appqfInfo)) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
@@ -135,7 +256,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 51:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
 
@@ -143,7 +264,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 57:51
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
 {
@@ -166,7 +287,7 @@ ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 60:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (info == nullptr) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
@@ -177,7 +298,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 61:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
 
@@ -185,7 +306,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 65:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!info->ReadFromParcel(parcel)) {
         TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
@@ -197,7 +318,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 66:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
 

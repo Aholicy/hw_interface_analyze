@@ -1,7 +1,96 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AAFwk {
+SessionHandlerStub::SessionHandlerStub() {}
+
+int32_t SessionHandlerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = SessionHandlerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code < ISessionHandler::CODE_MAX) {
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+            return OnSessionMovedToFrontInner(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t SessionHandlerStub::OnSessionMovedToFrontInner(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t sessionId = data.ReadInt32();
+    OnSessionMovedToFront(sessionId);
+    return NO_ERROR;
+}
+
+void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
+{
+    TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
+}
+}
+}
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AAFwk
+包含日志: 是
+代码:
+namespace AAFwk {
+SessionHandlerStub::SessionHandlerStub() {}
+
+int32_t SessionHandlerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = SessionHandlerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code < ISessionHandler::CODE_MAX) {
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+            return OnSessionMovedToFrontInner(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t SessionHandlerStub::OnSessionMovedToFrontInner(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t sessionId = data.ReadInt32();
+    OnSessionMovedToFront(sessionId);
+    return NO_ERROR;
+}
+
+void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
+{
+    TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
+}
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 22:21
+Spell: SessionHandlerStub
+包含日志: 否
+代码:
+SessionHandlerStub::SessionHandlerStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:29
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int32_t SessionHandlerStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -25,7 +114,7 @@ int32_t SessionHandlerStub::OnRemoteRequest(
 代码块类型: Conditional Block (if)
 位置: 29:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
@@ -36,7 +125,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 30:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
 
@@ -79,7 +168,7 @@ int32_t SessionHandlerStub::OnSessionMovedToFrontInner(MessageParcel &data, Mess
 代码块类型: Method Declaration
 位置: 49:26
 Spell: OnSessionMovedToFront
-包含日志: 否
+包含日志: 是
 代码:
 void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
 {
@@ -90,7 +179,7 @@ void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
 代码块类型: Loop Block (do)
 位置: 51:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
 

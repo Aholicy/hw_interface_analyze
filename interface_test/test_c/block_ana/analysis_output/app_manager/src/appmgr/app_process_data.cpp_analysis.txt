@@ -1,7 +1,205 @@
+代码块类型: Namespace Declaration
+位置: 24:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT = 1000;
+bool ReadFromParcelAppData(std::vector<AppData> &appDatas, Parcel &parcel)
+{
+    int32_t appDataSize;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDataSize);
+    if (appDataSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return false;
+    }
+    for (auto i = 0; i < appDataSize; i++) {
+        AppData appDataInfo;
+        std::string appName = Str16ToStr8(parcel.ReadString16());
+        int32_t uid = parcel.ReadInt32();
+        appDataInfo.appName = appName;
+        appDataInfo.uid = uid;
+        appDatas.emplace_back(appDataInfo);
+    }
+    return true;
+}
+}  // namespace
+
+bool AppProcessData::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(processName));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(appState));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, pid);
+
+    const auto appDataSize = static_cast<int32_t>(appDatas.size());
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDataSize);
+    for (auto i = 0; i < appDataSize; i++) {
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(appDatas[i].appName));
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDatas[i].uid);
+    }
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isFocused);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32Vector, parcel, renderPids);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appIndex);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(instanceKey));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(bundleName));
+
+    return true;
+}
+
+bool AppProcessData::ReadFromParcel(Parcel &parcel)
+{
+    processName = Str16ToStr8(parcel.ReadString16());
+
+    appState = static_cast<ApplicationState>(parcel.ReadInt32());
+
+    pid = parcel.ReadInt32();
+
+    ReadFromParcelAppData(appDatas, parcel);
+
+    isFocused = parcel.ReadBool();
+    parcel.ReadInt32Vector(&renderPids);
+    appIndex = parcel.ReadInt32();
+    instanceKey = Str16ToStr8(parcel.ReadString16());
+    bundleName = Str16ToStr8(parcel.ReadString16());
+
+    return true;
+}
+
+AppProcessData *AppProcessData::Unmarshalling(Parcel &parcel)
+{
+    AppProcessData *appProcessData = new (std::nothrow) AppProcessData();
+    if (appProcessData && !appProcessData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete appProcessData;
+        appProcessData = nullptr;
+    }
+    return appProcessData;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 25:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT = 1000;
+bool ReadFromParcelAppData(std::vector<AppData> &appDatas, Parcel &parcel)
+{
+    int32_t appDataSize;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDataSize);
+    if (appDataSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return false;
+    }
+    for (auto i = 0; i < appDataSize; i++) {
+        AppData appDataInfo;
+        std::string appName = Str16ToStr8(parcel.ReadString16());
+        int32_t uid = parcel.ReadInt32();
+        appDataInfo.appName = appName;
+        appDataInfo.uid = uid;
+        appDatas.emplace_back(appDataInfo);
+    }
+    return true;
+}
+}  // namespace
+
+bool AppProcessData::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(processName));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(appState));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, pid);
+
+    const auto appDataSize = static_cast<int32_t>(appDatas.size());
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDataSize);
+    for (auto i = 0; i < appDataSize; i++) {
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(appDatas[i].appName));
+        WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDatas[i].uid);
+    }
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isFocused);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32Vector, parcel, renderPids);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appIndex);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(instanceKey));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(bundleName));
+
+    return true;
+}
+
+bool AppProcessData::ReadFromParcel(Parcel &parcel)
+{
+    processName = Str16ToStr8(parcel.ReadString16());
+
+    appState = static_cast<ApplicationState>(parcel.ReadInt32());
+
+    pid = parcel.ReadInt32();
+
+    ReadFromParcelAppData(appDatas, parcel);
+
+    isFocused = parcel.ReadBool();
+    parcel.ReadInt32Vector(&renderPids);
+    appIndex = parcel.ReadInt32();
+    instanceKey = Str16ToStr8(parcel.ReadString16());
+    bundleName = Str16ToStr8(parcel.ReadString16());
+
+    return true;
+}
+
+AppProcessData *AppProcessData::Unmarshalling(Parcel &parcel)
+{
+    AppProcessData *appProcessData = new (std::nothrow) AppProcessData();
+    if (appProcessData && !appProcessData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete appProcessData;
+        appProcessData = nullptr;
+    }
+    return appProcessData;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 26:11
+Spell: 
+包含日志: 是
+代码:
+namespace {
+constexpr int32_t CYCLE_LIMIT = 1000;
+bool ReadFromParcelAppData(std::vector<AppData> &appDatas, Parcel &parcel)
+{
+    int32_t appDataSize;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appDataSize);
+    if (appDataSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return false;
+    }
+    for (auto i = 0; i < appDataSize; i++) {
+        AppData appDataInfo;
+        std::string appName = Str16ToStr8(parcel.ReadString16());
+        int32_t uid = parcel.ReadInt32();
+        appDataInfo.appName = appName;
+        appDataInfo.uid = uid;
+        appDatas.emplace_back(appDataInfo);
+    }
+    return true;
+}
+}  // namespace
+
+--------------------------------------------------------------------------------
 代码块类型: Function Declaration
 位置: 28:6
 Spell: ReadFromParcelAppData
-包含日志: 否
+包含日志: 是
 代码:
 bool ReadFromParcelAppData(std::vector<AppData> &appDatas, Parcel &parcel)
 {
@@ -26,7 +224,7 @@ bool ReadFromParcelAppData(std::vector<AppData> &appDatas, Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 32:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (appDataSize > CYCLE_LIMIT) {
         TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
@@ -37,7 +235,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 33:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
 
@@ -115,7 +313,7 @@ bool AppProcessData::ReadFromParcel(Parcel &parcel)
 代码块类型: Method Declaration
 位置: 91:33
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 AppProcessData *AppProcessData::Unmarshalling(Parcel &parcel)
 {
@@ -132,7 +330,7 @@ AppProcessData *AppProcessData::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 94:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (appProcessData && !appProcessData->ReadFromParcel(parcel)) {
         TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
@@ -144,7 +342,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 95:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
 

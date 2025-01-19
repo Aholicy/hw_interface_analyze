@@ -1,7 +1,127 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+AbilityInfoCallbackStub::AbilityInfoCallbackStub() {}
+
+AbilityInfoCallbackStub::~AbilityInfoCallbackStub() {}
+
+int AbilityInfoCallbackStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "code: %{public}u, flags: %{public}d", code,
+        option.GetFlags());
+    std::u16string descriptor = AbilityInfoCallbackStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IAbilityInfoCallback::Notify_ABILITY_TOKEN)) {
+        return HandleNotifyAbilityToken(data, reply);
+    }
+
+    TAG_LOGI(AAFwkTag::APPMGR, "end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+void AbilityInfoCallbackStub::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
+{
+}
+
+int32_t AbilityInfoCallbackStub::HandleNotifyAbilityToken(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+    sptr<IRemoteObject> token = data.ReadRemoteObject();
+    Want *want = data.ReadParcelable<Want>();
+
+    if (!want) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+    NotifyAbilityToken(token, *want);
+    delete want;
+    return NO_ERROR;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+AbilityInfoCallbackStub::AbilityInfoCallbackStub() {}
+
+AbilityInfoCallbackStub::~AbilityInfoCallbackStub() {}
+
+int AbilityInfoCallbackStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "code: %{public}u, flags: %{public}d", code,
+        option.GetFlags());
+    std::u16string descriptor = AbilityInfoCallbackStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IAbilityInfoCallback::Notify_ABILITY_TOKEN)) {
+        return HandleNotifyAbilityToken(data, reply);
+    }
+
+    TAG_LOGI(AAFwkTag::APPMGR, "end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+void AbilityInfoCallbackStub::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
+{
+}
+
+int32_t AbilityInfoCallbackStub::HandleNotifyAbilityToken(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+    sptr<IRemoteObject> token = data.ReadRemoteObject();
+    Want *want = data.ReadParcelable<Want>();
+
+    if (!want) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+    NotifyAbilityToken(token, *want);
+    delete want;
+    return NO_ERROR;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 24:26
+Spell: AbilityInfoCallbackStub
+包含日志: 否
+代码:
+AbilityInfoCallbackStub::AbilityInfoCallbackStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 26:26
+Spell: ~AbilityInfoCallbackStub
+包含日志: 否
+代码:
+AbilityInfoCallbackStub::~AbilityInfoCallbackStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 28:30
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int AbilityInfoCallbackStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -27,7 +147,7 @@ int AbilityInfoCallbackStub::OnRemoteRequest(
 代码块类型: Loop Block (do)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::APPMGR, "code: %{public}u, flags: %{public}d", code,
         option.GetFlags());
@@ -36,7 +156,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 35:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
@@ -47,7 +167,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 36:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
 
@@ -65,7 +185,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 44:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::APPMGR, "end");
 
@@ -83,7 +203,7 @@ void AbilityInfoCallbackStub::NotifyAbilityToken(const sptr<IRemoteObject> token
 代码块类型: Method Declaration
 位置: 52:34
 Spell: HandleNotifyAbilityToken
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityInfoCallbackStub::HandleNotifyAbilityToken(MessageParcel &data, MessageParcel &reply)
 {
@@ -104,7 +224,7 @@ int32_t AbilityInfoCallbackStub::HandleNotifyAbilityToken(MessageParcel &data, M
 代码块类型: Loop Block (do)
 位置: 54:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::APPMGR, "called");
 
@@ -112,7 +232,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 58:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!want) {
         TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
@@ -123,7 +243,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 59:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
 

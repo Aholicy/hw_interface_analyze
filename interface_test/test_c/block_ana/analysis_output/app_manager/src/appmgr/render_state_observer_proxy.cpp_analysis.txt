@@ -1,7 +1,156 @@
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+namespace {
+const int32_t ERR_INVALID_STUB = 32;
+}
+RenderStateObserverProxy::RenderStateObserverProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IRenderStateObserver>(impl)
+{}
+
+bool RenderStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(RenderStateObserverProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed.");
+        return false;
+    }
+    return true;
+}
+
+void RenderStateObserverProxy::OnRenderStateChanged(const RenderStateData &renderStateData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    if (!data.WriteParcelable(&renderStateData)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write renderStateData");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+        return;
+    }
+    int32_t ret = SendTransactCmd(
+        static_cast<uint32_t>(IRenderStateObserver::ON_RENDER_STATE_CHANGED),
+        data, reply, option);
+    if (ret != NO_ERROR || ret != ERR_INVALID_STUB) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+        return;
+    }
+}
+
+int32_t RenderStateObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return ERR_NULL_OBJECT;
+    }
+
+    return remote->SendRequest(code, data, reply, option);
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+namespace {
+const int32_t ERR_INVALID_STUB = 32;
+}
+RenderStateObserverProxy::RenderStateObserverProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IRenderStateObserver>(impl)
+{}
+
+bool RenderStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(RenderStateObserverProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed.");
+        return false;
+    }
+    return true;
+}
+
+void RenderStateObserverProxy::OnRenderStateChanged(const RenderStateData &renderStateData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    if (!data.WriteParcelable(&renderStateData)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write renderStateData");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+        return;
+    }
+    int32_t ret = SendTransactCmd(
+        static_cast<uint32_t>(IRenderStateObserver::ON_RENDER_STATE_CHANGED),
+        data, reply, option);
+    if (ret != NO_ERROR || ret != ERR_INVALID_STUB) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+        return;
+    }
+}
+
+int32_t RenderStateObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return ERR_NULL_OBJECT;
+    }
+
+    return remote->SendRequest(code, data, reply, option);
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: 
+包含日志: 否
+代码:
+namespace {
+const int32_t ERR_INVALID_STUB = 32;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 26:27
+Spell: RenderStateObserverProxy
+包含日志: 否
+代码:
+RenderStateObserverProxy::RenderStateObserverProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IRenderStateObserver>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 30:32
 Spell: WriteInterfaceToken
-包含日志: 否
+包含日志: 是
 代码:
 bool RenderStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
 {
@@ -16,7 +165,7 @@ bool RenderStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
 代码块类型: Conditional Block (if)
 位置: 32:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(RenderStateObserverProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed.");
@@ -27,7 +176,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 33:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed.");
 
@@ -35,7 +184,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 39:32
 Spell: OnRenderStateChanged
-包含日志: 否
+包含日志: 是
 代码:
 void RenderStateObserverProxy::OnRenderStateChanged(const RenderStateData &renderStateData)
 {
@@ -79,7 +228,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 48:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&renderStateData)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write renderStateData");
@@ -90,7 +239,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 49:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write renderStateData");
 
@@ -98,7 +247,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 54:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
@@ -109,7 +258,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 55:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
 
@@ -117,7 +266,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 61:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR || ret != ERR_INVALID_STUB) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -128,7 +277,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 62:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 
@@ -136,7 +285,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 67:35
 Spell: SendTransactCmd
-包含日志: 否
+包含日志: 是
 代码:
 int32_t RenderStateObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
     MessageParcel &reply, MessageOption &option)
@@ -154,7 +303,7 @@ int32_t RenderStateObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &
 代码块类型: Conditional Block (if)
 位置: 71:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
@@ -165,7 +314,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 72:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
 

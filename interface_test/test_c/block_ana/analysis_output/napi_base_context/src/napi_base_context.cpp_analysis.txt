@@ -1,3 +1,115 @@
+代码块类型: Namespace Declaration
+位置: 26:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+{
+    napi_value boolValue;
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+    bool value = false;
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+    stageMode = value;
+    return napi_ok;
+}
+
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+{
+    void* wrapped = nullptr;
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+    if (ret != napi_ok) {
+        return nullptr;
+    }
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+}
+
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+{
+    napi_value global;
+    napi_status status = napi_get_global(env, &global);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    napi_value abilityObj;
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+    if (status != napi_ok || abilityObj == nullptr) {
+        return nullptr;
+    }
+
+    void* pointer = nullptr;
+    status = napi_get_value_external(env, abilityObj, &pointer);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+}
+}  // namespace AbilityRuntime
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 27:11
+Spell: AbilityRuntime
+包含日志: 否
+代码:
+namespace AbilityRuntime {
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+{
+    napi_value boolValue;
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+    bool value = false;
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+    stageMode = value;
+    return napi_ok;
+}
+
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+{
+    void* wrapped = nullptr;
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+    if (ret != napi_ok) {
+        return nullptr;
+    }
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+}
+
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+{
+    napi_value global;
+    napi_status status = napi_get_global(env, &global);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    napi_value abilityObj;
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+    if (status != napi_ok || abilityObj == nullptr) {
+        return nullptr;
+    }
+
+    void* pointer = nullptr;
+    status = napi_get_value_external(env, abilityObj, &pointer);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+}
+}  // namespace AbilityRuntime
+
+--------------------------------------------------------------------------------
 代码块类型: Function Declaration
 位置: 28:13
 Spell: IsStageContext

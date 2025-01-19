@@ -1,7 +1,189 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+ConnectionObserverStub::ConnectionObserverStub() {}
+
+int ConnectionObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = ConnectionObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+    if (code < IConnectionObserver::CMD_MAX && code >= 0) {
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int ConnectionObserverStub::OnExtensionConnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionConnected(*connectionData);
+    return NO_ERROR;
+}
+
+int ConnectionObserverStub::OnExtensionDisconnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionDisconnected(*connectionData);
+    return NO_ERROR;
+}
+
+#ifdef WITH_DLP
+int ConnectionObserverStub::OnDlpAbilityOpenedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<DlpStateData> dlpData(data.ReadParcelable<DlpStateData>());
+    if (!dlpData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error dlpData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnDlpAbilityOpened(*dlpData);
+    return NO_ERROR;
+}
+
+int ConnectionObserverStub::OnDlpAbilityClosedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<DlpStateData> dlpData(data.ReadParcelable<DlpStateData>());
+    if (!dlpData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error dlpData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnDlpAbilityClosed(*dlpData);
+    return NO_ERROR;
+}
+#endif // WITH_DLP
+}  // namespace AbilityRuntime
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+ConnectionObserverStub::ConnectionObserverStub() {}
+
+int ConnectionObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = ConnectionObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+    if (code < IConnectionObserver::CMD_MAX && code >= 0) {
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int ConnectionObserverStub::OnExtensionConnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionConnected(*connectionData);
+    return NO_ERROR;
+}
+
+int ConnectionObserverStub::OnExtensionDisconnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionDisconnected(*connectionData);
+    return NO_ERROR;
+}
+
+#ifdef WITH_DLP
+int ConnectionObserverStub::OnDlpAbilityOpenedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<DlpStateData> dlpData(data.ReadParcelable<DlpStateData>());
+    if (!dlpData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error dlpData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnDlpAbilityOpened(*dlpData);
+    return NO_ERROR;
+}
+
+int ConnectionObserverStub::OnDlpAbilityClosedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<DlpStateData> dlpData(data.ReadParcelable<DlpStateData>());
+    if (!dlpData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error dlpData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnDlpAbilityClosed(*dlpData);
+    return NO_ERROR;
+}
+#endif // WITH_DLP
+}  // namespace AbilityRuntime
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 24:25
+Spell: ConnectionObserverStub
+包含日志: 否
+代码:
+ConnectionObserverStub::ConnectionObserverStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 26:29
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int ConnectionObserverStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -33,7 +215,7 @@ int ConnectionObserverStub::OnRemoteRequest(
 代码块类型: Conditional Block (if)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
@@ -44,7 +226,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 32:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
 
@@ -92,7 +274,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 52:29
 Spell: OnExtensionConnectedInner
-包含日志: 否
+包含日志: 是
 代码:
 int ConnectionObserverStub::OnExtensionConnectedInner(MessageParcel &data, MessageParcel &reply)
 {
@@ -110,7 +292,7 @@ int ConnectionObserverStub::OnExtensionConnectedInner(MessageParcel &data, Messa
 代码块类型: Conditional Block (if)
 位置: 55:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!connectionData) {
         TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
@@ -121,7 +303,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 56:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
 
@@ -129,7 +311,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 64:29
 Spell: OnExtensionDisconnectedInner
-包含日志: 否
+包含日志: 是
 代码:
 int ConnectionObserverStub::OnExtensionDisconnectedInner(MessageParcel &data, MessageParcel &reply)
 {
@@ -147,7 +329,7 @@ int ConnectionObserverStub::OnExtensionDisconnectedInner(MessageParcel &data, Me
 代码块类型: Conditional Block (if)
 位置: 67:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!connectionData) {
         TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
@@ -158,7 +340,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 68:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
 

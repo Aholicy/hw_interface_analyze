@@ -1,7 +1,103 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+AppRunningStatusStub::AppRunningStatusStub() {}
+
+AppRunningStatusStub::~AppRunningStatusStub() {}
+
+int AppRunningStatusStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "Called, code = %{public}u, flags= %{public}d.", code, option.GetFlags());
+    std::u16string descriptor = AppRunningStatusStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(AppRunningStatusListenerInterface::MessageCode::APP_RUNNING_STATUS)) {
+        return HandleAppRunningStatus(data, reply);
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+ErrCode AppRunningStatusStub::HandleAppRunningStatus(MessageParcel &data, MessageParcel &reply)
+{
+    std::string bundle = data.ReadString();
+    int32_t uid = data.ReadInt32();
+    RunningStatus runningStatus = static_cast<RunningStatus>(data.ReadInt32());
+    NotifyAppRunningStatus(bundle, uid, runningStatus);
+    return NO_ERROR;
+}
+} // namespace AbilityRuntime
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+AppRunningStatusStub::AppRunningStatusStub() {}
+
+AppRunningStatusStub::~AppRunningStatusStub() {}
+
+int AppRunningStatusStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "Called, code = %{public}u, flags= %{public}d.", code, option.GetFlags());
+    std::u16string descriptor = AppRunningStatusStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(AppRunningStatusListenerInterface::MessageCode::APP_RUNNING_STATUS)) {
+        return HandleAppRunningStatus(data, reply);
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+ErrCode AppRunningStatusStub::HandleAppRunningStatus(MessageParcel &data, MessageParcel &reply)
+{
+    std::string bundle = data.ReadString();
+    int32_t uid = data.ReadInt32();
+    RunningStatus runningStatus = static_cast<RunningStatus>(data.ReadInt32());
+    NotifyAppRunningStatus(bundle, uid, runningStatus);
+    return NO_ERROR;
+}
+} // namespace AbilityRuntime
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 24:23
+Spell: AppRunningStatusStub
+包含日志: 否
+代码:
+AppRunningStatusStub::AppRunningStatusStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 26:23
+Spell: ~AppRunningStatusStub
+包含日志: 否
+代码:
+AppRunningStatusStub::~AppRunningStatusStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 28:27
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int AppRunningStatusStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -25,7 +121,7 @@ int AppRunningStatusStub::OnRemoteRequest(
 代码块类型: Loop Block (do)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "Called, code = %{public}u, flags= %{public}d.", code, option.GetFlags());
 
@@ -33,7 +129,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 34:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
@@ -44,7 +140,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 35:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
 

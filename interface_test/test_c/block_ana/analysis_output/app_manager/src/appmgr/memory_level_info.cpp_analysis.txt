@@ -1,3 +1,178 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+namespace {
+constexpr int MAX_PARCEL_SIZE = 100000;
+}
+
+MemoryLevelInfo::MemoryLevelInfo(const std::map<pid_t, MemoryLevel> &procLevelMap) : procLevelMap_(procLevelMap)
+{
+}
+
+bool MemoryLevelInfo::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteUint32(procLevelMap_.size())) {
+        return false;
+    }
+    for (auto it = procLevelMap_.begin(); it != procLevelMap_.end(); ++it) {
+        if (!parcel.WriteInt32(it->first)) {
+            return false;
+        }
+        if (!parcel.WriteInt32(it->second)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+MemoryLevelInfo *MemoryLevelInfo::Unmarshalling(Parcel &parcel)
+{
+    MemoryLevelInfo *object = new (std::nothrow) MemoryLevelInfo();
+    if ((object != nullptr) && !object->ReadFromParcel(parcel)) {
+        delete object;
+        object = nullptr;
+    }
+
+    return object;
+}
+
+const std::map<pid_t, MemoryLevel> &MemoryLevelInfo::GetProcLevelMap() const
+{
+    return procLevelMap_;
+}
+
+
+bool MemoryLevelInfo::ReadFromParcel(Parcel &parcel)
+{
+    uint32_t count = parcel.ReadUint32();
+    if (count < 0 || count > MAX_PARCEL_SIZE) {
+        count = 0;
+        return false;
+    }
+
+    for (uint32_t i = 0; i < count; ++i) {
+        pid_t pid = parcel.ReadInt32();
+        int32_t tempLevel = parcel.ReadInt32();
+        MemoryLevel level = MEMORY_LEVEL_MODERATE;
+        switch (tempLevel) {
+            case MEMORY_LEVEL_MODERATE:
+            case MEMORY_LEVEL_LOW:
+            case MEMORY_LEVEL_CRITICAL:
+                level = static_cast<MemoryLevel>(tempLevel);
+                break;
+            default:
+                TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
+                continue;
+        }
+        procLevelMap_[pid] = level;
+    }
+    return true;
+}
+
+} // namespace AppExecFwk
+} // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+namespace {
+constexpr int MAX_PARCEL_SIZE = 100000;
+}
+
+MemoryLevelInfo::MemoryLevelInfo(const std::map<pid_t, MemoryLevel> &procLevelMap) : procLevelMap_(procLevelMap)
+{
+}
+
+bool MemoryLevelInfo::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteUint32(procLevelMap_.size())) {
+        return false;
+    }
+    for (auto it = procLevelMap_.begin(); it != procLevelMap_.end(); ++it) {
+        if (!parcel.WriteInt32(it->first)) {
+            return false;
+        }
+        if (!parcel.WriteInt32(it->second)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+MemoryLevelInfo *MemoryLevelInfo::Unmarshalling(Parcel &parcel)
+{
+    MemoryLevelInfo *object = new (std::nothrow) MemoryLevelInfo();
+    if ((object != nullptr) && !object->ReadFromParcel(parcel)) {
+        delete object;
+        object = nullptr;
+    }
+
+    return object;
+}
+
+const std::map<pid_t, MemoryLevel> &MemoryLevelInfo::GetProcLevelMap() const
+{
+    return procLevelMap_;
+}
+
+
+bool MemoryLevelInfo::ReadFromParcel(Parcel &parcel)
+{
+    uint32_t count = parcel.ReadUint32();
+    if (count < 0 || count > MAX_PARCEL_SIZE) {
+        count = 0;
+        return false;
+    }
+
+    for (uint32_t i = 0; i < count; ++i) {
+        pid_t pid = parcel.ReadInt32();
+        int32_t tempLevel = parcel.ReadInt32();
+        MemoryLevel level = MEMORY_LEVEL_MODERATE;
+        switch (tempLevel) {
+            case MEMORY_LEVEL_MODERATE:
+            case MEMORY_LEVEL_LOW:
+            case MEMORY_LEVEL_CRITICAL:
+                level = static_cast<MemoryLevel>(tempLevel);
+                break;
+            default:
+                TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
+                continue;
+        }
+        procLevelMap_[pid] = level;
+    }
+    return true;
+}
+
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: 
+包含日志: 否
+代码:
+namespace {
+constexpr int MAX_PARCEL_SIZE = 100000;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 26:18
+Spell: MemoryLevelInfo
+包含日志: 否
+代码:
+MemoryLevelInfo::MemoryLevelInfo(const std::map<pid_t, MemoryLevel> &procLevelMap) : procLevelMap_(procLevelMap)
+{
+}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 30:23
 Spell: Marshalling
@@ -72,7 +247,7 @@ const std::map<pid_t, MemoryLevel> &MemoryLevelInfo::GetProcLevelMap() const
 代码块类型: Method Declaration
 位置: 63:23
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool MemoryLevelInfo::ReadFromParcel(Parcel &parcel)
 {
@@ -116,7 +291,7 @@ Spell:
 代码块类型: Loop Block (for)
 位置: 71:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     for (uint32_t i = 0; i < count; ++i) {
         pid_t pid = parcel.ReadInt32();
@@ -139,7 +314,7 @@ Spell:
 代码块类型: Switch Block
 位置: 75:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         switch (tempLevel) {
             case MEMORY_LEVEL_MODERATE:
@@ -156,7 +331,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 82:17
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
                 TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
 

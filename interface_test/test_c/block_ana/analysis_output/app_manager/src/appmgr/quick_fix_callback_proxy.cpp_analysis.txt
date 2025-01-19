@@ -1,7 +1,163 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+void QuickFixCallbackProxy::OnLoadPatchDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_LOAD_PATCH, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+void QuickFixCallbackProxy::OnUnloadPatchDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_UNLOAD_PATCH, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+void QuickFixCallbackProxy::OnReloadPageDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_RELOAD_PAGE, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+bool QuickFixCallbackProxy::SendRequestWithCmd(uint32_t code, MessageParcel &data, MessageParcel &reply)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return false;
+    }
+
+    MessageOption option(MessageOption::TF_SYNC);
+    auto ret = remote->SendRequest(code, data, reply, option);
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
+        return false;
+    }
+
+    return true;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+void QuickFixCallbackProxy::OnLoadPatchDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_LOAD_PATCH, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+void QuickFixCallbackProxy::OnUnloadPatchDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_UNLOAD_PATCH, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+void QuickFixCallbackProxy::OnReloadPageDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_RELOAD_PAGE, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+bool QuickFixCallbackProxy::SendRequestWithCmd(uint32_t code, MessageParcel &data, MessageParcel &reply)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return false;
+    }
+
+    MessageOption option(MessageOption::TF_SYNC);
+    auto ret = remote->SendRequest(code, data, reply, option);
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
+        return false;
+    }
+
+    return true;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:29
 Spell: OnLoadPatchDone
-包含日志: 否
+包含日志: 是
 代码:
 void QuickFixCallbackProxy::OnLoadPatchDone(int32_t resultCode, int32_t recordId)
 {
@@ -24,7 +180,7 @@ void QuickFixCallbackProxy::OnLoadPatchDone(int32_t resultCode, int32_t recordId
 代码块类型: Loop Block (do)
 位置: 26:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -42,7 +198,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 37:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
 
@@ -50,7 +206,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 41:29
 Spell: OnUnloadPatchDone
-包含日志: 否
+包含日志: 是
 代码:
 void QuickFixCallbackProxy::OnUnloadPatchDone(int32_t resultCode, int32_t recordId)
 {
@@ -73,7 +229,7 @@ void QuickFixCallbackProxy::OnUnloadPatchDone(int32_t resultCode, int32_t record
 代码块类型: Loop Block (do)
 位置: 43:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -91,7 +247,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 54:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
 
@@ -99,7 +255,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 58:29
 Spell: OnReloadPageDone
-包含日志: 否
+包含日志: 是
 代码:
 void QuickFixCallbackProxy::OnReloadPageDone(int32_t resultCode, int32_t recordId)
 {
@@ -122,7 +278,7 @@ void QuickFixCallbackProxy::OnReloadPageDone(int32_t resultCode, int32_t recordI
 代码块类型: Loop Block (do)
 位置: 60:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -140,7 +296,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 71:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
 
@@ -148,7 +304,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 75:29
 Spell: SendRequestWithCmd
-包含日志: 否
+包含日志: 是
 代码:
 bool QuickFixCallbackProxy::SendRequestWithCmd(uint32_t code, MessageParcel &data, MessageParcel &reply)
 {
@@ -172,7 +328,7 @@ bool QuickFixCallbackProxy::SendRequestWithCmd(uint32_t code, MessageParcel &dat
 代码块类型: Conditional Block (if)
 位置: 78:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
@@ -183,7 +339,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 79:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
 
@@ -191,7 +347,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 85:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != 0) {
         TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
@@ -202,7 +358,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 86:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
 

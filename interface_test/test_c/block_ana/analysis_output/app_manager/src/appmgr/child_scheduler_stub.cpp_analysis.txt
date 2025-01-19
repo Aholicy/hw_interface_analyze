@@ -1,7 +1,136 @@
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+ChildSchedulerStub::ChildSchedulerStub() {}
+
+ChildSchedulerStub::~ChildSchedulerStub() {}
+
+int32_t ChildSchedulerStub::OnRemoteRequest(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "ChildSchedulerStub::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+    std::u16string descriptor = ChildSchedulerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_LOAD_JS):
+            return HandleScheduleLoadChild(data, reply);
+        case static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_EXIT_PROCESS_SAFELY):
+            return HandleScheduleExitProcessSafely(data, reply);
+        case static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_RUN_NATIVE_PROC):
+            return HandleScheduleRunNativeProc(data, reply);
+    }
+    TAG_LOGI(AAFwkTag::APPMGR, "ChildSchedulerStub::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t ChildSchedulerStub::HandleScheduleLoadChild(MessageParcel &data, MessageParcel &reply)
+{
+    ScheduleLoadChild();
+    return ERR_NONE;
+}
+
+int32_t ChildSchedulerStub::HandleScheduleExitProcessSafely(MessageParcel &data, MessageParcel &reply)
+{
+    ScheduleExitProcessSafely();
+    return ERR_NONE;
+}
+
+int32_t ChildSchedulerStub::HandleScheduleRunNativeProc(MessageParcel &data, MessageParcel &reply)
+{
+    sptr<IRemoteObject> cb = data.ReadRemoteObject();
+    ScheduleRunNativeProc(cb);
+    return ERR_NONE;
+}
+
+}  // namespace AppExecFwk
+}  // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+ChildSchedulerStub::ChildSchedulerStub() {}
+
+ChildSchedulerStub::~ChildSchedulerStub() {}
+
+int32_t ChildSchedulerStub::OnRemoteRequest(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "ChildSchedulerStub::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+    std::u16string descriptor = ChildSchedulerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_LOAD_JS):
+            return HandleScheduleLoadChild(data, reply);
+        case static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_EXIT_PROCESS_SAFELY):
+            return HandleScheduleExitProcessSafely(data, reply);
+        case static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_RUN_NATIVE_PROC):
+            return HandleScheduleRunNativeProc(data, reply);
+    }
+    TAG_LOGI(AAFwkTag::APPMGR, "ChildSchedulerStub::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t ChildSchedulerStub::HandleScheduleLoadChild(MessageParcel &data, MessageParcel &reply)
+{
+    ScheduleLoadChild();
+    return ERR_NONE;
+}
+
+int32_t ChildSchedulerStub::HandleScheduleExitProcessSafely(MessageParcel &data, MessageParcel &reply)
+{
+    ScheduleExitProcessSafely();
+    return ERR_NONE;
+}
+
+int32_t ChildSchedulerStub::HandleScheduleRunNativeProc(MessageParcel &data, MessageParcel &reply)
+{
+    sptr<IRemoteObject> cb = data.ReadRemoteObject();
+    ScheduleRunNativeProc(cb);
+    return ERR_NONE;
+}
+
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 23:21
+Spell: ChildSchedulerStub
+包含日志: 否
+代码:
+ChildSchedulerStub::ChildSchedulerStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 25:21
+Spell: ~ChildSchedulerStub
+包含日志: 否
+代码:
+ChildSchedulerStub::~ChildSchedulerStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 27:29
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ChildSchedulerStub::OnRemoteRequest(uint32_t code, MessageParcel &data,
     MessageParcel &reply, MessageOption &option)
@@ -31,7 +160,7 @@ int32_t ChildSchedulerStub::OnRemoteRequest(uint32_t code, MessageParcel &data,
 代码块类型: Loop Block (do)
 位置: 30:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::APPMGR, "ChildSchedulerStub::OnReceived, code = %{public}u, flags= %{public}d.", code,
         option.GetFlags());
@@ -40,7 +169,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 34:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
@@ -51,7 +180,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 35:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
 
@@ -74,7 +203,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 47:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::APPMGR, "ChildSchedulerStub::OnRemoteRequest end");
 

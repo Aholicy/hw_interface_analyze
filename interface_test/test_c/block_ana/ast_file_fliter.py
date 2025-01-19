@@ -113,6 +113,10 @@ def get_block_type(cursor):
         return "Exception Handling Block"
     elif cursor.kind == CursorKind.NAMESPACE:
         return "Namespace Declaration"
+    elif cursor.kind == CursorKind.CONSTRUCTOR:
+        return "Constructor Declaration"
+    elif cursor.kind == CursorKind.DESTRUCTOR: 
+        return "Destructor Declaration"
     return "Other Block"
 
 
@@ -121,7 +125,7 @@ def get_complete_block(cursor):
     start = cursor.extent.start
     end = cursor.extent.end
 
-    if cursor.kind in [CursorKind.FUNCTION_DECL, CursorKind.CXX_METHOD]:
+    if cursor.kind in [CursorKind.FUNCTION_DECL, CursorKind.CXX_METHOD,CursorKind.CONSTRUCTOR, CursorKind.DESTRUCTOR]:
         for child in cursor.get_children():
             if child.kind == CursorKind.COMPOUND_STMT:  # 方法体的实际代码块
                 end = child.extent.end
@@ -171,6 +175,11 @@ def extract_blocks(cursor, source_code_file, namespace_stack=None):
             CursorKind.CXX_CATCH_STMT,
             CursorKind.FUNCTION_DECL,
             CursorKind.CXX_METHOD,
+            CursorKind.NAMESPACE,
+            CursorKind.CLASS_DECL,
+            CursorKind.ENUM_DECL,
+            CursorKind.CONSTRUCTOR,
+            CursorKind.DESTRUCTOR,
         ] and is_in_source_file(child, source_code_file):
             blocks.append((get_block_type(child), child, namespace_stack.copy()))
 

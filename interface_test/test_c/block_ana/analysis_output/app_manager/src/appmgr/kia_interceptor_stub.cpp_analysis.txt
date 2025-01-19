@@ -1,7 +1,115 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+KiaInterceptorStub::KiaInterceptorStub() {}
+
+KiaInterceptorStub::~KiaInterceptorStub() {}
+
+int KiaInterceptorStub::OnRemoteRequest(uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "cmd=%d,flags=%d", code, option.GetFlags());
+    std::u16string descriptor = KiaInterceptorStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == KIA_INTERCEPTOR_ON_INTERCEPT) {
+        return OnInterceptInner(data, reply);
+    }
+    TAG_LOGW(AAFwkTag::APPMGR, "KiaInterceptorStub::OnRemoteRequest, default case, need check.");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int KiaInterceptorStub::OnInterceptInner(MessageParcel &data, MessageParcel &reply)
+{
+    sptr<AAFwk::Want> want = data.ReadParcelable<AAFwk::Want>();
+    int resultCode = OnIntercept(*want);
+    if (!reply.WriteInt32(resultCode)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write resultCode failed.");
+        return ERR_INVALID_VALUE;
+    }
+    if (!reply.WriteParcelable(want)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write want failed.");
+        return ERR_INVALID_VALUE;
+    }
+
+    return NO_ERROR;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+KiaInterceptorStub::KiaInterceptorStub() {}
+
+KiaInterceptorStub::~KiaInterceptorStub() {}
+
+int KiaInterceptorStub::OnRemoteRequest(uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "cmd=%d,flags=%d", code, option.GetFlags());
+    std::u16string descriptor = KiaInterceptorStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == KIA_INTERCEPTOR_ON_INTERCEPT) {
+        return OnInterceptInner(data, reply);
+    }
+    TAG_LOGW(AAFwkTag::APPMGR, "KiaInterceptorStub::OnRemoteRequest, default case, need check.");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int KiaInterceptorStub::OnInterceptInner(MessageParcel &data, MessageParcel &reply)
+{
+    sptr<AAFwk::Want> want = data.ReadParcelable<AAFwk::Want>();
+    int resultCode = OnIntercept(*want);
+    if (!reply.WriteInt32(resultCode)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write resultCode failed.");
+        return ERR_INVALID_VALUE;
+    }
+    if (!reply.WriteParcelable(want)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write want failed.");
+        return ERR_INVALID_VALUE;
+    }
+
+    return NO_ERROR;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 22:21
+Spell: KiaInterceptorStub
+包含日志: 否
+代码:
+KiaInterceptorStub::KiaInterceptorStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 24:21
+Spell: ~KiaInterceptorStub
+包含日志: 否
+代码:
+KiaInterceptorStub::~KiaInterceptorStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 26:25
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int KiaInterceptorStub::OnRemoteRequest(uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
 {
@@ -24,7 +132,7 @@ int KiaInterceptorStub::OnRemoteRequest(uint32_t code, MessageParcel &data, Mess
 代码块类型: Loop Block (do)
 位置: 28:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "cmd=%d,flags=%d", code, option.GetFlags());
 
@@ -32,7 +140,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGI(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
@@ -43,7 +151,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 32:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGI(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
 
@@ -61,7 +169,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 39:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGW(AAFwkTag::APPMGR, "KiaInterceptorStub::OnRemoteRequest, default case, need check.");
 
@@ -69,7 +177,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 43:25
 Spell: OnInterceptInner
-包含日志: 否
+包含日志: 是
 代码:
 int KiaInterceptorStub::OnInterceptInner(MessageParcel &data, MessageParcel &reply)
 {
@@ -91,7 +199,7 @@ int KiaInterceptorStub::OnInterceptInner(MessageParcel &data, MessageParcel &rep
 代码块类型: Conditional Block (if)
 位置: 47:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!reply.WriteInt32(resultCode)) {
         TAG_LOGE(AAFwkTag::APPMGR, "write resultCode failed.");
@@ -102,7 +210,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 48:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write resultCode failed.");
 
@@ -110,7 +218,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 51:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!reply.WriteParcelable(want)) {
         TAG_LOGE(AAFwkTag::APPMGR, "write want failed.");
@@ -121,7 +229,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 52:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write want failed.");
 

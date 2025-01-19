@@ -1,7 +1,96 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+AppRunningStatusProxy::AppRunningStatusProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<AppRunningStatusListenerInterface>(impl)
+{}
+
+void AppRunningStatusProxy::NotifyAppRunningStatus(const std::string &bundle, int32_t uid, RunningStatus runningStatus)
+{
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(AppRunningStatusProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return;
+    }
+    if (!data.WriteString(bundle) || !data.WriteInt32(uid) || !data.WriteInt32(static_cast<int32_t>(runningStatus))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return;
+    }
+
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(AppRunningStatusListenerInterface::MessageCode::APP_RUNNING_STATUS), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+        return;
+    }
+}
+} // namespace AbilityRuntime
+} // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+AppRunningStatusProxy::AppRunningStatusProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<AppRunningStatusListenerInterface>(impl)
+{}
+
+void AppRunningStatusProxy::NotifyAppRunningStatus(const std::string &bundle, int32_t uid, RunningStatus runningStatus)
+{
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(AppRunningStatusProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return;
+    }
+    if (!data.WriteString(bundle) || !data.WriteInt32(uid) || !data.WriteInt32(static_cast<int32_t>(runningStatus))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return;
+    }
+
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(AppRunningStatusListenerInterface::MessageCode::APP_RUNNING_STATUS), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+        return;
+    }
+}
+} // namespace AbilityRuntime
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 24:24
+Spell: AppRunningStatusProxy
+包含日志: 否
+代码:
+AppRunningStatusProxy::AppRunningStatusProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<AppRunningStatusListenerInterface>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 28:29
 Spell: NotifyAppRunningStatus
-包含日志: 否
+包含日志: 是
 代码:
 void AppRunningStatusProxy::NotifyAppRunningStatus(const std::string &bundle, int32_t uid, RunningStatus runningStatus)
 {
@@ -34,7 +123,7 @@ void AppRunningStatusProxy::NotifyAppRunningStatus(const std::string &bundle, in
 代码块类型: Conditional Block (if)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(AppRunningStatusProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
@@ -45,7 +134,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 32:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
 
@@ -53,7 +142,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 35:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteString(bundle) || !data.WriteInt32(uid) || !data.WriteInt32(static_cast<int32_t>(runningStatus))) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
@@ -64,7 +153,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 36:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
 
@@ -72,7 +161,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 40:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
@@ -83,7 +172,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 41:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
 
@@ -91,7 +180,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 49:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -102,7 +191,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 50:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 

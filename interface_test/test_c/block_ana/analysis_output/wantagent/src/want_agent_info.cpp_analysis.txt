@@ -1,3 +1,319 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+{}
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    flags_.push_back(flag);
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    if (!flags.empty()) {
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+    }
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+{
+    if (paramInfo != nullptr) {
+        requestCode_ = paramInfo->GetRequestCode();
+        operationType_ = paramInfo->GetOperationType();
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+        if (!paramInfo->GetWants().empty()) {
+            for (auto want : paramInfo->GetWants()) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+        if (paramInfo->GetExtraInfo() != nullptr) {
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+        }
+    }
+}
+
+int WantAgentInfo::GetRequestCode() const
+{
+    return requestCode_;
+}
+
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+{
+    return operationType_;
+}
+
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+{
+    return flags_;
+}
+
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+{
+    return wants_;
+}
+
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:17
+Spell: AbilityRuntime
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+{}
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    flags_.push_back(flag);
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    if (!flags.empty()) {
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+    }
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+{
+    if (paramInfo != nullptr) {
+        requestCode_ = paramInfo->GetRequestCode();
+        operationType_ = paramInfo->GetOperationType();
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+        if (!paramInfo->GetWants().empty()) {
+            for (auto want : paramInfo->GetWants()) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+        if (paramInfo->GetExtraInfo() != nullptr) {
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+        }
+    }
+}
+
+int WantAgentInfo::GetRequestCode() const
+{
+    return requestCode_;
+}
+
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+{
+    return operationType_;
+}
+
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+{
+    return flags_;
+}
+
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+{
+    return wants_;
+}
+
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:33
+Spell: WantAgent
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+{}
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    flags_.push_back(flag);
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    if (!flags.empty()) {
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+    }
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+{
+    if (paramInfo != nullptr) {
+        requestCode_ = paramInfo->GetRequestCode();
+        operationType_ = paramInfo->GetOperationType();
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+        if (!paramInfo->GetWants().empty()) {
+            for (auto want : paramInfo->GetWants()) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+        if (paramInfo->GetExtraInfo() != nullptr) {
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+        }
+    }
+}
+
+int WantAgentInfo::GetRequestCode() const
+{
+    return requestCode_;
+}
+
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+{
+    return operationType_;
+}
+
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+{
+    return flags_;
+}
+
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+{
+    return wants_;
+}
+
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 23:16
+Spell: WantAgentInfo
+包含日志: 否
+代码:
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 26:16
+Spell: WantAgentInfo
+包含日志: 否
+代码:
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    flags_.push_back(flag);
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
+
+--------------------------------------------------------------------------------
 代码块类型: Conditional Block (if)
 位置: 33:5
 Spell: 
@@ -20,6 +336,33 @@ Spell:
     if (extraInfo != nullptr) {
         extraInfo_ = std::make_shared<WantParams>(*extraInfo);
     }
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 45:16
+Spell: WantAgentInfo
+包含日志: 否
+代码:
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+    const std::shared_ptr<WantParams> &extraInfo)
+{
+    requestCode_ = requestCode;
+    operationType_ = operationType;
+    if (!flags.empty()) {
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+    }
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+}
 
 --------------------------------------------------------------------------------
 代码块类型: Conditional Block (if)
@@ -54,6 +397,30 @@ Spell:
     if (extraInfo != nullptr) {
         extraInfo_ = std::make_shared<WantParams>(*extraInfo);
     }
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 66:16
+Spell: WantAgentInfo
+包含日志: 否
+代码:
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+{
+    if (paramInfo != nullptr) {
+        requestCode_ = paramInfo->GetRequestCode();
+        operationType_ = paramInfo->GetOperationType();
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+        if (!paramInfo->GetWants().empty()) {
+            for (auto want : paramInfo->GetWants()) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+        if (paramInfo->GetExtraInfo() != nullptr) {
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+        }
+    }
+}
 
 --------------------------------------------------------------------------------
 代码块类型: Conditional Block (if)

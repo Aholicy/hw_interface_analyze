@@ -1,3 +1,119 @@
+代码块类型: Namespace Declaration
+位置: 18:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+{}
+
+void CompletedDispatcher::Send(const int32_t resultCode)
+{}
+
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+{
+    want_ = want;
+    resultCode_ = resultCode;
+    resultData_ = data;
+    resultExtras_ = extras;
+    if (handler_ == nullptr) {
+        Run();
+    }
+}
+
+void CompletedDispatcher::Run()
+{
+    if (callback_ != nullptr) {
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+    }
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 18:17
+Spell: AbilityRuntime
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+{}
+
+void CompletedDispatcher::Send(const int32_t resultCode)
+{}
+
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+{
+    want_ = want;
+    resultCode_ = resultCode;
+    resultData_ = data;
+    resultExtras_ = extras;
+    if (handler_ == nullptr) {
+        Run();
+    }
+}
+
+void CompletedDispatcher::Run()
+{
+    if (callback_ != nullptr) {
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+    }
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 18:33
+Spell: WantAgent
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+{}
+
+void CompletedDispatcher::Send(const int32_t resultCode)
+{}
+
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+{
+    want_ = want;
+    resultCode_ = resultCode;
+    resultData_ = data;
+    resultExtras_ = extras;
+    if (handler_ == nullptr) {
+        Run();
+    }
+}
+
+void CompletedDispatcher::Run()
+{
+    if (callback_ != nullptr) {
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+    }
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 19:22
+Spell: CompletedDispatcher
+包含日志: 否
+代码:
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:27
 Spell: Send

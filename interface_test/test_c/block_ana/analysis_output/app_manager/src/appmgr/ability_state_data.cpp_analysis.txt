@@ -1,3 +1,243 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+bool AbilityStateData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(moduleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(bundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(abilityName)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(abilityState)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(pid)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(uid)) {
+        return false;
+    }
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+    }
+    if (!MarshallingOne(parcel)) {
+        return false;
+    }
+    return true;
+}
+
+bool AbilityStateData::MarshallingOne(Parcel &parcel) const
+{
+    if (!parcel.WriteInt32(abilityType)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isFocused)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerBundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerAbilityName)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(appCloneIndex)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(processType)) {
+        return false;
+    }
+    return true;
+}
+
+bool AbilityStateData::ReadFromParcel(Parcel &parcel)
+{
+    moduleName = parcel.ReadString();
+
+    bundleName = parcel.ReadString();
+
+    abilityName = parcel.ReadString();
+
+    abilityState = parcel.ReadInt32();
+
+    pid = parcel.ReadInt32();
+
+    uid = parcel.ReadInt32();
+
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+    abilityType = parcel.ReadInt32();
+
+    isFocused = parcel.ReadBool();
+
+    callerBundleName = parcel.ReadString();
+
+    callerAbilityName = parcel.ReadString();
+    isAtomicService = parcel.ReadBool();
+    abilityRecordId = parcel.ReadInt32();
+    appCloneIndex = parcel.ReadInt32();
+    extensionAbilityType = parcel.ReadInt32();
+    processType = parcel.ReadInt32();
+    return true;
+}
+
+AbilityStateData *AbilityStateData::Unmarshalling(Parcel &parcel)
+{
+    AbilityStateData *abilityStateData = new (std::nothrow) AbilityStateData();
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+        delete abilityStateData;
+        abilityStateData = nullptr;
+    }
+    return abilityStateData;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+bool AbilityStateData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(moduleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(bundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(abilityName)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(abilityState)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(pid)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(uid)) {
+        return false;
+    }
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+    }
+    if (!MarshallingOne(parcel)) {
+        return false;
+    }
+    return true;
+}
+
+bool AbilityStateData::MarshallingOne(Parcel &parcel) const
+{
+    if (!parcel.WriteInt32(abilityType)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isFocused)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerBundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerAbilityName)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(appCloneIndex)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(processType)) {
+        return false;
+    }
+    return true;
+}
+
+bool AbilityStateData::ReadFromParcel(Parcel &parcel)
+{
+    moduleName = parcel.ReadString();
+
+    bundleName = parcel.ReadString();
+
+    abilityName = parcel.ReadString();
+
+    abilityState = parcel.ReadInt32();
+
+    pid = parcel.ReadInt32();
+
+    uid = parcel.ReadInt32();
+
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+    abilityType = parcel.ReadInt32();
+
+    isFocused = parcel.ReadBool();
+
+    callerBundleName = parcel.ReadString();
+
+    callerAbilityName = parcel.ReadString();
+    isAtomicService = parcel.ReadBool();
+    abilityRecordId = parcel.ReadInt32();
+    appCloneIndex = parcel.ReadInt32();
+    extensionAbilityType = parcel.ReadInt32();
+    processType = parcel.ReadInt32();
+    return true;
+}
+
+AbilityStateData *AbilityStateData::Unmarshalling(Parcel &parcel)
+{
+    AbilityStateData *abilityStateData = new (std::nothrow) AbilityStateData();
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+        delete abilityStateData;
+        abilityStateData = nullptr;
+    }
+    return abilityStateData;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 22:24
 Spell: Marshalling
@@ -328,7 +568,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 122:37
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 AbilityStateData *AbilityStateData::Unmarshalling(Parcel &parcel)
 {
@@ -345,7 +585,7 @@ AbilityStateData *AbilityStateData::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 125:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
         TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
@@ -357,7 +597,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 126:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
 

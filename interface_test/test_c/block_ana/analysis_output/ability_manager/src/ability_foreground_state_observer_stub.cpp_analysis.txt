@@ -1,7 +1,130 @@
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+AbilityForegroundStateObserverStub::AbilityForegroundStateObserverStub() {}
+
+AbilityForegroundStateObserverStub::~AbilityForegroundStateObserverStub() {}
+
+int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::ABILITYMGR, "called");
+    std::u16string descriptor = AbilityForegroundStateObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED)) {
+        return HandleOnAbilityStateChanged(data, reply);
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AbilityStateData> abilityStateData(data.ReadParcelable<AbilityStateData>());
+    if (abilityStateData == nullptr) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAbilityStateChanged(*abilityStateData);
+    return NO_ERROR;
+}
+
+AbilityForegroundStateObserverRecipient::AbilityForegroundStateObserverRecipient(RemoteDiedHandler handler)
+    : handler_(handler)
+{}
+
+void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+{
+    TAG_LOGE(AAFwkTag::ABILITYMGR, "Remote died");
+    if (handler_) {
+        handler_(remote);
+    }
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 24:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+AbilityForegroundStateObserverStub::AbilityForegroundStateObserverStub() {}
+
+AbilityForegroundStateObserverStub::~AbilityForegroundStateObserverStub() {}
+
+int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::ABILITYMGR, "called");
+    std::u16string descriptor = AbilityForegroundStateObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED)) {
+        return HandleOnAbilityStateChanged(data, reply);
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AbilityStateData> abilityStateData(data.ReadParcelable<AbilityStateData>());
+    if (abilityStateData == nullptr) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAbilityStateChanged(*abilityStateData);
+    return NO_ERROR;
+}
+
+AbilityForegroundStateObserverRecipient::AbilityForegroundStateObserverRecipient(RemoteDiedHandler handler)
+    : handler_(handler)
+{}
+
+void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+{
+    TAG_LOGE(AAFwkTag::ABILITYMGR, "Remote died");
+    if (handler_) {
+        handler_(remote);
+    }
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 25:37
+Spell: AbilityForegroundStateObserverStub
+包含日志: 否
+代码:
+AbilityForegroundStateObserverStub::AbilityForegroundStateObserverStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 27:37
+Spell: ~AbilityForegroundStateObserverStub
+包含日志: 否
+代码:
+AbilityForegroundStateObserverStub::~AbilityForegroundStateObserverStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 29:45
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -24,7 +147,7 @@ int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
 代码块类型: Loop Block (do)
 位置: 32:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::ABILITYMGR, "called");
 
@@ -32,7 +155,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 35:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
@@ -43,7 +166,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 36:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
 
@@ -61,7 +184,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 46:45
 Spell: HandleOnAbilityStateChanged
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
 {
@@ -79,7 +202,7 @@ int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageP
 代码块类型: Conditional Block (if)
 位置: 49:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (abilityStateData == nullptr) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
@@ -90,15 +213,25 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 50:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 58:42
+Spell: AbilityForegroundStateObserverRecipient
+包含日志: 否
+代码:
+AbilityForegroundStateObserverRecipient::AbilityForegroundStateObserverRecipient(RemoteDiedHandler handler)
+    : handler_(handler)
+{}
 
 --------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 62:47
 Spell: OnRemoteDied
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
 {
@@ -112,7 +245,7 @@ void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObj
 代码块类型: Loop Block (do)
 位置: 64:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGE(AAFwkTag::ABILITYMGR, "Remote died");
 

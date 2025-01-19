@@ -1,7 +1,287 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+StartSpecifiedAbilityResponseProxy::StartSpecifiedAbilityResponseProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IStartSpecifiedAbilityResponse>(impl)
+{}
+
+bool StartSpecifiedAbilityResponseProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(StartSpecifiedAbilityResponseProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+void StartSpecifiedAbilityResponseProxy::OnAcceptWantResponse(
+    const AAFwk::Want &want, const std::string &flag, int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On accept want by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || !data.WriteString(flag) ||
+        !data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    int32_t ret = SendTransactCmd(
+        static_cast<uint32_t>(IStartSpecifiedAbilityResponse::Message::ON_ACCEPT_WANT_RESPONSE), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+void StartSpecifiedAbilityResponseProxy::OnTimeoutResponse(const AAFwk::Want &want, int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On timeout response by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || !data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    int32_t ret = SendTransactCmd(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_TIMEOUT_RESPONSE), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+int32_t StartSpecifiedAbilityResponseProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return ERR_NULL_OBJECT;
+    }
+
+    return remote->SendRequest(code, data, reply, option);
+}
+
+void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestResponse(const AAFwk::Want &want, const std::string &flag,
+    int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On satrt specified process response by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || !data.WriteString(flag) ||
+        !data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_RESPONSE),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestTimeoutResponse(const AAFwk::Want &want,
+    int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On start specified process timeout response by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return;
+    }
+    int32_t ret = remote->SendRequest(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_TIMEOUT_RESPONSE),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+StartSpecifiedAbilityResponseProxy::StartSpecifiedAbilityResponseProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IStartSpecifiedAbilityResponse>(impl)
+{}
+
+bool StartSpecifiedAbilityResponseProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(StartSpecifiedAbilityResponseProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+void StartSpecifiedAbilityResponseProxy::OnAcceptWantResponse(
+    const AAFwk::Want &want, const std::string &flag, int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On accept want by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || !data.WriteString(flag) ||
+        !data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    int32_t ret = SendTransactCmd(
+        static_cast<uint32_t>(IStartSpecifiedAbilityResponse::Message::ON_ACCEPT_WANT_RESPONSE), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+void StartSpecifiedAbilityResponseProxy::OnTimeoutResponse(const AAFwk::Want &want, int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On timeout response by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || !data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    int32_t ret = SendTransactCmd(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_TIMEOUT_RESPONSE), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+int32_t StartSpecifiedAbilityResponseProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return ERR_NULL_OBJECT;
+    }
+
+    return remote->SendRequest(code, data, reply, option);
+}
+
+void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestResponse(const AAFwk::Want &want, const std::string &flag,
+    int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On satrt specified process response by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || !data.WriteString(flag) ||
+        !data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_RESPONSE),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+
+void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestTimeoutResponse(const AAFwk::Want &want,
+    int32_t requestId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "On start specified process timeout response by proxy.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+    if (!data.WriteParcelable(&want) || data.WriteInt32(requestId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return;
+    }
+    int32_t ret = remote->SendRequest(static_cast<uint32_t>(
+        IStartSpecifiedAbilityResponse::Message::ON_NEW_PROCESS_REQUEST_TIMEOUT_RESPONSE),
+        data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+    }
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 22:37
+Spell: StartSpecifiedAbilityResponseProxy
+包含日志: 否
+代码:
+StartSpecifiedAbilityResponseProxy::StartSpecifiedAbilityResponseProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IStartSpecifiedAbilityResponse>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 26:42
 Spell: WriteInterfaceToken
-包含日志: 否
+包含日志: 是
 代码:
 bool StartSpecifiedAbilityResponseProxy::WriteInterfaceToken(MessageParcel &data)
 {
@@ -16,7 +296,7 @@ bool StartSpecifiedAbilityResponseProxy::WriteInterfaceToken(MessageParcel &data
 代码块类型: Conditional Block (if)
 位置: 28:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(StartSpecifiedAbilityResponseProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
@@ -27,7 +307,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 29:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
 
@@ -35,7 +315,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 35:42
 Spell: OnAcceptWantResponse
-包含日志: 否
+包含日志: 是
 代码:
 void StartSpecifiedAbilityResponseProxy::OnAcceptWantResponse(
     const AAFwk::Want &want, const std::string &flag, int32_t requestId)
@@ -64,7 +344,7 @@ void StartSpecifiedAbilityResponseProxy::OnAcceptWantResponse(
 代码块类型: Loop Block (do)
 位置: 38:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "On accept want by proxy.");
 
@@ -82,7 +362,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 45:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&want) || !data.WriteString(flag) ||
         !data.WriteInt32(requestId)) {
@@ -94,7 +374,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 47:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
 
@@ -102,7 +382,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 53:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -112,7 +392,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 54:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 
@@ -120,7 +400,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 58:42
 Spell: OnTimeoutResponse
-包含日志: 否
+包含日志: 是
 代码:
 void StartSpecifiedAbilityResponseProxy::OnTimeoutResponse(const AAFwk::Want &want, int32_t requestId)
 {
@@ -147,7 +427,7 @@ void StartSpecifiedAbilityResponseProxy::OnTimeoutResponse(const AAFwk::Want &wa
 代码块类型: Loop Block (do)
 位置: 60:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "On timeout response by proxy.");
 
@@ -165,7 +445,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 67:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&want) || !data.WriteInt32(requestId)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
@@ -176,7 +456,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 68:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
 
@@ -184,7 +464,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 74:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -194,7 +474,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 75:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 
@@ -202,7 +482,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 79:45
 Spell: SendTransactCmd
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StartSpecifiedAbilityResponseProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
     MessageParcel &reply, MessageOption &option)
@@ -220,7 +500,7 @@ int32_t StartSpecifiedAbilityResponseProxy::SendTransactCmd(uint32_t code, Messa
 代码块类型: Conditional Block (if)
 位置: 83:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
@@ -231,7 +511,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 84:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
 
@@ -239,7 +519,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 91:42
 Spell: OnNewProcessRequestResponse
-包含日志: 否
+包含日志: 是
 代码:
 void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestResponse(const AAFwk::Want &want, const std::string &flag,
     int32_t requestId)
@@ -274,7 +554,7 @@ void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestResponse(const AAFwk
 代码块类型: Loop Block (do)
 位置: 94:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "On satrt specified process response by proxy.");
 
@@ -292,7 +572,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 101:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&want) || !data.WriteString(flag) ||
         !data.WriteInt32(requestId)) {
@@ -304,7 +584,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 103:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
 
@@ -312,7 +592,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 108:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
@@ -323,7 +603,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 109:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
 
@@ -331,7 +611,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 115:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -341,7 +621,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 116:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 
@@ -349,7 +629,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 120:42
 Spell: OnNewProcessRequestTimeoutResponse
-包含日志: 否
+包含日志: 是
 代码:
 void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestTimeoutResponse(const AAFwk::Want &want,
     int32_t requestId)
@@ -383,7 +663,7 @@ void StartSpecifiedAbilityResponseProxy::OnNewProcessRequestTimeoutResponse(cons
 代码块类型: Loop Block (do)
 位置: 123:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "On start specified process timeout response by proxy.");
 
@@ -401,7 +681,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 130:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&want) || data.WriteInt32(requestId)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
@@ -412,7 +692,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 131:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data failed.");
 
@@ -420,7 +700,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 136:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
@@ -431,7 +711,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 137:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
 
@@ -439,7 +719,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 143:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -449,7 +729,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 144:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 

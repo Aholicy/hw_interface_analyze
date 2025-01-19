@@ -1,7 +1,273 @@
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+AbilityInfoCallbackProxy::AbilityInfoCallbackProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityInfoCallback>(impl)
+{}
+
+bool AbilityInfoCallbackProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AbilityInfoCallbackProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
+        return false;
+    }
+    return true;
+}
+
+void AbilityInfoCallbackProxy::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteRemoteObject(token);
+    data.WriteParcelable(&want);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_ABILITY_TOKEN, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+        return;
+    }
+}
+
+void AbilityInfoCallbackProxy::NotifyRestartSpecifiedAbility(const sptr<IRemoteObject> &token)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteRemoteObject(token);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_RESTART_SPECIFIED_ABILITY, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+
+void AbilityInfoCallbackProxy::NotifyStartSpecifiedAbility(const sptr<IRemoteObject> &callerToken,
+    const Want &want, int requestCode, sptr<Want> &extraParam)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteRemoteObject(callerToken);
+    data.WriteParcelable(&want);
+    data.WriteInt32(requestCode);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_SPECIFIED_ABILITY, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest failed, err: %{public}d", ret);
+        return;
+    }
+    sptr<Want> tempWant = reply.ReadParcelable<Want>();
+    if (tempWant != nullptr) {
+        SetExtraParam(tempWant, extraParam);
+    }
+}
+
+void AbilityInfoCallbackProxy::SetExtraParam(const sptr<Want> &want, sptr<Want> &extraParam)
+{
+    if (!want || !extraParam) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid param");
+        return;
+    }
+
+    sptr<IRemoteObject> tempCallBack = want->GetRemoteObject(Want::PARAM_RESV_ABILITY_INFO_CALLBACK);
+    if (tempCallBack == nullptr) {
+        return;
+    }
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_PROC_CODE,
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_PROC_CODE, 0));
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE,
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE, 0));
+    extraParam->SetParam(Want::PARAM_RESV_ABILITY_INFO_CALLBACK, tempCallBack);
+}
+
+void AbilityInfoCallbackProxy::NotifyStartAbilityResult(const Want &want, int result)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteParcelable(&want);
+    data.WriteInt32(result);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_ABILITY_RESULT, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "err: %{public}d", ret);
+        return;
+    }
+}
+
+int32_t AbilityInfoCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+
+    return remote->SendRequest(code, data, reply, option);
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+AbilityInfoCallbackProxy::AbilityInfoCallbackProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityInfoCallback>(impl)
+{}
+
+bool AbilityInfoCallbackProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AbilityInfoCallbackProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
+        return false;
+    }
+    return true;
+}
+
+void AbilityInfoCallbackProxy::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteRemoteObject(token);
+    data.WriteParcelable(&want);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_ABILITY_TOKEN, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+        return;
+    }
+}
+
+void AbilityInfoCallbackProxy::NotifyRestartSpecifiedAbility(const sptr<IRemoteObject> &token)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteRemoteObject(token);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_RESTART_SPECIFIED_ABILITY, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+
+void AbilityInfoCallbackProxy::NotifyStartSpecifiedAbility(const sptr<IRemoteObject> &callerToken,
+    const Want &want, int requestCode, sptr<Want> &extraParam)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteRemoteObject(callerToken);
+    data.WriteParcelable(&want);
+    data.WriteInt32(requestCode);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_SPECIFIED_ABILITY, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest failed, err: %{public}d", ret);
+        return;
+    }
+    sptr<Want> tempWant = reply.ReadParcelable<Want>();
+    if (tempWant != nullptr) {
+        SetExtraParam(tempWant, extraParam);
+    }
+}
+
+void AbilityInfoCallbackProxy::SetExtraParam(const sptr<Want> &want, sptr<Want> &extraParam)
+{
+    if (!want || !extraParam) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid param");
+        return;
+    }
+
+    sptr<IRemoteObject> tempCallBack = want->GetRemoteObject(Want::PARAM_RESV_ABILITY_INFO_CALLBACK);
+    if (tempCallBack == nullptr) {
+        return;
+    }
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_PROC_CODE,
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_PROC_CODE, 0));
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE,
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE, 0));
+    extraParam->SetParam(Want::PARAM_RESV_ABILITY_INFO_CALLBACK, tempCallBack);
+}
+
+void AbilityInfoCallbackProxy::NotifyStartAbilityResult(const Want &want, int result)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    data.WriteParcelable(&want);
+    data.WriteInt32(result);
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_ABILITY_RESULT, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "err: %{public}d", ret);
+        return;
+    }
+}
+
+int32_t AbilityInfoCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+
+    return remote->SendRequest(code, data, reply, option);
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 23:27
+Spell: AbilityInfoCallbackProxy
+包含日志: 否
+代码:
+AbilityInfoCallbackProxy::AbilityInfoCallbackProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityInfoCallback>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 27:32
 Spell: WriteInterfaceToken
-包含日志: 否
+包含日志: 是
 代码:
 bool AbilityInfoCallbackProxy::WriteInterfaceToken(MessageParcel &data)
 {
@@ -16,7 +282,7 @@ bool AbilityInfoCallbackProxy::WriteInterfaceToken(MessageParcel &data)
 代码块类型: Conditional Block (if)
 位置: 29:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(AbilityInfoCallbackProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
@@ -27,7 +293,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 30:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
 
@@ -35,7 +301,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 36:32
 Spell: NotifyAbilityToken
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityInfoCallbackProxy::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
 {
@@ -69,7 +335,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 48:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
@@ -80,7 +346,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 49:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
 
@@ -88,7 +354,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 54:32
 Spell: NotifyRestartSpecifiedAbility
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityInfoCallbackProxy::NotifyRestartSpecifiedAbility(const sptr<IRemoteObject> &token)
 {
@@ -120,7 +386,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 65:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
@@ -130,7 +396,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 66:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
 
@@ -138,7 +404,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 70:32
 Spell: NotifyStartSpecifiedAbility
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityInfoCallbackProxy::NotifyStartSpecifiedAbility(const sptr<IRemoteObject> &callerToken,
     const Want &want, int requestCode, sptr<Want> &extraParam)
@@ -178,7 +444,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 84:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest failed, err: %{public}d", ret);
@@ -189,7 +455,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 85:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest failed, err: %{public}d", ret);
 
@@ -207,7 +473,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 94:32
 Spell: SetExtraParam
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityInfoCallbackProxy::SetExtraParam(const sptr<Want> &want, sptr<Want> &extraParam)
 {
@@ -231,7 +497,7 @@ void AbilityInfoCallbackProxy::SetExtraParam(const sptr<Want> &want, sptr<Want> 
 代码块类型: Conditional Block (if)
 位置: 96:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!want || !extraParam) {
         TAG_LOGE(AAFwkTag::APPMGR, "invalid param");
@@ -242,7 +508,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 97:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "invalid param");
 
@@ -260,7 +526,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 112:32
 Spell: NotifyStartAbilityResult
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityInfoCallbackProxy::NotifyStartAbilityResult(const Want &want, int result)
 {
@@ -294,7 +560,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 124:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "err: %{public}d", ret);
@@ -305,7 +571,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 125:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "err: %{public}d", ret);
 
@@ -313,7 +579,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 130:35
 Spell: SendTransactCmd
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityInfoCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
     MessageParcel &reply, MessageOption &option)
@@ -331,7 +597,7 @@ int32_t AbilityInfoCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &
 代码块类型: Conditional Block (if)
 位置: 134:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
@@ -342,7 +608,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 135:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
 

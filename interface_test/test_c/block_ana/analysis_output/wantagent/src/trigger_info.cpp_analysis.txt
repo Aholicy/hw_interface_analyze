@@ -1,3 +1,410 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+TriggerInfo::TriggerInfo() : permission_(""), extraInfo_(nullptr), want_(nullptr),
+    startOptions_(nullptr), resultCode_(0)
+{}
+
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, int resultCode)
+{
+    permission_ = permission;
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+    if (want != nullptr) {
+        want_ = std::make_shared<Want>(*want);
+    }
+    resultCode_ = resultCode;
+}
+
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, const std::shared_ptr<StartOptions> &startOptions, int resultCode)
+    : TriggerInfo(permission, extraInfo, want, resultCode)
+{
+    startOptions_ = startOptions;
+}
+
+TriggerInfo::TriggerInfo(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    startOptions_ = paramInfo.GetStartOptions();
+    resultCode_ = paramInfo.GetResultCode();
+}
+
+const TriggerInfo &TriggerInfo::operator=(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+    resultCode_ = paramInfo.GetResultCode();
+
+    return *this;
+}
+
+std::string TriggerInfo::GetPermission() const
+{
+    return permission_;
+}
+
+std::shared_ptr<WantParams> TriggerInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+
+std::shared_ptr<Want> TriggerInfo::GetWant() const
+{
+    return want_;
+}
+
+std::shared_ptr<StartOptions> TriggerInfo::GetStartOptions() const
+{
+    return startOptions_;
+}
+
+int TriggerInfo::GetResultCode() const
+{
+    return resultCode_;
+}
+
+TriggerInfo::Builder::Builder()
+{}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetPermission(const std::string &permission)
+{
+    permission_ = permission;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWantParams(const std::shared_ptr<WantParams> &params)
+{
+    params_ = params;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWant(const std::shared_ptr<Want> &want)
+{
+    want_ = want;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetStartOptions(
+    const std::shared_ptr<AAFwk::StartOptions> &startOptions)
+{
+    startOptions_ = startOptions;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetResultCode(int resultCode)
+{
+    resultCode_ = resultCode;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo> TriggerInfo::Builder::Build()
+{
+    return std::make_shared<TriggerInfo>(permission_, params_, want_, startOptions_, resultCode_);
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 20:17
+Spell: AbilityRuntime
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+TriggerInfo::TriggerInfo() : permission_(""), extraInfo_(nullptr), want_(nullptr),
+    startOptions_(nullptr), resultCode_(0)
+{}
+
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, int resultCode)
+{
+    permission_ = permission;
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+    if (want != nullptr) {
+        want_ = std::make_shared<Want>(*want);
+    }
+    resultCode_ = resultCode;
+}
+
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, const std::shared_ptr<StartOptions> &startOptions, int resultCode)
+    : TriggerInfo(permission, extraInfo, want, resultCode)
+{
+    startOptions_ = startOptions;
+}
+
+TriggerInfo::TriggerInfo(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    startOptions_ = paramInfo.GetStartOptions();
+    resultCode_ = paramInfo.GetResultCode();
+}
+
+const TriggerInfo &TriggerInfo::operator=(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+    resultCode_ = paramInfo.GetResultCode();
+
+    return *this;
+}
+
+std::string TriggerInfo::GetPermission() const
+{
+    return permission_;
+}
+
+std::shared_ptr<WantParams> TriggerInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+
+std::shared_ptr<Want> TriggerInfo::GetWant() const
+{
+    return want_;
+}
+
+std::shared_ptr<StartOptions> TriggerInfo::GetStartOptions() const
+{
+    return startOptions_;
+}
+
+int TriggerInfo::GetResultCode() const
+{
+    return resultCode_;
+}
+
+TriggerInfo::Builder::Builder()
+{}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetPermission(const std::string &permission)
+{
+    permission_ = permission;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWantParams(const std::shared_ptr<WantParams> &params)
+{
+    params_ = params;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWant(const std::shared_ptr<Want> &want)
+{
+    want_ = want;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetStartOptions(
+    const std::shared_ptr<AAFwk::StartOptions> &startOptions)
+{
+    startOptions_ = startOptions;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetResultCode(int resultCode)
+{
+    resultCode_ = resultCode;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo> TriggerInfo::Builder::Build()
+{
+    return std::make_shared<TriggerInfo>(permission_, params_, want_, startOptions_, resultCode_);
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 20:33
+Spell: WantAgent
+包含日志: 否
+代码:
+namespace OHOS::AbilityRuntime::WantAgent {
+TriggerInfo::TriggerInfo() : permission_(""), extraInfo_(nullptr), want_(nullptr),
+    startOptions_(nullptr), resultCode_(0)
+{}
+
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, int resultCode)
+{
+    permission_ = permission;
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+    if (want != nullptr) {
+        want_ = std::make_shared<Want>(*want);
+    }
+    resultCode_ = resultCode;
+}
+
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, const std::shared_ptr<StartOptions> &startOptions, int resultCode)
+    : TriggerInfo(permission, extraInfo, want, resultCode)
+{
+    startOptions_ = startOptions;
+}
+
+TriggerInfo::TriggerInfo(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    startOptions_ = paramInfo.GetStartOptions();
+    resultCode_ = paramInfo.GetResultCode();
+}
+
+const TriggerInfo &TriggerInfo::operator=(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+    resultCode_ = paramInfo.GetResultCode();
+
+    return *this;
+}
+
+std::string TriggerInfo::GetPermission() const
+{
+    return permission_;
+}
+
+std::shared_ptr<WantParams> TriggerInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+
+std::shared_ptr<Want> TriggerInfo::GetWant() const
+{
+    return want_;
+}
+
+std::shared_ptr<StartOptions> TriggerInfo::GetStartOptions() const
+{
+    return startOptions_;
+}
+
+int TriggerInfo::GetResultCode() const
+{
+    return resultCode_;
+}
+
+TriggerInfo::Builder::Builder()
+{}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetPermission(const std::string &permission)
+{
+    permission_ = permission;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWantParams(const std::shared_ptr<WantParams> &params)
+{
+    params_ = params;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWant(const std::shared_ptr<Want> &want)
+{
+    want_ = want;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetStartOptions(
+    const std::shared_ptr<AAFwk::StartOptions> &startOptions)
+{
+    startOptions_ = startOptions;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetResultCode(int resultCode)
+{
+    resultCode_ = resultCode;
+    return shared_from_this();
+}
+
+std::shared_ptr<TriggerInfo> TriggerInfo::Builder::Build()
+{
+    return std::make_shared<TriggerInfo>(permission_, params_, want_, startOptions_, resultCode_);
+}
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 21:14
+Spell: TriggerInfo
+包含日志: 否
+代码:
+TriggerInfo::TriggerInfo() : permission_(""), extraInfo_(nullptr), want_(nullptr),
+    startOptions_(nullptr), resultCode_(0)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 25:14
+Spell: TriggerInfo
+包含日志: 否
+代码:
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, int resultCode)
+{
+    permission_ = permission;
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+    if (want != nullptr) {
+        want_ = std::make_shared<Want>(*want);
+    }
+    resultCode_ = resultCode;
+}
+
+--------------------------------------------------------------------------------
 代码块类型: Conditional Block (if)
 位置: 29:5
 Spell: 
@@ -16,6 +423,38 @@ Spell:
     if (want != nullptr) {
         want_ = std::make_shared<Want>(*want);
     }
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 38:14
+Spell: TriggerInfo
+包含日志: 否
+代码:
+TriggerInfo::TriggerInfo(const std::string &permission, const std::shared_ptr<WantParams> &extraInfo,
+    const std::shared_ptr<Want> &want, const std::shared_ptr<StartOptions> &startOptions, int resultCode)
+    : TriggerInfo(permission, extraInfo, want, resultCode)
+{
+    startOptions_ = startOptions;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 45:14
+Spell: TriggerInfo
+包含日志: 否
+代码:
+TriggerInfo::TriggerInfo(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    startOptions_ = paramInfo.GetStartOptions();
+    resultCode_ = paramInfo.GetResultCode();
+}
 
 --------------------------------------------------------------------------------
 代码块类型: Conditional Block (if)
@@ -144,6 +583,15 @@ int TriggerInfo::GetResultCode() const
 {
     return resultCode_;
 }
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 100:23
+Spell: Builder
+包含日志: 否
+代码:
+TriggerInfo::Builder::Builder()
+{}
 
 --------------------------------------------------------------------------------
 代码块类型: Method Declaration

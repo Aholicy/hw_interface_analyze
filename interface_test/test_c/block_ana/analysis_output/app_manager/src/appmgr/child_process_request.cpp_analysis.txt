@@ -1,7 +1,123 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
+{
+    std::u16string srcEntryTemp;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, srcEntryTemp);
+    srcEntry = Str16ToStr8(srcEntryTemp);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessType);
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessCount);
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+    std::unique_ptr<ChildProcessArgs> argsRead(parcel.ReadParcelable<ChildProcessArgs>());
+    if (!argsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+        return false;
+    }
+    args = *argsRead;
+
+    std::unique_ptr<ChildProcessOptions> optionsRead(parcel.ReadParcelable<ChildProcessOptions>());
+    if (!optionsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+        return false;
+    }
+    options = *optionsRead;
+
+    return true;
+}
+
+ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
+{
+    ChildProcessRequest *data = new (std::nothrow) ChildProcessRequest();
+    if (data && !data->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+        delete data;
+        data = nullptr;
+    }
+    return data;
+}
+
+bool ChildProcessRequest::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(srcEntry));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessType));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessCount));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &args);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &options);
+    return true;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
+{
+    std::u16string srcEntryTemp;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, srcEntryTemp);
+    srcEntry = Str16ToStr8(srcEntryTemp);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessType);
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessCount);
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+    std::unique_ptr<ChildProcessArgs> argsRead(parcel.ReadParcelable<ChildProcessArgs>());
+    if (!argsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+        return false;
+    }
+    args = *argsRead;
+
+    std::unique_ptr<ChildProcessOptions> optionsRead(parcel.ReadParcelable<ChildProcessOptions>());
+    if (!optionsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+        return false;
+    }
+    options = *optionsRead;
+
+    return true;
+}
+
+ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
+{
+    ChildProcessRequest *data = new (std::nothrow) ChildProcessRequest();
+    if (data && !data->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+        delete data;
+        data = nullptr;
+    }
+    return data;
+}
+
+bool ChildProcessRequest::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(srcEntry));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessType));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessCount));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &args);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &options);
+    return true;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:27
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
 {
@@ -34,7 +150,7 @@ bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 35:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!argsRead) {
         TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
@@ -45,7 +161,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 36:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
 
@@ -53,7 +169,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 42:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!optionsRead) {
         TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
@@ -64,7 +180,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 43:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
 
@@ -72,7 +188,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 51:43
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
 {
@@ -89,7 +205,7 @@ ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 54:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (data && !data->ReadFromParcel(parcel)) {
         TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
@@ -101,7 +217,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 55:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
 

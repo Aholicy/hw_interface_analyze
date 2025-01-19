@@ -1,3 +1,109 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+bool AppDebugInfo::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    pid = parcel.ReadInt32();
+    uid = parcel.ReadInt32();
+    return true;
+}
+
+AppDebugInfo *AppDebugInfo::Unmarshalling(Parcel &parcel)
+{
+    AppDebugInfo *info = new (std::nothrow) AppDebugInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App debug info is nullptr.");
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read from parcel failed.");
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool AppDebugInfo::Marshalling(Parcel &parcel) const
+{
+    // write bundleName
+    if (!parcel.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write bundle name failed.");
+        return false;
+    }
+    // write pid
+    if (!parcel.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write pid failed.");
+        return false;
+    }
+    // write uid
+    if (!parcel.WriteInt32(uid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write uid failed.");
+        return false;
+    }
+    return true;
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+bool AppDebugInfo::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    pid = parcel.ReadInt32();
+    uid = parcel.ReadInt32();
+    return true;
+}
+
+AppDebugInfo *AppDebugInfo::Unmarshalling(Parcel &parcel)
+{
+    AppDebugInfo *info = new (std::nothrow) AppDebugInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "App debug info is nullptr.");
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read from parcel failed.");
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool AppDebugInfo::Marshalling(Parcel &parcel) const
+{
+    // write bundleName
+    if (!parcel.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write bundle name failed.");
+        return false;
+    }
+    // write pid
+    if (!parcel.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write pid failed.");
+        return false;
+    }
+    // write uid
+    if (!parcel.WriteInt32(uid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write uid failed.");
+        return false;
+    }
+    return true;
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 22:20
 Spell: ReadFromParcel
@@ -15,7 +121,7 @@ bool AppDebugInfo::ReadFromParcel(Parcel &parcel)
 代码块类型: Method Declaration
 位置: 30:29
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 AppDebugInfo *AppDebugInfo::Unmarshalling(Parcel &parcel)
 {
@@ -37,7 +143,7 @@ AppDebugInfo *AppDebugInfo::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 33:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (info == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "App debug info is nullptr.");
@@ -48,7 +154,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 34:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "App debug info is nullptr.");
 
@@ -56,7 +162,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 38:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!info->ReadFromParcel(parcel)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Read from parcel failed.");
@@ -68,7 +174,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 39:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Read from parcel failed.");
 
@@ -76,7 +182,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 46:20
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool AppDebugInfo::Marshalling(Parcel &parcel) const
 {
@@ -102,7 +208,7 @@ bool AppDebugInfo::Marshalling(Parcel &parcel) const
 代码块类型: Conditional Block (if)
 位置: 49:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(bundleName)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write bundle name failed.");
@@ -113,7 +219,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 50:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write bundle name failed.");
 
@@ -121,7 +227,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 54:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(pid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write pid failed.");
@@ -132,7 +238,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 55:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write pid failed.");
 
@@ -140,7 +246,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 59:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(uid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write uid failed.");
@@ -151,7 +257,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 60:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write uid failed.");
 

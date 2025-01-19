@@ -1,7 +1,262 @@
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+AbilityDebugResponseProxy::AbilityDebugResponseProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityDebugResponse>(impl)
+{}
+
+bool AbilityDebugResponseProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AbilityDebugResponseProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return false;
+    }
+    return true;
+}
+
+void AbilityDebugResponseProxy::OnAbilitysDebugStarted(const std::vector<sptr<IRemoteObject>> &tokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    SendRequest(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STARTED, tokens);
+}
+
+void AbilityDebugResponseProxy::OnAbilitysDebugStoped(const std::vector<sptr<IRemoteObject>> &tokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    SendRequest(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STOPED, tokens);
+}
+
+void AbilityDebugResponseProxy::OnAbilitysAssertDebugChange(
+    const std::vector<sptr<IRemoteObject>> &tokens, bool isAssertDebug)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return;
+    }
+
+    if (tokens.size() <= CYCLE_LIMIT_MIN || tokens.size() > CYCLE_LIMIT_MAX ||
+        !data.WriteInt32(tokens.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data size failed");
+        return;
+    }
+
+    for (const auto &item : tokens) {
+        if (!data.WriteRemoteObject(item)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+            return;
+        }
+    }
+
+    if (!data.WriteBool(isAssertDebug)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write flag failed");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return;
+    }
+
+    MessageParcel reply;
+    MessageOption option;
+    auto ret = remote->SendRequest(static_cast<uint32_t>(Message::ON_ABILITYS_ASSERT_DEBUG), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+
+void AbilityDebugResponseProxy::SendRequest(
+    const IAbilityDebugResponse::Message &message, const std::vector<sptr<IRemoteObject>> &tokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return;
+    }
+
+    if (tokens.size() <= CYCLE_LIMIT_MIN || tokens.size() > CYCLE_LIMIT_MAX ||
+        !data.WriteInt32(tokens.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data size failed");
+        return;
+    }
+
+    for (auto iter = tokens.begin(); iter != tokens.end(); iter++) {
+        if (!data.WriteRemoteObject(iter->GetRefPtr())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+            return;
+        }
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return;
+    }
+
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    auto ret = remote->SendRequest(static_cast<uint32_t>(message), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+AbilityDebugResponseProxy::AbilityDebugResponseProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityDebugResponse>(impl)
+{}
+
+bool AbilityDebugResponseProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(AbilityDebugResponseProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return false;
+    }
+    return true;
+}
+
+void AbilityDebugResponseProxy::OnAbilitysDebugStarted(const std::vector<sptr<IRemoteObject>> &tokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    SendRequest(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STARTED, tokens);
+}
+
+void AbilityDebugResponseProxy::OnAbilitysDebugStoped(const std::vector<sptr<IRemoteObject>> &tokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    SendRequest(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STOPED, tokens);
+}
+
+void AbilityDebugResponseProxy::OnAbilitysAssertDebugChange(
+    const std::vector<sptr<IRemoteObject>> &tokens, bool isAssertDebug)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return;
+    }
+
+    if (tokens.size() <= CYCLE_LIMIT_MIN || tokens.size() > CYCLE_LIMIT_MAX ||
+        !data.WriteInt32(tokens.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data size failed");
+        return;
+    }
+
+    for (const auto &item : tokens) {
+        if (!data.WriteRemoteObject(item)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+            return;
+        }
+    }
+
+    if (!data.WriteBool(isAssertDebug)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write flag failed");
+        return;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return;
+    }
+
+    MessageParcel reply;
+    MessageOption option;
+    auto ret = remote->SendRequest(static_cast<uint32_t>(Message::ON_ABILITYS_ASSERT_DEBUG), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+
+void AbilityDebugResponseProxy::SendRequest(
+    const IAbilityDebugResponse::Message &message, const std::vector<sptr<IRemoteObject>> &tokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+        return;
+    }
+
+    if (tokens.size() <= CYCLE_LIMIT_MIN || tokens.size() > CYCLE_LIMIT_MAX ||
+        !data.WriteInt32(tokens.size())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write data size failed");
+        return;
+    }
+
+    for (auto iter = tokens.begin(); iter != tokens.end(); iter++) {
+        if (!data.WriteRemoteObject(iter->GetRefPtr())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
+            return;
+        }
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+        return;
+    }
+
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_SYNC);
+    auto ret = remote->SendRequest(static_cast<uint32_t>(message), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+    }
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: 
+包含日志: 否
+代码:
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 27:28
+Spell: AbilityDebugResponseProxy
+包含日志: 否
+代码:
+AbilityDebugResponseProxy::AbilityDebugResponseProxy(
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityDebugResponse>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 31:33
 Spell: WriteInterfaceToken
-包含日志: 否
+包含日志: 是
 代码:
 bool AbilityDebugResponseProxy::WriteInterfaceToken(MessageParcel &data)
 {
@@ -16,7 +271,7 @@ bool AbilityDebugResponseProxy::WriteInterfaceToken(MessageParcel &data)
 代码块类型: Conditional Block (if)
 位置: 33:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(AbilityDebugResponseProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
@@ -27,7 +282,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 34:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
 
@@ -35,7 +290,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 40:33
 Spell: OnAbilitysDebugStarted
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityDebugResponseProxy::OnAbilitysDebugStarted(const std::vector<sptr<IRemoteObject>> &tokens)
 {
@@ -47,7 +302,7 @@ void AbilityDebugResponseProxy::OnAbilitysDebugStarted(const std::vector<sptr<IR
 代码块类型: Loop Block (do)
 位置: 42:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -55,7 +310,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 46:33
 Spell: OnAbilitysDebugStoped
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityDebugResponseProxy::OnAbilitysDebugStoped(const std::vector<sptr<IRemoteObject>> &tokens)
 {
@@ -67,7 +322,7 @@ void AbilityDebugResponseProxy::OnAbilitysDebugStoped(const std::vector<sptr<IRe
 代码块类型: Loop Block (do)
 位置: 48:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -75,7 +330,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 52:33
 Spell: OnAbilitysAssertDebugChange
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityDebugResponseProxy::OnAbilitysAssertDebugChange(
     const std::vector<sptr<IRemoteObject>> &tokens, bool isAssertDebug)
@@ -123,7 +378,7 @@ void AbilityDebugResponseProxy::OnAbilitysAssertDebugChange(
 代码块类型: Loop Block (do)
 位置: 55:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -131,7 +386,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 57:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!WriteInterfaceToken(data)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
@@ -142,7 +397,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 58:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
 
@@ -150,7 +405,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 62:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (tokens.size() <= CYCLE_LIMIT_MIN || tokens.size() > CYCLE_LIMIT_MAX ||
         !data.WriteInt32(tokens.size())) {
@@ -162,7 +417,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 64:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data size failed");
 
@@ -170,7 +425,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 75:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteBool(isAssertDebug)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write flag failed");
@@ -181,7 +436,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 76:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write flag failed");
 
@@ -189,7 +444,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 81:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
@@ -200,7 +455,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 82:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
 
@@ -208,7 +463,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 89:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
@@ -218,7 +473,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 90:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
 
@@ -226,7 +481,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 94:33
 Spell: SendRequest
-包含日志: 否
+包含日志: 是
 代码:
 void AbilityDebugResponseProxy::SendRequest(
     const IAbilityDebugResponse::Message &message, const std::vector<sptr<IRemoteObject>> &tokens)
@@ -269,7 +524,7 @@ void AbilityDebugResponseProxy::SendRequest(
 代码块类型: Loop Block (do)
 位置: 97:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "called");
 
@@ -277,7 +532,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 99:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!WriteInterfaceToken(data)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
@@ -288,7 +543,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 100:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write token failed");
 
@@ -296,7 +551,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 104:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (tokens.size() <= CYCLE_LIMIT_MIN || tokens.size() > CYCLE_LIMIT_MAX ||
         !data.WriteInt32(tokens.size())) {
@@ -308,7 +563,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 106:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write data size failed");
 
@@ -316,7 +571,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 118:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
@@ -327,7 +582,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 119:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "null remote");
 
@@ -335,7 +590,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 126:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
@@ -345,7 +600,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 127:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
 

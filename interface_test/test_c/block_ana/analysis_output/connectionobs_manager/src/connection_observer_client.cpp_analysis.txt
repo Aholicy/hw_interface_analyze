@@ -1,3 +1,142 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+ConnectionObserverClient::ConnectionObserverClient()
+{
+    clientImpl_ = std::make_shared<ConnectionObserverClientImpl>();
+}
+
+ConnectionObserverClient& ConnectionObserverClient::GetInstance()
+{
+    static ConnectionObserverClient instance;
+    return instance;
+}
+
+int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->RegisterObserver(observer);
+}
+
+int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->UnregisterObserver(observer);
+}
+
+int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+{
+#ifdef WITH_DLP
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetDlpConnectionInfos(infos);
+#else
+    return ERR_READ_INFO_FAILED;
+#endif // WITH_DLP
+}
+
+int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetConnectionData(connectionData);
+}
+}
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+ConnectionObserverClient::ConnectionObserverClient()
+{
+    clientImpl_ = std::make_shared<ConnectionObserverClientImpl>();
+}
+
+ConnectionObserverClient& ConnectionObserverClient::GetInstance()
+{
+    static ConnectionObserverClient instance;
+    return instance;
+}
+
+int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->RegisterObserver(observer);
+}
+
+int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->UnregisterObserver(observer);
+}
+
+int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+{
+#ifdef WITH_DLP
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetDlpConnectionInfos(infos);
+#else
+    return ERR_READ_INFO_FAILED;
+#endif // WITH_DLP
+}
+
+int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetConnectionData(connectionData);
+}
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 24:27
+Spell: ConnectionObserverClient
+包含日志: 否
+代码:
+ConnectionObserverClient::ConnectionObserverClient()
+{
+    clientImpl_ = std::make_shared<ConnectionObserverClientImpl>();
+}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 29:53
 Spell: GetInstance
@@ -13,7 +152,7 @@ ConnectionObserverClient& ConnectionObserverClient::GetInstance()
 代码块类型: Method Declaration
 位置: 35:35
 Spell: RegisterObserver
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
 {
@@ -29,7 +168,7 @@ int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<Connect
 代码块类型: Conditional Block (if)
 位置: 37:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!clientImpl_) {
         TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
@@ -40,7 +179,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 38:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
 
@@ -48,7 +187,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 45:35
 Spell: UnregisterObserver
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
 {
@@ -64,7 +203,7 @@ int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<Conne
 代码块类型: Conditional Block (if)
 位置: 47:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!clientImpl_) {
         TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
@@ -75,7 +214,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 48:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
 
@@ -83,7 +222,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 55:35
 Spell: GetDlpConnectionInfos
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
 {
@@ -103,7 +242,7 @@ int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectio
 代码块类型: Method Declaration
 位置: 69:35
 Spell: GetConnectionData
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
 {
@@ -119,7 +258,7 @@ int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> 
 代码块类型: Conditional Block (if)
 位置: 71:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!clientImpl_) {
         TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
@@ -130,7 +269,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 72:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
 

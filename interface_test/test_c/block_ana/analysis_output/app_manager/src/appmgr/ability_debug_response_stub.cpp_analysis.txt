@@ -1,7 +1,238 @@
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+AbilityDebugResponseStub::AbilityDebugResponseStub() {}
+
+AbilityDebugResponseStub::~AbilityDebugResponseStub() {}
+
+int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStarted(MessageParcel &data, MessageParcel &reply)
+{
+    auto tokenSize = data.ReadInt32();
+    if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<sptr<IRemoteObject>> tokens;
+    for (int32_t index = 0; index < tokenSize; index++) {
+        auto token = data.ReadRemoteObject();
+        if (token == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "null token");
+            return ERR_INVALID_DATA;
+        }
+        tokens.push_back(token);
+    }
+    OnAbilitysDebugStarted(tokens);
+    return NO_ERROR;
+}
+
+int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStoped(MessageParcel &data, MessageParcel &reply)
+{
+    auto tokenSize = data.ReadInt32();
+    if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<sptr<IRemoteObject>> tokens;
+    for (int32_t index = 0; index < tokenSize; index++) {
+        auto token = data.ReadRemoteObject();
+        if (token == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "null token");
+            return ERR_INVALID_DATA;
+        }
+        tokens.push_back(token);
+    }
+    OnAbilitysDebugStoped(tokens);
+    return NO_ERROR;
+}
+
+int32_t AbilityDebugResponseStub::HandleOnAbilitysAssertDebugChange(MessageParcel &data, MessageParcel &reply)
+{
+    auto tokenSize = data.ReadInt32();
+    if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<sptr<IRemoteObject>> tokens;
+    for (int32_t index = 0; index < tokenSize; index++) {
+        auto token = data.ReadRemoteObject();
+        if (token == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "null token");
+            return ERR_INVALID_DATA;
+        }
+        tokens.push_back(token);
+    }
+    auto isAssertDebug = data.ReadBool();
+    OnAbilitysAssertDebugChange(tokens, isAssertDebug);
+    return NO_ERROR;
+}
+
+int AbilityDebugResponseStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "code: %{public}u, flags: %{public}d", code, option.GetFlags());
+    std::u16string descriptor = AbilityDebugResponseStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STARTED):
+            return HandleOnAbilitysDebugStarted(data, reply);
+        case static_cast<uint32_t>(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STOPED):
+            return HandleOnAbilitysDebugStoped(data, reply);
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 24:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+AbilityDebugResponseStub::AbilityDebugResponseStub() {}
+
+AbilityDebugResponseStub::~AbilityDebugResponseStub() {}
+
+int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStarted(MessageParcel &data, MessageParcel &reply)
+{
+    auto tokenSize = data.ReadInt32();
+    if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<sptr<IRemoteObject>> tokens;
+    for (int32_t index = 0; index < tokenSize; index++) {
+        auto token = data.ReadRemoteObject();
+        if (token == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "null token");
+            return ERR_INVALID_DATA;
+        }
+        tokens.push_back(token);
+    }
+    OnAbilitysDebugStarted(tokens);
+    return NO_ERROR;
+}
+
+int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStoped(MessageParcel &data, MessageParcel &reply)
+{
+    auto tokenSize = data.ReadInt32();
+    if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<sptr<IRemoteObject>> tokens;
+    for (int32_t index = 0; index < tokenSize; index++) {
+        auto token = data.ReadRemoteObject();
+        if (token == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "null token");
+            return ERR_INVALID_DATA;
+        }
+        tokens.push_back(token);
+    }
+    OnAbilitysDebugStoped(tokens);
+    return NO_ERROR;
+}
+
+int32_t AbilityDebugResponseStub::HandleOnAbilitysAssertDebugChange(MessageParcel &data, MessageParcel &reply)
+{
+    auto tokenSize = data.ReadInt32();
+    if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<sptr<IRemoteObject>> tokens;
+    for (int32_t index = 0; index < tokenSize; index++) {
+        auto token = data.ReadRemoteObject();
+        if (token == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "null token");
+            return ERR_INVALID_DATA;
+        }
+        tokens.push_back(token);
+    }
+    auto isAssertDebug = data.ReadBool();
+    OnAbilitysAssertDebugChange(tokens, isAssertDebug);
+    return NO_ERROR;
+}
+
+int AbilityDebugResponseStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "code: %{public}u, flags: %{public}d", code, option.GetFlags());
+    std::u16string descriptor = AbilityDebugResponseStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STARTED):
+            return HandleOnAbilitysDebugStarted(data, reply);
+        case static_cast<uint32_t>(IAbilityDebugResponse::Message::ON_ABILITYS_DEBUG_STOPED):
+            return HandleOnAbilitysDebugStoped(data, reply);
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 25:11
+Spell: 
+包含日志: 否
+代码:
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 29:27
+Spell: AbilityDebugResponseStub
+包含日志: 否
+代码:
+AbilityDebugResponseStub::AbilityDebugResponseStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 31:27
+Spell: ~AbilityDebugResponseStub
+包含日志: 否
+代码:
+AbilityDebugResponseStub::~AbilityDebugResponseStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 33:35
 Spell: HandleOnAbilitysDebugStarted
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStarted(MessageParcel &data, MessageParcel &reply)
 {
@@ -28,7 +259,7 @@ int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStarted(MessageParcel &da
 代码块类型: Conditional Block (if)
 位置: 36:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
@@ -39,7 +270,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 37:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
 
@@ -47,7 +278,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 54:35
 Spell: HandleOnAbilitysDebugStoped
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStoped(MessageParcel &data, MessageParcel &reply)
 {
@@ -74,7 +305,7 @@ int32_t AbilityDebugResponseStub::HandleOnAbilitysDebugStoped(MessageParcel &dat
 代码块类型: Conditional Block (if)
 位置: 57:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
@@ -85,7 +316,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 58:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
 
@@ -93,7 +324,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 75:35
 Spell: HandleOnAbilitysAssertDebugChange
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AbilityDebugResponseStub::HandleOnAbilitysAssertDebugChange(MessageParcel &data, MessageParcel &reply)
 {
@@ -121,7 +352,7 @@ int32_t AbilityDebugResponseStub::HandleOnAbilitysAssertDebugChange(MessageParce
 代码块类型: Conditional Block (if)
 位置: 78:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (tokenSize <= CYCLE_LIMIT_MIN || tokenSize > CYCLE_LIMIT_MAX) {
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
@@ -132,7 +363,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 79:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit");
 
@@ -140,7 +371,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 97:31
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int AbilityDebugResponseStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -167,7 +398,7 @@ int AbilityDebugResponseStub::OnRemoteRequest(
 代码块类型: Loop Block (do)
 位置: 100:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "code: %{public}u, flags: %{public}d", code, option.GetFlags());
 
@@ -175,7 +406,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 103:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
@@ -186,7 +417,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 104:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
 

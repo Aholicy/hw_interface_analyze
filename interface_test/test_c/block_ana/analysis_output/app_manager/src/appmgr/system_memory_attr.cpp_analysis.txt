@@ -1,7 +1,132 @@
+代码块类型: Namespace Declaration
+位置: 19:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+SystemMemoryAttr::SystemMemoryAttr() : availSysMem_(0), totalSysMem_(0), threshold_(0), isSysInlowMem_(false)
+{}
+
+bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
+{
+    parcel.ReadInt64(availSysMem_);
+    parcel.ReadInt64(totalSysMem_);
+    parcel.ReadInt64(threshold_);
+    isSysInlowMem_ = parcel.ReadBool();
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+    return true;
+}
+
+SystemMemoryAttr *SystemMemoryAttr::Unmarshalling(Parcel &parcel)
+{
+    SystemMemoryAttr *info = new (std::nothrow) SystemMemoryAttr();
+    if (info == nullptr) {
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
+{
+    parcel.WriteInt64(availSysMem_);
+    parcel.WriteInt64(totalSysMem_);
+    parcel.WriteInt64(threshold_);
+    parcel.WriteBool(isSysInlowMem_);
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+    return true;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+SystemMemoryAttr::SystemMemoryAttr() : availSysMem_(0), totalSysMem_(0), threshold_(0), isSysInlowMem_(false)
+{}
+
+bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
+{
+    parcel.ReadInt64(availSysMem_);
+    parcel.ReadInt64(totalSysMem_);
+    parcel.ReadInt64(threshold_);
+    isSysInlowMem_ = parcel.ReadBool();
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+    return true;
+}
+
+SystemMemoryAttr *SystemMemoryAttr::Unmarshalling(Parcel &parcel)
+{
+    SystemMemoryAttr *info = new (std::nothrow) SystemMemoryAttr();
+    if (info == nullptr) {
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
+{
+    parcel.WriteInt64(availSysMem_);
+    parcel.WriteInt64(totalSysMem_);
+    parcel.WriteInt64(threshold_);
+    parcel.WriteBool(isSysInlowMem_);
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+    return true;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 21:19
+Spell: SystemMemoryAttr
+包含日志: 否
+代码:
+SystemMemoryAttr::SystemMemoryAttr() : availSysMem_(0), totalSysMem_(0), threshold_(0), isSysInlowMem_(false)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:24
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
 {
@@ -23,7 +148,7 @@ bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
 代码块类型: Loop Block (do)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
         static_cast<size_t>(availSysMem_),
@@ -76,7 +201,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 54:24
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
 {
@@ -98,7 +223,7 @@ bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
 代码块类型: Loop Block (do)
 位置: 61:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
         static_cast<size_t>(availSysMem_),

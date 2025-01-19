@@ -1,3 +1,59 @@
+代码块类型: Namespace Declaration
+位置: 18:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+bool MallocInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+}
+
+MallocInfo *MallocInfo::Unmarshalling(Parcel &parcel)
+{
+    MallocInfo *mallocInfo = new (std::nothrow) MallocInfo();
+    if (mallocInfo == nullptr) {
+        return nullptr;
+    }
+    mallocInfo->usmblks = parcel.ReadUint64();
+    mallocInfo->uordblks = parcel.ReadUint64();
+    mallocInfo->fordblks = parcel.ReadUint64();
+    mallocInfo->hblkhd = parcel.ReadUint64();
+    return mallocInfo;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 19:11
+Spell: AppExecFwk
+包含日志: 否
+代码:
+namespace AppExecFwk {
+bool MallocInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+}
+
+MallocInfo *MallocInfo::Unmarshalling(Parcel &parcel)
+{
+    MallocInfo *mallocInfo = new (std::nothrow) MallocInfo();
+    if (mallocInfo == nullptr) {
+        return nullptr;
+    }
+    mallocInfo->usmblks = parcel.ReadUint64();
+    mallocInfo->uordblks = parcel.ReadUint64();
+    mallocInfo->fordblks = parcel.ReadUint64();
+    mallocInfo->hblkhd = parcel.ReadUint64();
+    return mallocInfo;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 20:18
 Spell: Marshalling

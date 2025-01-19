@@ -1,3 +1,39 @@
+代码块类型: Namespace Declaration
+位置: 25:11
+Spell: OHOS
+包含日志: 否
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+sptr<IRemoteObject> AppServiceManager::GetAppMgrService() const
+{
+    sptr<ISystemAbilityManager> systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (!systemAbilityMgr) {
+        return nullptr;
+    }
+    return systemAbilityMgr->GetSystemAbility(APP_MGR_SERVICE_ID);
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 26:11
+Spell: AppExecFwk
+包含日志: 否
+代码:
+namespace AppExecFwk {
+sptr<IRemoteObject> AppServiceManager::GetAppMgrService() const
+{
+    sptr<ISystemAbilityManager> systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (!systemAbilityMgr) {
+        return nullptr;
+    }
+    return systemAbilityMgr->GetSystemAbility(APP_MGR_SERVICE_ID);
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 27:40
 Spell: GetAppMgrService

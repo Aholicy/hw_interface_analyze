@@ -1,7 +1,559 @@
+代码块类型: Namespace Declaration
+位置: 24:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+int32_t ConnectionObserverClientImpl::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_INVALID_OBSERVER;
+    }
+
+    auto proxy = GetServiceProxy();
+
+    std::lock_guard<std::mutex> guard(observerLock_);
+    if (!RegisterObserverToServiceLocked(proxy)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "register failed");
+        return ERR_REGISTER_FAILED;
+    }
+
+    return AddObserversLocked(observer);
+}
+
+int32_t ConnectionObserverClientImpl::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_INVALID_OBSERVER;
+    }
+
+    auto proxy = GetServiceProxy();
+
+    std::lock_guard<std::mutex> guard(observerLock_);
+    auto ret = RemoveObserversLocked(observer);
+    if (userObservers_.empty()) {
+        UnregisterFromServiceLocked(proxy);
+    }
+
+    return ret;
+}
+
+#ifdef WITH_DLP
+int32_t ConnectionObserverClientImpl::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+{
+    auto proxy = GetServiceProxy();
+    if (!proxy) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_NO_PROXY;
+    }
+
+    return proxy->GetDlpConnectionInfos(infos);
+}
+#endif // WITH_DLP
+
+int32_t ConnectionObserverClientImpl::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    auto proxy = GetServiceProxy();
+    if (!proxy) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_NO_PROXY;
+    }
+
+    return proxy->GetConnectionData(connectionData);
+}
+
+void ConnectionObserverClientImpl::HandleExtensionConnected(const ConnectionData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnExtensionConnected(data);
+        }
+    }
+}
+
+void ConnectionObserverClientImpl::HandleExtensionDisconnected(const ConnectionData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnExtensionDisconnected(data);
+        }
+    }
+}
+
+#ifdef WITH_DLP
+void ConnectionObserverClientImpl::HandleDlpAbilityOpened(const DlpStateData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnDlpAbilityOpened(data);
+        }
+    }
+}
+
+void ConnectionObserverClientImpl::HandleDlpAbilityClosed(const DlpStateData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnDlpAbilityClosed(data);
+        }
+    }
+}
+#endif // WITH_DLP
+
+bool ConnectionObserverClientImpl::RegisterObserverToServiceLocked(const std::shared_ptr<ServiceProxyAdapter> &proxy)
+{
+    if (isRegistered_) {
+        return true;
+    }
+
+    if (!proxy) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail to get service");
+        return false;
+    }
+
+    if (!observer_) {
+        observer_ = sptr<IConnectionObserver>(new (std::nothrow) ConnectionObserverStubImpl(shared_from_this()));
+    }
+
+    if (proxy->RegisterObserver(observer_) != ERR_OK) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "register observer failed");
+        return false;
+    }
+    isRegistered_ = true;
+    return true;
+}
+
+void ConnectionObserverClientImpl::UnregisterFromServiceLocked(const std::shared_ptr<ServiceProxyAdapter> &proxy)
+{
+    if (!isRegistered_ || !observer_) {
+        return;
+    }
+
+    if (!proxy) {
+        return;
+    }
+
+    if (proxy->UnregisterObserver(observer_) != ERR_OK) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "unregister observer failed");
+        return;
+    }
+    isRegistered_ = false;
+}
+
+int32_t ConnectionObserverClientImpl::AddObserversLocked(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (userObservers_.find(observer) != userObservers_.end()) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "observer already registered");
+        return ERR_OBSERVER_ALREADY_REGISTERED;
+    }
+    userObservers_.emplace(observer);
+    return ERR_OK;
+}
+
+int32_t ConnectionObserverClientImpl::RemoveObserversLocked(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (userObservers_.find(observer) == userObservers_.end()) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no such observer");
+        return ERR_OBSERVER_NOT_REGISTERED;
+    }
+    userObservers_.erase(observer);
+    return ERR_OK;
+}
+
+std::shared_ptr<ServiceProxyAdapter> ConnectionObserverClientImpl::GetServiceProxy()
+{
+    std::lock_guard<std::mutex> guard(proxyLock_);
+    if (!serviceAdapter_) {
+        ConnectLocked();
+    }
+    return serviceAdapter_;
+}
+
+void ConnectionObserverClientImpl::ConnectLocked()
+{
+    if (serviceAdapter_ != nullptr) {
+        return;
+    }
+    sptr<ISystemAbilityManager> systemManager = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (systemManager == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "get system ability registry failed");
+        return;
+    }
+    sptr<IRemoteObject> remoteObj = systemManager->GetSystemAbility(ABILITY_MGR_SERVICE_ID);
+    if (remoteObj == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "connect AMS failed");
+        return;
+    }
+
+    deathRecipient_ = sptr<IRemoteObject::DeathRecipient>(
+        new (std::nothrow) ServiceDeathRecipient(shared_from_this()));
+    if (deathRecipient_ == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "create AbilityMgrDeathRecipient failed");
+        return;
+    }
+    if ((remoteObj->IsProxyObject()) && (!remoteObj->AddDeathRecipient(deathRecipient_))) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Add death recipient failed");
+        return;
+    }
+
+    serviceAdapter_ = std::make_shared<ServiceProxyAdapter>(remoteObj);
+    TAG_LOGI(AAFwkTag::CONNECTION, "Connect AMS success");
+}
+
+void ConnectionObserverClientImpl::HandleRemoteDied(const wptr<IRemoteObject> &remote)
+{
+    if (!ResetProxy(remote)) {
+        return;
+    }
+    NotifyServiceDiedToObservers();
+}
+
+bool ConnectionObserverClientImpl::ResetProxy(const wptr<IRemoteObject> &remote)
+{
+    std::lock_guard<std::mutex> guard(proxyLock_);
+    if (serviceAdapter_ == nullptr) {
+        return false;
+    }
+
+    auto proxyObject = serviceAdapter_->GetProxyObject();
+    if ((proxyObject != nullptr) && (proxyObject == remote.promote())) {
+        proxyObject->RemoveDeathRecipient(deathRecipient_);
+        serviceAdapter_ = nullptr;
+        return true;
+    }
+
+    return false;
+}
+
+void ConnectionObserverClientImpl::ResetStatus()
+{
+    std::lock_guard<std::mutex> guard(observerLock_);
+    isRegistered_ = false;
+    userObservers_.clear();
+}
+
+void ConnectionObserverClientImpl::NotifyServiceDiedToObservers()
+{
+    auto observers = GetObservers();
+    ResetStatus();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnServiceDied();
+        }
+    }
+}
+
+std::unordered_set<std::shared_ptr<ConnectionObserver>> ConnectionObserverClientImpl::GetObservers()
+{
+    std::lock_guard<std::mutex> guard(observerLock_);
+    return userObservers_;
+}
+
+void ConnectionObserverClientImpl::ServiceDeathRecipient::OnRemoteDied(const wptr<IRemoteObject> &remote)
+{
+    TAG_LOGI(AAFwkTag::CONNECTION, "called");
+    auto owner = owner_.lock();
+    if (!owner) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "OnRemoteDied");
+        return;
+    }
+    owner->HandleRemoteDied(remote);
+}
+} // namespace AbilityRuntime
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 25:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+int32_t ConnectionObserverClientImpl::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_INVALID_OBSERVER;
+    }
+
+    auto proxy = GetServiceProxy();
+
+    std::lock_guard<std::mutex> guard(observerLock_);
+    if (!RegisterObserverToServiceLocked(proxy)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "register failed");
+        return ERR_REGISTER_FAILED;
+    }
+
+    return AddObserversLocked(observer);
+}
+
+int32_t ConnectionObserverClientImpl::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!observer) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_INVALID_OBSERVER;
+    }
+
+    auto proxy = GetServiceProxy();
+
+    std::lock_guard<std::mutex> guard(observerLock_);
+    auto ret = RemoveObserversLocked(observer);
+    if (userObservers_.empty()) {
+        UnregisterFromServiceLocked(proxy);
+    }
+
+    return ret;
+}
+
+#ifdef WITH_DLP
+int32_t ConnectionObserverClientImpl::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+{
+    auto proxy = GetServiceProxy();
+    if (!proxy) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_NO_PROXY;
+    }
+
+    return proxy->GetDlpConnectionInfos(infos);
+}
+#endif // WITH_DLP
+
+int32_t ConnectionObserverClientImpl::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    auto proxy = GetServiceProxy();
+    if (!proxy) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
+        return ERR_NO_PROXY;
+    }
+
+    return proxy->GetConnectionData(connectionData);
+}
+
+void ConnectionObserverClientImpl::HandleExtensionConnected(const ConnectionData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnExtensionConnected(data);
+        }
+    }
+}
+
+void ConnectionObserverClientImpl::HandleExtensionDisconnected(const ConnectionData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnExtensionDisconnected(data);
+        }
+    }
+}
+
+#ifdef WITH_DLP
+void ConnectionObserverClientImpl::HandleDlpAbilityOpened(const DlpStateData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnDlpAbilityOpened(data);
+        }
+    }
+}
+
+void ConnectionObserverClientImpl::HandleDlpAbilityClosed(const DlpStateData &data)
+{
+    auto observers = GetObservers();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnDlpAbilityClosed(data);
+        }
+    }
+}
+#endif // WITH_DLP
+
+bool ConnectionObserverClientImpl::RegisterObserverToServiceLocked(const std::shared_ptr<ServiceProxyAdapter> &proxy)
+{
+    if (isRegistered_) {
+        return true;
+    }
+
+    if (!proxy) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail to get service");
+        return false;
+    }
+
+    if (!observer_) {
+        observer_ = sptr<IConnectionObserver>(new (std::nothrow) ConnectionObserverStubImpl(shared_from_this()));
+    }
+
+    if (proxy->RegisterObserver(observer_) != ERR_OK) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "register observer failed");
+        return false;
+    }
+    isRegistered_ = true;
+    return true;
+}
+
+void ConnectionObserverClientImpl::UnregisterFromServiceLocked(const std::shared_ptr<ServiceProxyAdapter> &proxy)
+{
+    if (!isRegistered_ || !observer_) {
+        return;
+    }
+
+    if (!proxy) {
+        return;
+    }
+
+    if (proxy->UnregisterObserver(observer_) != ERR_OK) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "unregister observer failed");
+        return;
+    }
+    isRegistered_ = false;
+}
+
+int32_t ConnectionObserverClientImpl::AddObserversLocked(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (userObservers_.find(observer) != userObservers_.end()) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "observer already registered");
+        return ERR_OBSERVER_ALREADY_REGISTERED;
+    }
+    userObservers_.emplace(observer);
+    return ERR_OK;
+}
+
+int32_t ConnectionObserverClientImpl::RemoveObserversLocked(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (userObservers_.find(observer) == userObservers_.end()) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "no such observer");
+        return ERR_OBSERVER_NOT_REGISTERED;
+    }
+    userObservers_.erase(observer);
+    return ERR_OK;
+}
+
+std::shared_ptr<ServiceProxyAdapter> ConnectionObserverClientImpl::GetServiceProxy()
+{
+    std::lock_guard<std::mutex> guard(proxyLock_);
+    if (!serviceAdapter_) {
+        ConnectLocked();
+    }
+    return serviceAdapter_;
+}
+
+void ConnectionObserverClientImpl::ConnectLocked()
+{
+    if (serviceAdapter_ != nullptr) {
+        return;
+    }
+    sptr<ISystemAbilityManager> systemManager = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (systemManager == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "get system ability registry failed");
+        return;
+    }
+    sptr<IRemoteObject> remoteObj = systemManager->GetSystemAbility(ABILITY_MGR_SERVICE_ID);
+    if (remoteObj == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "connect AMS failed");
+        return;
+    }
+
+    deathRecipient_ = sptr<IRemoteObject::DeathRecipient>(
+        new (std::nothrow) ServiceDeathRecipient(shared_from_this()));
+    if (deathRecipient_ == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "create AbilityMgrDeathRecipient failed");
+        return;
+    }
+    if ((remoteObj->IsProxyObject()) && (!remoteObj->AddDeathRecipient(deathRecipient_))) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Add death recipient failed");
+        return;
+    }
+
+    serviceAdapter_ = std::make_shared<ServiceProxyAdapter>(remoteObj);
+    TAG_LOGI(AAFwkTag::CONNECTION, "Connect AMS success");
+}
+
+void ConnectionObserverClientImpl::HandleRemoteDied(const wptr<IRemoteObject> &remote)
+{
+    if (!ResetProxy(remote)) {
+        return;
+    }
+    NotifyServiceDiedToObservers();
+}
+
+bool ConnectionObserverClientImpl::ResetProxy(const wptr<IRemoteObject> &remote)
+{
+    std::lock_guard<std::mutex> guard(proxyLock_);
+    if (serviceAdapter_ == nullptr) {
+        return false;
+    }
+
+    auto proxyObject = serviceAdapter_->GetProxyObject();
+    if ((proxyObject != nullptr) && (proxyObject == remote.promote())) {
+        proxyObject->RemoveDeathRecipient(deathRecipient_);
+        serviceAdapter_ = nullptr;
+        return true;
+    }
+
+    return false;
+}
+
+void ConnectionObserverClientImpl::ResetStatus()
+{
+    std::lock_guard<std::mutex> guard(observerLock_);
+    isRegistered_ = false;
+    userObservers_.clear();
+}
+
+void ConnectionObserverClientImpl::NotifyServiceDiedToObservers()
+{
+    auto observers = GetObservers();
+    ResetStatus();
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        auto observer = *it;
+        if (observer) {
+            observer->OnServiceDied();
+        }
+    }
+}
+
+std::unordered_set<std::shared_ptr<ConnectionObserver>> ConnectionObserverClientImpl::GetObservers()
+{
+    std::lock_guard<std::mutex> guard(observerLock_);
+    return userObservers_;
+}
+
+void ConnectionObserverClientImpl::ServiceDeathRecipient::OnRemoteDied(const wptr<IRemoteObject> &remote)
+{
+    TAG_LOGI(AAFwkTag::CONNECTION, "called");
+    auto owner = owner_.lock();
+    if (!owner) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "OnRemoteDied");
+        return;
+    }
+    owner->HandleRemoteDied(remote);
+}
+} // namespace AbilityRuntime
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 26:39
 Spell: RegisterObserver
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClientImpl::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
 {
@@ -25,7 +577,7 @@ int32_t ConnectionObserverClientImpl::RegisterObserver(const std::shared_ptr<Con
 代码块类型: Conditional Block (if)
 位置: 28:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!observer) {
         TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
@@ -36,7 +588,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 29:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
 
@@ -44,7 +596,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 36:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!RegisterObserverToServiceLocked(proxy)) {
         TAG_LOGE(AAFwkTag::CONNECTION, "register failed");
@@ -55,7 +607,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 37:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "register failed");
 
@@ -63,7 +615,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 44:39
 Spell: UnregisterObserver
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClientImpl::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
 {
@@ -87,7 +639,7 @@ int32_t ConnectionObserverClientImpl::UnregisterObserver(const std::shared_ptr<C
 代码块类型: Conditional Block (if)
 位置: 46:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!observer) {
         TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
@@ -98,7 +650,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 47:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
 
@@ -116,7 +668,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 75:39
 Spell: GetConnectionData
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClientImpl::GetConnectionData(std::vector<ConnectionData> &connectionData)
 {
@@ -133,7 +685,7 @@ int32_t ConnectionObserverClientImpl::GetConnectionData(std::vector<ConnectionDa
 代码块类型: Conditional Block (if)
 位置: 78:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!proxy) {
         TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
@@ -144,7 +696,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 79:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "invalid observer");
 
@@ -186,7 +738,7 @@ void ConnectionObserverClientImpl::HandleExtensionDisconnected(const ConnectionD
 代码块类型: Method Declaration
 位置: 132:36
 Spell: RegisterObserverToServiceLocked
-包含日志: 否
+包含日志: 是
 代码:
 bool ConnectionObserverClientImpl::RegisterObserverToServiceLocked(const std::shared_ptr<ServiceProxyAdapter> &proxy)
 {
@@ -225,7 +777,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 138:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!proxy) {
         TAG_LOGE(AAFwkTag::CONNECTION, "fail to get service");
@@ -236,7 +788,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 139:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "fail to get service");
 
@@ -254,7 +806,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 147:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (proxy->RegisterObserver(observer_) != ERR_OK) {
         TAG_LOGE(AAFwkTag::CONNECTION, "register observer failed");
@@ -265,7 +817,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 148:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "register observer failed");
 
@@ -273,7 +825,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 155:36
 Spell: UnregisterFromServiceLocked
-包含日志: 否
+包含日志: 是
 代码:
 void ConnectionObserverClientImpl::UnregisterFromServiceLocked(const std::shared_ptr<ServiceProxyAdapter> &proxy)
 {
@@ -316,7 +868,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 165:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (proxy->UnregisterObserver(observer_) != ERR_OK) {
         TAG_LOGE(AAFwkTag::CONNECTION, "unregister observer failed");
@@ -327,7 +879,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 166:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "unregister observer failed");
 
@@ -335,7 +887,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 172:39
 Spell: AddObserversLocked
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClientImpl::AddObserversLocked(const std::shared_ptr<ConnectionObserver> &observer)
 {
@@ -351,7 +903,7 @@ int32_t ConnectionObserverClientImpl::AddObserversLocked(const std::shared_ptr<C
 代码块类型: Conditional Block (if)
 位置: 174:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (userObservers_.find(observer) != userObservers_.end()) {
         TAG_LOGE(AAFwkTag::CONNECTION, "observer already registered");
@@ -362,7 +914,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 175:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "observer already registered");
 
@@ -370,7 +922,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 182:39
 Spell: RemoveObserversLocked
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverClientImpl::RemoveObserversLocked(const std::shared_ptr<ConnectionObserver> &observer)
 {
@@ -386,7 +938,7 @@ int32_t ConnectionObserverClientImpl::RemoveObserversLocked(const std::shared_pt
 代码块类型: Conditional Block (if)
 位置: 184:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (userObservers_.find(observer) == userObservers_.end()) {
         TAG_LOGE(AAFwkTag::CONNECTION, "no such observer");
@@ -397,7 +949,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 185:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "no such observer");
 
@@ -430,7 +982,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 201:36
 Spell: ConnectLocked
-包含日志: 否
+包含日志: 是
 代码:
 void ConnectionObserverClientImpl::ConnectLocked()
 {
@@ -477,7 +1029,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 207:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (systemManager == nullptr) {
         TAG_LOGE(AAFwkTag::CONNECTION, "get system ability registry failed");
@@ -488,7 +1040,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 208:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "get system ability registry failed");
 
@@ -496,7 +1048,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 212:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remoteObj == nullptr) {
         TAG_LOGE(AAFwkTag::CONNECTION, "connect AMS failed");
@@ -507,7 +1059,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 213:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "connect AMS failed");
 
@@ -515,7 +1067,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 219:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (deathRecipient_ == nullptr) {
         TAG_LOGE(AAFwkTag::CONNECTION, "create AbilityMgrDeathRecipient failed");
@@ -526,7 +1078,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 220:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "create AbilityMgrDeathRecipient failed");
 
@@ -534,7 +1086,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 223:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if ((remoteObj->IsProxyObject()) && (!remoteObj->AddDeathRecipient(deathRecipient_))) {
         TAG_LOGE(AAFwkTag::CONNECTION, "Add death recipient failed");
@@ -545,7 +1097,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 224:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "Add death recipient failed");
 
@@ -553,7 +1105,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 229:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::CONNECTION, "Connect AMS success");
 
@@ -673,7 +1225,7 @@ std::unordered_set<std::shared_ptr<ConnectionObserver>> ConnectionObserverClient
 代码块类型: Method Declaration
 位置: 282:59
 Spell: OnRemoteDied
-包含日志: 否
+包含日志: 是
 代码:
 void ConnectionObserverClientImpl::ServiceDeathRecipient::OnRemoteDied(const wptr<IRemoteObject> &remote)
 {
@@ -690,7 +1242,7 @@ void ConnectionObserverClientImpl::ServiceDeathRecipient::OnRemoteDied(const wpt
 代码块类型: Loop Block (do)
 位置: 284:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::CONNECTION, "called");
 
@@ -698,7 +1250,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 286:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!owner) {
         TAG_LOGE(AAFwkTag::CONNECTION, "OnRemoteDied");
@@ -709,7 +1261,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 287:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "OnRemoteDied");
 

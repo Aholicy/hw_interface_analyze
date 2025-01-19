@@ -1,7 +1,255 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+void ConnectionObserverProxy::OnExtensionConnected(const ConnectionData& connectionData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_CONNECTED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+void ConnectionObserverProxy::OnExtensionDisconnected(const ConnectionData& connectionData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_DISCONNECTED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+#ifdef WITH_DLP
+void ConnectionObserverProxy::OnDlpAbilityOpened(const DlpStateData& dlpData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGI(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&dlpData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write DlpStateData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_DLP_ABILITY_OPENED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+void ConnectionObserverProxy::OnDlpAbilityClosed(const DlpStateData& dlpData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGI(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&dlpData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write DlpStateData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_DLP_ABILITY_CLOSED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+#endif // WITH_DLP
+
+int32_t ConnectionObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
+        return ret;
+    }
+    return NO_ERROR;
+}
+}  // namespace AAFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+void ConnectionObserverProxy::OnExtensionConnected(const ConnectionData& connectionData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_CONNECTED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+void ConnectionObserverProxy::OnExtensionDisconnected(const ConnectionData& connectionData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_DISCONNECTED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+#ifdef WITH_DLP
+void ConnectionObserverProxy::OnDlpAbilityOpened(const DlpStateData& dlpData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGI(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&dlpData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write DlpStateData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_DLP_ABILITY_OPENED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+void ConnectionObserverProxy::OnDlpAbilityClosed(const DlpStateData& dlpData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGI(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&dlpData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write DlpStateData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_DLP_ABILITY_CLOSED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+#endif // WITH_DLP
+
+int32_t ConnectionObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
+        return ret;
+    }
+    return NO_ERROR;
+}
+}  // namespace AAFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:31
 Spell: OnExtensionConnected
-包含日志: 否
+包含日志: 是
 代码:
 void ConnectionObserverProxy::OnExtensionConnected(const ConnectionData& connectionData)
 {
@@ -31,7 +279,7 @@ void ConnectionObserverProxy::OnExtensionConnected(const ConnectionData& connect
 代码块类型: Loop Block (do)
 位置: 30:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::CONNECTION, "called");
 
@@ -39,7 +287,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
@@ -50,7 +298,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 32:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
 
@@ -58,7 +306,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 36:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&connectionData)) {
         TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
@@ -69,7 +317,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 37:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
 
@@ -77,7 +325,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 42:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != NO_ERROR) {
         TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
@@ -88,7 +336,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 43:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
 
@@ -96,7 +344,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 48:31
 Spell: OnExtensionDisconnected
-包含日志: 否
+包含日志: 是
 代码:
 void ConnectionObserverProxy::OnExtensionDisconnected(const ConnectionData& connectionData)
 {
@@ -126,7 +374,7 @@ void ConnectionObserverProxy::OnExtensionDisconnected(const ConnectionData& conn
 代码块类型: Loop Block (do)
 位置: 54:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::CONNECTION, "called");
 
@@ -134,7 +382,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 55:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
@@ -145,7 +393,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 56:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
 
@@ -153,7 +401,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 60:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&connectionData)) {
         TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
@@ -164,7 +412,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 61:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
 
@@ -172,7 +420,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 66:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != NO_ERROR) {
         TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
@@ -183,7 +431,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 67:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
 
@@ -191,7 +439,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 122:34
 Spell: SendTransactCmd
-包含日志: 否
+包含日志: 是
 代码:
 int32_t ConnectionObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
     MessageParcel &reply, MessageOption &option)
@@ -214,7 +462,7 @@ int32_t ConnectionObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &d
 代码块类型: Conditional Block (if)
 位置: 126:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
@@ -225,7 +473,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 127:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
 
@@ -233,7 +481,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 132:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
@@ -244,7 +492,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 133:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
 

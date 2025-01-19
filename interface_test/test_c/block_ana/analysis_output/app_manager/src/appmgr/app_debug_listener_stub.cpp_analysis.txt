@@ -1,7 +1,200 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+AppDebugListenerStub::AppDebugListenerStub() {}
+
+AppDebugListenerStub::~AppDebugListenerStub() {}
+
+int AppDebugListenerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
+    std::u16string descriptor = AppDebugListenerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STARTED):
+            return HandleOnAppDebugStarted(data, reply);
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STOPED):
+            return HandleOnAppDebugStoped(data, reply);
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, MessageParcel &reply)
+{
+    auto infoSize = data.ReadInt32();
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<AppDebugInfo> appDebugInfos;
+    for (int32_t index = 0; index < infoSize; index++) {
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+        if (appDebugInfo == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+            return ERR_INVALID_DATA;
+        }
+        appDebugInfos.emplace_back(*appDebugInfo);
+    }
+
+    OnAppDebugStarted(appDebugInfos);
+    return NO_ERROR;
+}
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, MessageParcel &reply)
+{
+    auto infoSize = data.ReadInt32();
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<AppDebugInfo> appDebugInfos;
+    for (int32_t index = 0; index < infoSize; index++) {
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+        if (appDebugInfo == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+            return ERR_INVALID_DATA;
+        }
+        appDebugInfos.emplace_back(*appDebugInfo);
+    }
+
+    OnAppDebugStoped(appDebugInfos);
+    return NO_ERROR;
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+AppDebugListenerStub::AppDebugListenerStub() {}
+
+AppDebugListenerStub::~AppDebugListenerStub() {}
+
+int AppDebugListenerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
+    std::u16string descriptor = AppDebugListenerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STARTED):
+            return HandleOnAppDebugStarted(data, reply);
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STOPED):
+            return HandleOnAppDebugStoped(data, reply);
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, MessageParcel &reply)
+{
+    auto infoSize = data.ReadInt32();
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<AppDebugInfo> appDebugInfos;
+    for (int32_t index = 0; index < infoSize; index++) {
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+        if (appDebugInfo == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+            return ERR_INVALID_DATA;
+        }
+        appDebugInfos.emplace_back(*appDebugInfo);
+    }
+
+    OnAppDebugStarted(appDebugInfos);
+    return NO_ERROR;
+}
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, MessageParcel &reply)
+{
+    auto infoSize = data.ReadInt32();
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<AppDebugInfo> appDebugInfos;
+    for (int32_t index = 0; index < infoSize; index++) {
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+        if (appDebugInfo == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+            return ERR_INVALID_DATA;
+        }
+        appDebugInfos.emplace_back(*appDebugInfo);
+    }
+
+    OnAppDebugStoped(appDebugInfos);
+    return NO_ERROR;
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 24:11
+Spell: 
+包含日志: 否
+代码:
+namespace {
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 28:23
+Spell: AppDebugListenerStub
+包含日志: 否
+代码:
+AppDebugListenerStub::AppDebugListenerStub() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Destructor Declaration
+位置: 30:23
+Spell: ~AppDebugListenerStub
+包含日志: 否
+代码:
+AppDebugListenerStub::~AppDebugListenerStub() {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 32:27
 Spell: OnRemoteRequest
-包含日志: 否
+包含日志: 是
 代码:
 int AppDebugListenerStub::OnRemoteRequest(
     uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -29,7 +222,7 @@ int AppDebugListenerStub::OnRemoteRequest(
 代码块类型: Loop Block (do)
 位置: 35:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
 
@@ -37,7 +230,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 38:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (descriptor != remoteDescriptor) {
         TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
@@ -48,7 +241,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 39:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
 
@@ -69,7 +262,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 50:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
 
@@ -77,7 +270,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 54:31
 Spell: HandleOnAppDebugStarted
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, MessageParcel &reply)
 {
@@ -105,7 +298,7 @@ int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, Messa
 代码块类型: Conditional Block (if)
 位置: 57:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
@@ -116,7 +309,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 58:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
 
@@ -124,7 +317,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 76:31
 Spell: HandleOnAppDebugStoped
-包含日志: 否
+包含日志: 是
 代码:
 int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, MessageParcel &reply)
 {
@@ -152,7 +345,7 @@ int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, Messag
 代码块类型: Conditional Block (if)
 位置: 79:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
@@ -163,7 +356,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 80:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
 

@@ -1,7 +1,540 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+bool FaultData::ReadFromParcel(Parcel &parcel)
+{
+    std::string strValue;
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+    errorObject.name = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+    errorObject.message = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+    errorObject.stack = strValue;
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
+        return false;
+    }
+    faultType = static_cast<FaultDataType>(type);
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+    timeoutMarkers = strValue;
+
+    waitSaveState = parcel.ReadBool();
+    notifyApp = parcel.ReadBool();
+    forceExit = parcel.ReadBool();
+    state = parcel.ReadUint32();
+    eventId = parcel.ReadInt32();
+    tid = parcel.ReadInt32();
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+    return true;
+}
+
+FaultData *FaultData::Unmarshalling(Parcel &parcel)
+{
+    FaultData *info = new FaultData();
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool FaultData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+    
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(tid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
+        return false;
+    }
+
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+    return true;
+}
+
+bool AppFaultDataBySA::ReadFromParcel(Parcel &parcel)
+{
+    std::string strValue;
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+    errorObject.name = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+    errorObject.message = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+    errorObject.stack = strValue;
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
+        return false;
+    }
+    faultType = static_cast<FaultDataType>(type);
+
+    if (!parcel.ReadInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
+        return false;
+    }
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+    timeoutMarkers = strValue;
+
+    waitSaveState = parcel.ReadBool();
+    notifyApp = parcel.ReadBool();
+    forceExit = parcel.ReadBool();
+    state = parcel.ReadUint32();
+    eventId = parcel.ReadInt32();
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+    return true;
+}
+
+AppFaultDataBySA *AppFaultDataBySA::Unmarshalling(Parcel &parcel)
+{
+    AppFaultDataBySA *info = new AppFaultDataBySA();
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool AppFaultDataBySA::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+    
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+    if (!parcel.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
+        return false;
+    }
+
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+    return true;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+bool FaultData::ReadFromParcel(Parcel &parcel)
+{
+    std::string strValue;
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+    errorObject.name = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+    errorObject.message = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+    errorObject.stack = strValue;
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
+        return false;
+    }
+    faultType = static_cast<FaultDataType>(type);
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+    timeoutMarkers = strValue;
+
+    waitSaveState = parcel.ReadBool();
+    notifyApp = parcel.ReadBool();
+    forceExit = parcel.ReadBool();
+    state = parcel.ReadUint32();
+    eventId = parcel.ReadInt32();
+    tid = parcel.ReadInt32();
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+    return true;
+}
+
+FaultData *FaultData::Unmarshalling(Parcel &parcel)
+{
+    FaultData *info = new FaultData();
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool FaultData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+    
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(tid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
+        return false;
+    }
+
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+    return true;
+}
+
+bool AppFaultDataBySA::ReadFromParcel(Parcel &parcel)
+{
+    std::string strValue;
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+    errorObject.name = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+    errorObject.message = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+    errorObject.stack = strValue;
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
+        return false;
+    }
+    faultType = static_cast<FaultDataType>(type);
+
+    if (!parcel.ReadInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
+        return false;
+    }
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+    timeoutMarkers = strValue;
+
+    waitSaveState = parcel.ReadBool();
+    notifyApp = parcel.ReadBool();
+    forceExit = parcel.ReadBool();
+    state = parcel.ReadUint32();
+    eventId = parcel.ReadInt32();
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+    return true;
+}
+
+AppFaultDataBySA *AppFaultDataBySA::Unmarshalling(Parcel &parcel)
+{
+    AppFaultDataBySA *info = new AppFaultDataBySA();
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+bool AppFaultDataBySA::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+    
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+    if (!parcel.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
+        return false;
+    }
+
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+    return true;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 24:17
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool FaultData::ReadFromParcel(Parcel &parcel)
 {
@@ -53,7 +586,7 @@ bool FaultData::ReadFromParcel(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 27:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
@@ -64,7 +597,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 28:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
 
@@ -72,7 +605,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 33:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
@@ -83,7 +616,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 34:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
 
@@ -91,7 +624,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 39:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
@@ -102,7 +635,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 40:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
 
@@ -110,7 +643,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 46:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadInt32(type)) {
         TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
@@ -121,7 +654,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 47:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
 
@@ -129,7 +662,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 52:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
@@ -140,7 +673,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 53:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
 
@@ -185,7 +718,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 80:17
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool FaultData::Marshalling(Parcel &parcel) const
 {
@@ -262,7 +795,7 @@ bool FaultData::Marshalling(Parcel &parcel) const
 代码块类型: Conditional Block (if)
 位置: 82:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(errorObject.name)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
@@ -273,7 +806,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 83:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
 
@@ -281,7 +814,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 87:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(errorObject.message)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
@@ -292,7 +825,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 88:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
 
@@ -300,7 +833,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 92:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(errorObject.stack)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
@@ -311,7 +844,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 93:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
 
@@ -319,7 +852,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 97:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
         TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
@@ -330,7 +863,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 98:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
 
@@ -338,7 +871,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 102:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(timeoutMarkers)) {
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
@@ -349,7 +882,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 103:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
 
@@ -357,7 +890,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 107:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(waitSaveState)) {
         TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
@@ -368,7 +901,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 108:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
 
@@ -376,7 +909,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 112:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(notifyApp)) {
         TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
@@ -387,7 +920,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 113:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
 
@@ -395,7 +928,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 117:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(forceExit)) {
         TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
@@ -406,7 +939,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 118:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
 
@@ -414,7 +947,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 122:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteUint32(state)) {
         TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
@@ -425,7 +958,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 123:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
 
@@ -433,7 +966,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 127:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(eventId)) {
         TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
@@ -444,7 +977,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 128:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
 
@@ -452,7 +985,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 132:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(tid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
@@ -463,7 +996,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 133:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
 
@@ -471,7 +1004,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 137:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (token == nullptr) {
         if (!parcel.WriteBool(false)) {
@@ -489,7 +1022,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 138:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!parcel.WriteBool(false)) {
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
@@ -500,7 +1033,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 139:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
 
@@ -508,7 +1041,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 143:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
@@ -519,7 +1052,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 144:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
 
@@ -527,7 +1060,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 151:24
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool AppFaultDataBySA::ReadFromParcel(Parcel &parcel)
 {
@@ -583,7 +1116,7 @@ bool AppFaultDataBySA::ReadFromParcel(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 154:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
@@ -594,7 +1127,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 155:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
 
@@ -602,7 +1135,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 160:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
@@ -613,7 +1146,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 161:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
 
@@ -621,7 +1154,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 166:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
@@ -632,7 +1165,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 167:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
 
@@ -640,7 +1173,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 173:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadInt32(type)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
@@ -651,7 +1184,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 174:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
 
@@ -659,7 +1192,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 179:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadInt32(pid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
@@ -670,7 +1203,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 180:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
 
@@ -678,7 +1211,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 184:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.ReadString(strValue)) {
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
@@ -689,7 +1222,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 185:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
 
@@ -734,7 +1267,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 211:24
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool AppFaultDataBySA::Marshalling(Parcel &parcel) const
 {
@@ -811,7 +1344,7 @@ bool AppFaultDataBySA::Marshalling(Parcel &parcel) const
 代码块类型: Conditional Block (if)
 位置: 213:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(errorObject.name)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
@@ -822,7 +1355,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 214:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
 
@@ -830,7 +1363,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 218:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(errorObject.message)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
@@ -841,7 +1374,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 219:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
 
@@ -849,7 +1382,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 223:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(errorObject.stack)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
@@ -860,7 +1393,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 224:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
 
@@ -868,7 +1401,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 228:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
         TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
@@ -879,7 +1412,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 229:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
 
@@ -887,7 +1420,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 233:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(pid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
@@ -898,7 +1431,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 234:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
 
@@ -906,7 +1439,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 238:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(timeoutMarkers)) {
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
@@ -917,7 +1450,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 239:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
 
@@ -925,7 +1458,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 243:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(waitSaveState)) {
         TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
@@ -936,7 +1469,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 244:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
 
@@ -944,7 +1477,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 248:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(notifyApp)) {
         TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
@@ -955,7 +1488,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 249:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
 
@@ -963,7 +1496,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 253:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(forceExit)) {
         TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
@@ -974,7 +1507,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 254:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
 
@@ -982,7 +1515,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 258:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteUint32(state)) {
         TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
@@ -993,7 +1526,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 259:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
 
@@ -1001,7 +1534,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 263:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(eventId)) {
         TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
@@ -1012,7 +1545,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 264:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
 
@@ -1020,7 +1553,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 268:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (token == nullptr) {
         if (!parcel.WriteBool(false)) {
@@ -1038,7 +1571,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 269:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!parcel.WriteBool(false)) {
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
@@ -1049,7 +1582,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 270:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
 
@@ -1057,7 +1590,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 274:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
@@ -1068,7 +1601,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 275:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
 

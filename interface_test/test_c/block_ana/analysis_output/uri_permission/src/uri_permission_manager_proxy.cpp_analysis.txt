@@ -1,7 +1,769 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AAFwk {
+namespace {
+const int MAX_URI_COUNT = 500;
+const uint32_t CYCLE_LIMIT = 1000;
+}
+UriPermissionManagerProxy::UriPermissionManagerProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IUriPermissionManager>(impl) {}
+
+int UriPermissionManagerProxy::GrantUriPermission(const Uri &uri, unsigned int flag,
+    const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteParcelable(&uri)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(targetBundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(initiatorTokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_GRANT_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int UriPermissionManagerProxy::GrantUriPermission(const std::vector<Uri> &uriVec, unsigned int flag,
+    const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(uriVec.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
+        return INNER_ERR;
+    }
+    for (const auto &uri : uriVec) {
+        if (!data.WriteParcelable(&uri)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+            return INNER_ERR;
+        }
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(targetBundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(initiatorTokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_BATCH_GRANT_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int32_t UriPermissionManagerProxy::GrantUriPermissionPrivileged(const std::vector<Uri> &uriVec, uint32_t flag,
+    const std::string &targetBundleName, int32_t appIndex, uint32_t initiatorTokenId, int32_t hideSensitiveType)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(uriVec.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
+        return INNER_ERR;
+    }
+    for (const auto &uri : uriVec) {
+        if (!data.WriteParcelable(&uri)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+            return INNER_ERR;
+        }
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(targetBundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(initiatorTokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(hideSensitiveType)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write hideSensitiveType failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_GRANT_URI_PERMISSION_PRIVILEGED, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int UriPermissionManagerProxy::RevokeAllUriPermissions(const uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_REVOKE_ALL_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int UriPermissionManagerProxy::RevokeUriPermissionManually(const Uri &uri, const std::string bundleName,
+    int32_t appIndex)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteParcelable(&uri)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write bundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_REVOKE_URI_PERMISSION_MANUALLY, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+bool UriPermissionManagerProxy::VerifyUriPermission(const Uri& uri, uint32_t flag, uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return false;
+    }
+    if (!data.WriteParcelable(&uri)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+        return false;
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return false;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
+        return false;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_VERIFY_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return false;
+    }
+    return reply.ReadBool();
+}
+
+std::vector<bool> UriPermissionManagerProxy::CheckUriAuthorization(const std::vector<std::string> &uriVec,
+    uint32_t flag, uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    std::vector<bool> result(uriVec.size(), false);
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return result;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return result;
+    }
+    if (!data.WriteUint32(uriVec.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
+        return result;
+    }
+    for (const auto &uri : uriVec) {
+        if (!data.WriteString(uri)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+            return result;
+        }
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return result;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
+        return result;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_CHECK_URI_AUTHORIZATION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest error:%{public}d", error);
+        return result;
+    }
+    auto size = reply.ReadUint32();
+    if (size > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Reply size too large");
+        return result;
+    }
+    for (auto i = 0; i < static_cast<int32_t>(size); i++) {
+        result[i] = reply.ReadBool();
+    }
+    return result;
+}
+
+int32_t UriPermissionManagerProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "remoteObject null");
+        return ERR_NULL_OBJECT;
+    }
+
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed. code:%{public}d, ret:%{public}d", code, ret);
+        return ret;
+    }
+    return NO_ERROR;
+}
+
+int UriPermissionManagerProxy::ClearPermissionTokenByMap(const uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_CLEAR_PERMISSION_TOKEN_BY_MAP, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+#ifdef ABILITY_RUNTIME_FEATURE_SANDBOXMANAGER
+int UriPermissionManagerProxy::Active(const std::vector<PolicyInfo> &policy, std::vector<uint32_t> &result)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    if (policy.empty() || policy.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(policy.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write size of policy failed");
+        return INNER_ERR;
+    }
+    for (const auto &policyInfo : policy) {
+        if (!data.WriteString(policyInfo.path)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write policy path failed");
+            return INNER_ERR;
+        }
+        if (!data.WriteUint64(policyInfo.mode)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write policy mode failed");
+            return INNER_ERR;
+        }
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_ACTIVE, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    auto res = reply.ReadUInt32Vector(&result);
+    if (res) {
+        return ERR_OK;
+    }
+    return INNER_ERR;
+}
+#endif // ABILITY_RUNTIME_FEATURE_SANDBOXMANAGER
+}  // namespace AAFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AAFwk
+包含日志: 是
+代码:
+namespace AAFwk {
+namespace {
+const int MAX_URI_COUNT = 500;
+const uint32_t CYCLE_LIMIT = 1000;
+}
+UriPermissionManagerProxy::UriPermissionManagerProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IUriPermissionManager>(impl) {}
+
+int UriPermissionManagerProxy::GrantUriPermission(const Uri &uri, unsigned int flag,
+    const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteParcelable(&uri)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(targetBundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(initiatorTokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_GRANT_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int UriPermissionManagerProxy::GrantUriPermission(const std::vector<Uri> &uriVec, unsigned int flag,
+    const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(uriVec.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
+        return INNER_ERR;
+    }
+    for (const auto &uri : uriVec) {
+        if (!data.WriteParcelable(&uri)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+            return INNER_ERR;
+        }
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(targetBundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(initiatorTokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_BATCH_GRANT_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int32_t UriPermissionManagerProxy::GrantUriPermissionPrivileged(const std::vector<Uri> &uriVec, uint32_t flag,
+    const std::string &targetBundleName, int32_t appIndex, uint32_t initiatorTokenId, int32_t hideSensitiveType)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(uriVec.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
+        return INNER_ERR;
+    }
+    for (const auto &uri : uriVec) {
+        if (!data.WriteParcelable(&uri)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+            return INNER_ERR;
+        }
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(targetBundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(initiatorTokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(hideSensitiveType)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write hideSensitiveType failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_GRANT_URI_PERMISSION_PRIVILEGED, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int UriPermissionManagerProxy::RevokeAllUriPermissions(const uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_REVOKE_ALL_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+int UriPermissionManagerProxy::RevokeUriPermissionManually(const Uri &uri, const std::string bundleName,
+    int32_t appIndex)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteParcelable(&uri)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write bundleName failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(appIndex)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_REVOKE_URI_PERMISSION_MANUALLY, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+bool UriPermissionManagerProxy::VerifyUriPermission(const Uri& uri, uint32_t flag, uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return false;
+    }
+    if (!data.WriteParcelable(&uri)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+        return false;
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return false;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
+        return false;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_VERIFY_URI_PERMISSION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return false;
+    }
+    return reply.ReadBool();
+}
+
+std::vector<bool> UriPermissionManagerProxy::CheckUriAuthorization(const std::vector<std::string> &uriVec,
+    uint32_t flag, uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    std::vector<bool> result(uriVec.size(), false);
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return result;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return result;
+    }
+    if (!data.WriteUint32(uriVec.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
+        return result;
+    }
+    for (const auto &uri : uriVec) {
+        if (!data.WriteString(uri)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
+            return result;
+        }
+    }
+    if (!data.WriteUint32(flag)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
+        return result;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
+        return result;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_CHECK_URI_AUTHORIZATION, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest error:%{public}d", error);
+        return result;
+    }
+    auto size = reply.ReadUint32();
+    if (size > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Reply size too large");
+        return result;
+    }
+    for (auto i = 0; i < static_cast<int32_t>(size); i++) {
+        result[i] = reply.ReadBool();
+    }
+    return result;
+}
+
+int32_t UriPermissionManagerProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "remoteObject null");
+        return ERR_NULL_OBJECT;
+    }
+
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed. code:%{public}d, ret:%{public}d", code, ret);
+        return ret;
+    }
+    return NO_ERROR;
+}
+
+int UriPermissionManagerProxy::ClearPermissionTokenByMap(const uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(tokenId)) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
+        return INNER_ERR;
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_CLEAR_PERMISSION_TOKEN_BY_MAP, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    return reply.ReadInt32();
+}
+
+#ifdef ABILITY_RUNTIME_FEATURE_SANDBOXMANAGER
+int UriPermissionManagerProxy::Active(const std::vector<PolicyInfo> &policy, std::vector<uint32_t> &result)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    if (policy.empty() || policy.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    MessageParcel data;
+    if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
+        return INNER_ERR;
+    }
+    if (!data.WriteUint32(policy.size())) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Write size of policy failed");
+        return INNER_ERR;
+    }
+    for (const auto &policyInfo : policy) {
+        if (!data.WriteString(policyInfo.path)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write policy path failed");
+            return INNER_ERR;
+        }
+        if (!data.WriteUint64(policyInfo.mode)) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Write policy mode failed");
+            return INNER_ERR;
+        }
+    }
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendTransactCmd(UriPermMgrCmd::ON_ACTIVE, data, reply, option);
+    if (error != ERR_OK) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
+        return INNER_ERR;
+    }
+    auto res = reply.ReadUInt32Vector(&result);
+    if (res) {
+        return ERR_OK;
+    }
+    return INNER_ERR;
+}
+#endif // ABILITY_RUNTIME_FEATURE_SANDBOXMANAGER
+}  // namespace AAFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 24:11
+Spell: 
+包含日志: 否
+代码:
+namespace {
+const int MAX_URI_COUNT = 500;
+const uint32_t CYCLE_LIMIT = 1000;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 28:28
+Spell: UriPermissionManagerProxy
+包含日志: 否
+代码:
+UriPermissionManagerProxy::UriPermissionManagerProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IUriPermissionManager>(impl) {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 31:32
 Spell: GrantUriPermission
-包含日志: 否
+包含日志: 是
 代码:
 int UriPermissionManagerProxy::GrantUriPermission(const Uri &uri, unsigned int flag,
     const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
@@ -46,7 +808,7 @@ int UriPermissionManagerProxy::GrantUriPermission(const Uri &uri, unsigned int f
 代码块类型: Loop Block (do)
 位置: 34:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -54,7 +816,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 36:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -65,7 +827,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 37:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -73,7 +835,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 40:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&uri)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
@@ -84,7 +846,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 41:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
 
@@ -92,7 +854,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 44:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(flag)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
@@ -103,7 +865,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 45:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
 
@@ -111,7 +873,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 48:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteString(targetBundleName)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
@@ -122,7 +884,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 49:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
 
@@ -130,7 +892,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 52:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInt32(appIndex)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
@@ -141,7 +903,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 53:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
 
@@ -149,7 +911,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 56:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(initiatorTokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
@@ -160,7 +922,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 57:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
 
@@ -168,7 +930,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 63:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
@@ -179,7 +941,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 64:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
 
@@ -187,7 +949,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 70:32
 Spell: GrantUriPermission
-包含日志: 否
+包含日志: 是
 代码:
 int UriPermissionManagerProxy::GrantUriPermission(const std::vector<Uri> &uriVec, unsigned int flag,
     const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
@@ -242,7 +1004,7 @@ int UriPermissionManagerProxy::GrantUriPermission(const std::vector<Uri> &uriVec
 代码块类型: Loop Block (do)
 位置: 73:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -250,7 +1012,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 74:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
@@ -261,7 +1023,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 75:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
 
@@ -269,7 +1031,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 79:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -280,7 +1042,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 80:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -288,7 +1050,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 83:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(uriVec.size())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
@@ -299,7 +1061,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 84:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
 
@@ -307,7 +1069,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 93:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(flag)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
@@ -318,7 +1080,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 94:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
 
@@ -326,7 +1088,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 97:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteString(targetBundleName)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
@@ -337,7 +1099,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 98:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
 
@@ -345,7 +1107,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 101:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInt32(appIndex)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
@@ -356,7 +1118,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 102:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
 
@@ -364,7 +1126,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 105:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(initiatorTokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
@@ -375,7 +1137,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 106:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
 
@@ -383,7 +1145,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 112:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
@@ -394,7 +1156,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 113:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
 
@@ -402,7 +1164,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 119:36
 Spell: GrantUriPermissionPrivileged
-包含日志: 否
+包含日志: 是
 代码:
 int32_t UriPermissionManagerProxy::GrantUriPermissionPrivileged(const std::vector<Uri> &uriVec, uint32_t flag,
     const std::string &targetBundleName, int32_t appIndex, uint32_t initiatorTokenId, int32_t hideSensitiveType)
@@ -461,7 +1223,7 @@ int32_t UriPermissionManagerProxy::GrantUriPermissionPrivileged(const std::vecto
 代码块类型: Loop Block (do)
 位置: 122:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -469,7 +1231,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 123:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
@@ -480,7 +1242,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 124:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
 
@@ -488,7 +1250,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 128:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -499,7 +1261,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 129:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -507,7 +1269,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 132:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(uriVec.size())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
@@ -518,7 +1280,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 133:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
 
@@ -526,7 +1288,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 142:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(flag)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
@@ -537,7 +1299,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 143:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
 
@@ -545,7 +1307,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 146:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteString(targetBundleName)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
@@ -556,7 +1318,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 147:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write targetBundleName failed");
 
@@ -564,7 +1326,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 150:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInt32(appIndex)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
@@ -575,7 +1337,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 151:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
 
@@ -583,7 +1345,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 154:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(initiatorTokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
@@ -594,7 +1356,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 155:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write initiatorTokenId failed");
 
@@ -602,7 +1364,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 158:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInt32(hideSensitiveType)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write hideSensitiveType failed");
@@ -613,7 +1375,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 159:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write hideSensitiveType failed");
 
@@ -621,7 +1383,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 165:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
@@ -632,7 +1394,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 166:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed, error:%{public}d", error);
 
@@ -640,7 +1402,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 172:32
 Spell: RevokeAllUriPermissions
-包含日志: 否
+包含日志: 是
 代码:
 int UriPermissionManagerProxy::RevokeAllUriPermissions(const uint32_t tokenId)
 {
@@ -668,7 +1430,7 @@ int UriPermissionManagerProxy::RevokeAllUriPermissions(const uint32_t tokenId)
 代码块类型: Loop Block (do)
 位置: 174:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -676,7 +1438,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 176:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -687,7 +1449,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 177:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -695,7 +1457,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 180:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(tokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
@@ -706,7 +1468,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 181:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
 
@@ -714,7 +1476,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 187:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
@@ -725,7 +1487,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 188:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
 
@@ -733,7 +1495,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 194:32
 Spell: RevokeUriPermissionManually
-包含日志: 否
+包含日志: 是
 代码:
 int UriPermissionManagerProxy::RevokeUriPermissionManually(const Uri &uri, const std::string bundleName,
     int32_t appIndex)
@@ -770,7 +1532,7 @@ int UriPermissionManagerProxy::RevokeUriPermissionManually(const Uri &uri, const
 代码块类型: Loop Block (do)
 位置: 197:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -778,7 +1540,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 199:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -789,7 +1551,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 200:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -797,7 +1559,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 203:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&uri)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
@@ -808,7 +1570,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 204:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
 
@@ -816,7 +1578,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 207:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteString(bundleName)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write bundleName failed");
@@ -827,7 +1589,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 208:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write bundleName failed");
 
@@ -835,7 +1597,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 211:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInt32(appIndex)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
@@ -846,7 +1608,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 212:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write appIndex failed");
 
@@ -854,7 +1616,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 218:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
@@ -865,7 +1627,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 219:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
 
@@ -873,7 +1635,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 225:33
 Spell: VerifyUriPermission
-包含日志: 否
+包含日志: 是
 代码:
 bool UriPermissionManagerProxy::VerifyUriPermission(const Uri& uri, uint32_t flag, uint32_t tokenId)
 {
@@ -909,7 +1671,7 @@ bool UriPermissionManagerProxy::VerifyUriPermission(const Uri& uri, uint32_t fla
 代码块类型: Loop Block (do)
 位置: 227:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -917,7 +1679,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 229:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -928,7 +1690,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 230:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -936,7 +1698,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 233:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteParcelable(&uri)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
@@ -947,7 +1709,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 234:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uri failed");
 
@@ -955,7 +1717,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 237:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(flag)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
@@ -966,7 +1728,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 238:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
 
@@ -974,7 +1736,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 241:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(tokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
@@ -985,7 +1747,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 242:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
 
@@ -993,7 +1755,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 248:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
@@ -1004,7 +1766,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 249:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
 
@@ -1012,7 +1774,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 255:46
 Spell: CheckUriAuthorization
-包含日志: 否
+包含日志: 是
 代码:
 std::vector<bool> UriPermissionManagerProxy::CheckUriAuthorization(const std::vector<std::string> &uriVec,
     uint32_t flag, uint32_t tokenId)
@@ -1068,7 +1830,7 @@ std::vector<bool> UriPermissionManagerProxy::CheckUriAuthorization(const std::ve
 代码块类型: Loop Block (do)
 位置: 258:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -1076,7 +1838,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 260:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
@@ -1087,7 +1849,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 261:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
 
@@ -1095,7 +1857,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 265:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -1106,7 +1868,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 266:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -1114,7 +1876,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 269:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(uriVec.size())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
@@ -1125,7 +1887,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 270:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write uriVec size failed");
 
@@ -1133,7 +1895,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 279:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(flag)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
@@ -1144,7 +1906,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 280:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write flag failed");
 
@@ -1152,7 +1914,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 283:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(tokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
@@ -1163,7 +1925,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 284:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write tokenId failed");
 
@@ -1171,7 +1933,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 290:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest error:%{public}d", error);
@@ -1182,7 +1944,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 291:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest error:%{public}d", error);
 
@@ -1190,7 +1952,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 295:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (size > CYCLE_LIMIT) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Reply size too large");
@@ -1201,7 +1963,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 296:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Reply size too large");
 
@@ -1209,7 +1971,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 305:36
 Spell: SendTransactCmd
-包含日志: 否
+包含日志: 是
 代码:
 int32_t UriPermissionManagerProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
     MessageParcel &reply, MessageOption &option)
@@ -1232,7 +1994,7 @@ int32_t UriPermissionManagerProxy::SendTransactCmd(uint32_t code, MessageParcel 
 代码块类型: Conditional Block (if)
 位置: 309:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "remoteObject null");
@@ -1243,7 +2005,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 310:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "remoteObject null");
 
@@ -1251,7 +2013,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 315:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed. code:%{public}d, ret:%{public}d", code, ret);
@@ -1262,7 +2024,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 316:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest failed. code:%{public}d, ret:%{public}d", code, ret);
 
@@ -1270,7 +2032,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 322:32
 Spell: ClearPermissionTokenByMap
-包含日志: 否
+包含日志: 是
 代码:
 int UriPermissionManagerProxy::ClearPermissionTokenByMap(const uint32_t tokenId)
 {
@@ -1298,7 +2060,7 @@ int UriPermissionManagerProxy::ClearPermissionTokenByMap(const uint32_t tokenId)
 代码块类型: Loop Block (do)
 位置: 324:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
 
@@ -1306,7 +2068,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 326:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IUriPermissionManager::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
@@ -1317,7 +2079,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 327:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write interfaceToken failed");
 
@@ -1325,7 +2087,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 330:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(tokenId)) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
@@ -1336,7 +2098,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 331:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "Write AccessTokenID failed");
 
@@ -1344,7 +2106,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 337:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (error != ERR_OK) {
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
@@ -1355,7 +2117,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 338:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::URIPERMMGR, "SendRequest fail, error:%{public}d", error);
 

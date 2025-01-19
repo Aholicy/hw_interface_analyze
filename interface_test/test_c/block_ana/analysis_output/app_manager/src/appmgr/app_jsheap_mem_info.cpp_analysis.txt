@@ -1,3 +1,65 @@
+代码块类型: Namespace Declaration
+位置: 19:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+bool JsHeapDumpInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+        && parcel.WriteBool(needLeakobj));
+}
+
+JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
+{
+    JsHeapDumpInfo *info = new (std::nothrow) JsHeapDumpInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+        return nullptr;
+    }
+    info->pid = parcel.ReadUint32();
+    info->tid = parcel.ReadUint32();
+    info->needGc = parcel.ReadBool();
+    info->needSnapshot = parcel.ReadBool();
+    info->needLeakobj = parcel.ReadBool();
+    return info;
+}
+} // namespace AppExecFwk
+} // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+bool JsHeapDumpInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+        && parcel.WriteBool(needLeakobj));
+}
+
+JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
+{
+    JsHeapDumpInfo *info = new (std::nothrow) JsHeapDumpInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+        return nullptr;
+    }
+    info->pid = parcel.ReadUint32();
+    info->tid = parcel.ReadUint32();
+    info->needGc = parcel.ReadBool();
+    info->needSnapshot = parcel.ReadBool();
+    info->needLeakobj = parcel.ReadBool();
+    return info;
+}
+} // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 21:22
 Spell: Marshalling
@@ -14,7 +76,7 @@ bool JsHeapDumpInfo::Marshalling(Parcel &parcel) const
 代码块类型: Method Declaration
 位置: 28:33
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
 {
@@ -35,7 +97,7 @@ JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 31:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (info == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
@@ -46,7 +108,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 32:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
 

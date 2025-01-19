@@ -1,7 +1,230 @@
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+ChildSchedulerProxy::ChildSchedulerProxy(const sptr<IRemoteObject> &impl) : IRemoteProxy<IChildScheduler>(impl)
+{}
+
+bool ChildSchedulerProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(ChildSchedulerProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+bool ChildSchedulerProxy::ScheduleLoadChild()
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleLoadChild start");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return false;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+        return false;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_LOAD_JS), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+        return false;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleLoadChild end");
+    return true;
+}
+
+bool ChildSchedulerProxy::ScheduleExitProcessSafely()
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleExitProcessSafely start.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return false;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL.");
+        return false;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_EXIT_PROCESS_SAFELY), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
+        return false;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleExitProcessSafely end.");
+    return true;
+}
+
+bool ChildSchedulerProxy::ScheduleRunNativeProc(const sptr<IRemoteObject> &mainProcessCb)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleRunNativeProc start.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return false;
+    }
+
+    if (!data.WriteRemoteObject(mainProcessCb)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write main process callback ipc object failed.");
+        return false;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is null.");
+        return false;
+    }
+
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_RUN_NATIVE_PROC), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
+        return false;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleRunNativeProc end.");
+    return true;
+}
+
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+ChildSchedulerProxy::ChildSchedulerProxy(const sptr<IRemoteObject> &impl) : IRemoteProxy<IChildScheduler>(impl)
+{}
+
+bool ChildSchedulerProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(ChildSchedulerProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+        return false;
+    }
+    return true;
+}
+
+bool ChildSchedulerProxy::ScheduleLoadChild()
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleLoadChild start");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return false;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+        return false;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_LOAD_JS), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+        return false;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleLoadChild end");
+    return true;
+}
+
+bool ChildSchedulerProxy::ScheduleExitProcessSafely()
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleExitProcessSafely start.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return false;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL.");
+        return false;
+    }
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_EXIT_PROCESS_SAFELY), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
+        return false;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleExitProcessSafely end.");
+    return true;
+}
+
+bool ChildSchedulerProxy::ScheduleRunNativeProc(const sptr<IRemoteObject> &mainProcessCb)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleRunNativeProc start.");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+        return false;
+    }
+
+    if (!data.WriteRemoteObject(mainProcessCb)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Write main process callback ipc object failed.");
+        return false;
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is null.");
+        return false;
+    }
+
+    int32_t ret = remote->SendRequest(
+        static_cast<uint32_t>(IChildScheduler::Message::SCHEDULE_RUN_NATIVE_PROC), data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
+        return false;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "ScheduleRunNativeProc end.");
+    return true;
+}
+
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 23:22
+Spell: ChildSchedulerProxy
+包含日志: 否
+代码:
+ChildSchedulerProxy::ChildSchedulerProxy(const sptr<IRemoteObject> &impl) : IRemoteProxy<IChildScheduler>(impl)
+{}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 26:27
 Spell: WriteInterfaceToken
-包含日志: 否
+包含日志: 是
 代码:
 bool ChildSchedulerProxy::WriteInterfaceToken(MessageParcel &data)
 {
@@ -16,7 +239,7 @@ bool ChildSchedulerProxy::WriteInterfaceToken(MessageParcel &data)
 代码块类型: Conditional Block (if)
 位置: 28:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(ChildSchedulerProxy::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
@@ -27,7 +250,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 29:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
 
@@ -35,7 +258,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 35:27
 Spell: ScheduleLoadChild
-包含日志: 否
+包含日志: 是
 代码:
 bool ChildSchedulerProxy::ScheduleLoadChild()
 {
@@ -67,7 +290,7 @@ bool ChildSchedulerProxy::ScheduleLoadChild()
 代码块类型: Loop Block (do)
 位置: 37:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "ScheduleLoadChild start");
 
@@ -75,7 +298,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 41:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!WriteInterfaceToken(data)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
@@ -86,7 +309,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 42:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
 
@@ -94,7 +317,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 47:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
@@ -105,7 +328,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 48:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
 
@@ -113,7 +336,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 53:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
@@ -124,7 +347,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 54:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
 
@@ -132,7 +355,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 57:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "ScheduleLoadChild end");
 
@@ -140,7 +363,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 61:27
 Spell: ScheduleExitProcessSafely
-包含日志: 否
+包含日志: 是
 代码:
 bool ChildSchedulerProxy::ScheduleExitProcessSafely()
 {
@@ -172,7 +395,7 @@ bool ChildSchedulerProxy::ScheduleExitProcessSafely()
 代码块类型: Loop Block (do)
 位置: 63:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "ScheduleExitProcessSafely start.");
 
@@ -180,7 +403,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 67:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!WriteInterfaceToken(data)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
@@ -191,7 +414,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 68:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
 
@@ -199,7 +422,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 73:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL.");
@@ -210,7 +433,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 74:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL.");
 
@@ -218,7 +441,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 79:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
@@ -229,7 +452,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 80:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
 
@@ -237,7 +460,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 83:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "ScheduleExitProcessSafely end.");
 
@@ -245,7 +468,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 87:27
 Spell: ScheduleRunNativeProc
-包含日志: 否
+包含日志: 是
 代码:
 bool ChildSchedulerProxy::ScheduleRunNativeProc(const sptr<IRemoteObject> &mainProcessCb)
 {
@@ -284,7 +507,7 @@ bool ChildSchedulerProxy::ScheduleRunNativeProc(const sptr<IRemoteObject> &mainP
 代码块类型: Loop Block (do)
 位置: 89:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "ScheduleRunNativeProc start.");
 
@@ -292,7 +515,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 93:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!WriteInterfaceToken(data)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
@@ -303,7 +526,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 94:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
 
@@ -311,7 +534,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 98:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteRemoteObject(mainProcessCb)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Write main process callback ipc object failed.");
@@ -322,7 +545,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 99:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Write main process callback ipc object failed.");
 
@@ -330,7 +553,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 104:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is null.");
@@ -341,7 +564,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 105:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Remote() is null.");
 
@@ -349,7 +572,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 111:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
@@ -360,7 +583,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 112:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
 
@@ -368,7 +591,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 116:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGD(AAFwkTag::APPMGR, "ScheduleRunNativeProc end.");
 

@@ -1,3 +1,555 @@
+代码块类型: Namespace Declaration
+位置: 20:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AppExecFwk {
+void AppLaunchData::SetApplicationInfo(const ApplicationInfo &info)
+{
+    applicationInfo_ = info;
+}
+
+void AppLaunchData::SetProfile(const Profile &profile)
+{
+    profile_ = profile;
+}
+
+void AppLaunchData::SetProcessInfo(const ProcessInfo &info)
+{
+    processInfo_ = info;
+}
+
+void AppLaunchData::SetRecordId(const int32_t recordId)
+{
+    recordId_ = recordId;
+}
+
+void AppLaunchData::SetUId(const int32_t uId)
+{
+    uId_ = uId;
+}
+
+void AppLaunchData::SetAppIndex(const int32_t appIndex)
+{
+    appIndex_ = appIndex;
+}
+
+void AppLaunchData::SetUserTestInfo(const std::shared_ptr<UserTestRecord> &record)
+{
+    userTestRecord_ = record;
+}
+
+bool AppLaunchData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteParcelable(&applicationInfo_) ||
+        !parcel.WriteParcelable(&profile_) || !parcel.WriteParcelable(&processInfo_)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(recordId_) ||
+        !parcel.WriteInt32(uId_) || !parcel.WriteInt32(appIndex_)) {
+        return false;
+    }
+
+    bool valid = userTestRecord_ ? true : false;
+    if (!parcel.WriteBool(valid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether userTestRecord_ is null");
+        return false;
+    }
+    if (valid) {
+        if (!parcel.WriteParcelable(userTestRecord_.get())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userTestRecord_");
+            return false;
+        }
+    }
+
+    if (!parcel.WriteBool(debugApp_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write debug flag.");
+        return false;
+    }
+
+    if (!parcel.WriteString(perfCmd_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write perf cmd.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(jitEnabled_) || !parcel.WriteBool(isNativeStart_)) {
+        return false;
+    }
+
+    if (!parcel.WriteString(appRunningUniqueId_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write app running unique id.");
+        return false;
+    }
+
+    return MarshallingExtend(parcel);
+}
+
+bool AppLaunchData::MarshallingExtend(Parcel &parcel) const
+{
+    if (!parcel.WriteBool(isMultiThread_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is multi thread flag.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(isErrorInfoEnhance_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is error info enhance flag.");
+        return false;
+    }
+
+    if (!parcel.WriteString(instanceKey_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(isNeedPreloadModule_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(isAllowedNWebPreload_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write isAllowedNWebPreload.");
+        return false;
+    }
+
+    return true;
+}
+
+bool AppLaunchData::ReadFromParcel(Parcel &parcel)
+{
+    std::unique_ptr<ApplicationInfo> applicationInfoRead(parcel.ReadParcelable<ApplicationInfo>());
+    if (!applicationInfoRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "failed, applicationInfoRead is nullptr");
+        return false;
+    }
+    applicationInfo_ = *applicationInfoRead;
+
+    std::unique_ptr<Profile> profileRead(parcel.ReadParcelable<Profile>());
+    if (!profileRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "failed, profileRead is nullptr");
+        return false;
+    }
+    profile_ = *profileRead;
+
+    std::unique_ptr<ProcessInfo> processInfoRead(parcel.ReadParcelable<ProcessInfo>());
+    if (!processInfoRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "failed, processInfoRead is nullptr");
+        return false;
+    }
+    processInfo_ = *processInfoRead;
+
+    recordId_ = parcel.ReadInt32();
+    uId_ = parcel.ReadInt32();
+    appIndex_ = parcel.ReadInt32();
+
+    bool valid = parcel.ReadBool();
+    if (valid) {
+        userTestRecord_ = std::shared_ptr<UserTestRecord>(parcel.ReadParcelable<UserTestRecord>());
+        if (!userTestRecord_) {
+            TAG_LOGE(AAFwkTag::APPMGR, "failed, userTestRecord is nullptr");
+            return false;
+        }
+    }
+
+    debugApp_ = parcel.ReadBool();
+    perfCmd_ = parcel.ReadString();
+    jitEnabled_ = parcel.ReadBool();
+    isNativeStart_ = parcel.ReadBool();
+    appRunningUniqueId_ = parcel.ReadString();
+    isMultiThread_ = parcel.ReadBool();
+    isErrorInfoEnhance_ = parcel.ReadBool();
+    instanceKey_ = parcel.ReadString();
+    isNeedPreloadModule_ = parcel.ReadBool();
+    isAllowedNWebPreload_ = parcel.ReadBool();
+    return true;
+}
+
+AppLaunchData *AppLaunchData::Unmarshalling(Parcel &parcel)
+{
+    AppLaunchData *appLaunchData = new AppLaunchData();
+    if (appLaunchData && !appLaunchData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete appLaunchData;
+        appLaunchData = nullptr;
+    }
+    return appLaunchData;
+}
+
+bool UserTestRecord::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteParcelable(&want)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write want");
+        return false;
+    }
+
+    auto valid = observer ? true : false;
+    if (!parcel.WriteBool(valid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether observer is null");
+        return false;
+    }
+
+    if (valid) {
+        if (!(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(observer)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write observer");
+            return false;
+        }
+    }
+
+    if (!parcel.WriteBool(isFinished)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write isFinished");
+        return false;
+    }
+
+    if (!parcel.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userId");
+        return false;
+    }
+    return true;
+}
+
+UserTestRecord *UserTestRecord::Unmarshalling(Parcel &parcel)
+{
+    UserTestRecord *userTestRecord = new (std::nothrow) UserTestRecord();
+    if (userTestRecord && !userTestRecord->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete userTestRecord;
+        userTestRecord = nullptr;
+    }
+    return userTestRecord;
+}
+
+bool UserTestRecord::ReadFromParcel(Parcel &parcel)
+{
+    AAFwk::Want *wantPtr = parcel.ReadParcelable<AAFwk::Want>();
+    if (wantPtr == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "wantPtr is nullptr");
+        return false;
+    }
+    want = *wantPtr;
+    delete wantPtr;
+
+    auto valid = parcel.ReadBool();
+    if (valid) {
+        observer = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+        if (!observer) {
+            TAG_LOGE(AAFwkTag::APPMGR, "observer is nullptr");
+            return false;
+        }
+    }
+
+    isFinished = parcel.ReadBool();
+    userId = parcel.ReadInt32();
+    return true;
+}
+
+void AppLaunchData::SetNativeStart(bool isNativeStart)
+{
+    isNativeStart_ = isNativeStart;
+}
+
+bool AppLaunchData::isNativeStart() const
+{
+    return isNativeStart_;
+}
+
+void AppLaunchData::SetIsNeedPreloadModule(bool isNeedPreloadModule)
+{
+    isNeedPreloadModule_ = isNeedPreloadModule;
+}
+
+bool AppLaunchData::IsNeedPreloadModule() const
+{
+    return isNeedPreloadModule_;
+}
+
+void AppLaunchData::SetNWebPreload(const bool isAllowedNWebPreload)
+{
+    isAllowedNWebPreload_ = isAllowedNWebPreload;
+}
+
+bool AppLaunchData::IsAllowedNWebPreload() const
+{
+    return isAllowedNWebPreload_;
+}
+}  // namespace AppExecFwk
+}  // namespace OHOS
+
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 21:11
+Spell: AppExecFwk
+包含日志: 是
+代码:
+namespace AppExecFwk {
+void AppLaunchData::SetApplicationInfo(const ApplicationInfo &info)
+{
+    applicationInfo_ = info;
+}
+
+void AppLaunchData::SetProfile(const Profile &profile)
+{
+    profile_ = profile;
+}
+
+void AppLaunchData::SetProcessInfo(const ProcessInfo &info)
+{
+    processInfo_ = info;
+}
+
+void AppLaunchData::SetRecordId(const int32_t recordId)
+{
+    recordId_ = recordId;
+}
+
+void AppLaunchData::SetUId(const int32_t uId)
+{
+    uId_ = uId;
+}
+
+void AppLaunchData::SetAppIndex(const int32_t appIndex)
+{
+    appIndex_ = appIndex;
+}
+
+void AppLaunchData::SetUserTestInfo(const std::shared_ptr<UserTestRecord> &record)
+{
+    userTestRecord_ = record;
+}
+
+bool AppLaunchData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteParcelable(&applicationInfo_) ||
+        !parcel.WriteParcelable(&profile_) || !parcel.WriteParcelable(&processInfo_)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(recordId_) ||
+        !parcel.WriteInt32(uId_) || !parcel.WriteInt32(appIndex_)) {
+        return false;
+    }
+
+    bool valid = userTestRecord_ ? true : false;
+    if (!parcel.WriteBool(valid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether userTestRecord_ is null");
+        return false;
+    }
+    if (valid) {
+        if (!parcel.WriteParcelable(userTestRecord_.get())) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userTestRecord_");
+            return false;
+        }
+    }
+
+    if (!parcel.WriteBool(debugApp_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write debug flag.");
+        return false;
+    }
+
+    if (!parcel.WriteString(perfCmd_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write perf cmd.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(jitEnabled_) || !parcel.WriteBool(isNativeStart_)) {
+        return false;
+    }
+
+    if (!parcel.WriteString(appRunningUniqueId_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write app running unique id.");
+        return false;
+    }
+
+    return MarshallingExtend(parcel);
+}
+
+bool AppLaunchData::MarshallingExtend(Parcel &parcel) const
+{
+    if (!parcel.WriteBool(isMultiThread_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is multi thread flag.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(isErrorInfoEnhance_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is error info enhance flag.");
+        return false;
+    }
+
+    if (!parcel.WriteString(instanceKey_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(isNeedPreloadModule_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
+        return false;
+    }
+
+    if (!parcel.WriteBool(isAllowedNWebPreload_)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write isAllowedNWebPreload.");
+        return false;
+    }
+
+    return true;
+}
+
+bool AppLaunchData::ReadFromParcel(Parcel &parcel)
+{
+    std::unique_ptr<ApplicationInfo> applicationInfoRead(parcel.ReadParcelable<ApplicationInfo>());
+    if (!applicationInfoRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "failed, applicationInfoRead is nullptr");
+        return false;
+    }
+    applicationInfo_ = *applicationInfoRead;
+
+    std::unique_ptr<Profile> profileRead(parcel.ReadParcelable<Profile>());
+    if (!profileRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "failed, profileRead is nullptr");
+        return false;
+    }
+    profile_ = *profileRead;
+
+    std::unique_ptr<ProcessInfo> processInfoRead(parcel.ReadParcelable<ProcessInfo>());
+    if (!processInfoRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "failed, processInfoRead is nullptr");
+        return false;
+    }
+    processInfo_ = *processInfoRead;
+
+    recordId_ = parcel.ReadInt32();
+    uId_ = parcel.ReadInt32();
+    appIndex_ = parcel.ReadInt32();
+
+    bool valid = parcel.ReadBool();
+    if (valid) {
+        userTestRecord_ = std::shared_ptr<UserTestRecord>(parcel.ReadParcelable<UserTestRecord>());
+        if (!userTestRecord_) {
+            TAG_LOGE(AAFwkTag::APPMGR, "failed, userTestRecord is nullptr");
+            return false;
+        }
+    }
+
+    debugApp_ = parcel.ReadBool();
+    perfCmd_ = parcel.ReadString();
+    jitEnabled_ = parcel.ReadBool();
+    isNativeStart_ = parcel.ReadBool();
+    appRunningUniqueId_ = parcel.ReadString();
+    isMultiThread_ = parcel.ReadBool();
+    isErrorInfoEnhance_ = parcel.ReadBool();
+    instanceKey_ = parcel.ReadString();
+    isNeedPreloadModule_ = parcel.ReadBool();
+    isAllowedNWebPreload_ = parcel.ReadBool();
+    return true;
+}
+
+AppLaunchData *AppLaunchData::Unmarshalling(Parcel &parcel)
+{
+    AppLaunchData *appLaunchData = new AppLaunchData();
+    if (appLaunchData && !appLaunchData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete appLaunchData;
+        appLaunchData = nullptr;
+    }
+    return appLaunchData;
+}
+
+bool UserTestRecord::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteParcelable(&want)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write want");
+        return false;
+    }
+
+    auto valid = observer ? true : false;
+    if (!parcel.WriteBool(valid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether observer is null");
+        return false;
+    }
+
+    if (valid) {
+        if (!(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(observer)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Failed to write observer");
+            return false;
+        }
+    }
+
+    if (!parcel.WriteBool(isFinished)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write isFinished");
+        return false;
+    }
+
+    if (!parcel.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userId");
+        return false;
+    }
+    return true;
+}
+
+UserTestRecord *UserTestRecord::Unmarshalling(Parcel &parcel)
+{
+    UserTestRecord *userTestRecord = new (std::nothrow) UserTestRecord();
+    if (userTestRecord && !userTestRecord->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete userTestRecord;
+        userTestRecord = nullptr;
+    }
+    return userTestRecord;
+}
+
+bool UserTestRecord::ReadFromParcel(Parcel &parcel)
+{
+    AAFwk::Want *wantPtr = parcel.ReadParcelable<AAFwk::Want>();
+    if (wantPtr == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "wantPtr is nullptr");
+        return false;
+    }
+    want = *wantPtr;
+    delete wantPtr;
+
+    auto valid = parcel.ReadBool();
+    if (valid) {
+        observer = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+        if (!observer) {
+            TAG_LOGE(AAFwkTag::APPMGR, "observer is nullptr");
+            return false;
+        }
+    }
+
+    isFinished = parcel.ReadBool();
+    userId = parcel.ReadInt32();
+    return true;
+}
+
+void AppLaunchData::SetNativeStart(bool isNativeStart)
+{
+    isNativeStart_ = isNativeStart;
+}
+
+bool AppLaunchData::isNativeStart() const
+{
+    return isNativeStart_;
+}
+
+void AppLaunchData::SetIsNeedPreloadModule(bool isNeedPreloadModule)
+{
+    isNeedPreloadModule_ = isNeedPreloadModule;
+}
+
+bool AppLaunchData::IsNeedPreloadModule() const
+{
+    return isNeedPreloadModule_;
+}
+
+void AppLaunchData::SetNWebPreload(const bool isAllowedNWebPreload)
+{
+    isAllowedNWebPreload_ = isAllowedNWebPreload;
+}
+
+bool AppLaunchData::IsAllowedNWebPreload() const
+{
+    return isAllowedNWebPreload_;
+}
+}  // namespace AppExecFwk
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 22:21
 Spell: SetApplicationInfo
@@ -78,7 +630,7 @@ void AppLaunchData::SetUserTestInfo(const std::shared_ptr<UserTestRecord> &recor
 代码块类型: Method Declaration
 位置: 57:21
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool AppLaunchData::Marshalling(Parcel &parcel) const
 {
@@ -151,7 +703,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 69:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(valid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether userTestRecord_ is null");
@@ -162,7 +714,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 70:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether userTestRecord_ is null");
 
@@ -170,7 +722,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 73:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (valid) {
         if (!parcel.WriteParcelable(userTestRecord_.get())) {
@@ -183,7 +735,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 74:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!parcel.WriteParcelable(userTestRecord_.get())) {
             TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userTestRecord_");
@@ -194,7 +746,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 75:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userTestRecord_");
 
@@ -202,7 +754,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 80:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(debugApp_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write debug flag.");
@@ -213,7 +765,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 81:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write debug flag.");
 
@@ -221,7 +773,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 85:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(perfCmd_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write perf cmd.");
@@ -232,7 +784,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 86:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write perf cmd.");
 
@@ -250,7 +802,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 94:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(appRunningUniqueId_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write app running unique id.");
@@ -261,7 +813,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 95:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write app running unique id.");
 
@@ -269,7 +821,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 102:21
 Spell: MarshallingExtend
-包含日志: 否
+包含日志: 是
 代码:
 bool AppLaunchData::MarshallingExtend(Parcel &parcel) const
 {
@@ -305,7 +857,7 @@ bool AppLaunchData::MarshallingExtend(Parcel &parcel) const
 代码块类型: Conditional Block (if)
 位置: 104:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(isMultiThread_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is multi thread flag.");
@@ -316,7 +868,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 105:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is multi thread flag.");
 
@@ -324,7 +876,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 109:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(isErrorInfoEnhance_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is error info enhance flag.");
@@ -335,7 +887,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 110:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write is error info enhance flag.");
 
@@ -343,7 +895,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 114:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteString(instanceKey_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
@@ -354,7 +906,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 115:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
 
@@ -362,7 +914,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 119:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(isNeedPreloadModule_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
@@ -373,7 +925,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 120:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write instance key.");
 
@@ -381,7 +933,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 124:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(isAllowedNWebPreload_)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write isAllowedNWebPreload.");
@@ -392,7 +944,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 125:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Marshalling, Failed to write isAllowedNWebPreload.");
 
@@ -400,7 +952,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 132:21
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool AppLaunchData::ReadFromParcel(Parcel &parcel)
 {
@@ -455,7 +1007,7 @@ bool AppLaunchData::ReadFromParcel(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 135:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!applicationInfoRead) {
         TAG_LOGE(AAFwkTag::APPMGR, "failed, applicationInfoRead is nullptr");
@@ -466,7 +1018,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 136:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "failed, applicationInfoRead is nullptr");
 
@@ -474,7 +1026,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 142:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!profileRead) {
         TAG_LOGE(AAFwkTag::APPMGR, "failed, profileRead is nullptr");
@@ -485,7 +1037,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 143:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "failed, profileRead is nullptr");
 
@@ -493,7 +1045,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 149:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!processInfoRead) {
         TAG_LOGE(AAFwkTag::APPMGR, "failed, processInfoRead is nullptr");
@@ -504,7 +1056,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 150:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "failed, processInfoRead is nullptr");
 
@@ -512,7 +1064,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 160:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (valid) {
         userTestRecord_ = std::shared_ptr<UserTestRecord>(parcel.ReadParcelable<UserTestRecord>());
@@ -526,7 +1078,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 162:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!userTestRecord_) {
             TAG_LOGE(AAFwkTag::APPMGR, "failed, userTestRecord is nullptr");
@@ -537,7 +1089,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 163:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "failed, userTestRecord is nullptr");
 
@@ -545,7 +1097,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 181:31
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 AppLaunchData *AppLaunchData::Unmarshalling(Parcel &parcel)
 {
@@ -562,7 +1114,7 @@ AppLaunchData *AppLaunchData::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 184:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (appLaunchData && !appLaunchData->ReadFromParcel(parcel)) {
         TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
@@ -574,7 +1126,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 185:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
 
@@ -582,7 +1134,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 192:22
 Spell: Marshalling
-包含日志: 否
+包含日志: 是
 代码:
 bool UserTestRecord::Marshalling(Parcel &parcel) const
 {
@@ -620,7 +1172,7 @@ bool UserTestRecord::Marshalling(Parcel &parcel) const
 代码块类型: Conditional Block (if)
 位置: 194:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteParcelable(&want)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write want");
@@ -631,7 +1183,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 195:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write want");
 
@@ -639,7 +1191,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 200:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(valid)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether observer is null");
@@ -650,7 +1202,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 201:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write the flag which indicate whether observer is null");
 
@@ -658,7 +1210,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 205:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (valid) {
         if (!(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(observer)) {
@@ -671,7 +1223,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 206:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(observer)) {
             TAG_LOGE(AAFwkTag::APPMGR, "Failed to write observer");
@@ -682,7 +1234,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 207:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "Failed to write observer");
 
@@ -690,7 +1242,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 212:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteBool(isFinished)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write isFinished");
@@ -701,7 +1253,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 213:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write isFinished");
 
@@ -709,7 +1261,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 217:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!parcel.WriteInt32(userId)) {
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userId");
@@ -720,7 +1272,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 218:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "Failed to write userId");
 
@@ -728,7 +1280,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 224:33
 Spell: Unmarshalling
-包含日志: 否
+包含日志: 是
 代码:
 UserTestRecord *UserTestRecord::Unmarshalling(Parcel &parcel)
 {
@@ -745,7 +1297,7 @@ UserTestRecord *UserTestRecord::Unmarshalling(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 227:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (userTestRecord && !userTestRecord->ReadFromParcel(parcel)) {
         TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
@@ -757,7 +1309,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 228:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
 
@@ -765,7 +1317,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 235:22
 Spell: ReadFromParcel
-包含日志: 否
+包含日志: 是
 代码:
 bool UserTestRecord::ReadFromParcel(Parcel &parcel)
 {
@@ -795,7 +1347,7 @@ bool UserTestRecord::ReadFromParcel(Parcel &parcel)
 代码块类型: Conditional Block (if)
 位置: 238:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (wantPtr == nullptr) {
         TAG_LOGE(AAFwkTag::APPMGR, "wantPtr is nullptr");
@@ -806,7 +1358,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 239:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::APPMGR, "wantPtr is nullptr");
 
@@ -814,7 +1366,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 246:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (valid) {
         observer = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
@@ -828,7 +1380,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 248:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         if (!observer) {
             TAG_LOGE(AAFwkTag::APPMGR, "observer is nullptr");
@@ -839,7 +1391,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 249:13
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
             TAG_LOGE(AAFwkTag::APPMGR, "observer is nullptr");
 

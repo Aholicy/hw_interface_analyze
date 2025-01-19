@@ -1,7 +1,173 @@
+代码块类型: Namespace Declaration
+位置: 22:11
+Spell: OHOS
+包含日志: 是
+代码:
+namespace OHOS {
+namespace AbilityRuntime {
+
+StatusBarDelegateProxy::StatusBarDelegateProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IStatusBarDelegate>(impl) {}
+
+int32_t StatusBarDelegateProxy::CheckIfStatusBarItemExists(uint32_t accessTokenId, bool& isExist)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(IStatusBarDelegate::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteUint32(accessTokenId)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "accessTokenId write failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    auto ret = SendRequest(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
+        return ret;
+    }
+    ret = reply.ReadInt32();
+    isExist = reply.ReadBool();
+    return ret;
+}
+
+int32_t StatusBarDelegateProxy::AttachPidToStatusBarItem(uint32_t accessTokenId, int32_t pid,
+    const std::string &instanceKey)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(IStatusBarDelegate::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteUint32(accessTokenId)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write accessTokenId failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write pid failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteString(instanceKey)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "instanceKey write failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    auto ret = SendRequest(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
+        return ret;
+    }
+    return reply.ReadInt32();
+}
+
+int32_t StatusBarDelegateProxy::SendRequest(
+    StatusBarDelegateCmd code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+    return remote->SendRequest(static_cast<uint32_t>(code), data, reply, option);
+}
+} // namespace AbilityRuntime
+} // namespace OHOS
+--------------------------------------------------------------------------------
+代码块类型: Namespace Declaration
+位置: 23:11
+Spell: AbilityRuntime
+包含日志: 是
+代码:
+namespace AbilityRuntime {
+
+StatusBarDelegateProxy::StatusBarDelegateProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IStatusBarDelegate>(impl) {}
+
+int32_t StatusBarDelegateProxy::CheckIfStatusBarItemExists(uint32_t accessTokenId, bool& isExist)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(IStatusBarDelegate::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteUint32(accessTokenId)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "accessTokenId write failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    auto ret = SendRequest(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
+        return ret;
+    }
+    ret = reply.ReadInt32();
+    isExist = reply.ReadBool();
+    return ret;
+}
+
+int32_t StatusBarDelegateProxy::AttachPidToStatusBarItem(uint32_t accessTokenId, int32_t pid,
+    const std::string &instanceKey)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option;
+    if (!data.WriteInterfaceToken(IStatusBarDelegate::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteUint32(accessTokenId)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write accessTokenId failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write pid failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!data.WriteString(instanceKey)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "instanceKey write failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    auto ret = SendRequest(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
+        return ret;
+    }
+    return reply.ReadInt32();
+}
+
+int32_t StatusBarDelegateProxy::SendRequest(
+    StatusBarDelegateCmd code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+    return remote->SendRequest(static_cast<uint32_t>(code), data, reply, option);
+}
+} // namespace AbilityRuntime
+
+--------------------------------------------------------------------------------
+代码块类型: Constructor Declaration
+位置: 25:25
+Spell: StatusBarDelegateProxy
+包含日志: 否
+代码:
+StatusBarDelegateProxy::StatusBarDelegateProxy(const sptr<IRemoteObject> &impl)
+    : IRemoteProxy<IStatusBarDelegate>(impl) {}
+
+--------------------------------------------------------------------------------
 代码块类型: Method Declaration
 位置: 28:33
 Spell: CheckIfStatusBarItemExists
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StatusBarDelegateProxy::CheckIfStatusBarItemExists(uint32_t accessTokenId, bool& isExist)
 {
@@ -31,7 +197,7 @@ int32_t StatusBarDelegateProxy::CheckIfStatusBarItemExists(uint32_t accessTokenI
 代码块类型: Loop Block (do)
 位置: 30:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
 
@@ -39,7 +205,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 34:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IStatusBarDelegate::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
@@ -50,7 +216,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 35:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
 
@@ -58,7 +224,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 38:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(accessTokenId)) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "accessTokenId write failed");
@@ -69,7 +235,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 39:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "accessTokenId write failed");
 
@@ -77,7 +243,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 43:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
@@ -88,7 +254,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 44:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
 
@@ -96,7 +262,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 52:33
 Spell: AttachPidToStatusBarItem
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StatusBarDelegateProxy::AttachPidToStatusBarItem(uint32_t accessTokenId, int32_t pid,
     const std::string &instanceKey)
@@ -133,7 +299,7 @@ int32_t StatusBarDelegateProxy::AttachPidToStatusBarItem(uint32_t accessTokenId,
 代码块类型: Loop Block (do)
 位置: 55:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
 
@@ -141,7 +307,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 59:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInterfaceToken(IStatusBarDelegate::GetDescriptor())) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
@@ -152,7 +318,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 60:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write token failed");
 
@@ -160,7 +326,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 63:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteUint32(accessTokenId)) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write accessTokenId failed");
@@ -171,7 +337,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 64:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write accessTokenId failed");
 
@@ -179,7 +345,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 67:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteInt32(pid)) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write pid failed");
@@ -190,7 +356,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 68:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "write pid failed");
 
@@ -198,7 +364,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 71:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (!data.WriteString(instanceKey)) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "instanceKey write failed");
@@ -209,7 +375,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 72:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "instanceKey write failed");
 
@@ -217,7 +383,7 @@ Spell:
 代码块类型: Conditional Block (if)
 位置: 76:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (ret != NO_ERROR) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
@@ -228,7 +394,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 77:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "Send request error: %{public}d", ret);
 
@@ -236,7 +402,7 @@ Spell:
 代码块类型: Method Declaration
 位置: 83:33
 Spell: SendRequest
-包含日志: 否
+包含日志: 是
 代码:
 int32_t StatusBarDelegateProxy::SendRequest(
     StatusBarDelegateCmd code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
@@ -253,7 +419,7 @@ int32_t StatusBarDelegateProxy::SendRequest(
 代码块类型: Conditional Block (if)
 位置: 87:5
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
     if (remote == nullptr) {
         TAG_LOGE(AAFwkTag::ABILITYMGR, "null remote");
@@ -264,7 +430,7 @@ Spell:
 代码块类型: Loop Block (do)
 位置: 88:9
 Spell: 
-包含日志: 否
+包含日志: 是
 代码:
         TAG_LOGE(AAFwkTag::ABILITYMGR, "null remote");
 
