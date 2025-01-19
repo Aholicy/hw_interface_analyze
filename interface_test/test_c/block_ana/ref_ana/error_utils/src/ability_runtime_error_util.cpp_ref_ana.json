@@ -1,0 +1,5344 @@
+[
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 22,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AbilityRuntime"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AbilityRuntime",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 23,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.ENUM_DECL spell:",
+      "kind:CursorKind.CLASS_DECL spell:AbilityRuntimeErrorUtil"
+    ]
+  },
+  {
+    "kind": "CursorKind.ENUM_DECL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 24,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_ABILITY_NAME",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SUPPORT_OPERATION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_ID",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_VISIBILITY_VERIFICATION_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CROSS_USER_OPERATION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CROWDTEST_APP_EXPIRATION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_WUKONG_MODE",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_OPERATION_WITH_CONTINUE_FLAG",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CONTEXT_NOT_EXIST",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_ABILITY_ALREADY_AT_TOP",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CONNECTION_NOT_EXIST",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CONNECTION_STATE_ABNORMAL",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_APP_UNDER_CONTROL",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_START_ABILITY_WAITTING",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SUPPORT_CROSS_APP_START",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CANNOT_MATCH_ANY_COMPONENT",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_INTERNAL_ERROR",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NETWORK_ERROR",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_FREE_INSTALL_NOT_SUPPORT",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NOT_TOP_ABILITY",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_FREE_INSTALL_BUSY",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_FREE_INSTALL_TIMEOUT",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CANNOT_FREE_INSTALL_OTHER_ABILITY",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SUPPORT_CROSS_DEVICE_FREE_INSTALL",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_URI_FLAG",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_URI_TYPE",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_GRANT_URI_PERMISSION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_OPERATION_NOT_SUPPORTED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_CHILD_PROCESS_NUMBER_EXCEEDS_UPPER_BOUND",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_RESTART_APP_INCORRECT_ABILITY",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_RESTART_APP_FREQUENT",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_EXECUTE_SHELL_COMMAND_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_WANTAGENT_NOT_FOUND",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_WANTAGENT_CANCELED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_URI_ABILITY",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_FA_NOT_SUPPORT_OPERATION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CALLER_RELEASED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_CALLEE_INVALID",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_RELEASE_ERROR",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_METHOED_REGISTERED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_METHOED_NOT_REGISTERED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_MISSION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_MISSION_LISTENER",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SYSTEM_HSP",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_BUNDLENAME",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_HQF",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_DEPLOY_HQF_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_SWITCH_HQF_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_DELETE_HQF_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_LOAD_PATCH_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_UNLOAD_PATCH_FAILED",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_QUICK_FIX_INTERNAL_ERROR",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_ACCESS_PERMISSION",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_NOT_SYSTEM_APP",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER",
+      "kind:CursorKind.ENUM_CONSTANT_DECL spell:ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_SYSCAP"
+    ]
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_ABILITY_NAME",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 25,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 25,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 25,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SUPPORT_OPERATION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 26,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 26,
+      "column": 58
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 26,
+      "column": 58
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_ID",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 27,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 27,
+      "column": 47
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 27,
+      "column": 47
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_VISIBILITY_VERIFICATION_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 28,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 28,
+      "column": 67
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 28,
+      "column": 67
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CROSS_USER_OPERATION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 29,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 29,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 29,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 30,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 30,
+      "column": 49
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 30,
+      "column": 49
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CROWDTEST_APP_EXPIRATION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 31,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 31,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 31,
+      "column": 61
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_WUKONG_MODE",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 32,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 32,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 32,
+      "column": 48
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_OPERATION_WITH_CONTINUE_FLAG",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 33,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 33,
+      "column": 65
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 33,
+      "column": 65
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CONTEXT_NOT_EXIST",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 34,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 34,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 34,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_ABILITY_ALREADY_AT_TOP",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 35,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 35,
+      "column": 59
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 35,
+      "column": 59
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CONNECTION_NOT_EXIST",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 36,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 36,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 36,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CONNECTION_STATE_ABNORMAL",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 37,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 37,
+      "column": 62
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 37,
+      "column": 62
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_TIMEOUT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 38,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 38,
+      "column": 52
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 38,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_APP_UNDER_CONTROL",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 39,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 39,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 39,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_START_ABILITY_WAITTING",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 40,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 40,
+      "column": 59
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 40,
+      "column": 59
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SUPPORT_CROSS_APP_START",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 41,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 41,
+      "column": 64
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 41,
+      "column": 64
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CANNOT_MATCH_ANY_COMPONENT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 42,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 42,
+      "column": 63
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 42,
+      "column": 63
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_INTERNAL_ERROR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 43,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 43,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 43,
+      "column": 51
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NETWORK_ERROR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 44,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 44,
+      "column": 50
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 44,
+      "column": 50
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_FREE_INSTALL_NOT_SUPPORT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 45,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 45,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 45,
+      "column": 61
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NOT_TOP_ABILITY",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 46,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 46,
+      "column": 52
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 46,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_FREE_INSTALL_BUSY",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 47,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 47,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 47,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_FREE_INSTALL_TIMEOUT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 48,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 48,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 48,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CANNOT_FREE_INSTALL_OTHER_ABILITY",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 49,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 49,
+      "column": 70
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 49,
+      "column": 70
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SUPPORT_CROSS_DEVICE_FREE_INSTALL",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 50,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 50,
+      "column": 74
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 50,
+      "column": 74
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_URI_FLAG",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 51,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 51,
+      "column": 53
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 51,
+      "column": 53
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_URI_TYPE",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 52,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 52,
+      "column": 53
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 52,
+      "column": 53
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_GRANT_URI_PERMISSION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 53,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 53,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 53,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_OPERATION_NOT_SUPPORTED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 54,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 54,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 54,
+      "column": 51
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_CHILD_PROCESS_NUMBER_EXCEEDS_UPPER_BOUND",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 55,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 55,
+      "column": 68
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 55,
+      "column": 68
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_RESTART_APP_INCORRECT_ABILITY",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 56,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 56,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 56,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_RESTART_APP_FREQUENT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 57,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 57,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 57,
+      "column": 48
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_EXECUTE_SHELL_COMMAND_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 58,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 58,
+      "column": 65
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 58,
+      "column": 65
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_WANTAGENT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 59,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 59,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 59,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_WANTAGENT_NOT_FOUND",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 60,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 60,
+      "column": 56
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 60,
+      "column": 56
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_WANTAGENT_CANCELED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 61,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 61,
+      "column": 55
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 61,
+      "column": 55
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_URI_ABILITY",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 63,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 63,
+      "column": 56
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 63,
+      "column": 56
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_FA_NOT_SUPPORT_OPERATION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 64,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 64,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 64,
+      "column": 61
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CALLER_RELEASED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 66,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 66,
+      "column": 52
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 66,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_CALLEE_INVALID",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 67,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 67,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 67,
+      "column": 51
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_RELEASE_ERROR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 68,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 68,
+      "column": 50
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 68,
+      "column": 50
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_METHOED_REGISTERED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 69,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 69,
+      "column": 55
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 69,
+      "column": 55
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_METHOED_NOT_REGISTERED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 70,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 70,
+      "column": 59
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 70,
+      "column": 59
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_MISSION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 72,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 72,
+      "column": 52
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 72,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_MISSION_LISTENER",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 73,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 73,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 73,
+      "column": 61
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NOT_SYSTEM_HSP",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 75,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 75,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 75,
+      "column": 51
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_BUNDLENAME",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 77,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 77,
+      "column": 55
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 77,
+      "column": 55
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_HQF",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 78,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 78,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 78,
+      "column": 48
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_DEPLOY_HQF_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 79,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 79,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 79,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_SWITCH_HQF_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 80,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 80,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 80,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_DELETE_HQF_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 81,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 81,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 81,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_LOAD_PATCH_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 82,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 82,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 82,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_UNLOAD_PATCH_FAILED",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 83,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 83,
+      "column": 56
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 83,
+      "column": 56
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_QUICK_FIX_INTERNAL_ERROR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 84,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 84,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 84,
+      "column": 61
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_ACCESS_PERMISSION",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 86,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 86,
+      "column": 57
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 86,
+      "column": 57
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_NOT_SYSTEM_APP",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 87,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 87,
+      "column": 42
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 87,
+      "column": 42
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 88,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 88,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 88,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.ENUM_CONSTANT_DECL",
+    "name": "ERR_ABILITY_RUNTIME_EXTERNAL_NO_SUCH_SYSCAP",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 89,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 89,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 89,
+      "column": 51
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CLASS_DECL",
+    "name": "AbilityRuntimeErrorUtil",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 92,
+      "column": 7
+    },
+    "children": [
+      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
+      "kind:CursorKind.CXX_METHOD spell:Throw",
+      "kind:CursorKind.CXX_METHOD spell:ThrowByInternalErrCode",
+      "kind:CursorKind.CXX_METHOD spell:CreateErrorByInternalErrCode",
+      "kind:CursorKind.CXX_METHOD spell:GetErrMessage"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 93,
+      "column": 1
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Throw",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:env",
+      "kind:CursorKind.PARM_DECL spell:errCode",
+      "kind:CursorKind.PARM_DECL spell:errMessage"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "env",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 32
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 45
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 37
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errMessage",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 73
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 60
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/map",
+        "line": 71,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 65
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 101,
+      "column": 84
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "ThrowByInternalErrCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 109,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:env",
+      "kind:CursorKind.PARM_DECL spell:errCode"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "env",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 109,
+      "column": 49
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 109,
+      "column": 62
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 109,
+      "column": 54
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ThrowByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "CreateErrorByInternalErrCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 117,
+      "column": 23
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "GetErrMessage",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 124,
+      "column": 24
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string",
+      "kind:CursorKind.PARM_DECL spell:errCode"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 124,
+      "column": 12
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/map",
+        "line": 71,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 124,
+      "column": 17
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 124,
+      "column": 46
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+      "line": 124,
+      "column": 38
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 24,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AbilityRuntime"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AbilityRuntime",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 25,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:",
+      "kind:CursorKind.CXX_METHOD spell:Throw",
+      "kind:CursorKind.CXX_METHOD spell:ThrowByInternalErrCode",
+      "kind:CursorKind.CXX_METHOD spell:CreateErrorByInternalErrCode",
+      "kind:CursorKind.CXX_METHOD spell:GetErrMessage"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 26,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:ERROR_CODE_MAP",
+      "kind:CursorKind.VAR_DECL spell:ERROR_MSG_MAP"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "ERROR_CODE_MAP",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 27,
+      "column": 34
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "ERROR_MSG_MAP",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 31,
+      "column": 38
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Throw",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 31
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+      "kind:CursorKind.PARM_DECL spell:env",
+      "kind:CursorKind.PARM_DECL spell:errCode",
+      "kind:CursorKind.PARM_DECL spell:errMessage",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "AbilityRuntimeErrorUtil",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+        "line": 92,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "env",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 46
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 59
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 51
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errMessage",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 87
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 74
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/cinttypes",
+        "line": 55,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 155,
+      "column": 79
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 156,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 157,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:eMes"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "eMes",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 157,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string",
+      "kind:CursorKind.CALL_EXPR spell:basic_string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 157,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/cinttypes",
+        "line": 55,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "eMes",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 157,
+      "column": 10
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "eMes",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "basic_string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 157,
+      "column": 24
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:errMessage"
+    ],
+    "function_call": {
+      "function_call": "basic_string",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+        "line": 157,
+        "column": 24
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "eMes",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "basic_string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "errMessage",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 157,
+      "column": 24
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 158,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CALL_EXPR spell:empty",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "empty",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 158,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:empty"
+    ],
+    "function_call": {
+      "function_call": "empty",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+        "line": 158,
+        "column": 9
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "empty",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "empty",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 158,
+      "column": 14
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:eMes"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "eMes",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 158,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:eMes"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "eMes",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 158,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 158,
+      "column": 23
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 161,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:error"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "error",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 161,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 163,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 163,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 163,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.DO_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DO_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.COMPOUND_STMT spell:",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:logTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "logTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
+      "kind:CursorKind.DECL_REF_EXPR spell:DEFAULT"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "DEFAULT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Throw",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "DEFAULT",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 164,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 165,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 165,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 168,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 168,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "ThrowByInternalErrCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 171,
+      "column": 31
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+      "kind:CursorKind.PARM_DECL spell:env",
+      "kind:CursorKind.PARM_DECL spell:errCode",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 171,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "AbilityRuntimeErrorUtil",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+        "line": 92,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ThrowByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "env",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 171,
+      "column": 63
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 171,
+      "column": 76
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 171,
+      "column": 68
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ThrowByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 172,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.IF_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 173,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 173,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 173,
+      "column": 63
+    },
+    "children": [
+      "kind:CursorKind.DO_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DO_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.COMPOUND_STMT spell:",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:logTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "logTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
+      "kind:CursorKind.DECL_REF_EXPR spell:DEFAULT"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ThrowByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "DEFAULT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ThrowByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "DEFAULT",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 174,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 175,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 175,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "CreateErrorByInternalErrCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 180,
+      "column": 37
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 180,
+      "column": 12
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "AbilityRuntimeErrorUtil",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+        "line": 92,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "CreateErrorByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 181,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 182,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 182,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 182,
+      "column": 63
+    },
+    "children": [
+      "kind:CursorKind.DO_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DO_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.COMPOUND_STMT spell:",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:logTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "logTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
+      "kind:CursorKind.DECL_REF_EXPR spell:DEFAULT"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "CreateErrorByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "DEFAULT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "CreateErrorByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "DEFAULT",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 183,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 184,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 184,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 184,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 186,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:externalErrCode"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "externalErrCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 186,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 186,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "CreateErrorByInternalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "externalErrCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "GetErrMessage",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 190,
+      "column": 38
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+      "kind:CursorKind.PARM_DECL spell:errCode",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 190,
+      "column": 1
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/cinttypes",
+        "line": 55,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 190,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 190,
+      "column": 13
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "AbilityRuntimeErrorUtil",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/include/ability_runtime_error_util.h",
+        "line": 92,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::AbilityRuntimeErrorUtil",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "errCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 190,
+      "column": 60
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 190,
+      "column": 52
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "errCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 191,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 192,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:iter"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "iter",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 192,
+      "column": 10
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 193,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:errMsg"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "errMsg",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 193,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 193,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/cinttypes",
+        "line": 55,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "errMsg",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 193,
+      "column": 10
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "errMsg",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 194,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CALL_EXPR spell:basic_string"
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "basic_string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 194,
+      "column": 12
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:errMsg"
+    ],
+    "function_call": {
+      "function_call": "basic_string",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+        "line": 194,
+        "column": 12
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetErrMessage",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.RETURN_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "basic_string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "errMsg",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 194,
+      "column": 12
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:errMsg"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "errMsg",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp",
+      "line": 194,
+      "column": 12
+    },
+    "children": []
+  }
+]

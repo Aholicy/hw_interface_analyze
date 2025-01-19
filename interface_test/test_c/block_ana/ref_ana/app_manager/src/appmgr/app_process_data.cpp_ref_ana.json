@@ -1,0 +1,4593 @@
+[
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 25,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AppExecFwk",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 26,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.STRUCT_DECL spell:AppData",
+      "kind:CursorKind.STRUCT_DECL spell:AppProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.STRUCT_DECL",
+    "name": "AppData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 27,
+      "column": 8
+    },
+    "children": [
+      "kind:CursorKind.FIELD_DECL spell:appName",
+      "kind:CursorKind.FIELD_DECL spell:uid"
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "appName",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 28,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 29,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 29,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "uid",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.STRUCT_DECL",
+    "name": "AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 32,
+      "column": 8
+    },
+    "children": [
+      "kind:CursorKind.CXX_BASE_SPECIFIER spell:class Parcelable",
+      "kind:CursorKind.CXX_METHOD spell:ReadFromParcel",
+      "kind:CursorKind.CXX_METHOD spell:Marshalling",
+      "kind:CursorKind.CXX_METHOD spell:Unmarshalling",
+      "kind:CursorKind.FIELD_DECL spell:processName",
+      "kind:CursorKind.FIELD_DECL spell:appState",
+      "kind:CursorKind.FIELD_DECL spell:pid",
+      "kind:CursorKind.FIELD_DECL spell:appDatas",
+      "kind:CursorKind.FIELD_DECL spell:isFocused",
+      "kind:CursorKind.FIELD_DECL spell:renderPids",
+      "kind:CursorKind.FIELD_DECL spell:appIndex",
+      "kind:CursorKind.FIELD_DECL spell:instanceKey",
+      "kind:CursorKind.FIELD_DECL spell:bundleName"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BASE_SPECIFIER",
+    "name": "class Parcelable",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 32,
+      "column": 32
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcelable"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcelable",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 32,
+      "column": 32
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcelable",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 21,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "class Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 39,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 39,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 39,
+      "column": 25
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Marshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 46,
+      "column": 18
+    },
+    "children": [
+      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
+      "kind:CursorKind.PARM_DECL spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 46,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 46,
+      "column": 38
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 46,
+      "column": 30
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Marshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Unmarshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 53,
+      "column": 28
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppProcessData",
+      "kind:CursorKind.PARM_DECL spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 53,
+      "column": 12
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppProcessData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 32,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 53,
+      "column": 50
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 53,
+      "column": 42
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "processName",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 55,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "appState",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 56,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::ApplicationState",
+      "kind:CursorKind.DECL_REF_EXPR spell:APP_STATE_CREATE"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "enum OHOS::AppExecFwk::ApplicationState",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 56,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.ENUM_DECL",
+      "name": "ApplicationState",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_mgr_constants.h",
+        "line": 25,
+        "column": 12
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "appState",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "enum OHOS::AppExecFwk::ApplicationState",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "APP_STATE_CREATE",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 56,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::ApplicationState"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "enum OHOS::AppExecFwk::ApplicationState",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 56,
+      "column": 33
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.ENUM_DECL",
+      "name": "ApplicationState",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_mgr_constants.h",
+        "line": 25,
+        "column": 12
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "appState",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "APP_STATE_CREATE",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "enum OHOS::AppExecFwk::ApplicationState",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "pid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 57,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:pid_t",
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "pid_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 57,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "pid_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/sys/types.h",
+        "line": 97,
+        "column": 17
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "pid",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "pid_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 57,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "appDatas",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 58,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "isFocused",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 59,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 59,
+      "column": 22
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "renderPids",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 60,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "appIndex",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 61,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t",
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 61,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "appIndex",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 61,
+      "column": 24
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "instanceKey",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 62,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "bundleName",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 63,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 24,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AppExecFwk",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 25,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:",
+      "kind:CursorKind.CXX_METHOD spell:Marshalling",
+      "kind:CursorKind.CXX_METHOD spell:ReadFromParcel",
+      "kind:CursorKind.CXX_METHOD spell:Unmarshalling"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 26,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:CYCLE_LIMIT",
+      "kind:CursorKind.FUNCTION_DECL spell:ReadFromParcelAppData"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "CYCLE_LIMIT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 27,
+      "column": 19
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t",
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 27,
+      "column": 11
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "CYCLE_LIMIT",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 27,
+      "column": 33
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FUNCTION_DECL",
+    "name": "ReadFromParcelAppData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 28,
+      "column": 6
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:appDatas",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "appDatas",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 28,
+      "column": 50
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 28,
+      "column": 68
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 28,
+      "column": 60
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 29,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.FOR_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 30,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:appDataSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "appDataSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 30,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 30,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appDataSize",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appDataSize",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:CYCLE_LIMIT"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appDataSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appDataSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appDataSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "CYCLE_LIMIT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 23
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:CYCLE_LIMIT"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "CYCLE_LIMIT",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 23
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 32,
+      "column": 36
+    },
+    "children": [
+      "kind:CursorKind.DO_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DO_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.COMPOUND_STMT spell:",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:logTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "logTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
+      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "APPMGR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "APPMGR",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 34,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 34,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FOR_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.UNARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 15
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 19
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:i",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appDataSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 22
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appDataSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 26
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appDataSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appDataSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 39
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 39
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 36,
+      "column": 44
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 37,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:appDataInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "appDataInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 37,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppData",
+      "kind:CursorKind.CALL_EXPR spell:AppData"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 37,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 27,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appDataInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "AppData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 37,
+      "column": 17
+    },
+    "children": [],
+    "function_call": {
+      "function_call": "AppData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 37,
+        "column": 17
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appDataInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "AppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:appName"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "appName",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 21
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/vector",
+        "line": 78,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appName",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 14
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appName",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 31
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 38,
+        "column": 31
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appName",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 31
+    },
+    "children": [
+      "kind:CursorKind.OVERLOADED_DECL_REF spell:Str16ToStr8"
+    ]
+  },
+  {
+    "kind": "CursorKind.OVERLOADED_DECL_REF",
+    "name": "Str16ToStr8",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 31
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 43
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 38,
+        "column": 43
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appName",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 43
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 38,
+      "column": 43
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 39,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:uid"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 39,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 39,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "uid",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 39,
+      "column": 23
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 39,
+        "column": 23
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "name": "ReadFromParcelAppData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "uid",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 39,
+      "column": 23
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 39,
+      "column": 23
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 40,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.DECL_REF_EXPR spell:appName"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 40,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appDataInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appDataInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 40,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appName",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 40,
+      "column": 31
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 41,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:uid",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:uid"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 41,
+      "column": 21
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appDataInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appDataInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 41,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 41,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:uid"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 41,
+      "column": 27
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 44,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 44,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Marshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 48,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppProcessData",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+      "line": 46,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 48,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppProcessData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 32,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Marshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 48,
+      "column": 42
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 48,
+      "column": 34
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Marshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 49,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 56,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:appDataSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "appDataSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 56,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 69,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 69,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 72,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppProcessData",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 72,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppProcessData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 32,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 72,
+      "column": 45
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 72,
+      "column": 37
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 73,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:appState",
+      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "appState",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 5
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::ApplicationState",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "enum OHOS::AppExecFwk::ApplicationState",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 28
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.ENUM_DECL",
+      "name": "ApplicationState",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_mgr_constants.h",
+        "line": 25,
+        "column": 12
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "enum OHOS::AppExecFwk::ApplicationState",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 46
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 76,
+        "column": 46
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 46
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 76,
+      "column": 46
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 78,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:pid",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "pid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 78,
+      "column": 5
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 78,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 78,
+        "column": 11
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 78,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 78,
+      "column": 11
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 82,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:isFocused",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "isFocused",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 82,
+      "column": 5
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 82,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 82,
+        "column": 17
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 82,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 82,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 84,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:appIndex",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "appIndex",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 84,
+      "column": 5
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 84,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 84,
+        "column": 16
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 84,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 84,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 88,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 88,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Unmarshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 91,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppProcessData",
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppProcessData",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 91,
+      "column": 1
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppProcessData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 32,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 91,
+      "column": 17
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppProcessData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 32,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 91,
+      "column": 55
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 91,
+      "column": 47
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 92,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 93,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 93,
+      "column": 21
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::AppProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::AppProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 93,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "AppProcessData",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_process_data.h",
+        "line": 32,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "appProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::AppProcessData",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appProcessData",
+      "kind:CursorKind.UNARY_OPERATOR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.CALL_EXPR spell:ReadFromParcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 28
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:ReadFromParcel",
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ],
+    "function_call": {
+      "function_call": "ReadFromParcel",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+        "line": 94,
+        "column": 28
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.UNARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 44
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 28
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 28
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 59
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 94,
+      "column": 68
+    },
+    "children": [
+      "kind:CursorKind.DO_STMT spell:",
+      "kind:CursorKind.CXX_DELETE_EXPR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DO_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.COMPOUND_STMT spell:",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:logTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "logTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
+      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "APPMGR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "APPMGR",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 95,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_DELETE_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 96,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 96,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 96,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 97,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appProcessData",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 97,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 97,
+      "column": 26
+    },
+    "children": [
+      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 97,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 99,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 99,
+      "column": 12
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:appProcessData"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "appProcessData",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_process_data.cpp",
+      "line": 99,
+      "column": 12
+    },
+    "children": []
+  }
+]

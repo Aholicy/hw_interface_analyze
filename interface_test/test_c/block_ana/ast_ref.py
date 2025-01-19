@@ -1,4 +1,5 @@
 import os
+import json
 from clang.cindex import Config, Index, CursorKind
 
 # 设置 Clang 库路径
@@ -19,7 +20,6 @@ def is_in_source_file(cursor, source_code_file):
         # 如果不是 .cpp 文件，判断是否是同名 .h 文件
         source_code_base = os.path.splitext(source_code_file)[0].split("/")[-1]
         file_base = os.path.splitext(file_name)[0].split("/")[-1]
-        print(f"source_code_base: {source_code_base}, file_base: {file_base}")
         return source_code_base == file_base
 
     return os.path.samefile(location.file.name, source_code_file)
@@ -57,33 +57,72 @@ def parse_file(file_path):
     print(f"File parsed successfully: {file_path}")
     return tu.cursor
 
-def process_node(cursor, output_file, file_path, depth=0):
-    """递归处理 AST 节点"""
+def process_node(cursor, file_path, depth=0,current_path=None):
+    """递归处理 AST 节点，并返回 JSON 格式的数据"""
+    node_data = []
     indent = "  " * depth  # 生成当前层次的缩进
-
+    if current_path is None:
+        current_path = []
     if is_in_source_file(cursor, file_path):
-        # 输出当前节点的信息
-        output_file.write(f"{indent}- Node: {cursor.kind} | Name: {cursor.spelling} | Location: {cursor.location.file}:{cursor.location.line}:{cursor.location.column}\n")
-
+        node_info = {
+            "kind": str(cursor.kind),
+            "name": cursor.spelling,
+            "location": {
+                "file": cursor.location.file.name if cursor.location.file else None,
+                "line": cursor.location.line,
+                "column": cursor.location.column
+            },
+            "children": [f"kind:{child.kind} spell:{child.spelling}" for child in cursor.get_children()]
+        }
+        node_data.append(node_info)
+        path_node = {
+            "kind": str(cursor.kind),
+            "name": cursor.spelling,
+            "location": {
+                "file": cursor.location.file.name if cursor.location.file else None,
+            }
+        }
+        current_path.append(path_node)
         if cursor.kind in {CursorKind.TYPE_REF, CursorKind.NAMESPACE_REF, CursorKind.TEMPLATE_REF}:
-            output_file.write(f"{indent}  - Node: {cursor.kind} | Name: {cursor.spelling} | Location: {cursor.location.file}:{cursor.location.line}:{cursor.location.column}\n")
             referenced = cursor.referenced
             if referenced:
-                output_file.write(f"{indent}    -> Referenced: {referenced.kind} | Name: {referenced.spelling} | Location: {referenced.location.file}:{referenced.location.line}:{referenced.location.column}\n")
+                referenced_info = {
+                    "kind": str(referenced.kind),
+                    "name": referenced.spelling,
+                    "location": {
+                        "file": referenced.location.file.name if referenced.location.file else None,
+                        "line": referenced.location.line,
+                        "column": referenced.location.column
+                    }
+                }
+                node_info["referenced"] = referenced_info
+                node_info["reference_path"] = current_path
 
         # 判断函数调用（CALL_EXPR）
         if cursor.kind == CursorKind.CALL_EXPR:
-                output_file.write(f"{indent}  -> Function Call: {cursor.spelling} | Location: {cursor.location.file}:{cursor.location.line}:{cursor.location.column}\n")
+            function_call_info = {
+                "function_call": cursor.spelling,
+                "location": {
+                    "file": cursor.location.file.name if cursor.location.file else None,
+                    "line": cursor.location.line,
+                    "column": cursor.location.column
+                }
+            }
+            node_info["function_call"] = function_call_info
+            node_info["current_path"] = current_path
     # 递归处理子节点
     for child in cursor.get_children():
-        process_node(child, output_file, file_path, depth + 1)
+        node_data.extend(process_node(child, file_path, depth + 1, current_path[:]))
+
+    return node_data
 
 def analyze_cpp_file(file_path, output_analysis_file):
     """解析单个 C++ 文件并分析引用及父节点"""
     cursor = parse_file(file_path)
-    with open(output_analysis_file, 'w', encoding='utf-8') as analysis_output:
-        if cursor:
-            process_node(cursor, analysis_output, file_path)
+    if cursor:
+        node_data = process_node(cursor, file_path,current_path=[])
+        with open(output_analysis_file, 'w', encoding='utf-8') as analysis_output:
+            json.dump(node_data, analysis_output, indent=2, ensure_ascii=False)
 
 def analyze_directory(directory_path, output_analysis_dir):
     """分析目录中的所有 C++ 文件并保留文件夹层次结构"""
@@ -101,14 +140,14 @@ def analyze_directory(directory_path, output_analysis_dir):
                 os.makedirs(analysis_output_subdir, exist_ok=True)
 
                 # 输出文件路径
-                output_analysis_file = os.path.join(analysis_output_subdir, f"{file}_ref_ana.txt")
+                output_analysis_file = os.path.join(analysis_output_subdir, f"{file}_ref_ana.json")
 
                 # 解析和分析
                 analyze_cpp_file(file_path, output_analysis_file)
 
 def main():
     """主函数"""
-    source_dir = "../ability_ability_runtime/interfaces/inner_api/ability_manager"  # 源文件夹
+    source_dir = "../ability_ability_runtime/interfaces/inner_api/"  # 源文件夹
     analysis_output_dir = "ref_ana"  # 引用分析输出文件夹
 
     analyze_directory(source_dir, analysis_output_dir)

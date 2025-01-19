@@ -1,0 +1,2781 @@
+[
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 27,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AbilityRuntime"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AbilityRuntime",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 27,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:WantAgent"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "WantAgent",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 27,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.CLASS_DECL spell:PendingWant",
+      "kind:CursorKind.CLASS_DECL spell:CompletedDispatcher"
+    ]
+  },
+  {
+    "kind": "CursorKind.CLASS_DECL",
+    "name": "PendingWant",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 28,
+      "column": 7
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CLASS_DECL",
+    "name": "CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 29,
+      "column": 7
+    },
+    "children": [
+      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
+      "kind:CursorKind.CONSTRUCTOR spell:CompletedDispatcher",
+      "kind:CursorKind.DESTRUCTOR spell:~CompletedDispatcher",
+      "kind:CursorKind.CXX_METHOD spell:Send",
+      "kind:CursorKind.CXX_METHOD spell:PerformReceive",
+      "kind:CursorKind.CXX_METHOD spell:Run",
+      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
+      "kind:CursorKind.FIELD_DECL spell:pendingWant_",
+      "kind:CursorKind.FIELD_DECL spell:callback_",
+      "kind:CursorKind.FIELD_DECL spell:handler_",
+      "kind:CursorKind.FIELD_DECL spell:want_",
+      "kind:CursorKind.FIELD_DECL spell:resultCode_",
+      "kind:CursorKind.FIELD_DECL spell:resultData_",
+      "kind:CursorKind.FIELD_DECL spell:resultExtras_"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 30,
+      "column": 1
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CONSTRUCTOR",
+    "name": "CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 31,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:pendingWant",
+      "kind:CursorKind.PARM_DECL spell:callback",
+      "kind:CursorKind.PARM_DECL spell:handler"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "pendingWant",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 31,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 31,
+      "column": 31
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "pendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TEMPLATE_REF",
+    "name": "shared_ptr",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 31,
+      "column": 36
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_TEMPLATE",
+      "name": "shared_ptr",
+      "location": {
+        "file": "/usr/include/c++/12/bits/shared_ptr.h",
+        "line": 175,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "pendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TEMPLATE_REF",
+        "name": "shared_ptr",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 31,
+      "column": 47
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "PendingWant",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 28,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "pendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "callback",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 32,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedCallback"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 32,
+      "column": 15
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "callback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TEMPLATE_REF",
+    "name": "shared_ptr",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 32,
+      "column": 20
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_TEMPLATE",
+      "name": "shared_ptr",
+      "location": {
+        "file": "/usr/include/c++/12/bits/shared_ptr.h",
+        "line": 175,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "callback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TEMPLATE_REF",
+        "name": "shared_ptr",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedCallback",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 32,
+      "column": 31
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedCallback",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_callback.h",
+        "line": 25,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "callback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedCallback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "handler",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 32,
+      "column": 110
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DESTRUCTOR",
+    "name": "~CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 33,
+      "column": 13
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Send",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 35,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:resultCode"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "resultCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 35,
+      "column": 29
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 35,
+      "column": 21
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Send",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "resultCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "PerformReceive",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 37,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
+      "kind:CursorKind.PARM_DECL spell:want",
+      "kind:CursorKind.PARM_DECL spell:resultCode",
+      "kind:CursorKind.PARM_DECL spell:data",
+      "kind:CursorKind.PARM_DECL spell:extras",
+      "kind:CursorKind.PARM_DECL spell:serialized",
+      "kind:CursorKind.PARM_DECL spell:sticky",
+      "kind:CursorKind.PARM_DECL spell:sendingUser"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 38,
+      "column": 89
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "want",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 37,
+      "column": 44
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "resultCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 37,
+      "column": 54
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "data",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 37,
+      "column": 85
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 37,
+      "column": 72
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "PerformReceive",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "data",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 37,
+      "column": 77
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "PerformReceive",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "data",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "extras",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 38,
+      "column": 34
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "serialized",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 38,
+      "column": 47
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "sticky",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 38,
+      "column": 64
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "sendingUser",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 38,
+      "column": 76
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Run",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 40,
+      "column": 10
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 42,
+      "column": 1
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "pendingWant_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 43,
+      "column": 40
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 43,
+      "column": 11
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "pendingWant_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TEMPLATE_REF",
+    "name": "shared_ptr",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 43,
+      "column": 16
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_TEMPLATE",
+      "name": "shared_ptr",
+      "location": {
+        "file": "/usr/include/c++/12/bits/shared_ptr.h",
+        "line": 175,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "pendingWant_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TEMPLATE_REF",
+        "name": "shared_ptr",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 43,
+      "column": 27
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "PendingWant",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 28,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "pendingWant_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "callback_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 44,
+      "column": 46
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedCallback"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 44,
+      "column": 11
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "callback_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TEMPLATE_REF",
+    "name": "shared_ptr",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 44,
+      "column": 16
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_TEMPLATE",
+      "name": "shared_ptr",
+      "location": {
+        "file": "/usr/include/c++/12/bits/shared_ptr.h",
+        "line": 175,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "callback_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TEMPLATE_REF",
+        "name": "shared_ptr",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedCallback",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 44,
+      "column": 27
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedCallback",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_callback.h",
+        "line": 25,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "callback_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedCallback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "handler_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 45,
+      "column": 53
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "want_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 46,
+      "column": 17
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "resultCode_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 47,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 47,
+      "column": 23
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "resultData_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 48,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 48,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "resultData_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 48,
+      "column": 10
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "resultData_",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "resultExtras_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+      "line": 49,
+      "column": 23
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 18,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AbilityRuntime"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AbilityRuntime",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 18,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:WantAgent"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "WantAgent",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 18,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.CONSTRUCTOR spell:CompletedDispatcher",
+      "kind:CursorKind.CXX_METHOD spell:Send",
+      "kind:CursorKind.CXX_METHOD spell:PerformReceive",
+      "kind:CursorKind.CXX_METHOD spell:Run"
+    ]
+  },
+  {
+    "kind": "CursorKind.CONSTRUCTOR",
+    "name": "CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 19,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+      "kind:CursorKind.PARM_DECL spell:pendingWant",
+      "kind:CursorKind.PARM_DECL spell:callback",
+      "kind:CursorKind.PARM_DECL spell:handler",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 19,
+      "column": 1
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedDispatcher",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 29,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "pendingWant",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 19,
+      "column": 78
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 19,
+      "column": 48
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "pendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TEMPLATE_REF",
+    "name": "shared_ptr",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 19,
+      "column": 53
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_TEMPLATE",
+      "name": "shared_ptr",
+      "location": {
+        "file": "/usr/include/c++/12/bits/shared_ptr.h",
+        "line": 175,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "pendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TEMPLATE_REF",
+        "name": "shared_ptr",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 19,
+      "column": 64
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "PendingWant",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 28,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "pendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "callback",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 20,
+      "column": 47
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedCallback"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 20,
+      "column": 11
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "callback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TEMPLATE_REF",
+    "name": "shared_ptr",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 20,
+      "column": 16
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_TEMPLATE",
+      "name": "shared_ptr",
+      "location": {
+        "file": "/usr/include/c++/12/bits/shared_ptr.h",
+        "line": 175,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "callback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TEMPLATE_REF",
+        "name": "shared_ptr",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedCallback",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 20,
+      "column": 27
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedCallback",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_callback.h",
+        "line": 25,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "callback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedCallback",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "handler",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 20,
+      "column": 106
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 22,
+      "column": 1
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Send",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 24,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+      "kind:CursorKind.PARM_DECL spell:resultCode",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 24,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedDispatcher",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 29,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Send",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "resultCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 24,
+      "column": 46
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 24,
+      "column": 38
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Send",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "resultCode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 25,
+      "column": 1
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "PerformReceive",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+      "kind:CursorKind.PARM_DECL spell:want",
+      "kind:CursorKind.PARM_DECL spell:resultCode",
+      "kind:CursorKind.PARM_DECL spell:data",
+      "kind:CursorKind.PARM_DECL spell:extras",
+      "kind:CursorKind.PARM_DECL spell:serialized",
+      "kind:CursorKind.PARM_DECL spell:sticky",
+      "kind:CursorKind.PARM_DECL spell:sendingUser",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedDispatcher",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 29,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "PerformReceive",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "want",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 61
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "resultCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 71
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "data",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 102
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 89
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/pstl/glue_memory_defs.h",
+        "line": 15,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "PerformReceive",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "data",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 27,
+      "column": 94
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "PerformReceive",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "data",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "extras",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 28,
+      "column": 30
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "serialized",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 28,
+      "column": 43
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "sticky",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 28,
+      "column": 60
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "sendingUser",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 28,
+      "column": 72
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 29,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.IF_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 31,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:resultCode_",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:resultCode"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "resultCode_",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 31,
+      "column": 5
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "resultCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 31,
+      "column": 19
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:resultCode"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "resultCode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 31,
+      "column": 19
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 34,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 34,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 34,
+      "column": 30
+    },
+    "children": [
+      "kind:CursorKind.CALL_EXPR spell:Run"
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "Run",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 35,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:Run"
+    ],
+    "function_call": {
+      "function_call": "Run",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+        "line": 35,
+        "column": 9
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "PerformReceive",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "Run",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "Run",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 35,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Run",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 39,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 39,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "CompletedDispatcher",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/completed_dispatcher.h",
+        "line": 29,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AbilityRuntime",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Run",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class OHOS::AbilityRuntime::WantAgent::CompletedDispatcher",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 40,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.IF_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 41,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 41,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp",
+      "line": 41,
+      "column": 31
+    },
+    "children": []
+  }
+]

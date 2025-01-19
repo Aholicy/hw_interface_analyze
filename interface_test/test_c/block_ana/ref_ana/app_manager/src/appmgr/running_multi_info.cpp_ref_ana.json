@@ -1,0 +1,4647 @@
+[
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 26,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AppExecFwk",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 27,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:MAX_CLONE_APP_NUM",
+      "kind:CursorKind.VAR_DECL spell:MAX_INSTANCE_NUM",
+      "kind:CursorKind.STRUCT_DECL spell:RunningAppClone",
+      "kind:CursorKind.STRUCT_DECL spell:RunningMultiInstanceInfo",
+      "kind:CursorKind.STRUCT_DECL spell:RunningMultiAppInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "MAX_CLONE_APP_NUM",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 28,
+      "column": 19
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t",
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 28,
+      "column": 11
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "MAX_CLONE_APP_NUM",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 28,
+      "column": 39
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "MAX_INSTANCE_NUM",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 29,
+      "column": 19
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t",
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 29,
+      "column": 11
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "MAX_INSTANCE_NUM",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 29,
+      "column": 38
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.STRUCT_DECL",
+    "name": "RunningAppClone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 30,
+      "column": 8
+    },
+    "children": [
+      "kind:CursorKind.FIELD_DECL spell:appCloneIndex",
+      "kind:CursorKind.FIELD_DECL spell:uid",
+      "kind:CursorKind.FIELD_DECL spell:pids"
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "appCloneIndex",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 31,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 31,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningAppClone",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "appCloneIndex",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 32,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 32,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningAppClone",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "uid",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "pids",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 33,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.STRUCT_DECL",
+    "name": "RunningMultiInstanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 36,
+      "column": 8
+    },
+    "children": [
+      "kind:CursorKind.FIELD_DECL spell:instanceKey",
+      "kind:CursorKind.FIELD_DECL spell:uid",
+      "kind:CursorKind.FIELD_DECL spell:pids"
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "instanceKey",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 37,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 37,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/vector",
+        "line": 78,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiInstanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "instanceKey",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 37,
+      "column": 10
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiInstanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "instanceKey",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 38,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 38,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiInstanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "uid",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "pids",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 39,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.STRUCT_DECL",
+    "name": "RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 42,
+      "column": 8
+    },
+    "children": [
+      "kind:CursorKind.CXX_BASE_SPECIFIER spell:class Parcelable",
+      "kind:CursorKind.FIELD_DECL spell:bundleName",
+      "kind:CursorKind.FIELD_DECL spell:mode",
+      "kind:CursorKind.FIELD_DECL spell:runningAppClones",
+      "kind:CursorKind.FIELD_DECL spell:runningMultiIntanceInfos",
+      "kind:CursorKind.CXX_METHOD spell:ReadFromParcel",
+      "kind:CursorKind.CXX_METHOD spell:Marshalling",
+      "kind:CursorKind.CXX_METHOD spell:Unmarshalling"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BASE_SPECIFIER",
+    "name": "class Parcelable",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 42,
+      "column": 37
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcelable"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcelable",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 42,
+      "column": 37
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcelable",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 21,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "class Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "bundleName",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 43,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE_REF spell:std",
+      "kind:CursorKind.TYPE_REF spell:std::string"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE_REF",
+    "name": "std",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 43,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.NAMESPACE",
+      "name": "std",
+      "location": {
+        "file": "/usr/include/c++/12/vector",
+        "line": 78,
+        "column": 11
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "bundleName",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE_REF",
+        "name": "std",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "std::string",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 43,
+      "column": 10
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "string",
+      "location": {
+        "file": "/usr/include/c++/12/bits/stringfwd.h",
+        "line": 77,
+        "column": 33
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "bundleName",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "std::string",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "mode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 44,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 44,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.FIELD_DECL",
+        "name": "mode",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "runningAppClones",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 45,
+      "column": 34
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FIELD_DECL",
+    "name": "runningMultiIntanceInfos",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 46,
+      "column": 43
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 48,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.PARM_DECL spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 48,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 48,
+      "column": 25
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Marshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 49,
+      "column": 18
+    },
+    "children": [
+      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
+      "kind:CursorKind.PARM_DECL spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 49,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 49,
+      "column": 38
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 49,
+      "column": 30
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Marshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Unmarshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 50,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiAppInfo",
+      "kind:CursorKind.PARM_DECL spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 50,
+      "column": 12
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiAppInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 42,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 50,
+      "column": 55
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 50,
+      "column": 47
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.STRUCT_DECL",
+        "name": "RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "OHOS",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 24,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
+    ]
+  },
+  {
+    "kind": "CursorKind.NAMESPACE",
+    "name": "AppExecFwk",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 25,
+      "column": 11
+    },
+    "children": [
+      "kind:CursorKind.CXX_METHOD spell:ReadFromParcel",
+      "kind:CursorKind.CXX_METHOD spell:Unmarshalling",
+      "kind:CursorKind.CXX_METHOD spell:Marshalling"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 26,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiAppInfo",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 26,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiAppInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 42,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 26,
+      "column": 50
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 26,
+      "column": 42
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 27,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.FOR_STMT spell:",
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.FOR_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 29,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:mode",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "mode",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 29,
+      "column": 5
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 29,
+      "column": 12
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 29,
+        "column": 12
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 29,
+      "column": 12
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 29,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 30,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:runningAppClonesSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "runningAppClonesSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 30,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 30,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "runningAppClonesSize",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:runningAppClonesSize",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:MAX_CLONE_APP_NUM"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "runningAppClonesSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:runningAppClonesSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "runningAppClonesSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "MAX_CLONE_APP_NUM",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 32
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:MAX_CLONE_APP_NUM"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "MAX_CLONE_APP_NUM",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 32
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 32,
+      "column": 51
+    },
+    "children": [
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 33,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FOR_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.UNARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 15
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 19
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:i",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:runningAppClonesSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 22
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "runningAppClonesSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 26
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:runningAppClonesSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "runningAppClonesSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 48
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 35,
+      "column": 53
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 36,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:clone"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "clone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 36,
+      "column": 25
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningAppClone",
+      "kind:CursorKind.CALL_EXPR spell:RunningAppClone"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningAppClone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 36,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningAppClone",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 30,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "clone",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningAppClone",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "RunningAppClone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 36,
+      "column": 25
+    },
+    "children": [],
+    "function_call": {
+      "function_call": "RunningAppClone",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 36,
+        "column": 25
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "clone",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "RunningAppClone",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 37,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:appCloneIndex",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "appCloneIndex",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 37,
+      "column": 15
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:clone"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "clone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 37,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 37,
+      "column": 31
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 37,
+        "column": 31
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 37,
+      "column": 31
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 37,
+      "column": 31
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 38,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:uid",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 38,
+      "column": 15
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:clone"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "clone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 38,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 38,
+      "column": 21
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 38,
+        "column": 21
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 38,
+      "column": 21
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 38,
+      "column": 21
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 39,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.UNARY_OPERATOR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 39,
+        "column": 9
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 39,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 39,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 39,
+      "column": 32
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 39,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:clone"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "clone",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 39,
+      "column": 33
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 43,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:runningMultiIntanceInfosSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "runningMultiIntanceInfosSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 43,
+      "column": 13
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:int32_t"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "int32_t",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 43,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPEDEF_DECL",
+      "name": "int32_t",
+      "location": {
+        "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+        "line": 26,
+        "column": 19
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "runningMultiIntanceInfosSize",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "int32_t",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:runningMultiIntanceInfosSize",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:MAX_INSTANCE_NUM"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "runningMultiIntanceInfosSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:runningMultiIntanceInfosSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "runningMultiIntanceInfosSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "MAX_INSTANCE_NUM",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 40
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:MAX_INSTANCE_NUM"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "MAX_INSTANCE_NUM",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 40
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 45,
+      "column": 58
+    },
+    "children": [
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 46,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 46,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.FOR_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.UNARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 10
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 15
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 19
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:i",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:runningMultiIntanceInfosSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 22
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "runningMultiIntanceInfosSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 26
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:runningMultiIntanceInfosSize"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "runningMultiIntanceInfosSize",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 26
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 56
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:i"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "i",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 56
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 48,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 49,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:instanceInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "instanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 49,
+      "column": 34
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiInstanceInfo",
+      "kind:CursorKind.CALL_EXPR spell:RunningMultiInstanceInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiInstanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 49,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiInstanceInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 36,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "instanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiInstanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "RunningMultiInstanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 49,
+      "column": 34
+    },
+    "children": [],
+    "function_call": {
+      "function_call": "RunningMultiInstanceInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 49,
+        "column": 34
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "instanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "RunningMultiInstanceInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:instanceInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "instanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 36
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 50,
+        "column": 36
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 36
+    },
+    "children": [
+      "kind:CursorKind.OVERLOADED_DECL_REF spell:Str16ToStr8"
+    ]
+  },
+  {
+    "kind": "CursorKind.OVERLOADED_DECL_REF",
+    "name": "Str16ToStr8",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 36
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 50,
+        "column": 48
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 50,
+      "column": 48
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 51,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:uid",
+      "kind:CursorKind.CALL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "uid",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 51,
+      "column": 22
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:instanceInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "instanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 51,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 51,
+      "column": 28
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 51,
+        "column": 28
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 51,
+      "column": 28
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 51,
+      "column": 28
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 52,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.UNARY_OPERATOR spell:"
+    ],
+    "function_call": {
+      "function_call": "",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 52,
+        "column": 9
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.FOR_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 52,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 52,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 52,
+      "column": 32
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 52,
+      "column": 33
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:instanceInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "instanceInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 52,
+      "column": 33
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 55,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 55,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Unmarshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 58,
+      "column": 43
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiAppInfo",
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiAppInfo",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 58,
+      "column": 1
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiAppInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 42,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 58,
+      "column": 22
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiAppInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 42,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 58,
+      "column": 65
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 58,
+      "column": 57
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 59,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 60,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 60,
+      "column": 26
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiAppInfo"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 60,
+      "column": 5
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiAppInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 42,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "info",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.BINARY_OPERATOR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:info",
+      "kind:CursorKind.UNARY_OPERATOR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 17
+    },
+    "children": [
+      "kind:CursorKind.CALL_EXPR spell:ReadFromParcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.CALL_EXPR",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 18
+    },
+    "children": [
+      "kind:CursorKind.MEMBER_REF_EXPR spell:ReadFromParcel",
+      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
+    ],
+    "function_call": {
+      "function_call": "ReadFromParcel",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+        "line": 61,
+        "column": 18
+      }
+    },
+    "current_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.BINARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.UNARY_OPERATOR",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CALL_EXPR",
+        "name": "ReadFromParcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.MEMBER_REF_EXPR",
+    "name": "ReadFromParcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 24
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 18
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 18
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 39
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 61,
+      "column": 48
+    },
+    "children": [
+      "kind:CursorKind.DO_STMT spell:",
+      "kind:CursorKind.CXX_DELETE_EXPR spell:",
+      "kind:CursorKind.BINARY_OPERATOR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DO_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.COMPOUND_STMT spell:",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.VAR_DECL spell:logTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.VAR_DECL",
+    "name": "logTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
+      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "APPMGR",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "AAFwkTag",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Unmarshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.IF_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DO_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.COMPOUND_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_STMT",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.VAR_DECL",
+        "name": "logTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.DECL_REF_EXPR",
+        "name": "APPMGR",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.INTEGER_LITERAL spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.INTEGER_LITERAL",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 62,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_DELETE_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 63,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 63,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 63,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.BINARY_OPERATOR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 64,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:info",
+      "kind:CursorKind.UNEXPOSED_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 64,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 64,
+      "column": 16
+    },
+    "children": [
+      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 64,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 66,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 66,
+      "column": 12
+    },
+    "children": [
+      "kind:CursorKind.DECL_REF_EXPR spell:info"
+    ]
+  },
+  {
+    "kind": "CursorKind.DECL_REF_EXPR",
+    "name": "info",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 66,
+      "column": 12
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.CXX_METHOD",
+    "name": "Marshalling",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 69,
+      "column": 27
+    },
+    "children": [
+      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
+      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RunningMultiAppInfo",
+      "kind:CursorKind.PARM_DECL spell:parcel",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+      "line": 49,
+      "column": 52
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 69,
+      "column": 6
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.STRUCT_DECL",
+      "name": "RunningMultiAppInfo",
+      "location": {
+        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/running_multi_info.h",
+        "line": 42,
+        "column": 8
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Marshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "struct OHOS::AppExecFwk::RunningMultiAppInfo",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.PARM_DECL",
+    "name": "parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 69,
+      "column": 47
+    },
+    "children": [
+      "kind:CursorKind.TYPE_REF spell:class Parcel"
+    ]
+  },
+  {
+    "kind": "CursorKind.TYPE_REF",
+    "name": "class Parcel",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 69,
+      "column": 39
+    },
+    "children": [],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcel",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 19,
+        "column": 7
+      }
+    },
+    "reference_path": [
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "OHOS",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Marshalling",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.PARM_DECL",
+        "name": "parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      },
+      {
+        "kind": "CursorKind.TYPE_REF",
+        "name": "class Parcel",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 70,
+      "column": 1
+    },
+    "children": [
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.IF_STMT spell:",
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 74,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 74,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 74,
+      "column": 54
+    },
+    "children": [
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 75,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 75,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.IF_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 86,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.UNEXPOSED_EXPR spell:",
+      "kind:CursorKind.COMPOUND_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.UNEXPOSED_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 86,
+      "column": 9
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.COMPOUND_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 86,
+      "column": 61
+    },
+    "children": [
+      "kind:CursorKind.RETURN_STMT spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 87,
+      "column": 9
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 87,
+      "column": 16
+    },
+    "children": []
+  },
+  {
+    "kind": "CursorKind.RETURN_STMT",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 97,
+      "column": 5
+    },
+    "children": [
+      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
+    ]
+  },
+  {
+    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
+    "name": "",
+    "location": {
+      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_multi_info.cpp",
+      "line": 97,
+      "column": 12
+    },
+    "children": []
+  }
+]
