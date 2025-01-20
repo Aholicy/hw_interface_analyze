@@ -74,45 +74,39 @@
         "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/singleton.h",
         "line": 91,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
+    "reference_info": {
+      "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "OsAccountManagerWrapper",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
         }
       },
-      {
-        "kind": "CursorKind.CXX_BASE_SPECIFIER",
-        "name": "DelayedSingleton<class OHOS::AppExecFwk::OsAccountManagerWrapper>",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
+      "function": null,
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TEMPLATE_REF",
         "name": "DelayedSingleton",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 40
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_TEMPLATE",
+        "name": "DelayedSingleton",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/singleton.h",
+          "line": 91,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -130,45 +124,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
+    "reference_info": {
+      "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "OsAccountManagerWrapper",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
         }
       },
-      {
-        "kind": "CursorKind.CXX_BASE_SPECIFIER",
-        "name": "DelayedSingleton<class OHOS::AppExecFwk::OsAccountManagerWrapper>",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
+      "function": null,
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 57
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
@@ -288,45 +276,45 @@
         "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
         "line": 26,
         "column": 19
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
-        }
-      },
-      {
+    "reference_info": {
+      "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "OsAccountManagerWrapper",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
         }
       },
-      {
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "int32_t",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 87,
+          "column": 12
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPEDEF_DECL",
+        "name": "int32_t",
+        "location": {
+          "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+          "line": 26,
+          "column": 19
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.NAMESPACE",
@@ -402,45 +390,33 @@
         "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
         "line": 26,
         "column": 19
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "DEFAULT_OS_ACCOUNT_ID",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": null,
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "int32_t",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 27,
+          "column": 7
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPEDEF_DECL",
+        "name": "int32_t",
+        "location": {
+          "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+          "line": 26,
+          "column": 19
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.INTEGER_LITERAL",
@@ -481,45 +457,33 @@
         "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
         "line": 26,
         "column": 19
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "USER_ID_U100",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": null,
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "int32_t",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 28,
+          "column": 7
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPEDEF_DECL",
+        "name": "int32_t",
+        "location": {
+          "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+          "line": 26,
+          "column": 19
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.INTEGER_LITERAL",
@@ -560,45 +524,33 @@
         "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
         "line": 26,
         "column": 19
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "UID_TRANSFORM_DIVISOR",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": null,
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "int32_t",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 29,
+          "column": 7
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPEDEF_DECL",
+        "name": "int32_t",
+        "location": {
+          "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+          "line": 26,
+          "column": 19
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.INTEGER_LITERAL",
@@ -639,38 +591,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "QueryActiveOsAccountIds",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 33,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -750,73 +703,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "QueryActiveOsAccountIds",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 36,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -846,80 +765,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "QueryActiveOsAccountIds",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 36,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -972,38 +850,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetOsAccountLocalIdFromUid",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 45,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -1084,73 +963,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetOsAccountLocalIdFromUid",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 48,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -1180,80 +1025,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetOsAccountLocalIdFromUid",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 48,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -1386,38 +1190,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetOsAccountLocalIdFromProcess",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 57,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -1498,73 +1303,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetOsAccountLocalIdFromProcess",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 60,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -1594,80 +1365,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetOsAccountLocalIdFromProcess",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 60,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -1765,38 +1495,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "IsOsAccountExists",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 69,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -1877,73 +1608,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "IsOsAccountExists",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 72,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -1973,80 +1670,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "IsOsAccountExists",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 72,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -2191,38 +1847,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "CreateOsAccount",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 81,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -2303,73 +1960,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "CreateOsAccount",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 84,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -2399,80 +2022,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "CreateOsAccount",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 84,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -2570,38 +2152,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "RemoveOsAccount",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 97,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -2681,73 +2264,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "RemoveOsAccount",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 100,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -2777,80 +2326,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "RemoveOsAccount",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 100,
+          "column": 5
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -2904,38 +2412,39 @@
         "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
         "line": 26,
         "column": 19
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "int32_t",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 108,
+          "column": 1
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPEDEF_DECL",
+        "name": "int32_t",
+        "location": {
+          "file": "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+          "line": 26,
+          "column": 19
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2953,38 +2462,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 108,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.COMPOUND_STMT",
@@ -3091,73 +2601,39 @@
         "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/singleton.h",
         "line": 91,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "instance",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.UNEXPOSED_EXPR",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "GetInstance",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TEMPLATE_REF",
         "name": "DelayedSingleton",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 111,
+          "column": 21
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_TEMPLATE",
+        "name": "DelayedSingleton",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/singleton.h",
+          "line": 91,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.NAMESPACE_REF",
@@ -3175,73 +2651,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
         "line": 24,
         "column": 11
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "instance",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.UNEXPOSED_EXPR",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "GetInstance",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.NAMESPACE_REF",
         "name": "AppExecFwk",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 111,
+          "column": 38
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 24,
+          "column": 11
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3259,73 +2701,39 @@
         "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
         "line": 26,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "instance",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.UNEXPOSED_EXPR",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "GetInstance",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "class OHOS::AppExecFwk::OsAccountManagerWrapper",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 111,
+          "column": 50
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "OsAccountManagerWrapper",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/include/os_account_manager_wrapper.h",
+          "line": 26,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.IF_STMT",
@@ -3429,87 +2837,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.IF_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 113,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -3539,94 +2899,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.IF_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 113,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -3796,87 +3101,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.IF_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 119,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -3906,94 +3163,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.IF_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 119,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
@@ -4141,87 +3343,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.IF_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 124,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.DECL_REF_EXPR",
@@ -4251,94 +3405,39 @@
         "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
         "line": 206,
         "column": 7
-      }
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
     },
-    "reference_path": [
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "OHOS",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "AppExecFwk",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+    "reference_info": {
+      "class": null,
+      "function": {
         "kind": "CursorKind.CXX_METHOD",
         "name": "GetCurrentActiveAccountId",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
         }
       },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.IF_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DO_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.COMPOUND_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_STMT",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.VAR_DECL",
-        "name": "logTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
-        "kind": "CursorKind.DECL_REF_EXPR",
-        "name": "DEFAULT",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
-        }
-      },
-      {
+      "parameter": null,
+      "self": {
         "kind": "CursorKind.TYPE_REF",
         "name": "AAFwkTag",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
+          "file": "../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp",
+          "line": 124,
+          "column": 9
         }
+      },
+      "referenced": {
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp"
       }
-    ]
+    }
   },
   {
     "kind": "CursorKind.UNEXPOSED_EXPR",
