@@ -192,7 +192,7 @@ def extract_blocks(cursor, source_code_file, namespace_stack=None):
         ]and is_in_source_file(child, source_code_file):
             blocks.append((get_block_type(child), child, namespace_stack.copy()))
         
-        # 递归处理子节点
+        # 递归处理子节点1
         blocks.extend(extract_blocks(child, source_code_file, namespace_stack))
     
     return blocks
