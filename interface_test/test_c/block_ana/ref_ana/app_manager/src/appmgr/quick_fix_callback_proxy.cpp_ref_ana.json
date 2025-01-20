@@ -1,50 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:QuickFixCallbackProxy"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 24,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_BASE_SPECIFIER spell:IRemoteProxy<class OHOS::AppExecFwk::IQuickFixCallback>",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:QuickFixCallbackProxy",
-      "kind:CursorKind.DESTRUCTOR spell:~QuickFixCallbackProxy",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadPatchDone",
-      "kind:CursorKind.CXX_METHOD spell:OnUnloadPatchDone",
-      "kind:CursorKind.CXX_METHOD spell:OnReloadPageDone",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CXX_METHOD spell:SendRequestWithCmd",
-      "kind:CursorKind.VAR_DECL spell:delegator_"
-    ]
-  },
-  {
     "kind": "CursorKind.CXX_BASE_SPECIFIER",
     "name": "IRemoteProxy<class OHOS::AppExecFwk::IQuickFixCallback>",
     "location": {
@@ -55,7 +10,54 @@
     "children": [
       "kind:CursorKind.TEMPLATE_REF spell:IRemoteProxy",
       "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IQuickFixCallback"
-    ]
+    ],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "IRemoteProxy",
+      "location": {
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_proxy.h",
+        "line": 24,
+        "column": 37
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
+    },
+    "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
+      "class": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "QuickFixCallbackProxy",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
+      "function": null,
+      "parameter": null,
+      "self": {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "IRemoteProxy<class OHOS::AppExecFwk::IQuickFixCallback>",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
+          "line": 24,
+          "column": 38
+        }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "IRemoteProxy",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_proxy.h",
+          "line": 24,
+          "column": 37
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
+      }
+    }
   },
   {
     "kind": "CursorKind.TEMPLATE_REF",
@@ -77,6 +79,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -127,6 +136,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -158,45 +174,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 25,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 26,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:impl",
-      "kind:CursorKind.TEMPLATE_REF spell:IRemoteProxy",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IQuickFixCallback",
-      "kind:CursorKind.CALL_EXPR spell:IRemoteProxy",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "impl",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 26,
-      "column": 63
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -216,6 +193,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -278,6 +262,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -340,6 +331,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -396,6 +394,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -443,15 +448,24 @@
     "children": [
       "kind:CursorKind.DECL_REF_EXPR spell:impl"
     ],
-    "function_call": {
-      "function_call": "IRemoteProxy",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "IRemoteProxy",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_proxy.h",
         "line": 26,
-        "column": 71
-      }
+        "column": 14
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteProxy"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -476,86 +490,17 @@
           "column": 71
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "IRemoteProxy",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_proxy.h",
+          "line": 26,
+          "column": 14
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteProxy"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "impl",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 26,
-      "column": 103
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 26,
-      "column": 109
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 27,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 27,
-      "column": 46
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadPatchDone",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 29,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:resultCode",
-      "kind:CursorKind.PARM_DECL spell:recordId"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 29,
-      "column": 64
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "resultCode",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 29,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -577,6 +522,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -620,18 +572,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "recordId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 29,
-      "column": 54
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -651,6 +591,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -694,42 +641,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnUnloadPatchDone",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 30,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:resultCode",
-      "kind:CursorKind.PARM_DECL spell:recordId"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 30,
-      "column": 66
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "resultCode",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 30,
-      "column": 36
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -749,6 +660,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -792,18 +710,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "recordId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 30,
-      "column": 56
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -823,6 +729,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -866,42 +779,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnReloadPageDone",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 31,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:resultCode",
-      "kind:CursorKind.PARM_DECL spell:recordId"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 31,
-      "column": 65
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "resultCode",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 31,
-      "column": 35
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -921,6 +798,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -964,18 +848,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "recordId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 31,
-      "column": 55
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -995,6 +867,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -1038,42 +917,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 33,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 34,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:code",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 34,
-      "column": 38
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint32_t",
     "location": {
@@ -1093,6 +936,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -1136,18 +986,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 34,
-      "column": 59
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -1167,6 +1005,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -1210,18 +1055,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 34,
-      "column": 80
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -1241,6 +1074,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -1284,19 +1124,6 @@
     }
   },
   {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "delegator_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 36,
-      "column": 58
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:BrokerDelegator",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::QuickFixCallbackProxy"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "BrokerDelegator",
     "location": {
@@ -1316,6 +1143,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixCallbackProxy",
@@ -1348,171 +1182,6 @@
   },
   {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 36,
-      "column": 35
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixCallbackProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-          "line": 36,
-          "column": 35
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CXX_METHOD spell:OnLoadPatchDone",
-      "kind:CursorKind.CXX_METHOD spell:OnUnloadPatchDone",
-      "kind:CursorKind.CXX_METHOD spell:OnReloadPageDone",
-      "kind:CursorKind.CXX_METHOD spell:SendRequestWithCmd"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadPatchDone",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 24,
-      "column": 29
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::QuickFixCallbackProxy",
-      "kind:CursorKind.PARM_DECL spell:resultCode",
-      "kind:CursorKind.PARM_DECL spell:recordId",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 29,
-      "column": 64
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 24,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixCallbackProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnLoadPatchDone",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 24,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "resultCode",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 24,
-      "column": 53
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
@@ -1531,6 +1200,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1568,18 +1244,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "recordId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 24,
-      "column": 73
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1599,6 +1263,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1636,73 +1307,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 25,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1722,6 +1326,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1753,18 +1364,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1784,6 +1383,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1813,53 +1419,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 28,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 28,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1881,6 +1440,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1920,15 +1486,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
         "line": 28,
-        "column": 19
-      }
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1947,33 +1522,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 29,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:reply"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 29,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1995,6 +1554,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2034,15 +1600,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 29,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2061,112 +1636,17 @@
           "column": 19
         }
       },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:SendRequestWithCmd"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:SendRequestWithCmd",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ON_NOTIFY_LOAD_PATCH",
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.DECL_REF_EXPR spell:reply"
-    ],
-    "function_call": {
-      "function_call": "SendRequestWithCmd",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 33,
-        "column": 10
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
       }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnLoadPatchDone",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "SendRequestWithCmd",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 33,
-          "column": 10
-        }
-      },
-      "referenced": null
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 10
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ON_NOTIFY_LOAD_PATCH",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ON_NOTIFY_LOAD_PATCH"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ON_NOTIFY_LOAD_PATCH",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IQuickFixCallback",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IQuickFixCallback::QuickFixCallbackCmd"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2188,6 +1668,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2238,6 +1725,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IQuickFixCallback"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2269,98 +1763,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 91
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 97
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 33,
-      "column": 105
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 34,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2380,6 +1782,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2411,18 +1820,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2442,6 +1839,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2471,126 +1875,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 38,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnUnloadPatchDone",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 41,
-      "column": 29
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::QuickFixCallbackProxy",
-      "kind:CursorKind.PARM_DECL spell:resultCode",
-      "kind:CursorKind.PARM_DECL spell:recordId",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 30,
-      "column": 66
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 41,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixCallbackProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnUnloadPatchDone",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 41,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "resultCode",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 41,
-      "column": 55
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2612,6 +1896,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2649,18 +1940,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "recordId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 41,
-      "column": 75
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -2680,6 +1959,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2717,73 +2003,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 42,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2803,6 +2022,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2834,18 +2060,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2865,6 +2079,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2894,53 +2115,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 45,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 45,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2962,6 +2136,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3001,15 +2182,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 45,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3028,33 +2218,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:reply"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 46,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3076,6 +2250,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3115,15 +2296,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 46,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3142,112 +2332,17 @@
           "column": 19
         }
       },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:SendRequestWithCmd"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:SendRequestWithCmd",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ON_NOTIFY_UNLOAD_PATCH",
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.DECL_REF_EXPR spell:reply"
-    ],
-    "function_call": {
-      "function_call": "SendRequestWithCmd",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 50,
-        "column": 10
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
       }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnUnloadPatchDone",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "SendRequestWithCmd",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 50,
-          "column": 10
-        }
-      },
-      "referenced": null
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 10
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ON_NOTIFY_UNLOAD_PATCH",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ON_NOTIFY_UNLOAD_PATCH"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ON_NOTIFY_UNLOAD_PATCH",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IQuickFixCallback",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IQuickFixCallback::QuickFixCallbackCmd"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3269,6 +2364,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3319,6 +2421,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IQuickFixCallback"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3350,98 +2459,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 93
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 99
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 50,
-      "column": 107
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 51,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3461,6 +2478,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3492,18 +2516,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3523,6 +2535,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3552,126 +2571,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 54,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 55,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnReloadPageDone",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 58,
-      "column": 29
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::QuickFixCallbackProxy",
-      "kind:CursorKind.PARM_DECL spell:resultCode",
-      "kind:CursorKind.PARM_DECL spell:recordId",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-      "line": 31,
-      "column": 65
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 58,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixCallbackProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnReloadPageDone",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 58,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "resultCode",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 58,
-      "column": 54
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3693,6 +2592,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3730,18 +2636,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "recordId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 58,
-      "column": 74
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -3761,6 +2655,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3798,73 +2699,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 59,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3884,6 +2718,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3915,18 +2756,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3946,6 +2775,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3975,53 +2811,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 60,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 62,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 62,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -4043,6 +2832,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4082,15 +2878,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 62,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4109,33 +2914,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 63,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:reply"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 63,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -4157,6 +2946,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4196,15 +2992,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 63,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4223,112 +3028,17 @@
           "column": 19
         }
       },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:SendRequestWithCmd"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:SendRequestWithCmd",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ON_NOTIFY_RELOAD_PAGE",
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.DECL_REF_EXPR spell:reply"
-    ],
-    "function_call": {
-      "function_call": "SendRequestWithCmd",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 67,
-        "column": 10
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
       }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnReloadPageDone",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "SendRequestWithCmd",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 67,
-          "column": 10
-        }
-      },
-      "referenced": null
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 10
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ON_NOTIFY_RELOAD_PAGE",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ON_NOTIFY_RELOAD_PAGE"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ON_NOTIFY_RELOAD_PAGE",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IQuickFixCallback",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IQuickFixCallback::QuickFixCallbackCmd"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -4350,6 +3060,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4400,6 +3117,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IQuickFixCallback"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4431,98 +3155,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 92
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 98
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 67,
-      "column": 106
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 68,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4542,6 +3174,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4573,18 +3212,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4604,6 +3231,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4633,116 +3267,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 71,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 72,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "SendRequestWithCmd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 75,
-      "column": 29
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::QuickFixCallbackProxy",
-      "kind:CursorKind.PARM_DECL spell:code",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 75,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixCallbackProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "SendRequestWithCmd",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-          "line": 75,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixCallbackProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/quick_fix_callback_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 75,
-      "column": 57
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -4764,6 +3288,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4801,18 +3332,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 75,
-      "column": 78
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -4832,6 +3351,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4869,18 +3395,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 75,
-      "column": 99
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -4900,6 +3414,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4937,49 +3458,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 76,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 77,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 77,
-      "column": 25
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -4999,6 +3477,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5049,6 +3534,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5080,30 +3572,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 77,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 77,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:Remote"
-    ]
-  },
-  {
     "kind": "CursorKind.CALL_EXPR",
     "name": "Remote",
     "location": {
@@ -5114,15 +3582,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:Remote"
     ],
-    "function_call": {
-      "function_call": "Remote",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "Remote",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 77,
-        "column": 34
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/peer_holder.h",
+        "line": 37,
+        "column": 25
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:PeerHolder"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5141,31 +3618,17 @@
           "column": 34
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "Remote",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/peer_holder.h",
+          "line": 37,
+          "column": 25
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:PeerHolder"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "Remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 77,
-      "column": 34
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:operator==",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -5180,15 +3643,24 @@
       "kind:CursorKind.UNEXPOSED_EXPR spell:operator==",
       "kind:CursorKind.UNEXPOSED_EXPR spell:"
     ],
-    "function_call": {
-      "function_call": "operator==",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "operator==",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 78,
-        "column": 9
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+        "line": 798,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5207,137 +3679,17 @@
           "column": 9
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "operator==",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+          "line": 798,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "operator==",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:operator=="
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "operator==",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 19
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 78,
-      "column": 28
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -5359,6 +3711,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5390,18 +3749,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -5421,6 +3768,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5450,75 +3804,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 80,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 83,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:option"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 83,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption",
-      "kind:CursorKind.CALL_EXPR spell:MessageOption"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -5540,6 +3825,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5582,15 +3874,24 @@
       "kind:CursorKind.UNEXPOSED_EXPR spell:TF_SYNC",
       "kind:CursorKind.UNEXPOSED_EXPR spell:"
     ],
-    "function_call": {
-      "function_call": "MessageOption",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageOption",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 83,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_option.h",
+        "line": 31,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageOption"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5609,32 +3910,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageOption",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_option.h",
+          "line": 31,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageOption"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "TF_SYNC",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 83,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:TF_SYNC"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "TF_SYNC",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 83,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -5656,6 +3942,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5687,30 +3980,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:ret"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "ret",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:SendRequest"
-    ]
-  },
-  {
     "kind": "CursorKind.CALL_EXPR",
     "name": "SendRequest",
     "location": {
@@ -5725,15 +3994,24 @@
       "kind:CursorKind.DECL_REF_EXPR spell:reply",
       "kind:CursorKind.DECL_REF_EXPR spell:option"
     ],
-    "function_call": {
-      "function_call": "SendRequest",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "SendRequest",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 84,
-        "column": 16
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+        "line": 87,
+        "column": 17
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5752,20 +4030,17 @@
           "column": 16
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "SendRequest",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+          "line": 87,
+          "column": 17
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "SendRequest",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 24
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:operator->"
-    ]
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -5779,15 +4054,24 @@
       "kind:CursorKind.UNEXPOSED_EXPR spell:remote",
       "kind:CursorKind.UNEXPOSED_EXPR spell:operator->"
     ],
-    "function_call": {
-      "function_call": "operator->",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "operator->",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-        "line": 84,
-        "column": 16
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+        "line": 742,
+        "column": 15
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -5806,225 +4090,17 @@
           "column": 16
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "operator->",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+          "line": 742,
+          "column": 15
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "operator->",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 22
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:operator->"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "operator->",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 22
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 36
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:code"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 36
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 42
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 48
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 84,
-      "column": 55
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 85,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 85,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ret",
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ret",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 85,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ret"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ret",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 85,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 85,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 85,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -6046,6 +4122,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -6077,18 +4160,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -6108,6 +4179,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -6137,71 +4215,5 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 86,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 87,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 87,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 90,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp",
-      "line": 90,
-      "column": 12
-    },
-    "children": []
   }
 ]

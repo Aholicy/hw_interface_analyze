@@ -1,82 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:ConfigurationObserverProxy"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 24,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:ConfigurationObserverProxy",
-      "kind:CursorKind.DESTRUCTOR spell:~ConfigurationObserverProxy",
-      "kind:CursorKind.CXX_METHOD spell:OnConfigurationUpdated",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CXX_METHOD spell:WriteInterfaceToken",
-      "kind:CursorKind.VAR_DECL spell:delegator_"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 25,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 26,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:impl"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "impl",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 26,
-      "column": 68
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -96,6 +19,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "ConfigurationObserverProxy",
@@ -158,6 +88,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "ConfigurationObserverProxy",
@@ -201,83 +138,6 @@
     }
   },
   {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 27,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnConfigurationUpdated",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 34,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:configuration"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 34,
-      "column": 77
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "configuration",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 34,
-      "column": 62
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 36,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "WriteInterfaceToken",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 37,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 37,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -297,6 +157,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "ConfigurationObserverProxy",
@@ -340,19 +207,6 @@
     }
   },
   {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "delegator_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 38,
-      "column": 63
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:BrokerDelegator",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::ConfigurationObserverProxy"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "BrokerDelegator",
     "location": {
@@ -372,6 +226,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "ConfigurationObserverProxy",
@@ -403,159 +264,6 @@
     }
   },
   {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-      "line": 38,
-      "column": 35
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "ConfigurationObserverProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-          "line": 38,
-          "column": 35
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 21,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CONSTRUCTOR spell:ConfigurationObserverProxy",
-      "kind:CursorKind.CXX_METHOD spell:WriteInterfaceToken",
-      "kind:CursorKind.CXX_METHOD spell:OnConfigurationUpdated"
-    ]
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 23,
-      "column": 29
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::ConfigurationObserverProxy",
-      "kind:CursorKind.PARM_DECL spell:impl",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 23,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "ConfigurationObserverProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-          "line": 23,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "impl",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 24,
-      "column": 32
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -575,6 +283,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CONSTRUCTOR",
@@ -631,6 +346,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CONSTRUCTOR",
@@ -668,92 +390,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 25,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "WriteInterfaceToken",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 27,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::ConfigurationObserverProxy",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 27,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "ConfigurationObserverProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "WriteInterfaceToken",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-          "line": 27,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 27,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -773,6 +409,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -810,105 +453,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 28,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 29,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 29,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 29,
-      "column": 81
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -928,6 +472,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -959,18 +510,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -990,6 +529,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1019,190 +565,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 31,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 33,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnConfigurationUpdated",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 36,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::ConfigurationObserverProxy",
-      "kind:CursorKind.PARM_DECL spell:configuration",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 36,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "ConfigurationObserverProxy",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnConfigurationUpdated",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-          "line": 36,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "ConfigurationObserverProxy",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/configuration_observer_proxy.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "configuration",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 36,
-      "column": 78
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 37,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 38,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1224,6 +586,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1263,15 +632,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 38,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1290,33 +668,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 39,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:reply"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 39,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel",
-      "kind:CursorKind.CALL_EXPR spell:MessageParcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1338,6 +700,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1377,15 +746,24 @@
       "column": 19
     },
     "children": [],
-    "function_call": {
-      "function_call": "MessageParcel",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageParcel",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 39,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 28,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1404,33 +782,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageParcel",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 28,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:option"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 40,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption",
-      "kind:CursorKind.CALL_EXPR spell:MessageOption"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1452,6 +814,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1494,15 +863,24 @@
       "kind:CursorKind.UNEXPOSED_EXPR spell:TF_ASYNC",
       "kind:CursorKind.UNEXPOSED_EXPR spell:"
     ],
-    "function_call": {
-      "function_call": "MessageOption",
+    "referenced": {
+      "kind": "CursorKind.CONSTRUCTOR",
+      "name": "MessageOption",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 40,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_option.h",
+        "line": 31,
+        "column": 5
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageOption"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1521,32 +899,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CONSTRUCTOR",
+        "name": "MessageOption",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_option.h",
+          "line": 31,
+          "column": 5
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageOption"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "TF_ASYNC",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 40,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:TF_ASYNC"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "TF_ASYNC",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 40,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1568,6 +931,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1599,141 +969,6 @@
     }
   },
   {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 41,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 41,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:WriteInterfaceToken"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "WriteInterfaceToken",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 41,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:WriteInterfaceToken",
-      "kind:CursorKind.DECL_REF_EXPR spell:data"
-    ],
-    "function_call": {
-      "function_call": "WriteInterfaceToken",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 41,
-        "column": 10
-      }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnConfigurationUpdated",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "WriteInterfaceToken",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-          "line": 41,
-          "column": 10
-        }
-      },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "WriteInterfaceToken",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 41,
-      "column": 10
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 41,
-      "column": 30
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 41,
-      "column": 37
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 45,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 45,
-      "column": 25
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -1753,6 +988,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1803,6 +1045,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1834,53 +1083,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 45,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 45,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.OVERLOADED_DECL_REF spell:Remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.OVERLOADED_DECL_REF",
-    "name": "Remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 45,
-      "column": 34
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:operator==",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.CALL_EXPR",
     "name": "operator==",
     "location": {
@@ -1893,15 +1095,24 @@
       "kind:CursorKind.UNEXPOSED_EXPR spell:operator==",
       "kind:CursorKind.UNEXPOSED_EXPR spell:"
     ],
-    "function_call": {
-      "function_call": "operator==",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "operator==",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 46,
-        "column": 9
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+        "line": 798,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1920,137 +1131,17 @@
           "column": 9
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "operator==",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+          "line": 798,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "operator==",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:operator=="
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "operator==",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 19
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 46,
-      "column": 28
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2072,6 +1163,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2103,18 +1201,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2134,6 +1220,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2163,63 +1256,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 47,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 48,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:ret"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "ret",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.CALL_EXPR spell:SendRequest"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2241,6 +1277,13 @@
       "parent": "kind:CursorKind.UNEXPOSED_DECL spell:"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2286,15 +1329,24 @@
       "kind:CursorKind.DECL_REF_EXPR spell:reply",
       "kind:CursorKind.DECL_REF_EXPR spell:option"
     ],
-    "function_call": {
-      "function_call": "SendRequest",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "SendRequest",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 50,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+        "line": 87,
+        "column": 17
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2313,20 +1365,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "SendRequest",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+          "line": 87,
+          "column": 17
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "SendRequest",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 27
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:operator->"
-    ]
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -2340,15 +1389,24 @@
       "kind:CursorKind.UNEXPOSED_EXPR spell:remote",
       "kind:CursorKind.UNEXPOSED_EXPR spell:operator->"
     ],
-    "function_call": {
-      "function_call": "operator->",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "operator->",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-        "line": 50,
-        "column": 19
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+        "line": 742,
+        "column": 15
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2367,65 +1425,17 @@
           "column": 19
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "operator->",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/refbase.h",
+          "line": 742,
+          "column": 15
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:sptr"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 19
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "operator->",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 25
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:operator->"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "operator->",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 50,
-      "column": 25
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 51,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t",
-      "kind:CursorKind.DECL_REF_EXPR spell:TRANSACT_ON_CONFIGURATION_UPDATED"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2447,6 +1457,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2478,19 +1495,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "TRANSACT_ON_CONFIGURATION_UPDATED",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 51,
-      "column": 64
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IConfigurationObserver",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IConfigurationObserver::Message"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AppExecFwk::IConfigurationObserver",
     "location": {
@@ -2510,6 +1514,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2560,6 +1571,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IConfigurationObserver"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2591,168 +1609,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 52,
-      "column": 15
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 52,
-      "column": 22
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ret",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ret",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ret"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ret",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 53,
-      "column": 26
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2772,6 +1628,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2803,18 +1666,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2834,6 +1685,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2863,27 +1721,5 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": []
   }
 ]

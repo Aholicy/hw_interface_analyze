@@ -86,100 +86,104 @@ def process_node(cursor, file_path, depth=0, current_path=None):
         current_path.append(path_node)
 
         # 检查引用
-        if cursor.kind in {CursorKind.TYPE_REF, CursorKind.NAMESPACE_REF, CursorKind.TEMPLATE_REF}:
+        if cursor.kind in {CursorKind.TYPE_REF, CursorKind.NAMESPACE_REF, CursorKind.TEMPLATE_REF, CursorKind.MEMBER_REF, CursorKind.VARIABLE_REF, CursorKind.CXX_BASE_SPECIFIER, CursorKind.OVERLOADED_DECL_REF, CursorKind.CALL_EXPR}:
             referenced = cursor.referenced
-            if referenced:
-                referenced_info = {
-                    "kind": str(referenced.kind),
-                    "name": referenced.spelling,
-                    "location": {
-                        "file": referenced.location.file.name if referenced.location.file else None,
-                        "line": referenced.location.line,
-                        "column": referenced.location.column
-                    },
-                    "parent": f"kind:{referenced.semantic_parent.kind} spell:{referenced.semantic_parent.spelling}"
-                }
-                node_info["referenced"] = referenced_info
-
-                # 生成 reference_info
-                reference_info = {
-                    "class": None,
-                    "function": None,
-                    "parameter": None,
-                    "self": {
-                        "kind": str(cursor.kind),
-                        "name": cursor.spelling,
+            if referenced and not is_in_source_file(referenced, file_path): # 排除源文件内的引用，需要吗?
+                if not referenced.location.file.name.startswith("/usr/include/c++/12/"):
+                    referenced_info = {
+                        "kind": str(referenced.kind),
+                        "name": referenced.spelling,
                         "location": {
-                            "file": cursor.location.file.name if cursor.location.file else None,
-                            "line": cursor.location.line,
-                            "column": cursor.location.column
-                        }
-                    },
-                    "referenced": referenced_info
-                }
-
-                for path_node in reversed(current_path):
-                    kind = path_node["kind"]
-                    if not reference_info["class"] and kind == str(CursorKind.CLASS_DECL):
-                        reference_info["class"] = path_node
-                    if not reference_info["function"] and kind in {
-                        str(CursorKind.FUNCTION_DECL),
-                        str(CursorKind.CXX_METHOD),
-                        str(CursorKind.CONSTRUCTOR),
-                        str(CursorKind.DESTRUCTOR)
-                    }:
-                        reference_info["function"] = path_node
-                    if not reference_info["parameter"] and kind == str(CursorKind.PARM_DECL):
-                        reference_info["parameter"] = path_node
-                    if all(reference_info.values()):
-                        break
-
-                node_info["reference_info"] = reference_info
-
-        # 判断函数调用（CALL_EXPR）
-        if cursor.kind == CursorKind.CALL_EXPR:
-            function_call_info = {
-                "function_call": cursor.spelling,
-                "location": {
-                    "file": cursor.location.file.name if cursor.location.file else None,
-                    "line": cursor.location.line,
-                    "column": cursor.location.column
-                }
-            }
-            node_info["function_call"] = function_call_info
-
-            # 生成 reference_info
-            reference_info = {
-                "class": None,
-                "function": None,
-                "parameter": None,
-                "self": {
-                    "kind": str(cursor.kind),
-                    "name": cursor.spelling,
-                    "location": {
-                        "file": cursor.location.file.name if cursor.location.file else None,
-                        "line": cursor.location.line,
-                        "column": cursor.location.column
+                            "file": referenced.location.file.name if referenced.location.file else None,
+                            "line": referenced.location.line,
+                            "column": referenced.location.column
+                        },
+                        "parent": f"kind:{referenced.semantic_parent.kind} spell:{referenced.semantic_parent.spelling}"
                     }
-                },
-                "referenced": None  # CALL_EXPR 通常不直接引用其他定义
-            }
+                    node_info["referenced"] = referenced_info
 
-            for path_node in reversed(current_path):
-                kind = path_node["kind"]
-                if not reference_info["class"] and kind == str(CursorKind.CLASS_DECL):
-                    reference_info["class"] = path_node
-                if not reference_info["function"] and kind in {
-                    str(CursorKind.FUNCTION_DECL),
-                    str(CursorKind.CXX_METHOD),
-                    str(CursorKind.CONSTRUCTOR),
-                    str(CursorKind.DESTRUCTOR)
-                }:
-                    reference_info["function"] = path_node
-                if all(reference_info.values()):
-                    break
+                    # 生成 reference_info
+                    reference_info = {
+                        "namespace": None,
+                        "class": None,
+                        "function": None,
+                        "parameter": None,
+                        "self": {
+                            "kind": str(cursor.kind),
+                            "name": cursor.spelling,
+                            "location": {
+                                "file": cursor.location.file.name if cursor.location.file else None,
+                                "line": cursor.location.line,
+                                "column": cursor.location.column
+                            }
+                        },
+                        "referenced": referenced_info
+                    }
 
-            node_info["reference_info"] = reference_info
+                    for path_node in reversed(current_path):
+                        kind = path_node["kind"]
+                        if not reference_info["namespace"] and kind == str(CursorKind.NAMESPACE):
+                            reference_info["namespace"] = path_node
+                        if not reference_info["class"] and kind == str(CursorKind.CLASS_DECL):
+                            reference_info["class"] = path_node
+                        if not reference_info["function"] and kind in {
+                            str(CursorKind.FUNCTION_DECL),
+                            str(CursorKind.CXX_METHOD),
+                            str(CursorKind.CONSTRUCTOR),
+                            str(CursorKind.DESTRUCTOR)
+                        }:
+                            reference_info["function"] = path_node
+                        if not reference_info["parameter"] and kind == str(CursorKind.PARM_DECL):
+                            reference_info["parameter"] = path_node
+                        if all(reference_info.values()):
+                            break
+
+                    node_info["reference_info"] = reference_info
+
+        # # 判断函数调用（CALL_EXPR）
+        # if cursor.kind == CursorKind.CALL_EXPR:
+        #     function_call_info = {
+        #         "function_call": cursor.spelling,
+        #         "location": {
+        #             "file": cursor.location.file.name if cursor.location.file else None,
+        #             "line": cursor.location.line,
+        #             "column": cursor.location.column
+        #         }
+        #     }
+        #     node_info["function_call"] = function_call_info
+
+        #     # 生成 reference_info
+        #     reference_info = {
+        #         "class": None,
+        #         "function": None,
+        #         "parameter": None,
+        #         "self": {
+        #             "kind": str(cursor.kind),
+        #             "name": cursor.spelling,
+        #             "location": {
+        #                 "file": cursor.location.file.name if cursor.location.file else None,
+        #                 "line": cursor.location.line,
+        #                 "column": cursor.location.column
+        #             }
+        #         },
+        #         "referenced": None  # CALL_EXPR 通常不直接引用其他定义
+        #     }
+
+        #     for path_node in reversed(current_path):
+        #         kind = path_node["kind"]
+        #         if not reference_info["class"] and kind == str(CursorKind.CLASS_DECL):
+        #             reference_info["class"] = path_node
+        #         if not reference_info["function"] and kind in {
+        #             str(CursorKind.FUNCTION_DECL),
+        #             str(CursorKind.CXX_METHOD),
+        #             str(CursorKind.CONSTRUCTOR),
+        #             str(CursorKind.DESTRUCTOR)
+        #         }:
+        #             reference_info["function"] = path_node
+        #         if all(reference_info.values()):
+        #             break
+
+        #     node_info["reference_info"] = reference_info
 
     # 递归处理子节点
     for child in cursor.get_children():
@@ -193,6 +197,8 @@ def analyze_cpp_file(file_path, output_analysis_file):
     cursor = parse_file(file_path)
     if cursor:
         node_data = process_node(cursor, file_path,current_path=[])
+        # 筛选只输出含有referenced的节点
+        node_data = [node for node in node_data if "referenced" in node]
         with open(output_analysis_file, 'w', encoding='utf-8') as analysis_output:
             json.dump(node_data, analysis_output, indent=2, ensure_ascii=False)
 

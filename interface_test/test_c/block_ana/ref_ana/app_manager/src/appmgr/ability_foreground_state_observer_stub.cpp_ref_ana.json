@@ -1,98 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 26,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 27,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverStub",
-      "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 28,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:AbilityForegroundStateObserverStub",
-      "kind:CursorKind.DESTRUCTOR spell:~AbilityForegroundStateObserverStub",
-      "kind:CursorKind.CXX_METHOD spell:OnRemoteRequest",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CXX_METHOD spell:HandleOnAbilityStateChanged",
-      "kind:CursorKind.VAR_DECL spell:callbackMutex_",
-      "kind:CursorKind.CONSTRUCTOR spell:AbilityForegroundStateObserverStub",
-      "kind:CursorKind.CXX_METHOD spell:operator=",
-      "kind:CursorKind.CONSTRUCTOR spell:AbilityForegroundStateObserverStub",
-      "kind:CursorKind.CXX_METHOD spell:operator="
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 29,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 30,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 31,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnRemoteRequest",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 33,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.PARM_DECL spell:code",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.PARM_DECL spell:option"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -112,6 +19,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -149,18 +63,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 33,
-      "column": 38
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint32_t",
     "location": {
@@ -180,6 +82,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -223,18 +132,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 33,
-      "column": 59
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -254,6 +151,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -297,18 +201,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 33,
-      "column": 80
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -328,6 +220,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -371,18 +270,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 33,
-      "column": 102
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageOption",
     "location": {
@@ -402,6 +289,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -445,30 +339,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 35,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "HandleOnAbilityStateChanged",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 36,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -488,6 +358,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -525,18 +402,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 36,
-      "column": 56
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -556,6 +421,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -599,18 +471,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 36,
-      "column": 77
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -630,6 +490,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverStub",
@@ -673,596 +540,6 @@
     }
   },
   {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "callbackMutex_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 38,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:class std::mutex"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 38,
-      "column": 12
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/list",
-        "line": 71,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 38,
-          "column": 12
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/list",
-          "line": 71,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class std::mutex",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 38,
-      "column": 17
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "mutex",
-      "location": {
-        "file": "/usr/include/c++/12/bits/std_mutex.h",
-        "line": 83,
-        "column": 9
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class std::mutex",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 38,
-          "column": 17
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "mutex",
-        "location": {
-          "file": "/usr/include/c++/12/bits/std_mutex.h",
-          "line": 83,
-          "column": 9
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 40,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "operator=",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 40,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 40,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 40,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "operator=",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 40,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 40,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 40,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "AbilityForegroundStateObserverRecipient",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 47,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_BASE_SPECIFIER spell:class IRemoteObject::DeathRecipient",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.TYPE_ALIAS_DECL spell:RemoteDiedHandler",
-      "kind:CursorKind.CONSTRUCTOR spell:AbilityForegroundStateObserverRecipient",
-      "kind:CursorKind.DESTRUCTOR spell:~AbilityForegroundStateObserverRecipient",
-      "kind:CursorKind.CXX_METHOD spell:OnRemoteDied",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.FIELD_DECL spell:handler_"
-    ]
-  },
-  {
     "kind": "CursorKind.CXX_BASE_SPECIFIER",
     "name": "class IRemoteObject::DeathRecipient",
     "location": {
@@ -1273,7 +550,54 @@
     "children": [
       "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject",
       "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject::DeathRecipient"
-    ]
+    ],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "DeathRecipient",
+      "location": {
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+        "line": 48,
+        "column": 11
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
+    },
+    "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
+      "class": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "AbilityForegroundStateObserverRecipient",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
+      "function": null,
+      "parameter": null,
+      "self": {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "class IRemoteObject::DeathRecipient",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
+          "line": 47,
+          "column": 56
+        }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "DeathRecipient",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/iremote_object.h",
+          "line": 48,
+          "column": 11
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
+      }
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1295,6 +619,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverRecipient",
@@ -1345,6 +676,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IRemoteObject"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverRecipient",
@@ -1376,143 +714,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 48,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_ALIAS_DECL",
-    "name": "RemoteDiedHandler",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 49,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:function",
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 49,
-      "column": 31
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/list",
-        "line": 71,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 49,
-          "column": 31
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/list",
-          "line": 71,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "function",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 49,
-      "column": 36
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "function",
-      "location": {
-        "file": "/usr/include/c++/12/bits/std_function.h",
-        "line": 111,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "function",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 49,
-          "column": 36
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "function",
-        "location": {
-          "file": "/usr/include/c++/12/bits/std_function.h",
-          "line": 111,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 49,
-      "column": 77
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:wptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "wptr",
     "location": {
@@ -1532,6 +733,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverRecipient",
@@ -1588,6 +796,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverRecipient",
@@ -1625,150 +840,6 @@
     }
   },
   {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AbilityForegroundStateObserverRecipient",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 50,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:handler"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "handler",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 50,
-      "column": 72
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 50,
-      "column": 54
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPE_ALIAS_DECL",
-      "name": "RemoteDiedHandler",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 49,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "handler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 50,
-          "column": 54
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPE_ALIAS_DECL",
-        "name": "RemoteDiedHandler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 49,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~AbilityForegroundStateObserverRecipient",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 51,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 51,
-      "column": 64
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnRemoteDied",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 52,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:remote"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 52,
-      "column": 58
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 52,
-      "column": 50
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:wptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "wptr",
     "location": {
@@ -1788,6 +859,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverRecipient",
@@ -1850,6 +928,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AbilityForegroundStateObserverRecipient",
@@ -1893,271 +978,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 54,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "handler_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 55,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 55,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPE_ALIAS_DECL",
-      "name": "RemoteDiedHandler",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 49,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 55,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPE_ALIAS_DECL",
-        "name": "RemoteDiedHandler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 49,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 24,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CONSTRUCTOR spell:AbilityForegroundStateObserverStub",
-      "kind:CursorKind.DESTRUCTOR spell:~AbilityForegroundStateObserverStub",
-      "kind:CursorKind.CXX_METHOD spell:OnRemoteRequest",
-      "kind:CursorKind.CXX_METHOD spell:HandleOnAbilityStateChanged",
-      "kind:CursorKind.CONSTRUCTOR spell:AbilityForegroundStateObserverRecipient",
-      "kind:CursorKind.CXX_METHOD spell:OnRemoteDied"
-    ]
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 25,
-      "column": 37
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 25,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 25,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 25,
-      "column": 74
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 27,
-      "column": 37
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 27,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.DESTRUCTOR",
-        "name": "~AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 27,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 27,
-      "column": 75
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnRemoteRequest",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 29,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-      "kind:CursorKind.PARM_DECL spell:code",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.PARM_DECL spell:option",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -2177,6 +997,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2209,68 +1036,6 @@
   },
   {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 29,
-      "column": 9
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 29,
-          "column": 9
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 30,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
     "name": "uint32_t",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
@@ -2289,6 +1054,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2326,18 +1098,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 30,
-      "column": 35
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -2357,6 +1117,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2394,18 +1161,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 30,
-      "column": 56
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -2425,6 +1180,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2462,18 +1224,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 30,
-      "column": 78
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageOption",
     "location": {
@@ -2493,6 +1243,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2530,72 +1287,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 31,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2615,6 +1306,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2646,18 +1344,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2677,6 +1363,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2704,279 +1397,6 @@
           "column": 7
         },
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:descriptor"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "descriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 33,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:std::u16string"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/cinttypes",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 33,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/cinttypes",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "std::u16string",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 33,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPEDEF_DECL",
-      "name": "u16string",
-      "location": {
-        "file": "/usr/include/c++/12/bits/stringfwd.h",
-        "line": 89,
-        "column": 34
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "std::u16string",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 33,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPEDEF_DECL",
-        "name": "u16string",
-        "location": {
-          "file": "/usr/include/c++/12/bits/stringfwd.h",
-          "line": 89,
-          "column": 34
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 34,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:remoteDescriptor"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "remoteDescriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 34,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:std::u16string",
-      "kind:CursorKind.CALL_EXPR spell:ReadInterfaceToken"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 34,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/cinttypes",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 34,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/cinttypes",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "std::u16string",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 34,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPEDEF_DECL",
-      "name": "u16string",
-      "location": {
-        "file": "/usr/include/c++/12/bits/stringfwd.h",
-        "line": 89,
-        "column": 34
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "std::u16string",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 34,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPEDEF_DECL",
-        "name": "u16string",
-        "location": {
-          "file": "/usr/include/c++/12/bits/stringfwd.h",
-          "line": 89,
-          "column": 34
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
       }
     }
   },
@@ -2991,15 +1411,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:ReadInterfaceToken"
     ],
-    "function_call": {
-      "function_call": "ReadInterfaceToken",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "ReadInterfaceToken",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-        "line": 34,
-        "column": 39
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 82,
+        "column": 20
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3018,139 +1447,17 @@
           "column": 39
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadInterfaceToken",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 82,
+          "column": 20
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadInterfaceToken",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 34,
-      "column": 44
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 34,
-      "column": 39
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 35,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:descriptor",
-      "kind:CursorKind.DECL_REF_EXPR spell:remoteDescriptor"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "descriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 35,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remoteDescriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 35,
-      "column": 23
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 35,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3172,6 +1479,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3203,18 +1517,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3234,6 +1536,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3263,123 +1572,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 36,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 37,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ERR_INVALID_STATE"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ERR_INVALID_STATE",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 37,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ERR_INVALID_STATE"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ERR_INVALID_STATE",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 37,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:code",
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:code"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t",
-      "kind:CursorKind.DECL_REF_EXPR spell:ON_ABILITY_STATE_CHANGED"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3401,6 +1593,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3432,19 +1631,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ON_ABILITY_STATE_CHANGED",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 81
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IAbilityForegroundStateObserver",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IAbilityForegroundStateObserver::Message"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AppExecFwk::IAbilityForegroundStateObserver",
     "location": {
@@ -3464,6 +1650,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3514,6 +1707,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IAbilityForegroundStateObserver"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3545,119 +1745,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 40,
-      "column": 108
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 41,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:HandleOnAbilityStateChanged"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "HandleOnAbilityStateChanged",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 41,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:HandleOnAbilityStateChanged",
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.DECL_REF_EXPR spell:reply"
-    ],
-    "function_call": {
-      "function_call": "HandleOnAbilityStateChanged",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-        "line": 41,
-        "column": 16
-      }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "HandleOnAbilityStateChanged",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 41,
-          "column": 16
-        }
-      },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "HandleOnAbilityStateChanged",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 41,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 41,
-      "column": 44
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 41,
-      "column": 50
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "HandleOnAbilityStateChanged",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 46,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -3677,6 +1764,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3709,68 +1803,6 @@
   },
   {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 46,
-      "column": 9
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 28,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "HandleOnAbilityStateChanged",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 46,
-          "column": 9
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 28,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 46,
-      "column": 88
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
@@ -3789,6 +1821,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3826,18 +1865,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 46,
-      "column": 109
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -3857,6 +1884,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3894,127 +1928,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 47,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 48,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:processData"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "processData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 48,
-      "column": 39
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 49,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 49,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4034,6 +1947,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4065,18 +1985,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4096,6 +2004,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4125,303 +2040,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 55,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 55,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 55,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AbilityForegroundStateObserverRecipient",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 58,
-      "column": 42
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient",
-      "kind:CursorKind.PARM_DECL spell:handler",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 58,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverRecipient",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 47,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 58,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 47,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "handler",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 58,
-      "column": 100
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 58,
-      "column": 82
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPE_ALIAS_DECL",
-      "name": "RemoteDiedHandler",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 49,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "handler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient::RemoteDiedHandler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 58,
-          "column": 82
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPE_ALIAS_DECL",
-        "name": "RemoteDiedHandler",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 49,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.CLASS_DECL spell:AbilityForegroundStateObserverRecipient"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 60,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnRemoteDied",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 62,
-      "column": 47
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient",
-      "kind:CursorKind.PARM_DECL spell:remote",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-      "line": 52,
-      "column": 58
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 62,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AbilityForegroundStateObserverRecipient",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-        "line": 47,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteDied",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-          "line": 62,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AbilityForegroundStateObserverRecipient",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/ability_foreground_state_observer_stub.h",
-          "line": 47,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "remote",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 62,
-      "column": 111
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_ATTR spell:",
-      "kind:CursorKind.TEMPLATE_REF spell:wptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 62,
-      "column": 102
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.TEMPLATE_REF",
@@ -4443,6 +2061,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4499,6 +2124,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4536,69 +2168,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 63,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4618,6 +2187,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4649,18 +2225,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4680,6 +2244,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4709,60 +2280,5 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 64,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 65,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 65,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp",
-      "line": 65,
-      "column": 19
-    },
-    "children": []
   }
 ]

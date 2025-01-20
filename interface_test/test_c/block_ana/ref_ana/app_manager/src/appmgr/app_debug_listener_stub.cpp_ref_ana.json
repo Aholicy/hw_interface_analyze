@@ -1,119 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 24,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 25,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:AppDebugListenerStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 26,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:AppDebugListenerStub",
-      "kind:CursorKind.DESTRUCTOR spell:~AppDebugListenerStub",
-      "kind:CursorKind.CXX_METHOD spell:OnRemoteRequest",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CXX_METHOD spell:HandleOnAppDebugStarted",
-      "kind:CursorKind.CXX_METHOD spell:HandleOnAppDebugStoped",
-      "kind:CursorKind.CONSTRUCTOR spell:AppDebugListenerStub",
-      "kind:CursorKind.CXX_METHOD spell:operator=",
-      "kind:CursorKind.CONSTRUCTOR spell:AppDebugListenerStub",
-      "kind:CursorKind.CXX_METHOD spell:operator="
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 27,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 28,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 29,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnRemoteRequest",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 31,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:code",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.PARM_DECL spell:option"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 32,
-      "column": 90
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 32,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint32_t",
     "location": {
@@ -133,6 +19,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -176,18 +69,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 32,
-      "column": 39
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -207,6 +88,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -250,18 +138,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 32,
-      "column": 60
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -281,6 +157,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -324,18 +207,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 32,
-      "column": 82
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageOption",
     "location": {
@@ -355,6 +226,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -398,30 +276,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 34,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "HandleOnAppDebugStarted",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 35,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -441,6 +295,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -478,18 +339,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 35,
-      "column": 52
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -509,6 +358,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -552,18 +408,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 35,
-      "column": 73
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -583,6 +427,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -626,20 +477,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "HandleOnAppDebugStoped",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 36,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -659,6 +496,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -696,18 +540,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 36,
-      "column": 51
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -727,6 +559,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -770,18 +609,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 36,
-      "column": 72
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -801,6 +628,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "AppDebugListenerStub",
@@ -844,519 +678,6 @@
     }
   },
   {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 38,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "operator=",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 38,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 38,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 38,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "operator=",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.PARM_DECL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 38,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 38,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "operator=",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 38,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:AppDebugListenerStub",
-      "kind:CursorKind.DESTRUCTOR spell:~AppDebugListenerStub",
-      "kind:CursorKind.CXX_METHOD spell:OnRemoteRequest",
-      "kind:CursorKind.CXX_METHOD spell:HandleOnAppDebugStarted",
-      "kind:CursorKind.CXX_METHOD spell:HandleOnAppDebugStoped"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 24,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:CYCLE_LIMIT_MIN",
-      "kind:CursorKind.VAR_DECL spell:CYCLE_LIMIT_MAX"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "CYCLE_LIMIT_MIN",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 25,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1376,6 +697,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -1401,29 +729,6 @@
     }
   },
   {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 25,
-      "column": 37
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "CYCLE_LIMIT_MAX",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 26,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1443,6 +748,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -1468,252 +780,6 @@
     }
   },
   {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 26,
-      "column": 37
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 28,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 28,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 28,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 28,
-      "column": 46
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 30,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 30,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.DESTRUCTOR",
-        "name": "~AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 30,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 30,
-      "column": 47
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnRemoteRequest",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 32,
-      "column": 27
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.PARM_DECL spell:code",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.PARM_DECL spell:option",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-      "line": 32,
-      "column": 90
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 32,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 33,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint32_t",
     "location": {
@@ -1733,6 +799,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1770,18 +843,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 33,
-      "column": 35
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -1801,6 +862,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1838,18 +906,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 33,
-      "column": 56
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -1869,6 +925,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1906,18 +969,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "option",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 33,
-      "column": 78
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageOption"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageOption",
     "location": {
@@ -1937,6 +988,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1974,73 +1032,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 34,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.SWITCH_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2060,6 +1051,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2091,18 +1089,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2122,6 +1108,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2149,279 +1142,6 @@
           "column": 7
         },
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:descriptor"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "descriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 36,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:std::u16string"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/cinttypes",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 36,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/cinttypes",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "std::u16string",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 36,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPEDEF_DECL",
-      "name": "u16string",
-      "location": {
-        "file": "/usr/include/c++/12/bits/stringfwd.h",
-        "line": 89,
-        "column": 34
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "std::u16string",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 36,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPEDEF_DECL",
-        "name": "u16string",
-        "location": {
-          "file": "/usr/include/c++/12/bits/stringfwd.h",
-          "line": 89,
-          "column": 34
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:remoteDescriptor"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "remoteDescriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 37,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:std::u16string",
-      "kind:CursorKind.CALL_EXPR spell:ReadInterfaceToken"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/cinttypes",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 37,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/cinttypes",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "std::u16string",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 37,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPEDEF_DECL",
-      "name": "u16string",
-      "location": {
-        "file": "/usr/include/c++/12/bits/stringfwd.h",
-        "line": 89,
-        "column": 34
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "std::u16string",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 37,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPEDEF_DECL",
-        "name": "u16string",
-        "location": {
-          "file": "/usr/include/c++/12/bits/stringfwd.h",
-          "line": 89,
-          "column": 34
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
       }
     }
   },
@@ -2436,15 +1156,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:ReadInterfaceToken"
     ],
-    "function_call": {
-      "function_call": "ReadInterfaceToken",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "ReadInterfaceToken",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-        "line": 37,
-        "column": 39
-      }
+        "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+        "line": 82,
+        "column": 20
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2463,139 +1192,17 @@
           "column": 39
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadInterfaceToken",
+        "location": {
+          "file": "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/include/message_parcel.h",
+          "line": 82,
+          "column": 20
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:MessageParcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadInterfaceToken",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 37,
-      "column": 44
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:data"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 37,
-      "column": 39
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:descriptor",
-      "kind:CursorKind.DECL_REF_EXPR spell:remoteDescriptor"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "descriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remoteDescriptor",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 38,
-      "column": 23
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 38,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2617,6 +1224,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2648,18 +1262,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2679,6 +1281,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2708,136 +1317,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 40,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ERR_INVALID_STATE"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ERR_INVALID_STATE",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 40,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ERR_INVALID_STATE"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ERR_INVALID_STATE",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 40,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.SWITCH_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 43,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:code",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 43,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:code"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "code",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 43,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 43,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.CASE_STMT spell:",
-      "kind:CursorKind.CASE_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CASE_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 44,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 44,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t",
-      "kind:CursorKind.DECL_REF_EXPR spell:ON_APP_DEBUG_STARTED"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2859,6 +1338,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2890,19 +1376,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ON_APP_DEBUG_STARTED",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 44,
-      "column": 64
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IAppDebugListener",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IAppDebugListener::Message"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AppExecFwk::IAppDebugListener",
     "location": {
@@ -2922,6 +1395,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2972,6 +1452,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IAppDebugListener"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3003,117 +1490,6 @@
     }
   },
   {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 45,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:HandleOnAppDebugStarted"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "HandleOnAppDebugStarted",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 45,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:HandleOnAppDebugStarted",
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.DECL_REF_EXPR spell:reply"
-    ],
-    "function_call": {
-      "function_call": "HandleOnAppDebugStarted",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-        "line": 45,
-        "column": 20
-      }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "HandleOnAppDebugStarted",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 45,
-          "column": 20
-        }
-      },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "HandleOnAppDebugStarted",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 45,
-      "column": 20
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 45,
-      "column": 44
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 45,
-      "column": 50
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CASE_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 46,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 46,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint32_t",
-      "kind:CursorKind.DECL_REF_EXPR spell:ON_APP_DEBUG_STOPED"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint32_t",
     "location": {
@@ -3133,6 +1509,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3164,19 +1547,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ON_APP_DEBUG_STOPED",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 46,
-      "column": 64
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::IAppDebugListener",
-      "kind:CursorKind.TYPE_REF spell:enum OHOS::AppExecFwk::IAppDebugListener::Message"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AppExecFwk::IAppDebugListener",
     "location": {
@@ -3196,6 +1566,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3246,6 +1623,13 @@
       "parent": "kind:CursorKind.CLASS_DECL spell:IAppDebugListener"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3277,141 +1661,6 @@
     }
   },
   {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 47,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:HandleOnAppDebugStoped"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "HandleOnAppDebugStoped",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 47,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:HandleOnAppDebugStoped",
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.DECL_REF_EXPR spell:reply"
-    ],
-    "function_call": {
-      "function_call": "HandleOnAppDebugStoped",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-        "line": 47,
-        "column": 20
-      }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnRemoteRequest",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "HandleOnAppDebugStoped",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 47,
-          "column": 20
-        }
-      },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "HandleOnAppDebugStoped",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 47,
-      "column": 20
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 47,
-      "column": 43
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 47,
-      "column": 49
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3431,6 +1680,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3462,18 +1718,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3493,6 +1737,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3522,44 +1773,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "HandleOnAppDebugStarted",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 54,
-      "column": 31
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -3581,6 +1794,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3613,68 +1833,6 @@
   },
   {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "HandleOnAppDebugStarted",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 54,
-          "column": 9
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 54,
-      "column": 70
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
@@ -3693,6 +1851,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3730,18 +1895,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 54,
-      "column": 91
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -3761,6 +1914,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3798,176 +1958,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 55,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 56,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:infoSize"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "infoSize",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 56,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 56,
-      "column": 21
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 56,
-      "column": 21
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.OVERLOADED_DECL_REF spell:ReadInt32"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 56,
-      "column": 21
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.OVERLOADED_DECL_REF",
-    "name": "ReadInt32",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 56,
-      "column": 26
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 57,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 57,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 57,
-      "column": 68
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -3987,6 +1977,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4018,18 +2015,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4049,6 +2034,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4078,134 +2070,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 58,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 59,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ERR_INVALID_DATA"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ERR_INVALID_DATA",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 59,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ERR_INVALID_DATA"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ERR_INVALID_DATA",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 59,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 62,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:appDebugInfos"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "appDebugInfos",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 62,
-      "column": 31
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 73,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 73,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 73,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "HandleOnAppDebugStoped",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 76,
-      "column": 31
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AppExecFwk::AppDebugListenerStub",
-      "kind:CursorKind.PARM_DECL spell:data",
-      "kind:CursorKind.PARM_DECL spell:reply",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -4227,6 +2091,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4259,68 +2130,6 @@
   },
   {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 76,
-      "column": 9
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "AppDebugListenerStub",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-        "line": 26,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "HandleOnAppDebugStoped",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AppExecFwk::AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-          "line": 76,
-          "column": 9
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "AppDebugListenerStub",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_debug_listener_stub.h",
-          "line": 26,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 76,
-      "column": 69
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
@@ -4339,6 +2148,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4376,18 +2192,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "reply",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 76,
-      "column": 90
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::MessageParcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::MessageParcel",
     "location": {
@@ -4407,6 +2211,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4444,176 +2255,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 77,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 78,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:infoSize"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "infoSize",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 78,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 78,
-      "column": 21
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 78,
-      "column": 21
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:data",
-      "kind:CursorKind.OVERLOADED_DECL_REF spell:ReadInt32"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "data",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 78,
-      "column": 21
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.OVERLOADED_DECL_REF",
-    "name": "ReadInt32",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 78,
-      "column": 26
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 79,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 79,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 79,
-      "column": 68
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4633,6 +2274,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4664,18 +2312,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -4695,6 +2331,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -4724,117 +2367,5 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 80,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 81,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:ERR_INVALID_DATA"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "ERR_INVALID_DATA",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 81,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:ERR_INVALID_DATA"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "ERR_INVALID_DATA",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 81,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 84,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:appDebugInfos"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "appDebugInfos",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 84,
-      "column": 31
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 95,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 95,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:NO_ERROR"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "NO_ERROR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp",
-      "line": 95,
-      "column": 12
-    },
-    "children": []
   }
 ]

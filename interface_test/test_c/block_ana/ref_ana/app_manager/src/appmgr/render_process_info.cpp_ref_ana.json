@@ -1,51 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 26,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 27,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.STRUCT_DECL spell:RenderProcessInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.STRUCT_DECL",
-    "name": "RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 28,
-      "column": 8
-    },
-    "children": [
-      "kind:CursorKind.CXX_BASE_SPECIFIER spell:class Parcelable",
-      "kind:CursorKind.FIELD_DECL spell:bundleName_",
-      "kind:CursorKind.FIELD_DECL spell:processName_",
-      "kind:CursorKind.FIELD_DECL spell:pid_",
-      "kind:CursorKind.FIELD_DECL spell:uid_",
-      "kind:CursorKind.FIELD_DECL spell:hostUid_",
-      "kind:CursorKind.FIELD_DECL spell:hostPid_",
-      "kind:CursorKind.FIELD_DECL spell:state_",
-      "kind:CursorKind.CXX_METHOD spell:ReadFromParcel",
-      "kind:CursorKind.CXX_METHOD spell:Marshalling",
-      "kind:CursorKind.CXX_METHOD spell:Unmarshalling"
-    ]
-  },
-  {
     "kind": "CursorKind.CXX_BASE_SPECIFIER",
     "name": "class Parcelable",
     "location": {
@@ -55,7 +9,48 @@
     },
     "children": [
       "kind:CursorKind.TYPE_REF spell:class Parcelable"
-    ]
+    ],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcelable",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 21,
+        "column": 7
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+    },
+    "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h"
+        }
+      },
+      "class": null,
+      "function": null,
+      "parameter": null,
+      "self": {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "class Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
+          "line": 28,
+          "column": 35
+        }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "Parcelable",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+          "line": 21,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+      }
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -77,6 +72,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -102,512 +104,6 @@
     }
   },
   {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "bundleName_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 29,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:std::string"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 29,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 29,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "std::string",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 29,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPEDEF_DECL",
-      "name": "string",
-      "location": {
-        "file": "/usr/include/c++/12/bits/stringfwd.h",
-        "line": 77,
-        "column": 33
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "std::string",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 29,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPEDEF_DECL",
-        "name": "string",
-        "location": {
-          "file": "/usr/include/c++/12/bits/stringfwd.h",
-          "line": 77,
-          "column": 33
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "processName_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 30,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TYPE_REF spell:std::string"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 30,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 30,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "std::string",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 30,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPEDEF_DECL",
-      "name": "string",
-      "location": {
-        "file": "/usr/include/c++/12/bits/stringfwd.h",
-        "line": 77,
-        "column": 33
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "std::string",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 30,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPEDEF_DECL",
-        "name": "string",
-        "location": {
-          "file": "/usr/include/c++/12/bits/stringfwd.h",
-          "line": 77,
-          "column": 33
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "pid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 31,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 31,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 31,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "uid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 32,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 32,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 32,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "hostUid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 33,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 33,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 33,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "hostPid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 34,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 34,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 34,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "state_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 35,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 35,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/vector",
-        "line": 78,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 35,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/vector",
-          "line": 78,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "ReadFromParcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 37,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 37,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -627,6 +123,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -664,41 +167,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Marshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 38,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 38,
-      "column": 52
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 38,
-      "column": 38
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -718,6 +186,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -755,81 +230,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Unmarshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 39,
-      "column": 31
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RenderProcessInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 39,
-      "column": 12
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "RenderProcessInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-        "line": 28,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 39,
-          "column": 12
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 28,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 39,
-      "column": 53
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -849,6 +249,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -886,108 +293,6 @@
     }
   },
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 24,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 25,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CXX_METHOD spell:ReadFromParcel",
-      "kind:CursorKind.CXX_METHOD spell:Unmarshalling",
-      "kind:CursorKind.CXX_METHOD spell:Marshalling"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "ReadFromParcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 26,
-      "column": 25
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RenderProcessInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 26,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "RenderProcessInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-        "line": 28,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "ReadFromParcel",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-          "line": 26,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 28,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 26,
-      "column": 48
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -1007,6 +312,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1044,52 +356,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 27,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 30,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:pidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "pidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 30,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1109,6 +375,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1140,42 +413,6 @@
     }
   },
   {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:pid_",
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "pid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 32,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:pidData"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1195,6 +432,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1226,52 +470,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "pidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 32,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:pidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "pidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 32,
-      "column": 33
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:uidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "uidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 33,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1291,6 +489,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1322,42 +527,6 @@
     }
   },
   {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:uid_",
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "uid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 35,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:uidData"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1377,6 +546,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1408,52 +584,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "uidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 35,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:uidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "uidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 35,
-      "column": 33
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:hostUidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "hostUidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 36,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1473,6 +603,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1504,42 +641,6 @@
     }
   },
   {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 38,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:hostUid_",
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "hostUid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 38,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 38,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:hostUidData"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1559,6 +660,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1590,52 +698,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "hostUidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 38,
-      "column": 37
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:hostUidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "hostUidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 38,
-      "column": 37
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 39,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:hostPidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "hostPidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 39,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1655,6 +717,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1686,42 +755,6 @@
     }
   },
   {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 41,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:hostPid_",
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "hostPid_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 41,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 41,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:hostPidData"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1741,6 +774,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1772,52 +812,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "hostPidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 41,
-      "column": 37
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:hostPidData"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "hostPidData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 41,
-      "column": 37
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 42,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:stateData"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "stateData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 42,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1837,6 +831,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1868,42 +869,6 @@
     }
   },
   {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 44,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:state_",
-      "kind:CursorKind.CXX_STATIC_CAST_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "state_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 44,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_STATIC_CAST_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 44,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:stateData"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1923,6 +888,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1954,177 +926,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "stateData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 44,
-      "column": 35
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:stateData"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "stateData",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 44,
-      "column": 35
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 45,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 45,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Unmarshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 48,
-      "column": 39
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RenderProcessInfo",
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RenderProcessInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 48,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "RenderProcessInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-        "line": 28,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-          "line": 48,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 28,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 48,
-      "column": 20
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "RenderProcessInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-        "line": 28,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-          "line": 48,
-          "column": 20
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 28,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 48,
-      "column": 61
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -2144,6 +945,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2181,316 +989,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 49,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 50,
-      "column": 24
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RenderProcessInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 50,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "RenderProcessInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-        "line": 28,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-          "line": 50,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 28,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:info",
-      "kind:CursorKind.UNARY_OPERATOR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:ReadFromParcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.CALL_EXPR",
-    "name": "ReadFromParcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:ReadFromParcel",
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ],
-    "function_call": {
-      "function_call": "ReadFromParcel",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-        "line": 51,
-        "column": 18
-      }
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.CALL_EXPR",
-        "name": "ReadFromParcel",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-          "line": 51,
-          "column": 18
-        }
-      },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadFromParcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 24
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 18
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 39
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 51,
-      "column": 48
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.CXX_DELETE_EXPR spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:APPMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2510,6 +1008,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2541,18 +1046,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "APPMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2572,6 +1065,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2601,228 +1101,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 52,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_DELETE_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 53,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 53,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 53,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:info",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 54,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 54,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 54,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 56,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 56,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:info"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "info",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 56,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Marshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 59,
-      "column": 25
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::RenderProcessInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-      "line": 38,
-      "column": 52
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 59,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "RenderProcessInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-        "line": 28,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Marshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-          "line": 59,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "RenderProcessInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/render_process_info.h",
-          "line": 28,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 59,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2844,6 +1122,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2879,39 +1164,5 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 60,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 68,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp",
-      "line": 68,
-      "column": 12
-    },
-    "children": []
   }
 ]

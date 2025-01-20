@@ -1,100 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AAFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AAFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:UriPermissionLoadCallback"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "UriPermissionLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 24,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:UriPermissionLoadCallback",
-      "kind:CursorKind.DESTRUCTOR spell:~UriPermissionLoadCallback",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilitySuccess",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilityFail"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 25,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "UriPermissionLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 26,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~UriPermissionLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 27,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilitySuccess",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 29,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId",
-      "kind:CursorKind.PARM_DECL spell:remoteObject"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 29,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -114,6 +19,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "UriPermissionLoadCallback",
@@ -157,19 +69,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 29,
-      "column": 89
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -189,6 +88,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "UriPermissionLoadCallback",
@@ -251,6 +157,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "UriPermissionLoadCallback",
@@ -294,30 +207,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilityFail",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 30,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-      "line": 30,
-      "column": 42
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -337,6 +226,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "UriPermissionLoadCallback",
@@ -380,108 +276,6 @@
     }
   },
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 21,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AAFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AAFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilitySuccess",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilityFail"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilitySuccess",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 23,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AAFwk::UriPermissionLoadCallback",
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId",
-      "kind:CursorKind.PARM_DECL spell:remoteObject",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AAFwk::UriPermissionLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 23,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "UriPermissionLoadCallback",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnLoadSystemAbilitySuccess",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AAFwk::UriPermissionLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-          "line": 23,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "UriPermissionLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 24,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -501,6 +295,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -538,19 +339,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 24,
-      "column": 57
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -570,6 +358,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -626,6 +421,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -663,107 +465,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 25,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.CALL_EXPR spell:OnLoadSystemAbilitySuccess"
-    ]
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 26,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 26,
-      "column": 59
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:URIPERMMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -783,6 +484,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -814,18 +522,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "URIPERMMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -845,6 +541,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -876,147 +579,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 28,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 31,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:remoteObject",
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 31,
-      "column": 25
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 31,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:URIPERMMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1036,6 +598,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1067,18 +636,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "URIPERMMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1098,6 +655,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1129,88 +693,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 33,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:URIPERMMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1230,6 +712,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1261,18 +750,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "URIPERMMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1292,6 +769,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1321,28 +805,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -1356,15 +818,24 @@
       "kind:CursorKind.MEMBER_REF_EXPR spell:OnLoadSystemAbilitySuccess",
       "kind:CursorKind.DECL_REF_EXPR spell:remoteObject"
     ],
-    "function_call": {
-      "function_call": "OnLoadSystemAbilitySuccess",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "OnLoadSystemAbilitySuccess",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-        "line": 37,
-        "column": 5
-      }
+        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+        "line": 103,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1383,20 +854,17 @@
           "column": 5
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "OnLoadSystemAbilitySuccess",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+          "line": 103,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "OnLoadSystemAbilitySuccess",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 37,
-      "column": 47
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:GetInstance"
-    ]
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -1409,15 +877,24 @@
     "children": [
       "kind:CursorKind.UNEXPOSED_EXPR spell:GetInstance"
     ],
-    "function_call": {
-      "function_call": "GetInstance",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "GetInstance",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-        "line": 37,
-        "column": 5
-      }
+        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+        "line": 29,
+        "column": 40
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1436,32 +913,17 @@
           "column": 5
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetInstance",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+          "line": 29,
+          "column": 40
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "GetInstance",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 37,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:GetInstance"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "GetInstance",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 37,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AAFwk::UriPermissionManagerClient"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1483,6 +945,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1514,92 +983,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 37,
-      "column": 74
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilityFail",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 40,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AAFwk::UriPermissionLoadCallback",
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AAFwk::UriPermissionLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 40,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "UriPermissionLoadCallback",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnLoadSystemAbilityFail",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AAFwk::UriPermissionLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-          "line": 40,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "UriPermissionLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_load_callback.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 40,
-      "column": 65
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -1619,6 +1002,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1656,106 +1046,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 41,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.CALL_EXPR spell:OnLoadSystemAbilityFail"
-    ]
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 42,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 42,
-      "column": 59
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:URIPERMMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1775,6 +1065,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1806,18 +1103,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "URIPERMMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1837,6 +1122,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1868,88 +1160,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 44,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:URIPERMMGR"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1969,6 +1179,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2000,18 +1217,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "URIPERMMGR",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2031,6 +1236,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2060,28 +1272,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -2094,15 +1284,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:OnLoadSystemAbilityFail"
     ],
-    "function_call": {
-      "function_call": "OnLoadSystemAbilityFail",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "OnLoadSystemAbilityFail",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-        "line": 48,
-        "column": 5
-      }
+        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+        "line": 104,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2121,20 +1320,17 @@
           "column": 5
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "OnLoadSystemAbilityFail",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+          "line": 104,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "OnLoadSystemAbilityFail",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 48,
-      "column": 47
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:GetInstance"
-    ]
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -2147,15 +1343,24 @@
     "children": [
       "kind:CursorKind.UNEXPOSED_EXPR spell:GetInstance"
     ],
-    "function_call": {
-      "function_call": "GetInstance",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "GetInstance",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-        "line": 48,
-        "column": 5
-      }
+        "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+        "line": 29,
+        "column": 40
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2174,32 +1379,17 @@
           "column": 5
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "GetInstance",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/include/uri_permission_manager_client.h",
+          "line": 29,
+          "column": 40
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:UriPermissionManagerClient"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "GetInstance",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 48,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:GetInstance"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "GetInstance",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp",
-      "line": 48,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AAFwk::UriPermissionManagerClient"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2221,6 +1411,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",

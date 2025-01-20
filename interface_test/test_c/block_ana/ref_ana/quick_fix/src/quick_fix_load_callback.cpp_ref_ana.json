@@ -1,100 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AAFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AAFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:QuickFixLoadCallback"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "QuickFixLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 24,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:QuickFixLoadCallback",
-      "kind:CursorKind.DESTRUCTOR spell:~QuickFixLoadCallback",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilitySuccess",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilityFail"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 25,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "QuickFixLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 26,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~QuickFixLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 27,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilitySuccess",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 29,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId",
-      "kind:CursorKind.PARM_DECL spell:remoteObject"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 29,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -114,6 +19,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixLoadCallback",
@@ -157,19 +69,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 29,
-      "column": 89
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -189,6 +88,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixLoadCallback",
@@ -251,6 +157,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixLoadCallback",
@@ -294,30 +207,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilityFail",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 30,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-      "line": 30,
-      "column": 42
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -337,6 +226,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "QuickFixLoadCallback",
@@ -380,108 +276,6 @@
     }
   },
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 21,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AAFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AAFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilitySuccess",
-      "kind:CursorKind.CXX_METHOD spell:OnLoadSystemAbilityFail"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilitySuccess",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 23,
-      "column": 28
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AAFwk::QuickFixLoadCallback",
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId",
-      "kind:CursorKind.PARM_DECL spell:remoteObject",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AAFwk::QuickFixLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 23,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixLoadCallback",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnLoadSystemAbilitySuccess",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AAFwk::QuickFixLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-          "line": 23,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 23,
-      "column": 63
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "int32_t",
     "location": {
@@ -501,6 +295,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -538,19 +339,6 @@
     }
   },
   {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 23,
-      "column": 107
-    },
-    "children": [
-      "kind:CursorKind.TEMPLATE_REF spell:sptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::IRemoteObject"
-    ]
-  },
-  {
     "kind": "CursorKind.TEMPLATE_REF",
     "name": "sptr",
     "location": {
@@ -570,6 +358,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -626,6 +421,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -663,106 +465,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 24,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 25,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 25,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 25,
-      "column": 54
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:QUICKFIX"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -782,6 +484,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -813,18 +522,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "QUICKFIX",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -844,6 +541,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -875,147 +579,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 26,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 27,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 30,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:remoteObject",
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "remoteObject",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 30,
-      "column": 25
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 30,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:QUICKFIX"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1035,6 +598,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1066,18 +636,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "QUICKFIX",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1097,6 +655,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1128,88 +693,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 31,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 32,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:QUICKFIX"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1229,6 +712,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1260,18 +750,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "QUICKFIX",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1291,6 +769,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1320,104 +805,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "OnLoadSystemAbilityFail",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 39,
-      "column": 28
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AAFwk::QuickFixLoadCallback",
-      "kind:CursorKind.PARM_DECL spell:systemAbilityId",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AAFwk::QuickFixLoadCallback",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 39,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "QuickFixLoadCallback",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-        "line": 24,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "OnLoadSystemAbilityFail",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AAFwk::QuickFixLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-          "line": 39,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "QuickFixLoadCallback",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/include/quick_fix_load_callback.h",
-          "line": 24,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AAFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "systemAbilityId",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 39,
-      "column": 60
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:int32_t"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1439,6 +826,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1476,105 +870,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 40,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DO_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 41,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 41,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 41,
-      "column": 54
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:QUICKFIX"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1594,6 +889,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1625,18 +927,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "QUICKFIX",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1656,6 +946,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1687,88 +984,6 @@
     }
   },
   {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 42,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 43,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:QUICKFIX"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1788,6 +1003,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1819,18 +1041,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "QUICKFIX",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -1850,6 +1060,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AAFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1879,27 +1096,5 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_load_callback.cpp",
-      "line": 46,
-      "column": 5
-    },
-    "children": []
   }
 ]

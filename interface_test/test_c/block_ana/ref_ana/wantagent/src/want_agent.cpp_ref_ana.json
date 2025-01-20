@@ -1,74 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 26,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AbilityRuntime"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AbilityRuntime",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 26,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:WantAgent"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 26,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.CLASS_DECL spell:WantAgent"
-    ]
-  },
-  {
-    "kind": "CursorKind.CLASS_DECL",
-    "name": "WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 27,
-      "column": 7
-    },
-    "children": [
-      "kind:CursorKind.CXX_FINAL_ATTR spell:",
-      "kind:CursorKind.CXX_BASE_SPECIFIER spell:class Parcelable",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.CONSTRUCTOR spell:WantAgent",
-      "kind:CursorKind.DESTRUCTOR spell:~WantAgent",
-      "kind:CursorKind.CONSTRUCTOR spell:WantAgent",
-      "kind:CursorKind.CXX_METHOD spell:GetPendingWant",
-      "kind:CursorKind.CXX_METHOD spell:SetPendingWant",
-      "kind:CursorKind.CXX_METHOD spell:Marshalling",
-      "kind:CursorKind.CXX_METHOD spell:Unmarshalling",
-      "kind:CursorKind.CXX_ACCESS_SPEC_DECL spell:",
-      "kind:CursorKind.FIELD_DECL spell:pendingWant_"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_FINAL_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 27,
-      "column": 17
-    },
-    "children": []
-  },
-  {
     "kind": "CursorKind.CXX_BASE_SPECIFIER",
     "name": "class Parcelable",
     "location": {
@@ -78,7 +9,54 @@
     },
     "children": [
       "kind:CursorKind.TYPE_REF spell:class Parcelable"
-    ]
+    ],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcelable",
+      "location": {
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+        "line": 21,
+        "column": 7
+      },
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+    },
+    "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
+      "class": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
+      "function": null,
+      "parameter": null,
+      "self": {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "class Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
+          "line": 27,
+          "column": 80
+        }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "Parcelable",
+        "location": {
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal/include/parcel.h",
+          "line": 21,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+      }
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -100,6 +78,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -131,210 +116,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 28,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 29,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 29,
-      "column": 17
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DESTRUCTOR",
-    "name": "~WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 30,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 30,
-      "column": 34
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 36,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:pendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "pendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 36,
-      "column": 60
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 36,
-      "column": 30
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 36,
-          "column": 30
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 36,
-      "column": 35
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 36,
-          "column": 35
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
@@ -354,6 +135,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -397,132 +185,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "GetPendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 43,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 43,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "GetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 43,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 43,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "GetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 43,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
@@ -542,6 +204,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -579,156 +248,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "SetPendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 50,
-      "column": 10
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:pendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "pendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 50,
-      "column": 61
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 50,
-      "column": 31
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "SetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 50,
-          "column": 31
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 50,
-      "column": 36
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "SetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 50,
-          "column": 36
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
@@ -748,6 +267,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -791,30 +317,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Marshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 58,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 58,
-      "column": 38
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -834,6 +336,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -877,87 +386,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Unmarshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 66,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 66,
-      "column": 12
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 66,
-          "column": 12
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 66,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -977,6 +405,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -1020,130 +455,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_ACCESS_SPEC_DECL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 68,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "pendingWant_",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 69,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 69,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 69,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-      "line": 69,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
-        }
-      },
-      "function": null,
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 69,
-          "column": 10
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
@@ -1163,6 +474,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h"
+        }
+      },
       "class": {
         "kind": "CursorKind.CLASS_DECL",
         "name": "WantAgent",
@@ -1194,236 +512,6 @@
     }
   },
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 19,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AbilityRuntime"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AbilityRuntime",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 19,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:WantAgent"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 19,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.CONSTRUCTOR spell:WantAgent",
-      "kind:CursorKind.CXX_METHOD spell:GetPendingWant",
-      "kind:CursorKind.CXX_METHOD spell:SetPendingWant",
-      "kind:CursorKind.CXX_METHOD spell:Marshalling",
-      "kind:CursorKind.CXX_METHOD spell:Unmarshalling"
-    ]
-  },
-  {
-    "kind": "CursorKind.CONSTRUCTOR",
-    "name": "WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 20,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.PARM_DECL spell:pendingWant",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 20,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 20,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "pendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 20,
-      "column": 58
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 20,
-      "column": 28
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 20,
-          "column": 28
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 20,
-      "column": 33
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CONSTRUCTOR",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 20,
-          "column": 33
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
@@ -1443,6 +531,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CONSTRUCTOR",
@@ -1480,132 +575,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 21,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "GetPendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 25,
-      "column": 41
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 25,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "GetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 25,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 25,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "GetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 25,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
@@ -1625,6 +594,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1657,256 +633,6 @@
   },
   {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 25,
-      "column": 30
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "GetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 25,
-          "column": 30
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 26,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "SetPendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 30,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.PARM_DECL spell:pendingWant",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 30,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "SetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 30,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "pendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 30,
-      "column": 68
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 30,
-      "column": 38
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "SetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 30,
-          "column": 38
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.NAMESPACE",
-        "name": "std",
-        "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 30,
-      "column": 43
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "SetPendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": {
-        "kind": "CursorKind.PARM_DECL",
-        "name": "pendingWant",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 30,
-          "column": 43
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
-        "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::AbilityRuntime::WantAgent::PendingWant",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
@@ -1925,6 +651,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1962,92 +695,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 31,
-      "column": 1
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Marshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 35,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 35,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Marshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 35,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 35,
-      "column": 37
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class Parcel",
     "location": {
@@ -2067,6 +714,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2104,105 +758,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 36,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 37,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 37,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 37,
-      "column": 54
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:WANTAGENT"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2222,6 +777,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2253,18 +815,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "WANTAGENT",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2284,6 +834,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2313,199 +870,6 @@
         "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
       }
     }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 38,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 39,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 39,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 42,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.CXX_BOOL_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_BOOL_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 42,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Unmarshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 45,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 45,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 45,
-          "column": 1
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 45,
-      "column": 12
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
-        "column": 7
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 45,
-          "column": 12
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
-        "name": "WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 45,
-      "column": 45
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class Parcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -2527,6 +891,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2564,247 +935,32 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 46,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 47,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:agent"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "agent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 47,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::WantAgent"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
-    "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
+    "name": "AAFwkTag",
     "location": {
       "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 47,
-      "column": 5
+      "line": 49,
+      "column": 9
     },
     "children": [],
     "referenced": {
-      "kind": "CursorKind.CLASS_DECL",
-      "name": "WantAgent",
+      "kind": "CursorKind.TYPE_ALIAS_DECL",
+      "name": "AAFwkTag",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-        "line": 27,
+        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+        "line": 206,
         "column": 7
       },
-      "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
+      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "class OHOS::AbilityRuntime::WantAgent::WantAgent",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 47,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.CLASS_DECL",
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
         "name": "WantAgent",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/include/want_agent.h",
-          "line": 27,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:agent",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "agent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:agent"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "agent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 18
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 48,
-      "column": 27
-    },
-    "children": [
-      "kind:CursorKind.DO_STMT spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DO_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.COMPOUND_STMT spell:",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:logTag"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "logTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag",
-      "kind:CursorKind.DECL_REF_EXPR spell:WANTAGENT"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "AAFwkTag",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.TYPE_ALIAS_DECL",
-      "name": "AAFwkTag",
-      "location": {
-        "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
-        "line": 206,
-        "column": 7
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
       },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -2836,18 +992,6 @@
     }
   },
   {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "WANTAGENT",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:AAFwkTag"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "AAFwkTag",
     "location": {
@@ -2867,188 +1011,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
     },
     "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "AAFwkTag",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 49,
-          "column": 9
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.TYPE_ALIAS_DECL",
-        "name": "AAFwkTag",
-        "location": {
-          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
-          "line": 206,
-          "column": 7
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.INTEGER_LITERAL spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.INTEGER_LITERAL",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 49,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 50,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 50,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 50,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 52,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:pendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "pendingWant",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 52,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE_REF spell:std",
-      "kind:CursorKind.TEMPLATE_REF spell:shared_ptr",
-      "kind:CursorKind.TYPE_REF spell:class OHOS::AbilityRuntime::WantAgent::PendingWant"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE_REF",
-    "name": "std",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 52,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.NAMESPACE",
-      "name": "std",
-      "location": {
-        "file": "/usr/include/c++/12/mutex",
-        "line": 55,
-        "column": 11
-      },
-      "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.NAMESPACE_REF",
-        "name": "std",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 52,
-          "column": 5
-        }
-      },
-      "referenced": {
+      "namespace": {
         "kind": "CursorKind.NAMESPACE",
-        "name": "std",
+        "name": "WantAgent",
         "location": {
-          "file": "/usr/include/c++/12/mutex",
-          "line": 55,
-          "column": 11
-        },
-        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.TEMPLATE_REF",
-    "name": "shared_ptr",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 52,
-      "column": 10
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.CLASS_TEMPLATE",
-      "name": "shared_ptr",
-      "location": {
-        "file": "/usr/include/c++/12/bits/shared_ptr.h",
-        "line": 175,
-        "column": 11
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
       },
-      "parent": "kind:CursorKind.NAMESPACE spell:std"
-    },
-    "reference_info": {
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3059,23 +1028,23 @@
       },
       "parameter": null,
       "self": {
-        "kind": "CursorKind.TEMPLATE_REF",
-        "name": "shared_ptr",
+        "kind": "CursorKind.TYPE_REF",
+        "name": "AAFwkTag",
         "location": {
           "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-          "line": 52,
-          "column": 10
+          "line": 49,
+          "column": 9
         }
       },
       "referenced": {
-        "kind": "CursorKind.CLASS_TEMPLATE",
-        "name": "shared_ptr",
+        "kind": "CursorKind.TYPE_ALIAS_DECL",
+        "name": "AAFwkTag",
         "location": {
-          "file": "/usr/include/c++/12/bits/shared_ptr.h",
-          "line": 175,
-          "column": 11
+          "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/include/hilog_tag_wrapper.h",
+          "line": 206,
+          "column": 7
         },
-        "parent": "kind:CursorKind.NAMESPACE spell:std"
+        "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
       }
     }
   },
@@ -3099,6 +1068,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "WantAgent",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -3128,39 +1104,5 @@
         "parent": "kind:CursorKind.NAMESPACE spell:WantAgent"
       }
     }
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 55,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:agent"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "agent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 55,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:agent"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "agent",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp",
-      "line": 55,
-      "column": 12
-    },
-    "children": []
   }
 ]

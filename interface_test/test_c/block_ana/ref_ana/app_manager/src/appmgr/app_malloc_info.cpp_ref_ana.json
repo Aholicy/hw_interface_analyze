@@ -1,47 +1,5 @@
 [
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 22,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 23,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.STRUCT_DECL spell:MallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.STRUCT_DECL",
-    "name": "MallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 24,
-      "column": 8
-    },
-    "children": [
-      "kind:CursorKind.CXX_BASE_SPECIFIER spell:class OHOS::Parcelable",
-      "kind:CursorKind.FIELD_DECL spell:usmblks",
-      "kind:CursorKind.FIELD_DECL spell:uordblks",
-      "kind:CursorKind.FIELD_DECL spell:fordblks",
-      "kind:CursorKind.FIELD_DECL spell:hblkhd",
-      "kind:CursorKind.CXX_METHOD spell:Marshalling",
-      "kind:CursorKind.CXX_METHOD spell:Unmarshalling"
-    ]
-  },
-  {
     "kind": "CursorKind.CXX_BASE_SPECIFIER",
     "name": "class OHOS::Parcelable",
     "location": {
@@ -51,7 +9,48 @@
     },
     "children": [
       "kind:CursorKind.TYPE_REF spell:class OHOS::Parcelable"
-    ]
+    ],
+    "referenced": {
+      "kind": "CursorKind.CLASS_DECL",
+      "name": "Parcelable",
+      "location": {
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 44,
+        "column": 7
+      },
+      "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
+    },
+    "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
+      "class": null,
+      "function": null,
+      "parameter": null,
+      "self": {
+        "kind": "CursorKind.CXX_BASE_SPECIFIER",
+        "name": "class OHOS::Parcelable",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
+          "line": 24,
+          "column": 28
+        }
+      },
+      "referenced": {
+        "kind": "CursorKind.CLASS_DECL",
+        "name": "Parcelable",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 44,
+          "column": 7
+        },
+        "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
+      }
+    }
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -73,6 +72,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -98,18 +104,6 @@
     }
   },
   {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "usmblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 25,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint64_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint64_t",
     "location": {
@@ -129,6 +123,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -154,18 +155,6 @@
     }
   },
   {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "uordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 26,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint64_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint64_t",
     "location": {
@@ -185,6 +174,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -210,18 +206,6 @@
     }
   },
   {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "fordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 27,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint64_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint64_t",
     "location": {
@@ -241,6 +225,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -266,18 +257,6 @@
     }
   },
   {
-    "kind": "CursorKind.FIELD_DECL",
-    "name": "hblkhd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 28,
-      "column": 14
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:uint64_t"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "uint64_t",
     "location": {
@@ -297,6 +276,13 @@
       "parent": "kind:CursorKind.TRANSLATION_UNIT spell:../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": null,
       "parameter": null,
@@ -322,41 +308,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Marshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 30,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 30,
-      "column": 52
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 30,
-      "column": 38
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::Parcel",
     "location": {
@@ -376,6 +327,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -413,81 +371,6 @@
     }
   },
   {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Unmarshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 31,
-      "column": 24
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::MallocInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::MallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 31,
-      "column": 12
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "MallocInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-        "line": 24,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-          "line": 31,
-          "column": 12
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-          "line": 24,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 31,
-      "column": 46
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::Parcel",
     "location": {
@@ -507,6 +390,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -544,118 +434,6 @@
     }
   },
   {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "OHOS",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 18,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    ]
-  },
-  {
-    "kind": "CursorKind.NAMESPACE",
-    "name": "AppExecFwk",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 19,
-      "column": 11
-    },
-    "children": [
-      "kind:CursorKind.CXX_METHOD spell:Marshalling",
-      "kind:CursorKind.CXX_METHOD spell:Unmarshalling"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Marshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 20,
-      "column": 18
-    },
-    "children": [
-      "kind:CursorKind.CXX_OVERRIDE_ATTR spell:",
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::MallocInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_OVERRIDE_ATTR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-      "line": 30,
-      "column": 52
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::MallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 20,
-      "column": 6
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "MallocInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-        "line": 24,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Marshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-          "line": 20,
-          "column": 6
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-          "line": 24,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 20,
-      "column": 38
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::Parcel"
-    ]
-  },
-  {
     "kind": "CursorKind.TYPE_REF",
     "name": "class OHOS::Parcel",
     "location": {
@@ -675,6 +453,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -712,81 +497,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 21,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.PAREN_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.PAREN_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.CALL_EXPR spell:WriteUint64"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.CALL_EXPR spell:WriteUint64"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 13
-    },
-    "children": [
-      "kind:CursorKind.CALL_EXPR spell:WriteUint64",
-      "kind:CursorKind.CALL_EXPR spell:WriteUint64"
-    ]
-  },
-  {
     "kind": "CursorKind.CALL_EXPR",
     "name": "WriteUint64",
     "location": {
@@ -798,15 +508,24 @@
       "kind:CursorKind.MEMBER_REF_EXPR spell:WriteUint64",
       "kind:CursorKind.UNEXPOSED_EXPR spell:usmblks"
     ],
-    "function_call": {
-      "function_call": "WriteUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "WriteUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 22,
-        "column": 13
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 293,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -825,52 +544,17 @@
           "column": 13
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "WriteUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 293,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "WriteUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 20
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 13
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "usmblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 32
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:usmblks"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "usmblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 32
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -884,15 +568,24 @@
       "kind:CursorKind.MEMBER_REF_EXPR spell:WriteUint64",
       "kind:CursorKind.UNEXPOSED_EXPR spell:uordblks"
     ],
-    "function_call": {
-      "function_call": "WriteUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "WriteUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 22,
-        "column": 44
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 293,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -911,52 +604,17 @@
           "column": 44
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "WriteUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 293,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "WriteUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 51
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 44
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "uordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 63
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:uordblks"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "uordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 22,
-      "column": 63
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -970,15 +628,24 @@
       "kind:CursorKind.MEMBER_REF_EXPR spell:WriteUint64",
       "kind:CursorKind.UNEXPOSED_EXPR spell:fordblks"
     ],
-    "function_call": {
-      "function_call": "WriteUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "WriteUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 23,
-        "column": 12
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 293,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -997,52 +664,17 @@
           "column": 12
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "WriteUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 293,
+          "column": 10
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "WriteUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 19
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 12
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "fordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 31
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:fordblks"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "fordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 31
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -1056,15 +688,24 @@
       "kind:CursorKind.MEMBER_REF_EXPR spell:WriteUint64",
       "kind:CursorKind.UNEXPOSED_EXPR spell:hblkhd"
     ],
-    "function_call": {
-      "function_call": "WriteUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "WriteUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 23,
-        "column": 44
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 293,
+        "column": 10
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1083,179 +724,17 @@
           "column": 44
         }
       },
-      "referenced": null
-    }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "WriteUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 51
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 44
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "hblkhd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 63
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:hblkhd"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "hblkhd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 23,
-      "column": 63
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.CXX_METHOD",
-    "name": "Unmarshalling",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 26,
-      "column": 25
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::MallocInfo",
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::MallocInfo",
-      "kind:CursorKind.PARM_DECL spell:parcel",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::MallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 26,
-      "column": 1
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "MallocInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-        "line": 24,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-          "line": 26,
-          "column": 1
-        }
-      },
       "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "MallocInfo",
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "WriteUint64",
         "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-          "line": 24,
-          "column": 8
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 293,
+          "column": 10
         },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
       }
     }
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::MallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 26,
-      "column": 13
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "MallocInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-        "line": 24,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-          "line": 26,
-          "column": 13
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-          "line": 24,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.PARM_DECL",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 26,
-      "column": 47
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:class OHOS::Parcel"
-    ]
   },
   {
     "kind": "CursorKind.TYPE_REF",
@@ -1277,6 +756,13 @@
       "parent": "kind:CursorKind.NAMESPACE spell:OHOS"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1314,261 +800,6 @@
     }
   },
   {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 27,
-      "column": 1
-    },
-    "children": [
-      "kind:CursorKind.DECL_STMT spell:",
-      "kind:CursorKind.IF_STMT spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 28,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.VAR_DECL spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.VAR_DECL",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 28,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.TYPE_REF spell:struct OHOS::AppExecFwk::MallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.TYPE_REF",
-    "name": "struct OHOS::AppExecFwk::MallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 28,
-      "column": 5
-    },
-    "children": [],
-    "referenced": {
-      "kind": "CursorKind.STRUCT_DECL",
-      "name": "MallocInfo",
-      "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-        "line": 24,
-        "column": 8
-      },
-      "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-    },
-    "reference_info": {
-      "class": null,
-      "function": {
-        "kind": "CursorKind.CXX_METHOD",
-        "name": "Unmarshalling",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
-        }
-      },
-      "parameter": null,
-      "self": {
-        "kind": "CursorKind.TYPE_REF",
-        "name": "struct OHOS::AppExecFwk::MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-          "line": 28,
-          "column": 5
-        }
-      },
-      "referenced": {
-        "kind": "CursorKind.STRUCT_DECL",
-        "name": "MallocInfo",
-        "location": {
-          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/include/appmgr/app_malloc_info.h",
-          "line": 24,
-          "column": 8
-        },
-        "parent": "kind:CursorKind.NAMESPACE spell:AppExecFwk"
-      }
-    }
-  },
-  {
-    "kind": "CursorKind.IF_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.BINARY_OPERATOR spell:",
-      "kind:CursorKind.COMPOUND_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:mallocInfo",
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 9
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 23
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 23
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.COMPOUND_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 29,
-      "column": 32
-    },
-    "children": [
-      "kind:CursorKind.RETURN_STMT spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 30,
-      "column": 9
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 30,
-      "column": 16
-    },
-    "children": [
-      "kind:CursorKind.CXX_NULL_PTR_LITERAL_EXPR spell:"
-    ]
-  },
-  {
-    "kind": "CursorKind.CXX_NULL_PTR_LITERAL_EXPR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 30,
-      "column": 16
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:usmblks",
-      "kind:CursorKind.CALL_EXPR spell:ReadUint64"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "usmblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 32,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 32,
-      "column": 5
-    },
-    "children": []
-  },
-  {
     "kind": "CursorKind.CALL_EXPR",
     "name": "ReadUint64",
     "location": {
@@ -1579,15 +810,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:ReadUint64"
     ],
-    "function_call": {
-      "function_call": "ReadUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "ReadUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 32,
-        "column": 27
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 478,
+        "column": 14
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1606,77 +846,17 @@
           "column": 27
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 478,
+          "column": 14
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 32,
-      "column": 34
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 32,
-      "column": 27
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:uordblks",
-      "kind:CursorKind.CALL_EXPR spell:ReadUint64"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "uordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 33,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 33,
-      "column": 5
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -1689,15 +869,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:ReadUint64"
     ],
-    "function_call": {
-      "function_call": "ReadUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "ReadUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 33,
-        "column": 28
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 478,
+        "column": 14
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1716,77 +905,17 @@
           "column": 28
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 478,
+          "column": 14
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 33,
-      "column": 35
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 33,
-      "column": 28
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 34,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:fordblks",
-      "kind:CursorKind.CALL_EXPR spell:ReadUint64"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "fordblks",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 34,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 34,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 34,
-      "column": 5
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -1799,15 +928,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:ReadUint64"
     ],
-    "function_call": {
-      "function_call": "ReadUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "ReadUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 34,
-        "column": 28
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 478,
+        "column": 14
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1826,77 +964,17 @@
           "column": 28
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 478,
+          "column": 14
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 34,
-      "column": 35
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 34,
-      "column": 28
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.BINARY_OPERATOR",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.MEMBER_REF_EXPR spell:hblkhd",
-      "kind:CursorKind.CALL_EXPR spell:ReadUint64"
-    ]
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "hblkhd",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 35,
-      "column": 17
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 35,
-      "column": 5
-    },
-    "children": []
   },
   {
     "kind": "CursorKind.CALL_EXPR",
@@ -1909,15 +987,24 @@
     "children": [
       "kind:CursorKind.MEMBER_REF_EXPR spell:ReadUint64"
     ],
-    "function_call": {
-      "function_call": "ReadUint64",
+    "referenced": {
+      "kind": "CursorKind.CXX_METHOD",
+      "name": "ReadUint64",
       "location": {
-        "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-        "line": 35,
-        "column": 26
-      }
+        "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+        "line": 478,
+        "column": 14
+      },
+      "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
     },
     "reference_info": {
+      "namespace": {
+        "kind": "CursorKind.NAMESPACE",
+        "name": "AppExecFwk",
+        "location": {
+          "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp"
+        }
+      },
       "class": null,
       "function": {
         "kind": "CursorKind.CXX_METHOD",
@@ -1936,63 +1023,16 @@
           "column": 26
         }
       },
-      "referenced": null
+      "referenced": {
+        "kind": "CursorKind.CXX_METHOD",
+        "name": "ReadUint64",
+        "location": {
+          "file": "/home/user/jyw/ohos5/commonlibrary/c_utils/base/include/parcel.h",
+          "line": 478,
+          "column": 14
+        },
+        "parent": "kind:CursorKind.CLASS_DECL spell:Parcel"
+      }
     }
-  },
-  {
-    "kind": "CursorKind.MEMBER_REF_EXPR",
-    "name": "ReadUint64",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 35,
-      "column": 33
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:parcel"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "parcel",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 35,
-      "column": 26
-    },
-    "children": []
-  },
-  {
-    "kind": "CursorKind.RETURN_STMT",
-    "name": "",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 36,
-      "column": 5
-    },
-    "children": [
-      "kind:CursorKind.UNEXPOSED_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.UNEXPOSED_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 36,
-      "column": 12
-    },
-    "children": [
-      "kind:CursorKind.DECL_REF_EXPR spell:mallocInfo"
-    ]
-  },
-  {
-    "kind": "CursorKind.DECL_REF_EXPR",
-    "name": "mallocInfo",
-    "location": {
-      "file": "../ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp",
-      "line": 36,
-      "column": 12
-    },
-    "children": []
   }
 ]
