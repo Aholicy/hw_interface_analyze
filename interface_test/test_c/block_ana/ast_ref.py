@@ -98,7 +98,13 @@ def process_node(cursor, file_path, depth=0, current_path=None):
                             "line": referenced.location.line,
                             "column": referenced.location.column
                         },
-                        "parent": f"kind:{referenced.semantic_parent.kind} spell:{referenced.semantic_parent.spelling}"
+                        "parent": {
+                            "kind": str(referenced.semantic_parent.kind),
+                            "name": referenced.semantic_parent.spelling,
+                            "location": {
+                                "file": referenced.semantic_parent.location.file.name if referenced.semantic_parent.location.file else None
+                            }
+                        }
                     }
                     node_info["referenced"] = referenced_info
 
