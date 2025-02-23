@@ -1,0 +1,196 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_info.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+bool AppDebugInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName = parcel.ReadString();
+
+    pid = parcel.ReadInt32();
+
+    uid = parcel.ReadInt32();
+
+    return true;
+
+}
+
+
+
+AppDebugInfo *AppDebugInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    AppDebugInfo *info = new (std::nothrow) AppDebugInfo();
+
+    if (info == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "App debug info is nullptr.");
+
+        return nullptr;
+
+    }
+
+
+
+    if (!info->ReadFromParcel(parcel)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Read from parcel failed.");
+
+        delete info;
+
+        info = nullptr;
+
+    }
+
+    return info;
+
+}
+
+
+
+bool AppDebugInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    // write bundleName
+
+    if (!parcel.WriteString(bundleName)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write bundle name failed.");
+
+        return false;
+
+    }
+
+    // write pid
+
+    if (!parcel.WriteInt32(pid)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write pid failed.");
+
+        return false;
+
+    }
+
+    // write uid
+
+    if (!parcel.WriteInt32(uid)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write uid failed.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_info.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+bool AppDebugInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName = parcel.ReadString();
+
+    pid = parcel.ReadInt32();
+
+    uid = parcel.ReadInt32();
+
+    return true;
+
+}
+
+
+
+AppDebugInfo *AppDebugInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    AppDebugInfo *info = new (std::nothrow) AppDebugInfo();
+
+    if (info == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "App debug info is nullptr.");
+
+        return nullptr;
+
+    }
+
+
+
+    if (!info->ReadFromParcel(parcel)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Read from parcel failed.");
+
+        delete info;
+
+        info = nullptr;
+
+    }
+
+    return info;
+
+}
+
+
+
+bool AppDebugInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    // write bundleName
+
+    if (!parcel.WriteString(bundleName)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write bundle name failed.");
+
+        return false;
+
+    }
+
+    // write pid
+
+    if (!parcel.WriteInt32(pid)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write pid failed.");
+
+        return false;
+
+    }
+
+    // write uid
+
+    if (!parcel.WriteInt32(uid)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write uid failed.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================

@@ -1,0 +1,404 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:28:28
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int AbilityControllerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "OnReceived, code:%{public}u, flags:%{public}d", code,
+        option.GetFlags());
+    std::u16string descriptor = AbilityControllerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_START):
+            return HandleAllowAbilityStart(data, reply);
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_BACKGROUND):
+            return HandleAllowAbilityBackground(data, reply);
+    }
+    
+    TAG_LOGI(AAFwkTag::APPMGR, "finish");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:31:5
+复杂度: 0
+定义变量: proxy, metaDescriptor_, logTag
+使用变量: metaDescriptor_, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "OnReceived, code:%{public}u, flags:%{public}d", code,
+        option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:34:39
+复杂度: 0
+定义变量: 
+使用变量: proxy, data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:35:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:36:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:37:9
+复杂度: 0
+定义变量: have_error
+使用变量: ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:40:5
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (code) {
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_START):
+            return HandleAllowAbilityStart(data, reply);
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_BACKGROUND):
+            return HandleAllowAbilityBackground(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:42:13
+复杂度: 0
+定义变量: 
+使用变量: _Intl, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleAllowAbilityStart(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleAllowAbilityStart
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:42:20
+复杂度: 0
+定义变量: 
+使用变量: _Intl, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleAllowAbilityStart(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:44:13
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, _S_get_c_name, IF_PROT_DEFAULT, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleAllowAbilityBackground(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleAllowAbilityBackground
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:44:20
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, _S_get_c_name, IF_PROT_DEFAULT, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleAllowAbilityBackground(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:47:5
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __i, __other, __caches, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "finish");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: AllowAbilityStart
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:51:29
+复杂度: 0
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool AbilityControllerStub::AllowAbilityStart(const Want &want, const std::string &bundleName)
+{
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:53:5
+复杂度: 0
+定义变量: 
+使用变量: __pos, __cont
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: AllowAbilityBackground
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:56:29
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool AbilityControllerStub::AllowAbilityBackground(const std::string &bundleName)
+{
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:58:5
+复杂度: 0
+定义变量: __ret
+使用变量: , __value, __first, __len, __s
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleAllowAbilityStart
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:61:32
+复杂度: 1
+定义变量: 
+使用变量: , __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AbilityControllerStub::HandleAllowAbilityStart(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+    std::unique_ptr<Want> want(data.ReadParcelable<Want>());
+    if (!want) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+    std::string pkg = data.ReadString();
+    bool ret = AllowAbilityStart(*want, pkg);
+    reply.WriteBool(ret);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:63:5
+复杂度: 0
+定义变量: __c, logTag
+使用变量: , __a, __tmp, __len, __l, __s, __out, PTHREAD_MUTEX_TIMED_NP, __loc, _Intl, _Pn, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!want) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:66:9
+复杂度: 0
+定义变量: __put, __save_errno, __next, __intptr, logTag
+使用变量: __ptr, __v, __first, __val, __c, __pos, __size, __out, __mem, _Base, _Val, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:72:5
+复杂度: 0
+定义变量: __tmp_data
+使用变量: __first, __low, __builtin_fabs, __ISwlower, __outstr, DEFAULT, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleAllowAbilityBackground
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:75:32
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AbilityControllerStub::HandleAllowAbilityBackground(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+    std::string pkg = data.ReadString();
+    bool ret = AllowAbilityBackground(pkg);
+    reply.WriteBool(ret);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:77:5
+复杂度: 0
+定义变量: __digits, __testoff, logTag
+使用变量: , __size, __off, __tmp_data, _S_use_relocate, __ISwprint, __outstr, __outnext, _Qn, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: AllowAbilityBackground
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:79:16
+复杂度: 0
+定义变量: __parent
+使用变量: , __n, partial, _Lp, _Base, pkg
+关键位置: 否
+日志评分: 0
+代码:
+    bool ret = AllowAbilityBackground(pkg);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:81:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __tmp, __str, __ISwpunct, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

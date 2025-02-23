@@ -1,0 +1,300 @@
+代码块类型: Function Declaration
+块名称: IsStageContext
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:28:13
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Function Declaration 缺少日志: 得分 -2
+代码:
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+{
+    napi_value boolValue;
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+    bool value = false;
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+    stageMode = value;
+    return napi_ok;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31:5
+复杂度: 2
+定义变量: ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Loop Block (do-while) 缺少日志: 得分 -2
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: DO_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31:5
+复杂度: 2
+定义变量: ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34:5
+复杂度: 2
+定义变量: ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Loop Block (do-while) 缺少日志: 得分 -2
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: DO_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34:5
+复杂度: 2
+定义变量: ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+--------------------------------------------------------------------------------
+代码块类型: Function Declaration
+块名称: GetStageModeContext
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:40:26
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Function Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+{
+    void* wrapped = nullptr;
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+    if (ret != napi_ok) {
+        return nullptr;
+    }
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:44:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (ret != napi_ok) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:45:9
+复杂度: 0
+定义变量: 
+使用变量: , __it1
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49:5
+复杂度: 0
+定义变量: 
+使用变量: weakContext
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49:37
+复杂度: 0
+定义变量: 
+使用变量: weakContext
+关键位置: 否
+日志评分: 0
+代码:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Declaration
+块名称: GetCurrentAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:52:22
+复杂度: 3
+定义变量: 
+使用变量: rethrow_exception
+关键位置: 是
+日志评分: -2
+  - Function Declaration 缺少日志: 得分 -2
+代码:
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+{
+    napi_value global;
+    napi_status status = napi_get_global(env, &global);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    napi_value abilityObj;
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+    if (status != napi_ok || abilityObj == nullptr) {
+        return nullptr;
+    }
+
+    void* pointer = nullptr;
+    status = napi_get_value_external(env, abilityObj, &pointer);
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:56:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:57:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:62:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (status != napi_ok || abilityObj == nullptr) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:63:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:68:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (status != napi_ok) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:69:9
+复杂度: 0
+定义变量: 
+使用变量: , __it, __space
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:72:5
+复杂度: 0
+定义变量: 
+使用变量: __is_signed, PTHREAD_MUTEX_STALLED, pointer
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+--------------------------------------------------------------------------------

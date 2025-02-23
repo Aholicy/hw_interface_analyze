@@ -1,0 +1,318 @@
+代码块类型: Method Declaration
+块名称: OnSessionMovedToFront
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:22:27
+复杂度: 4
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void SessionHandlerProxy::OnSessionMovedToFront(int32_t sessionId)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!data.WriteInterfaceToken(ISessionHandler::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "write token failed");
+        return;
+    }
+    if (!data.WriteInt32(sessionId)) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "sessionId write failed");
+        return;
+    }
+    auto remote = Remote();
+    if (!remote) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "remote null");
+        return;
+    }
+    int32_t ret = remote->SendRequest(ISessionHandler::ON_SESSION_MOVED_TO_FRONT, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "request failed: %{public}d", ret);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:24:19
+复杂度: 0
+定义变量: AFTER_MAGIC, data
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:25:19
+复杂度: 0
+定义变量: reply
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:26:19
+复杂度: 0
+定义变量: option
+使用变量: TF_ASYNC
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option(MessageOption::TF_ASYNC);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:27:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInterfaceToken(ISessionHandler::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "write token failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:27:10
+复杂度: 0
+定义变量: 
+使用变量: data, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(ISessionHandler::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetDescriptor
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:27:35
+复杂度: 0
+定义变量: 
+使用变量: GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(ISessionHandler::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:28:9
+复杂度: 0
+定义变量: REGISTRY_HANDLE, logTag
+使用变量: DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:29:9
+复杂度: 0
+定义变量: __libc_single_threaded
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:31:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInt32(sessionId)) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "sessionId write failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:32:9
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "sessionId write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: proxy
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: Remote
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:35:19
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    auto remote = Remote();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:36:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!remote) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "remote null");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator bool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:36:10
+复杂度: 0
+定义变量: 
+使用变量: remote
+关键位置: 否
+日志评分: 0
+代码:
+    if (!remote) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:37:9
+复杂度: 0
+定义变量: have_error, logTag
+使用变量: DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "remote null");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:38:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:40:19
+复杂度: 0
+定义变量: 
+使用变量: _Cache, _Intl, BEFORE_MAGIC, data, remote, operator->, ON_SESSION_MOVED_TO_FRONT, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t ret = remote->SendRequest(ISessionHandler::ON_SESSION_MOVED_TO_FRONT, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator->
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:40:19
+复杂度: 0
+定义变量: 
+使用变量: remote, operator->
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t ret = remote->SendRequest(ISessionHandler::ON_SESSION_MOVED_TO_FRONT, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:41:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "request failed: %{public}d", ret);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:42:9
+复杂度: 0
+定义变量: logTag
+使用变量: _Intl, AFTER_MAGIC, DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "request failed: %{public}d", ret);
+
+--------------------------------------------------------------------------------

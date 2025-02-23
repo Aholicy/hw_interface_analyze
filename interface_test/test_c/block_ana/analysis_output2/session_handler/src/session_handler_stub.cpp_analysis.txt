@@ -1,0 +1,226 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:24:29
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t SessionHandlerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = SessionHandlerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code < ISessionHandler::CODE_MAX) {
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+            return OnSessionMovedToFrontInner(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:28:39
+复杂度: 0
+定义变量: 
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:29:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:30:9
+复杂度: 0
+定义变量: logTag
+使用变量: DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:31:9
+复杂度: 0
+定义变量: 
+使用变量: TF_SYNC, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:34:5
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (code < ISessionHandler::CODE_MAX) {
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+            return OnSessionMovedToFrontInner(data, reply);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:35:9
+复杂度: 1
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+            return OnSessionMovedToFrontInner(data, reply);
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:36:13
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return OnSessionMovedToFrontInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnSessionMovedToFrontInner
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:36:20
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return OnSessionMovedToFrontInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnSessionMovedToFrontInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:42:29
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t SessionHandlerStub::OnSessionMovedToFrontInner(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t sessionId = data.ReadInt32();
+    OnSessionMovedToFront(sessionId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnSessionMovedToFront
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:45:5
+复杂度: 0
+定义变量: __i
+使用变量: , __it1, __it2, __refs, sessionId
+关键位置: 否
+日志评分: 0
+代码:
+    OnSessionMovedToFront(sessionId);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:46:5
+复杂度: 0
+定义变量: 
+使用变量: DEFAULT, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnSessionMovedToFront
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:49:26
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
+{
+    TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:51:5
+复杂度: 0
+定义变量: __put, alpha, __buf_len, logTag
+使用变量: , __n, __vec, __s, __low, __out, _ISalpha, DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
+
+--------------------------------------------------------------------------------

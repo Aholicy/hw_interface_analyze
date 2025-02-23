@@ -1,0 +1,3430 @@
+代码块类型: Function Call
+块名称: InitMemberFuncMap
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:28:5
+复杂度: 0
+定义变量: REGISTRY_HANDLE
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    InitMemberFuncMap();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: InitMemberFuncMap
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:31:24
+复杂度: 0
+定义变量: 
+使用变量: TF_SYNC
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void AppSchedulerHost::InitMemberFuncMap() {}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:35:5
+复杂度: 0
+定义变量: logTag
+使用变量: __x, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "AppSchedulerHost destruction");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:38:23
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int AppSchedulerHost::OnRemoteRequest(uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "AppSchedulerHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    std::u16string descriptor = AppSchedulerHost::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+    return OnRemoteRequestInner(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:40:5
+复杂度: 0
+定义变量: AAFWK_SERVICE_ERR_OFFSET, logTag
+使用变量: __x, IF_PROT_DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "AppSchedulerHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:44:39
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:45:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:46:9
+复杂度: 0
+定义变量: __caches, APP_LIFECYCLE_TIMEOUT, logTag
+使用变量: __loc, _S_get_c_name, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:47:9
+复杂度: 0
+定义变量: THREAD_BLOCK_3S
+使用变量: __x, __i, __other, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:49:5
+复杂度: 0
+定义变量: __tmp, upper, APP_INPUT_BLOCK
+使用变量: , __n, __ret, __refs, _ISupper, __cache, _Intl, data, code, reply, option
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return OnRemoteRequestInner(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnRemoteRequestInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:49:12
+复杂度: 0
+定义变量: __tmp, upper, APP_INPUT_BLOCK
+使用变量: , __n, __ret, __refs, _ISupper, __cache, _Intl, data, code, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    return OnRemoteRequestInner(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequestInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:52:27
+复杂度: 3
+定义变量: 
+使用变量: __out, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::OnRemoteRequestInner(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    int retCode = ERR_OK;
+    retCode = OnRemoteRequestInnerFirst(code, data, reply, option);
+    if (retCode != INVALID_FD) {
+        return retCode;
+    }
+    retCode = OnRemoteRequestInnerSecond(code, data, reply, option);
+    if (retCode != INVALID_FD) {
+        return retCode;
+    }
+    retCode = OnRemoteRequestInnerThird(code, data, reply, option);
+    if (retCode != INVALID_FD) {
+        return retCode;
+    }
+    TAG_LOGD(AAFwkTag::APPMGR, "AppSchedulerHost::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnRemoteRequestInnerFirst
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:56:15
+复杂度: 0
+定义变量: __len, __last, graph, __caches
+使用变量: __t, __i, __len, __ucont, __builtin_strlen, __s, __builtin_labs, PTHREAD_MUTEX_RECURSIVE_NP, __loc, _ISalpha, _ISdigit, _ISpunct, data, code, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    retCode = OnRemoteRequestInnerFirst(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:57:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (retCode != INVALID_FD) {
+        return retCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:58:9
+复杂度: 0
+定义变量: __ret, __first, punct
+使用变量: , __tmp, __first, __last, __len, _Base, retCode
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return retCode;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnRemoteRequestInnerSecond
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:60:15
+复杂度: 0
+定义变量: __len, __endptr
+使用变量: , __tmp, __n, __i, __pos, __low, __m, __b3, data, code, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    retCode = OnRemoteRequestInnerSecond(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:61:5
+复杂度: 1
+定义变量: 
+使用变量: __num
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (retCode != INVALID_FD) {
+        return retCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:62:9
+复杂度: 0
+定义变量: __tmp
+使用变量: , __n, __len, __low, __b4, _S_get_c_name, DEFAULT, retCode
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return retCode;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnRemoteRequestInnerThird
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:64:15
+复杂度: 0
+定义变量: value, __c, __enable_hash_call
+使用变量: , __v, __tmp, __n, __size, _Val, data, code, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    retCode = OnRemoteRequestInnerThird(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (retCode != INVALID_FD) {
+        return retCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:66:9
+复杂度: 0
+定义变量: __save_errno, __next, __intptr
+使用变量: __first, __pos, __size, _Base, retCode
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return retCode;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:68:5
+复杂度: 0
+定义变量: __diff, logTag
+使用变量: , __other, __pos, __ret, __size, __s, __intptr, __aligned, __gd, _Pn, _Qn, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "AppSchedulerHost::OnRemoteRequest end");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequestInnerFirst
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:72:27
+复杂度: 11
+定义变量: 
+使用变量: , __tmp, __first, __is_constant_evaluated, __builtin_unreachable, __location, __ret
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::OnRemoteRequestInnerFirst(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    switch (static_cast<uint32_t>(code)) {
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_FOREGROUND_APPLICATION_TRANSACTION):
+            return HandleScheduleForegroundApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_BACKGROUND_APPLICATION_TRANSACTION):
+            return HandleScheduleBackgroundApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_TERMINATE_APPLICATION_TRANSACTION):
+            return HandleScheduleTerminateApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_LOWMEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleLowMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_SHRINK_MEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleShrinkMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_MEMORYLEVEL_APPLICATION_TRANSACTION):
+            return HandleScheduleMemoryLevel(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_LAUNCH_ABILITY_TRANSACTION):
+            return HandleScheduleLaunchAbility(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CLEAN_ABILITY_TRANSACTION):
+            return HandleScheduleCleanAbility(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_LAUNCH_APPLICATION_TRANSACTION):
+            return HandleScheduleLaunchApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_PROFILE_CHANGED_TRANSACTION):
+            return HandleScheduleProfileChanged(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CONFIGURATION_UPDATED):
+            return HandleScheduleConfigurationUpdated(data, reply);
+    }
+    return INVALID_FD;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:75:5
+复杂度: 11
+定义变量: 
+使用变量: , __tmp, __n, __first, __result, __count, __ret, __builtin_va_start, __s2, __mem, __outstr, __outnext
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (static_cast<uint32_t>(code)) {
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_FOREGROUND_APPLICATION_TRANSACTION):
+            return HandleScheduleForegroundApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_BACKGROUND_APPLICATION_TRANSACTION):
+            return HandleScheduleBackgroundApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_TERMINATE_APPLICATION_TRANSACTION):
+            return HandleScheduleTerminateApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_LOWMEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleLowMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_SHRINK_MEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleShrinkMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_MEMORYLEVEL_APPLICATION_TRANSACTION):
+            return HandleScheduleMemoryLevel(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_LAUNCH_ABILITY_TRANSACTION):
+            return HandleScheduleLaunchAbility(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CLEAN_ABILITY_TRANSACTION):
+            return HandleScheduleCleanAbility(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_LAUNCH_APPLICATION_TRANSACTION):
+            return HandleScheduleLaunchApplication(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_PROFILE_CHANGED_TRANSACTION):
+            return HandleScheduleProfileChanged(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CONFIGURATION_UPDATED):
+            return HandleScheduleConfigurationUpdated(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:77:13
+复杂度: 0
+定义变量: __digits, __testoff
+使用变量: , __val, __pos, __size, __off, __tmp_data, __ISwprint, __outstr, __outnext, _S_use_relocate, _Qn, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleForegroundApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleForegroundApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:77:20
+复杂度: 0
+定义变量: __digits
+使用变量: , __val, __pos, __size, __off, __tmp_data, __outstr, _S_use_relocate, _Qn, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleForegroundApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:79:13
+复杂度: 0
+定义变量: MAX_TRANSACTION_ID, __parent
+使用变量: , __n, __last, __result, __ISwblank, __next, partial, _Lp, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleBackgroundApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleBackgroundApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:79:20
+复杂度: 0
+定义变量: 
+使用变量: , __n, __last, __next, partial, _Lp, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleBackgroundApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:81:13
+复杂度: 0
+定义变量: 
+使用变量: __x, __tmp, __first, __ISwpunct, _S_get_c_name, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleTerminateApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleTerminateApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:81:20
+复杂度: 0
+定义变量: 
+使用变量: __first, _S_get_c_name, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleTerminateApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:83:13
+复杂度: 0
+定义变量: piecewise_construct, __ret, __pos, __cerb, __truename, RPC_QOS_MAX_LATENCY
+使用变量: , __n, __len, __ret, __out, npos, __name, __child, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleLowMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleLowMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:83:20
+复杂度: 0
+定义变量: piecewise_construct, __cerb
+使用变量: , __n, __len, __out, npos, __name, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleLowMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:85:13
+复杂度: 0
+定义变量: __max, __collate, __buf_len, RPC_QOS_MAX_IDLE_TIME
+使用变量: , __t, __x, __a, __b, __p, __y, __val, __f, __cont, __ex, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleShrinkMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleShrinkMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:85:20
+复杂度: 0
+定义变量: __max, __collate, __buf_len
+使用变量: , __t, __x, __a, __b, __p, __y, __f, __cont, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleShrinkMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:87:13
+复杂度: 0
+定义变量: __p, __g
+使用变量: , __b, __n, __i, __c, __pos, __s2, __np, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleMemoryLevel(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleMemoryLevel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:87:20
+复杂度: 0
+定义变量: 
+使用变量: , __i, __c, __pos, __s2, __np, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleMemoryLevel(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:89:13
+复杂度: 0
+定义变量: __len
+使用变量: , __digits, __a, __n, __i, __p, __comp, __num, __c, min, __ex, __buf_len, __remaining, b, __element, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleLaunchAbility(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleLaunchAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:89:20
+复杂度: 0
+定义变量: __len
+使用变量: , __digits, __a, __i, __num, __c, min, __ex, __buf_len, __remaining, b, __element, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleLaunchAbility(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:91:13
+复杂度: 0
+定义变量: __digits, __c, __left
+使用变量: , __len, __ret, __ils, __h, __out, _Base, __atime, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleCleanAbility(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleCleanAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:91:20
+复杂度: 0
+定义变量: __digits, __c
+使用变量: , __h, __out, _Base, __atime, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleCleanAbility(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:93:13
+复杂度: 0
+定义变量: __args, __a0
+使用变量: , __t, __n, __i, __c, __len, __nh, __position, __ret, __s, __grouping, _Pn, NORMAL, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleLaunchApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleLaunchApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:93:20
+复杂度: 0
+定义变量: __args, __a0
+使用变量: , __t, __i, __c, __len, _Pn, NORMAL, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleLaunchApplication(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:95:13
+复杂度: 0
+定义变量: __curr_symbol, __b0
+使用变量: , __digits, _Nm, __a, __b, __tmp, __n, __i, __p, __first, __last, __val, __num, __result, __out, __w, __mp, _Qn, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleProfileChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleProfileChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:95:20
+复杂度: 0
+定义变量: __b0
+使用变量: , _Nm, __a, __b, __n, __i, __p, __first, __val, __num, __out, __w, __mp, _Qn, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleProfileChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:97:13
+复杂度: 0
+定义变量: __ret, __comp, __negative_sign
+使用变量: , __tmp, __n, __p, __result, __c, __args, __old_size, __size, __m, __fmt, __builtin_vsnprintf, __out, __s, __tn, __mp, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleConfigurationUpdated(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleConfigurationUpdated
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:97:20
+复杂度: 0
+定义变量: __comp
+使用变量: , __tmp, __n, __p, __c, __args, __old_size, __size, __m, __fmt, __builtin_vsnprintf, __out, __s, __tn, __mp, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleConfigurationUpdated(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:99:5
+复杂度: 0
+定义变量: __tmp_capacity, __g
+使用变量: , __val, __result, __out, __exchange_and_add_single, __truename, __outstr, _Base, INVALID_FD
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INVALID_FD;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequestInnerSecond
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:102:27
+复杂度: 11
+定义变量: 
+使用变量: , __ptr, __is_constant_evaluated, __builtin_unreachable, __len, __u, __c1, __throw_system_error
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::OnRemoteRequestInnerSecond(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    switch (static_cast<uint32_t>(code)) {
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_PROCESS_SECURITY_EXIT_TRANSACTION):
+            return HandleScheduleProcessSecurityExit(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_ABILITY_STAGE_INFO):
+            return HandleScheduleAbilityStage(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CLEAR_PAGE_STACK):
+            return HandleScheduleClearPageStack(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_ACCEPT_WANT):
+            return HandleScheduleAcceptWant(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NEW_PROCESS_REQUEST):
+            return HandleScheduleNewProcessRequest(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_LOAD_REPAIR_PATCH):
+            return HandleNotifyLoadRepairPatch(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_HOT_RELOAD_PAGE):
+            return HandleNotifyHotReloadPage(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_UNLOAD_REPAIR_PATCH):
+            return HandleNotifyUnLoadRepairPatch(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_UPDATE_APPLICATION_INFO_INSTALLED):
+            return HandleScheduleUpdateApplicationInfoInstalled(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_HEAPMEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleHeapMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_FAULT):
+            return HandleNotifyAppFault(data, reply);
+    }
+    return INVALID_FD;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:105:5
+复杂度: 11
+定义变量: 
+使用变量: , __x, __nh, __size, __m, __s
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (static_cast<uint32_t>(code)) {
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_PROCESS_SECURITY_EXIT_TRANSACTION):
+            return HandleScheduleProcessSecurityExit(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_ABILITY_STAGE_INFO):
+            return HandleScheduleAbilityStage(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CLEAR_PAGE_STACK):
+            return HandleScheduleClearPageStack(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_ACCEPT_WANT):
+            return HandleScheduleAcceptWant(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NEW_PROCESS_REQUEST):
+            return HandleScheduleNewProcessRequest(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_LOAD_REPAIR_PATCH):
+            return HandleNotifyLoadRepairPatch(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_HOT_RELOAD_PAGE):
+            return HandleNotifyHotReloadPage(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_UNLOAD_REPAIR_PATCH):
+            return HandleNotifyUnLoadRepairPatch(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_UPDATE_APPLICATION_INFO_INSTALLED):
+            return HandleScheduleUpdateApplicationInfoInstalled(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_HEAPMEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleHeapMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_NOTIFY_FAULT):
+            return HandleNotifyAppFault(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:107:13
+复杂度: 0
+定义变量: 
+使用变量: , _Nm, __x, __comp, __arr, __np, _S_get_c_name, __g_size, memory_order_seq_cst, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleProcessSecurityExit(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleProcessSecurityExit
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:107:20
+复杂度: 0
+定义变量: 
+使用变量: , _Nm, __x, __comp, __np, _S_get_c_name, __g_size, memory_order_seq_cst, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleProcessSecurityExit(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:109:13
+复杂度: 0
+定义变量: value, __ct, offset
+使用变量: , __t, __n, __first, __last, __val, __position, __cmp, PTHREAD_RWLOCK_PREFER_READER_NP, __mem, __loc, __grouping, _Pn, _Qn, DEFAULT, tag, GetOffset, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleAbilityStage(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleAbilityStage
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:109:20
+复杂度: 0
+定义变量: value, __ct
+使用变量: , __t, __n, __first, __last, __val, __position, __cmp, PTHREAD_RWLOCK_PREFER_READER_NP, __mem, __loc, __grouping, _Pn, _Qn, DEFAULT, tag, GetOffset, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleAbilityStage(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:111:13
+复杂度: 0
+定义变量: par
+使用变量: , __max, __x, __tmp, __p, __first, __val, __args, __u, __s, npos, __gthread_mutex_trylock, __mem, _S_atoms_out, memory_order_seq_cst, nothrow, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleClearPageStack(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleClearPageStack
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:111:20
+复杂度: 0
+定义变量: par
+使用变量: , __max, __x, __tmp, __p, __first, __val, __args, __u, __s, __mem, _S_atoms_out, memory_order_seq_cst, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleClearPageStack(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:113:13
+复杂度: 0
+定义变量: __tmp, __found, unseq
+使用变量: , __tmp, __sz, __len, __out, _S_atoms_in, __mp, memory_order_acq_rel, memory_order_acquire, offset, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleAcceptWant(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleAcceptWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:113:20
+复杂度: 0
+定义变量: __found, unseq
+使用变量: __tmp, __sz, __len, _S_atoms_in, __mp, memory_order_acquire, offset, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleAcceptWant(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:115:13
+复杂度: 0
+定义变量: __i
+使用变量: , __x, __a, __tmp, __i, __sz, __fn, __nh, __arg, allocator_arg, __uhead, _S_iend, memory_order_seq_cst, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleNewProcessRequest(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleNewProcessRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:115:20
+复杂度: 0
+定义变量: 
+使用变量: , __x, __a, __tmp, __i, __sz, __fn, __arg, __uhead, _S_iend, memory_order_seq_cst, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleNewProcessRequest(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:117:13
+复杂度: 0
+定义变量: __i, __ret, __fn, _M_max_size
+使用变量: , __x, __i, __p, __it1, __it2, __lo1, __hi1, __lo2, __hi2, __o, __grouping, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyLoadRepairPatch(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyLoadRepairPatch
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:117:20
+复杂度: 0
+定义变量: __i, __ret, _M_max_size
+使用变量: , __x, __p, __it2, __lo1, __lo2, __hi2, __o, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyLoadRepairPatch(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:119:13
+复杂度: 0
+定义变量: __size
+使用变量: , __i, __sz, __p, __y, __first, __last, __args, __fn, __ret, __s, PTHREAD_MUTEX_TIMED_NP, __loc, __falsename, memory_order_seq_cst, __cur, _Base, __gthread_recursive_mutex_trylock, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyHotReloadPage(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyHotReloadPage
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:119:20
+复杂度: 0
+定义变量: 
+使用变量: , __p, __y, __first, __last, __args, PTHREAD_MUTEX_TIMED_NP, __loc, memory_order_seq_cst, __cur, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyHotReloadPage(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:121:13
+复杂度: 0
+定义变量: npos
+使用变量: , __x, __a, __i, __uhead, __m, __s, __facets, operator&, __mp, __memory_order_modifier_mask, tagNames, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyUnLoadRepairPatch(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyUnLoadRepairPatch
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:121:20
+复杂度: 0
+定义变量: npos
+使用变量: __x, __a, __i, __uhead, __m, __s, __facets, operator&, __mp, __memory_order_modifier_mask, tagNames, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyUnLoadRepairPatch(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:123:13
+复杂度: 0
+定义变量: __it, __lo
+使用变量: , __x, __tmp, __first, __c, __args, __pos, __tmp_capacity, __lo1, __lo2, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleUpdateApplicationInfoInstalled(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleUpdateApplicationInfoInstalled
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:123:20
+复杂度: 0
+定义变量: __lo
+使用变量: , __x, __tmp, __c, __args, __tmp_capacity, __lo1, __lo2, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleUpdateApplicationInfoInstalled(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:125:13
+复杂度: 0
+定义变量: 
+使用变量: , __b, __i, __first, __last, __result, __c, __throw_bad_array_new_length, __k, __size, __m, __s, __lo1, __lo2, __to_end, __to_next, __truename, _S_atoms, __shift, __cur, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleHeapMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleHeapMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:125:20
+复杂度: 0
+定义变量: 
+使用变量: , __b, __i, __first, __last, __c, __k, __size, __m, __s, __lo1, __to_next, _S_atoms, __shift, __cur, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleHeapMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:127:13
+复杂度: 0
+定义变量: 
+使用变量: , __a, __position, __m, __cont, __s, operator&, memory_order_release, __memory_order_mask, _M_max_align, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyAppFault(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyAppFault
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:127:20
+复杂度: 0
+定义变量: 
+使用变量: , __a, __cont, memory_order_release, _M_max_align, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyAppFault(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:129:5
+复杂度: 0
+定义变量: __state, tagNames
+使用变量: , __x, __tmp, INVALID_FD
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INVALID_FD;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequestInnerThird
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:132:27
+复杂度: 9
+定义变量: 
+使用变量: __nh, __ne_ptr
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::OnRemoteRequestInnerThird(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    switch (static_cast<uint32_t>(code)) {
+        case static_cast<uint32_t>(IAppScheduler::Message::APP_GC_STATE_CHANGE):
+            return HandleScheduleChangeAppGcState(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_ATTACH_APP_DEBUG):
+            return HandleAttachAppDebug(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DETACH_APP_DEBUG):
+            return HandleDetachAppDebug(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_JSHEAP_MEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleJsHeapMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_IPC_START):
+            return HandleScheduleDumpIpcStart(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_IPC_STOP):
+            return HandleScheduleDumpIpcStop(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_IPC_STAT):
+            return HandleScheduleDumpIpcStat(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_FFRT):
+            return HandleScheduleDumpFfrt(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CACHE_PROCESS):
+            return HandleScheduleCacheProcess(data, reply);
+    }
+    return INVALID_FD;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:135:5
+复杂度: 9
+定义变量: 
+使用变量: , __x, __first, __builtin_operator_delete, __node, __position, __capacity, __atomic_signal_fence, __throw_concurrence_lock_error
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (static_cast<uint32_t>(code)) {
+        case static_cast<uint32_t>(IAppScheduler::Message::APP_GC_STATE_CHANGE):
+            return HandleScheduleChangeAppGcState(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_ATTACH_APP_DEBUG):
+            return HandleAttachAppDebug(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DETACH_APP_DEBUG):
+            return HandleDetachAppDebug(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_JSHEAP_MEMORY_APPLICATION_TRANSACTION):
+            return HandleScheduleJsHeapMemory(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_IPC_START):
+            return HandleScheduleDumpIpcStart(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_IPC_STOP):
+            return HandleScheduleDumpIpcStop(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_IPC_STAT):
+            return HandleScheduleDumpIpcStat(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_DUMP_FFRT):
+            return HandleScheduleDumpFfrt(data, reply);
+        case static_cast<uint32_t>(IAppScheduler::Message::SCHEDULE_CACHE_PROCESS):
+            return HandleScheduleCacheProcess(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:137:13
+复杂度: 0
+定义变量: __node
+使用变量: , __first, __last, __result, __k, __m, __s, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleChangeAppGcState(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleChangeAppGcState
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:137:20
+复杂度: 0
+定义变量: __node
+使用变量: , __first, __last, __result, __k, __m, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleChangeAppGcState(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:139:13
+复杂度: 0
+定义变量: npos, __parent, tagNames
+使用变量: , __x, __a, __p, __fn, __cont, memory_order_seq_cst, __holeIndex, __xnode, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleAttachAppDebug(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleAttachAppDebug
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:139:20
+复杂度: 0
+定义变量: npos
+使用变量: , __x, __a, __fn, __cont, memory_order_seq_cst, __holeIndex, __xnode, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleAttachAppDebug(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:141:13
+复杂度: 0
+定义变量: __state, registration, offset
+使用变量: , __tmp, __pos, __position, __l, _Lp, __gthread_cond_destroy, tag, GetOffset, DELEGATOR, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleDetachAppDebug(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleDetachAppDebug
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:141:20
+复杂度: 0
+定义变量: registration
+使用变量: , __tmp, __pos, __l, _Lp, __gthread_cond_destroy, tag, GetOffset, DELEGATOR, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleDetachAppDebug(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:143:13
+复杂度: 0
+定义变量: stdin
+使用变量: , __x, __a, __b, __y, __nh, __pos, operator|, __ineof, __sbin, __sbout, _Intl, __parent, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleJsHeapMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleJsHeapMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:143:20
+复杂度: 0
+定义变量: 
+使用变量: __x, __b, __y, __nh, operator|, __ineof, __sbin, __sbout, _Intl, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleJsHeapMemory(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:145:13
+复杂度: 0
+定义变量: __i, stderr, __ne_ptr, __loc, __x0
+使用变量: , __x, __tmp, __p, __c, __ret, __m, npos, __capacity, __i1, __i2, __old_capacity, __ne_ptr, __io, offset, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleDumpIpcStart(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleDumpIpcStart
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:145:20
+复杂度: 0
+定义变量: __i, __x0
+使用变量: , __x, __c, __m, __capacity, __i1, __i2, __old_capacity, __io, offset, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleDumpIpcStart(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:147:13
+复杂度: 0
+定义变量: __y0
+使用变量: , __a, __b, __y, __first, __last, __result, __c, __old_capacity, operator&, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleDumpIpcStop(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleDumpIpcStop
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:147:20
+复杂度: 0
+定义变量: __y0
+使用变量: __b, __y, __first, __last, __result, __c, __old_capacity, operator&, _Base, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleDumpIpcStop(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:149:13
+复杂度: 0
+定义变量: __lc, __x0y0
+使用变量: , __loc, __uc, _Lp, __x0, __y0, __rtime, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleDumpIpcStat(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleDumpIpcStat
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:149:20
+复杂度: 0
+定义变量: __lc, __x0y0
+使用变量: __loc, __uc, _Lp, __x0, __y0, __rtime, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleDumpIpcStat(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:151:13
+复杂度: 0
+定义变量: registration, __x1y0
+使用变量: , __a, __b, __i, __p, __first, __cont, __facets, operator^, memory_order_seq_cst, __y0, __x1, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleDumpFfrt(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleDumpFfrt
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:151:20
+复杂度: 0
+定义变量: registration, __x1y0
+使用变量: , __b, __i, __p, __first, __facets, operator^, memory_order_seq_cst, __y0, __x1, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleDumpFfrt(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:153:13
+复杂度: 0
+定义变量: __pos, _Nd, __mix
+使用变量: , __p, __y, __comp, __position, __x0y1, __x1y0, tagNames, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleScheduleCacheProcess(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleScheduleCacheProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:153:20
+复杂度: 0
+定义变量: _Nd, __mix
+使用变量: , __p, __comp, __position, __x0y1, __x1y0, tagNames, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleScheduleCacheProcess(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:155:5
+复杂度: 0
+定义变量: __size, __loc, __sign_size
+使用变量: , __x, __n, __last2, __nh, __p1, __hf, INVALID_FD
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INVALID_FD;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleForegroundApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:158:27
+复杂度: 0
+定义变量: 
+使用变量: __builtin_operator_delete
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleForegroundApplication(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleForegroundApplication();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:162:5
+复杂度: 0
+定义变量: __r
+使用变量: , __first, __fn, __count, __cont, __gthread_cond_timedwait, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleBackgroundApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:165:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleBackgroundApplication(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleBackgroundApplication();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:169:5
+复杂度: 0
+定义变量: 
+使用变量: __r, __p, __last1, __lc, pthread_cond_clockwait, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleTerminateApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:172:27
+复杂度: 0
+定义变量: 
+使用变量: __res
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleTerminateApplication(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    auto isLastProcess = data.ReadBool();
+    ScheduleTerminateApplication(isLastProcess);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:177:5
+复杂度: 0
+定义变量: __s, __e
+使用变量: , __n, __p, __first, __last, __len, __pos, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleLowMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:180:27
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleLowMemory(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleLowMemory();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:184:5
+复杂度: 0
+定义变量: __r, __e, __state, BASE_DELEGATOR
+使用变量: , __r, __p, __cont, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleShrinkMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:187:27
+复杂度: 0
+定义变量: 
+使用变量: __old
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleShrinkMemory(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleShrinkMemory(data.ReadInt32());
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:190:5
+复杂度: 0
+定义变量: __two, __r0y
+使用变量: , __r, __x, __i, __p, __y, __other, __pos, __lo2, __hi2, __lo, __hi, __vec, __found_mantissa, __mandatory_sign, _Nd, __r0x, data
+关键位置: 否
+日志评分: 0
+代码:
+    ScheduleShrinkMemory(data.ReadInt32());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:191:5
+复杂度: 0
+定义变量: __num_erase, offset
+使用变量: , __a, __builtin_constant_p, npos, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleMemoryLevel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:194:27
+复杂度: 0
+定义变量: 
+使用变量: , __i, __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleMemoryLevel(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleMemoryLevel(data.ReadInt32());
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:197:5
+复杂度: 0
+定义变量: in_place, __last1
+使用变量: , __n, __is_constant_evaluated, __builtin_unreachable, __from, __len, __alloc, __end, __beg, __mandatory_sign, __clone_functor, __r0z, _Pow, jitEnabled, BASE_DELEGATOR, GetDomainName3, data
+关键位置: 否
+日志评分: 0
+代码:
+    ScheduleMemoryLevel(data.ReadInt32());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:198:5
+复杂度: 0
+定义变量: __another
+使用变量: , __first, __last, __arg, __beg, __cur, BASE_EXT, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleHeapMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:201:27
+复杂度: 0
+定义变量: 
+使用变量: , __guard
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleHeapMemory(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t pid = data.ReadInt32();
+    struct OHOS::AppExecFwk::MallocInfo mallocInfo;
+    ScheduleHeapMemory(pid, mallocInfo);
+    reply.WriteParcelable(&mallocInfo);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MallocInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:204:41
+复杂度: 0
+定义变量: mallocInfo
+使用变量: __j, __dat, __beg, __from_next
+关键位置: 否
+日志评分: 0
+代码:
+    struct OHOS::AppExecFwk::MallocInfo mallocInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:207:5
+复杂度: 0
+定义变量: __found_dec
+使用变量: , __r, __i, __first2, __j, __h, __io, __next, _S_min_alignment, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleJsHeapMemory
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:210:27
+复杂度: 1
+定义变量: __cmp
+使用变量: , __found_grouping, __date
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleJsHeapMemory(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<JsHeapDumpInfo> info(data.ReadParcelable<JsHeapDumpInfo>());
+    if (!info) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<JsHeapDumpInfo> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+    ScheduleJsHeapMemory(*info);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:214:5
+复杂度: 1
+定义变量: 
+使用变量: , __prev, __throw_concurrence_unlock_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!info) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<JsHeapDumpInfo> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:215:9
+复杂度: 0
+定义变量: __value, adopt_lock, logTag
+使用变量: , __x, __p, __first, __last, __e, __c, __builtin_clzl, __f, wcschr, __diff, iostream_category, memory_order_seq_cst, __functor, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<JsHeapDumpInfo> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:219:5
+复杂度: 0
+定义变量: __diff
+使用变量: , __tmp, __first, __last, __comp, wcspbrk, __lc, __digit, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleLaunchAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:222:27
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __pos, __time, __dt, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleLaunchAbility(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<AbilityInfo> abilityInfo(data.ReadParcelable<AbilityInfo>());
+    if (!abilityInfo) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityInfo> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    sptr<IRemoteObject> token = nullptr;
+    if (data.ReadBool()) {
+        token = data.ReadRemoteObject();
+    }
+
+    std::shared_ptr<AAFwk::Want> want(data.ReadParcelable<AAFwk::Want>());
+    auto abilityRecordId = data.ReadInt32();
+    ScheduleLaunchAbility(*abilityInfo, token, want, abilityRecordId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:226:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!abilityInfo) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityInfo> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:227:9
+复杂度: 0
+定义变量: __high, __e, __topIndex, __n0_top, logTag
+使用变量: , __v, __x, __a, __n, __s1, __s2, wcsstr, __c2, __gthread_mutex_lock, __cat, __refs, __lc, operator+=, __shift, __holeIndex, _Nd_ull, __n0, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityInfo> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: sptr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:231:33
+复杂度: 0
+定义变量: is_exact
+使用变量: , __a, _S_iE, _Lp
+关键位置: 否
+日志评分: 0
+代码:
+    sptr<IRemoteObject> token = nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:232:5
+复杂度: 1
+定义变量: 
+使用变量: , __testvalid, __secondChild
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (data.ReadBool()) {
+        token = data.ReadRemoteObject();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:233:9
+复杂度: 0
+定义变量: __i, __len, __max_ull, __quot_lo
+使用变量: , __x, npos, __lo, __hi, operator=, __secondChild, data, token
+关键位置: 否
+日志评分: 0
+代码:
+        token = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:233:17
+复杂度: 0
+定义变量: __i, __max_ull, __quot_lo
+使用变量: , __lo, __hi, __secondChild, data
+关键位置: 否
+日志评分: 0
+代码:
+        token = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:239:5
+复杂度: 0
+定义变量: 
+使用变量: , __end, __beg, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleCleanAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:242:27
+复杂度: 0
+定义变量: __cmp
+使用变量: __guard, __ampm_format
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleCleanAbility(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    sptr<IRemoteObject> token = data.ReadRemoteObject();
+    bool isCacheProcess = data.ReadBool();
+    ScheduleCleanAbility(token, isCacheProcess);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:245:33
+复杂度: 0
+定义变量: 
+使用变量: , __n, __p, __comp, __c, __len, __new_size, _Digs, data
+关键位置: 否
+日志评分: 0
+代码:
+    sptr<IRemoteObject> token = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:248:5
+复杂度: 0
+定义变量: 
+使用变量: , __value, __x, __first, __res, __testdecfound, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleLaunchApplication
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:251:27
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __ampm, __days
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleLaunchApplication(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<AppLaunchData> launchData(data.ReadParcelable<AppLaunchData>());
+    std::unique_ptr<Configuration> config(data.ReadParcelable<Configuration>());
+    if (!launchData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<launchData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+    if (!config) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    ScheduleLaunchApplication(*launchData, *config);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:256:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!launchData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<launchData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:257:9
+复杂度: 0
+定义变量: __x, _Nd_ul, sentry, logTag
+使用变量: , __digits, __t, __x, __a, __p, __y, __u, __end, __m, __beg, operator|, in, out, __lc, _S_word_bit, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<launchData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:260:5
+复杂度: 1
+定义变量: 
+使用变量: __p
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!config) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:261:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __a, __n, __p, __args, __l, __capacity, __builtin_ctz, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:266:5
+复杂度: 0
+定义变量: 
+使用变量: , __value, __x, __n, __first, __low, __cont, __product, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleUpdateApplicationInfoInstalled
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:269:27
+复杂度: 1
+定义变量: 
+使用变量: , __n, __is_constant_evaluated, __builtin_unreachable, __days, __atomic_store
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleUpdateApplicationInfoInstalled(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<ApplicationInfo> appInfo(data.ReadParcelable<ApplicationInfo>());
+    if (!appInfo) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ApplicationInfo> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    ScheduleUpdateApplicationInfoInstalled(*appInfo);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:273:5
+复杂度: 1
+定义变量: 
+使用变量: __dest
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!appInfo) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ApplicationInfo> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:274:9
+复杂度: 0
+定义变量: is_iec559, logTag
+使用变量: , _Nm, __t, __x, _Num, __val, __low, __builtin_ctzll, _Den, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ApplicationInfo> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:279:5
+复杂度: 0
+定义变量: __capacity
+使用变量: __val, __add, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleAbilityStage
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:282:27
+复杂度: 1
+定义变量: 
+使用变量: __val, __sv, __months, __atomic_load
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleAbilityStage(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<HapModuleInfo> abilityStage(data.ReadParcelable<HapModuleInfo>());
+    if (!abilityStage) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<launchData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    ScheduleAbilityStage(*abilityStage);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:286:5
+复杂度: 1
+定义变量: 
+使用变量: __ptr, __digits
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!abilityStage) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<launchData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:287:9
+复杂度: 0
+定义变量: _3, logTag
+使用变量: , __t, __it1, __val, __u, _Rb_tree_increment, __new_capacity, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<launchData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:292:5
+复杂度: 0
+定义变量: 
+使用变量: , __comp, __ret, __l, __gthread_cond_wait, __pcvt, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleProfileChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:295:27
+复杂度: 1
+定义变量: 
+使用变量: __pos, __months, __atomic_exchange, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleProfileChanged(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<Profile> profile(data.ReadParcelable<Profile>());
+    if (!profile) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Profile> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    ScheduleProfileChanged(*profile);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:299:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!profile) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Profile> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:300:9
+复杂度: 0
+定义变量: __i, _16, logTag
+使用变量: , __a, __n, __val, __one, __two, __pos, __size, __sv_check, _Nd, _Nd_ul, round_toward_zero, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Profile> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:305:5
+复杂度: 0
+定义变量: __ret
+使用变量: , __ptr, __a, __rlen, __testvalid, __throw_concurrence_wait_error, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleConfigurationUpdated
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:308:27
+复杂度: 1
+定义变量: 
+使用变量: __pos, __months, __atomic_exchange
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleConfigurationUpdated(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<Configuration> configuration(data.ReadParcelable<Configuration>());
+    if (!configuration) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    ScheduleConfigurationUpdated(*configuration);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:313:5
+复杂度: 1
+定义变量: 
+使用变量: __ptr, __p, __res, __len
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!configuration) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:314:9
+复杂度: 0
+定义变量: __tmp, _S_classic, __only_zeros, logTag
+使用变量: , __r, __tmp, __i, _Idx, __p, __in, __first, __first1, __first2, __last1, __c, __last2, npos, __lit, _S_ie, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:319:5
+复杂度: 0
+定义变量: __tmp, __rlen, __can_fill
+使用变量: , __v, __x, __a, __p, __found_grouping, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleProcessSecurityExit
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:322:27
+复杂度: 0
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __f, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleProcessSecurityExit(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleProcessSecurityExit();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:326:5
+复杂度: 0
+定义变量: 
+使用变量: , __ret, __builtin_expect, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleClearPageStack
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:329:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleClearPageStack(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleClearPageStack();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:333:5
+复杂度: 0
+定义变量: 
+使用变量: , __r, __tmp, __first, __plus, __xtrc, operator+=, __gthread_recursive_mutex_timedlock, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleAcceptWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:336:27
+复杂度: 1
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __throw_range_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleAcceptWant(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    auto want = std::shared_ptr<AAFwk::Want>(data.ReadParcelable<AAFwk::Want>());
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+    auto moduleName = data.ReadString();
+    ScheduleAcceptWant(*want, moduleName);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:340:5
+复杂度: 1
+定义变量: 
+使用变量: , __next
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:341:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __a, __first, __last, __head, __out, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:346:5
+复杂度: 0
+定义变量: 
+使用变量: , __builtin_expect, __ineof, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleNewProcessRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:349:27
+复杂度: 1
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __result, __f, __c1, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleNewProcessRequest(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "call.");
+    HITRACE_METER(HITRACE_TAG_APP);
+    auto want = std::shared_ptr<AAFwk::Want>(data.ReadParcelable<AAFwk::Want>());
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+    auto moduleName = data.ReadString();
+    ScheduleNewProcessRequest(*want, moduleName);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:351:5
+复杂度: 0
+定义变量: __n, __len, __uerngrange, logTag
+使用变量: , __it, __x, __tmp, __n, __first, __last, __nh, __how_much, memory_order_seq_cst, __urngrange, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "call.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:354:5
+复杂度: 1
+定义变量: 
+使用变量: __position
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:355:9
+复杂度: 0
+定义变量: __value, fixed, logTag
+使用变量: , __n, __first, generic_category, _S_fixed, __found_grouping, __next, __wchars, __parent, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:360:5
+复杂度: 0
+定义变量: 
+使用变量: __first, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyLoadRepairPatch
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:363:27
+复杂度: 1
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __result, __f, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleNotifyLoadRepairPatch(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::string bundleName = data.ReadString();
+    auto callback = iface_cast<IQuickFixCallback>(data.ReadRemoteObject());
+    if (callback == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+        return ERR_INVALID_VALUE;
+    }
+    auto recordId = data.ReadInt32();
+    ScheduleNotifyLoadRepairPatch(bundleName, callback, recordId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:367:51
+复杂度: 0
+定义变量: 
+使用变量: __a, data
+关键位置: 否
+日志评分: 0
+代码:
+    auto callback = iface_cast<IQuickFixCallback>(data.ReadRemoteObject());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:368:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (callback == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:369:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __r, __x, __y, __result, __c1, _S_local_capacity, __length, __to, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:374:5
+复杂度: 0
+定义变量: __str
+使用变量: , _Idx, __cat, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyHotReloadPage
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:377:27
+复杂度: 1
+定义变量: 
+使用变量: __throw_range_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleNotifyHotReloadPage(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    auto callback = iface_cast<IQuickFixCallback>(data.ReadRemoteObject());
+    if (callback == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+        return ERR_INVALID_VALUE;
+    }
+    auto recordId = data.ReadInt32();
+    ScheduleNotifyHotReloadPage(callback, recordId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:380:51
+复杂度: 0
+定义变量: 
+使用变量: , __length, data
+关键位置: 否
+日志评分: 0
+代码:
+    auto callback = iface_cast<IQuickFixCallback>(data.ReadRemoteObject());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:381:5
+复杂度: 1
+定义变量: 
+使用变量: __builtin_expect
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (callback == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:382:9
+复杂度: 0
+定义变量: _S_c_locale, __uc, __urngmin, logTag
+使用变量: , __t, __i, __first, __e, __first1, __first2, __last1, __c, __m, __s1, __s2, lt, __urng, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:387:5
+复杂度: 0
+定义变量: 
+使用变量: , __first, __d, __result, __ret, __to, generic_category, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyUnLoadRepairPatch
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:390:27
+复杂度: 1
+定义变量: 
+使用变量: __ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleNotifyUnLoadRepairPatch(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::string bundleName = data.ReadString();
+    auto callback = iface_cast<IQuickFixCallback>(data.ReadRemoteObject());
+    if (callback == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+        return ERR_INVALID_VALUE;
+    }
+    auto recordId = data.ReadInt32();
+    ScheduleNotifyUnLoadRepairPatch(bundleName, callback, recordId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:394:51
+复杂度: 0
+定义变量: 
+使用变量: __args, __str, __err, data
+关键位置: 否
+日志评分: 0
+代码:
+    auto callback = iface_cast<IQuickFixCallback>(data.ReadRemoteObject());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:395:5
+复杂度: 1
+定义变量: 
+使用变量: , __ptr, __result, __sb
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (callback == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:396:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __ptr, __r, __n, __result, __len, min, __arg, __sb, __tuple, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Callback is null.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:401:5
+复杂度: 0
+定义变量: __tmp
+使用变量: , __n, __c, __beg, __atomic_add_fetch, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyAppFault
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:404:27
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleNotifyAppFault(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<FaultData> faultData(data.ReadParcelable<FaultData>());
+    if (faultData == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<FaultData> failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    int32_t result = ScheduleNotifyAppFault(*faultData);
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "reply write failed.");
+        return ERR_INVALID_VALUE;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:407:5
+复杂度: 1
+定义变量: 
+使用变量: __c, __ret, __testeof
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (faultData == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<FaultData> failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:408:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __y, __is_constant_evaluated, __result, __beg, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<FaultData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:413:5
+复杂度: 1
+定义变量: 
+使用变量: __diff0
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "reply write failed.");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:414:9
+复杂度: 0
+定义变量: min_exponent, logTag
+使用变量: , __d, __len, __pos, __str, __t1, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "reply write failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:417:5
+复杂度: 0
+定义变量: __tmp, __sep_pos, __first2
+使用变量: , __n, __atomic_and_fetch, __t0, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleChangeAppGcState
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:420:27
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __pos
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleChangeAppGcState(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t state = data.ReadInt32();
+    int32_t result = ScheduleChangeAppGcState(state);
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "reply write failed.");
+        return ERR_INVALID_VALUE;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:424:5
+复杂度: 1
+定义变量: 
+使用变量: __last, __sep_pos
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "reply write failed.");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:425:9
+复杂度: 0
+定义变量: badbit, __next, logTag
+使用变量: , __i, __first, __last, __comp, __first2, __u, _S_badbit, memory_order_seq_cst, __atomic_or_fetch, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "reply write failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:428:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __n, __result, __basefield, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleAttachAppDebug
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:431:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleAttachAppDebug(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    AttachAppDebug();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:435:5
+复杂度: 0
+定义变量: 
+使用变量: , __c, __head, __lit, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleDetachAppDebug
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:438:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleDetachAppDebug(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    DetachAppDebug();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:442:5
+复杂度: 0
+定义变量: 
+使用变量: , __s, __sep_pos, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleDumpIpcStart
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:445:27
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleDumpIpcStart(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::string result;
+    ScheduleDumpIpcStart(result);
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStart result");
+        return ERR_INVALID_VALUE;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:448:17
+复杂度: 0
+定义变量: __len, result
+使用变量: __t, __x
+关键位置: 否
+日志评分: 0
+代码:
+    std::string result;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:450:5
+复杂度: 1
+定义变量: 
+使用变量: __p
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStart result");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:451:9
+复杂度: 0
+定义变量: __n, __comp, __old_finish, logTag
+使用变量: , __x, __n, __first, __d, __c, __alloc, __sb, __atomic_is_lock_free, __cur, _S_mutex, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStart result");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:454:5
+复杂度: 0
+定义变量: __p, __prev, __new_finish
+使用变量: , __is_constant_evaluated, __lc, __sign, operator*, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleDumpIpcStop
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:457:27
+复杂度: 1
+定义变量: 
+使用变量: __b, __is_constant_evaluated, __builtin_unreachable, memory_order_acq_rel, memory_order_acquire, memory_order_consume, __atomic_store_n
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleDumpIpcStop(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::string result;
+    ScheduleDumpIpcStop(result);
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStop result");
+        return ERR_INVALID_VALUE;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:460:17
+复杂度: 0
+定义变量: __tmp, result
+使用变量: , __y, __n1
+关键位置: 否
+日志评分: 0
+代码:
+    std::string result;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:462:5
+复杂度: 1
+定义变量: 
+使用变量: , __len
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStop result");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:463:9
+复杂度: 0
+定义变量: binary, logTag
+使用变量: , _Idx, __in, __lhs, __rhs, __comp, __first1, __first2, __base, _S_bin, _S_izero, __elems_before, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStop result");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:466:5
+复杂度: 0
+定义变量: 
+使用变量: __first1, __n2, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleDumpIpcStat
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:469:27
+复杂度: 1
+定义变量: 
+使用变量: __b, __is_constant_evaluated, __builtin_unreachable, memory_order_acq_rel, memory_order_acquire, memory_order_consume, __atomic_store_n
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleDumpIpcStat(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::string result;
+    ScheduleDumpIpcStat(result);
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStat result");
+        return ERR_INVALID_VALUE;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:472:17
+复杂度: 0
+定义变量: result
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    std::string result;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:474:5
+复杂度: 1
+定义变量: 
+使用变量: , __paddec
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStat result");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:475:9
+复杂度: 0
+定义变量: is_exact, logTag
+使用变量: , __a, __node, __tag, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpIpcStat result");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:478:5
+复杂度: 0
+定义变量: __digit
+使用变量: __lhs, __lc, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleCacheProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:481:27
+复杂度: 0
+定义变量: 
+使用变量: __b, __is_constant_evaluated, __builtin_unreachable, memory_order_acq_rel, memory_order_release
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppSchedulerHost::HandleScheduleCacheProcess(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    ScheduleCacheProcess();
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:485:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __p, __y, _S_copy, __beg, __new_size, __digit, __new_finish, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleScheduleDumpFfrt
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:488:27
+复杂度: 1
+定义变量: 
+使用变量: , __b, __is_constant_evaluated, __builtin_unreachable, __c1, memory_order_acq_rel, memory_order_release
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppSchedulerHost::HandleScheduleDumpFfrt(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::string result;
+    ScheduleDumpFfrt(result);
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpFfrt result");
+        return ERR_INVALID_VALUE;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:491:17
+复杂度: 0
+定义变量: result
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    std::string result;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:493:5
+复杂度: 1
+定义变量: 
+使用变量: , __d, __result, __m, __testoverflow
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteString(result)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpFfrt result");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:494:9
+复杂度: 0
+定义变量: __g, __done, __b, has_denorm_loss, logTag
+使用变量: , __max, __n, _Num, __result, _IsMove, __digit, __old_finish, _Lp, _Den, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write string of ScheduleDumpFfrt result");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_scheduler_host.cpp:497:5
+复杂度: 0
+定义变量: __nn, __carry
+使用变量: , __value, __beg, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

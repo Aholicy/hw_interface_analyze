@@ -1,0 +1,510 @@
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:29:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:32:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (want != nullptr) {
+        want_ = std::make_shared<Want>(*want);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:48:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:48:9
+复杂度: 0
+定义变量: 
+使用变量: paramInfo
+关键位置: 否
+日志评分: 0
+代码:
+    if (paramInfo.GetExtraInfo() != nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:51:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:51:9
+复杂度: 0
+定义变量: __put
+使用变量: paramInfo
+关键位置: 否
+日志评分: 0
+代码:
+    if (paramInfo.GetWant() != nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetResultCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:55:19
+复杂度: 0
+定义变量: __b4
+使用变量: __base, __b3, PTHREAD_MUTEX_TIMED_NP, paramInfo
+关键位置: 否
+日志评分: 0
+代码:
+    resultCode_ = paramInfo.GetResultCode();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: operator=
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:58:33
+复杂度: 3
+定义变量: 
+使用变量: rethrow_exception
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+const TriggerInfo &TriggerInfo::operator=(const TriggerInfo &paramInfo)
+{
+    permission_ = paramInfo.GetPermission();
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+    resultCode_ = paramInfo.GetResultCode();
+
+    return *this;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:61:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (paramInfo.GetExtraInfo() != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*paramInfo.GetExtraInfo());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:61:9
+复杂度: 0
+定义变量: 
+使用变量: __n, , __f, __builtin_llabs, __b4, paramInfo
+关键位置: 否
+日志评分: 0
+代码:
+    if (paramInfo.GetExtraInfo() != nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:64:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (paramInfo.GetWant() != nullptr) {
+        want_ = std::make_shared<Want>(*paramInfo.GetWant());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:64:9
+复杂度: 0
+定义变量: 
+使用变量: __n, , __size, __cont, paramInfo
+关键位置: 否
+日志评分: 0
+代码:
+    if (paramInfo.GetWant() != nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:67:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (paramInfo.GetStartOptions() != nullptr) {
+        startOptions_ = std::make_shared<StartOptions>(*paramInfo.GetStartOptions());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetResultCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:70:19
+复杂度: 0
+定义变量: __is_signed
+使用变量: __s, paramInfo
+关键位置: 否
+日志评分: 0
+代码:
+    resultCode_ = paramInfo.GetResultCode();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:72:5
+复杂度: 0
+定义变量: __tmp_data
+使用变量: __first, __builtin_fabs
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return *this;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetPermission
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:75:26
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::string TriggerInfo::GetPermission() const
+{
+    return permission_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetExtraInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:80:42
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<WantParams> TriggerInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:85:36
+复杂度: 0
+定义变量: 
+使用变量: , __ret, __location
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<Want> TriggerInfo::GetWant() const
+{
+    return want_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetStartOptions
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:90:44
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<StartOptions> TriggerInfo::GetStartOptions() const
+{
+    return startOptions_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetResultCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:95:18
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int TriggerInfo::GetResultCode() const
+{
+    return resultCode_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:97:5
+复杂度: 0
+定义变量: __ret
+使用变量: , __builtin_vsnprintf, __out
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return resultCode_;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetPermission
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:103:61
+复杂度: 0
+定义变量: 
+使用变量: __len
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetPermission(const std::string &permission)
+{
+    permission_ = permission;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:106:5
+复杂度: 0
+定义变量: 
+使用变量: , _Nm, __max, __m
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return shared_from_this();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetWantParams
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:109:61
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWantParams(const std::shared_ptr<WantParams> &params)
+{
+    params_ = params;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:112:5
+复杂度: 0
+定义变量: __sz
+使用变量: , __s, __tmp, __args
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return shared_from_this();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:115:61
+复杂度: 0
+定义变量: 
+使用变量: __c1
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetWant(const std::shared_ptr<Want> &want)
+{
+    want_ = want;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:118:5
+复杂度: 0
+定义变量: __tmp_ptr
+使用变量: __st, , __ret, __o
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return shared_from_this();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetStartOptions
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:121:61
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetStartOptions(
+    const std::shared_ptr<AAFwk::StartOptions> &startOptions)
+{
+    startOptions_ = startOptions;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:125:5
+复杂度: 0
+定义变量: 
+使用变量: , __throw_bad_array_new_length, __result, __cur
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return shared_from_this();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetResultCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:128:61
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<TriggerInfo::Builder> TriggerInfo::Builder::SetResultCode(int resultCode)
+{
+    resultCode_ = resultCode;
+    return shared_from_this();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:131:5
+复杂度: 0
+定义变量: __lock
+使用变量: __p, , __it, __val
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return shared_from_this();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Build
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/trigger_info.cpp:134:52
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<TriggerInfo> TriggerInfo::Builder::Build()
+{
+    return std::make_shared<TriggerInfo>(permission_, params_, want_, startOptions_, resultCode_);
+}
+
+--------------------------------------------------------------------------------

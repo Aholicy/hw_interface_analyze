@@ -1,0 +1,267 @@
+代码块类型: Method Declaration
+块名称: OnLoadSystemAbilitySuccess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:23:33
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionLoadCallback::OnLoadSystemAbilitySuccess(
+    int32_t systemAbilityId, const sptr<IRemoteObject> &remoteObject)
+{
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+        return;
+    }
+
+    if (remoteObject == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Object null");
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d succeed", systemAbilityId);
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilitySuccess(remoteObject);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:26:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:27:9
+复杂度: 0
+定义变量: logTag
+使用变量: URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:28:9
+复杂度: 0
+定义变量: REGISTRY_HANDLE
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:31:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (remoteObject == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Object null");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:32:9
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Object null");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: proxy
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:36:5
+复杂度: 0
+定义变量: logTag
+使用变量: URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d succeed", systemAbilityId);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnLoadSystemAbilitySuccess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:37:5
+复杂度: 0
+定义变量: have_error
+使用变量: remoteObject, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilitySuccess(remoteObject);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:37:5
+复杂度: 0
+定义变量: have_error
+使用变量: GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilitySuccess(remoteObject);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnLoadSystemAbilityFail
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:40:33
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionLoadCallback::OnLoadSystemAbilityFail(int32_t systemAbilityId)
+{
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d failed", systemAbilityId);
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilityFail();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:43:9
+复杂度: 0
+定义变量: logTag
+使用变量: __refs, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:47:5
+复杂度: 0
+定义变量: logTag
+使用变量: __x, __i, __other, __caches, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d failed", systemAbilityId);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnLoadSystemAbilityFail
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:48:5
+复杂度: 0
+定义变量: __ret
+使用变量: GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilityFail();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:48:5
+复杂度: 0
+定义变量: __ret
+使用变量: GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilityFail();
+
+--------------------------------------------------------------------------------

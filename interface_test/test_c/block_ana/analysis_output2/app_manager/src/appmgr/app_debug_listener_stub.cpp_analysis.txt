@@ -1,0 +1,379 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:32:27
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int AppDebugListenerStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
+    std::u16string descriptor = AppDebugListenerStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STARTED):
+            return HandleOnAppDebugStarted(data, reply);
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STOPED):
+            return HandleOnAppDebugStoped(data, reply);
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:35:5
+复杂度: 0
+定义变量: logTag
+使用变量: __x, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:37:39
+复杂度: 0
+定义变量: 
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:38:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:39:9
+复杂度: 0
+定义变量: logTag
+使用变量: __bsx, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:40:9
+复杂度: 0
+定义变量: 
+使用变量: ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:43:5
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (code) {
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STARTED):
+            return HandleOnAppDebugStarted(data, reply);
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STOPED):
+            return HandleOnAppDebugStoped(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:45:13
+复杂度: 0
+定义变量: __i
+使用变量: , __it1, __it2, __refs, _S_get_c_locale, _Intl, serialInvokeFlag, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppDebugStarted(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppDebugStarted
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:45:20
+复杂度: 0
+定义变量: 
+使用变量: , __it2, _S_get_c_locale, _Intl, serialInvokeFlag, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppDebugStarted(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:47:13
+复杂度: 0
+定义变量: 
+使用变量: , __i, __other, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppDebugStoped(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppDebugStoped
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:47:20
+复杂度: 0
+定义变量: 
+使用变量: , __other, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppDebugStoped(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:50:5
+复杂度: 0
+定义变量: lower, logTag
+使用变量: , __builtin_addressof, __r, __f, __low, __high, _ISlower, _S_get_c_name, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppDebugStarted
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:54:31
+复杂度: 3
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, MessageParcel &reply)
+{
+    auto infoSize = data.ReadInt32();
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<AppDebugInfo> appDebugInfos;
+    for (int32_t index = 0; index < infoSize; index++) {
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+        if (appDebugInfo == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+            return ERR_INVALID_DATA;
+        }
+        appDebugInfos.emplace_back(*appDebugInfo);
+    }
+
+    OnAppDebugStarted(appDebugInfos);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:57:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:58:9
+复杂度: 0
+定义变量: __ret, __first, punct, logTag
+使用变量: , __tmp, __n, __first, __last, __len, __pos, __s, __base, PTHREAD_MUTEX_NORMAL, _ISpunct, _Pn, _Base, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:59:9
+复杂度: 0
+定义变量: __tmp, __last, alnum
+使用变量: , __tmp, __n, __pred, __len, __low, __high, __iter, __s, __b2, __builtin_strcmp, _ISalpha, ERR_INVALID_DATA
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_DATA;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:73:5
+复杂度: 0
+定义变量: __tmp, __outnext
+使用变量: , __p, __last, __diff, __os, __ISwalpha, bindtextdomain, __space, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppDebugStoped
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:76:31
+复杂度: 3
+定义变量: 
+使用变量: , __tmp, __location, __ret
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, MessageParcel &reply)
+{
+    auto infoSize = data.ReadInt32();
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+    std::vector<AppDebugInfo> appDebugInfos;
+    for (int32_t index = 0; index < infoSize; index++) {
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+        if (appDebugInfo == nullptr) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+            return ERR_INVALID_DATA;
+        }
+        appDebugInfos.emplace_back(*appDebugInfo);
+    }
+
+    OnAppDebugStoped(appDebugInfos);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:79:5
+复杂度: 1
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+        return ERR_INVALID_DATA;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:80:9
+复杂度: 0
+定义变量: __tmp, __old, __child, __np, INVALID_FD, logTag
+使用变量: , __t, __x, __n, __i, __first, __last, __f, __s, __uselocale, __cloc, __builtin_fabsl, __child, __ISwcntrl, __maxlen, __outstr, __outchars, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:81:9
+复杂度: 0
+定义变量: 
+使用变量: __x, __tmp, __first, __str, __ISwpunct, _S_get_c_name, ERR_INVALID_DATA
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_DATA;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:95:5
+复杂度: 0
+定义变量: __curr_symbol
+使用变量: , __ptr, __digits, __a, __b, __tmp, __last, __result, __count, _Base, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

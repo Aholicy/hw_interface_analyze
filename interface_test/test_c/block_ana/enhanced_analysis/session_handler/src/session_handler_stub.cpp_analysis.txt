@@ -1,0 +1,147 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AAFwk {
+
+SessionHandlerStub::SessionHandlerStub() {}
+
+
+
+int32_t SessionHandlerStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    std::u16string descriptor = SessionHandlerStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code < ISessionHandler::CODE_MAX) {
+
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+
+            return OnSessionMovedToFrontInner(data, reply);
+
+        }
+
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t SessionHandlerStub::OnSessionMovedToFrontInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t sessionId = data.ReadInt32();
+
+    OnSessionMovedToFront(sessionId);
+
+    return NO_ERROR;
+
+}
+
+
+
+void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
+
+{
+
+    TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
+
+}
+
+}
+
+}
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_stub.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AAFwk {
+
+SessionHandlerStub::SessionHandlerStub() {}
+
+
+
+int32_t SessionHandlerStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    std::u16string descriptor = SessionHandlerStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "descriptor not equal remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code < ISessionHandler::CODE_MAX) {
+
+        if (code == ON_SESSION_MOVED_TO_FRONT) {
+
+            return OnSessionMovedToFrontInner(data, reply);
+
+        }
+
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t SessionHandlerStub::OnSessionMovedToFrontInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t sessionId = data.ReadInt32();
+
+    OnSessionMovedToFront(sessionId);
+
+    return NO_ERROR;
+
+}
+
+
+
+void SessionHandlerStub::OnSessionMovedToFront(int32_t sessionId)
+
+{
+
+    TAG_LOGI(AAFwkTag::DEFAULT, "sessionId:%{public}d", sessionId);
+
+}
+
+}
+
+================================================================================

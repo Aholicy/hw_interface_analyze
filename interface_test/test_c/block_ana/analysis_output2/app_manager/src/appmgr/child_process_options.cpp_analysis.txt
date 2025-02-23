@@ -1,0 +1,146 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:23:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ChildProcessOptions::ReadFromParcel(Parcel &parcel)
+{
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isolationMode);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:26:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:29:43
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ChildProcessOptions *ChildProcessOptions::Unmarshalling(Parcel &parcel)
+{
+    ChildProcessOptions *obj = new (std::nothrow) ChildProcessOptions();
+    if (obj && !obj->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete obj;
+        obj = nullptr;
+    }
+    return obj;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:32:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (obj && !obj->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete obj;
+        obj = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:32:17
+复杂度: 0
+定义变量: 
+使用变量: obj, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (obj && !obj->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:33:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:37:5
+复杂度: 0
+定义变量: 
+使用变量: obj
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return obj;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:40:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ChildProcessOptions::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isolationMode);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_options.cpp:43:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

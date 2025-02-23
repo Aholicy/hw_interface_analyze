@@ -1,0 +1,216 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+SystemMemoryAttr::SystemMemoryAttr() : availSysMem_(0), totalSysMem_(0), threshold_(0), isSysInlowMem_(false)
+
+{}
+
+
+
+bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
+
+{
+
+    parcel.ReadInt64(availSysMem_);
+
+    parcel.ReadInt64(totalSysMem_);
+
+    parcel.ReadInt64(threshold_);
+
+    isSysInlowMem_ = parcel.ReadBool();
+
+
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
+
+        static_cast<size_t>(availSysMem_),
+
+        static_cast<size_t>(totalSysMem_),
+
+        static_cast<size_t>(threshold_),
+
+        (isSysInlowMem_ ? "true" : "false"));
+
+
+
+    return true;
+
+}
+
+
+
+SystemMemoryAttr *SystemMemoryAttr::Unmarshalling(Parcel &parcel)
+
+{
+
+    SystemMemoryAttr *info = new (std::nothrow) SystemMemoryAttr();
+
+    if (info == nullptr) {
+
+        return nullptr;
+
+    }
+
+
+
+    if (!info->ReadFromParcel(parcel)) {
+
+        delete info;
+
+        info = nullptr;
+
+    }
+
+    return info;
+
+}
+
+
+
+bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
+
+{
+
+    parcel.WriteInt64(availSysMem_);
+
+    parcel.WriteInt64(totalSysMem_);
+
+    parcel.WriteInt64(threshold_);
+
+    parcel.WriteBool(isSysInlowMem_);
+
+
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
+
+        static_cast<size_t>(availSysMem_),
+
+        static_cast<size_t>(totalSysMem_),
+
+        static_cast<size_t>(threshold_),
+
+        (isSysInlowMem_ ? "true" : "false"));
+
+
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+SystemMemoryAttr::SystemMemoryAttr() : availSysMem_(0), totalSysMem_(0), threshold_(0), isSysInlowMem_(false)
+
+{}
+
+
+
+bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
+
+{
+
+    parcel.ReadInt64(availSysMem_);
+
+    parcel.ReadInt64(totalSysMem_);
+
+    parcel.ReadInt64(threshold_);
+
+    isSysInlowMem_ = parcel.ReadBool();
+
+
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
+
+        static_cast<size_t>(availSysMem_),
+
+        static_cast<size_t>(totalSysMem_),
+
+        static_cast<size_t>(threshold_),
+
+        (isSysInlowMem_ ? "true" : "false"));
+
+
+
+    return true;
+
+}
+
+
+
+SystemMemoryAttr *SystemMemoryAttr::Unmarshalling(Parcel &parcel)
+
+{
+
+    SystemMemoryAttr *info = new (std::nothrow) SystemMemoryAttr();
+
+    if (info == nullptr) {
+
+        return nullptr;
+
+    }
+
+
+
+    if (!info->ReadFromParcel(parcel)) {
+
+        delete info;
+
+        info = nullptr;
+
+    }
+
+    return info;
+
+}
+
+
+
+bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
+
+{
+
+    parcel.WriteInt64(availSysMem_);
+
+    parcel.WriteInt64(totalSysMem_);
+
+    parcel.WriteInt64(threshold_);
+
+    parcel.WriteBool(isSysInlowMem_);
+
+
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
+
+        static_cast<size_t>(availSysMem_),
+
+        static_cast<size_t>(totalSysMem_),
+
+        static_cast<size_t>(threshold_),
+
+        (isSysInlowMem_ ? "true" : "false"));
+
+
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

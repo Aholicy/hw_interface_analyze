@@ -1,0 +1,264 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:29:41
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppForegroundStateObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    std::u16string descriptor = AppForegroundStateObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IAppForegroundStateObserver::Message::ON_APP_STATE_CHANGED)) {
+        return HandleOnAppStateChanged(data, reply);
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:32:5
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:34:39
+复杂度: 0
+定义变量: 
+使用变量: proxy, data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:35:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:36:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:37:9
+复杂度: 0
+定义变量: have_error
+使用变量: ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:40:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (code == static_cast<uint32_t>(IAppForegroundStateObserver::Message::ON_APP_STATE_CHANGED)) {
+        return HandleOnAppStateChanged(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:41:9
+复杂度: 0
+定义变量: 
+使用变量: __x, IF_PROT_DEFAULT, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return HandleOnAppStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppStateChanged
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:41:16
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+        return HandleOnAppStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:47:41
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppForegroundStateObserverStub::HandleOnAppStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (processData == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ProcessData is null.");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:50:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (processData == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ProcessData is null.");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:51:9
+复杂度: 0
+定义变量: __put, alpha, __buf_len, logTag
+使用变量: , __n, __low, __out, __s, _ISalpha, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ProcessData is null.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:56:5
+复杂度: 0
+定义变量: __len, __iter
+使用变量: __refs, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:62:43
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+{
+    TAG_LOGE(AAFwkTag::APPMGR, "Remote died.");
+    if (handler_) {
+        handler_(remote);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:64:5
+复杂度: 0
+定义变量: value, __c, __enable_hash_call, logTag
+使用变量: , __tmp, __n, __size, __cont, __space, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGE(AAFwkTag::APPMGR, "Remote died.");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_stub.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (handler_) {
+        handler_(remote);
+    }
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,196 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_data.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+bool AppStateData::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteString(bundleName) && parcel.WriteInt32(uid) && parcel.WriteInt32(state)
+
+        && parcel.WriteInt32(pid) && parcel.WriteUint32(accessTokenId) && parcel.WriteBool(isFocused)
+
+        && parcel.WriteInt32(static_cast<int32_t>(extensionType)) && parcel.WriteInt32Vector(renderPids)
+
+        && parcel.WriteString(callerBundleName) && parcel.WriteBool(isSplitScreenMode)
+
+        && parcel.WriteBool(isFloatingWindowMode) && parcel.WriteInt32(appIndex) && parcel.WriteBool(isPreloadModule));
+
+}
+
+
+
+bool AppStateData::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName = parcel.ReadString();
+
+    uid = parcel.ReadInt32();
+
+    state = parcel.ReadInt32();
+
+    pid = parcel.ReadInt32();
+
+    accessTokenId = parcel.ReadUint32();
+
+    isFocused = parcel.ReadBool();
+
+    extensionType = static_cast<ExtensionAbilityType>(parcel.ReadInt32());
+
+    parcel.ReadInt32Vector(&renderPids);
+
+    callerBundleName = parcel.ReadString();
+
+    isSplitScreenMode = parcel.ReadBool();
+
+    isFloatingWindowMode = parcel.ReadBool();
+
+    appIndex = parcel.ReadInt32();
+
+    isPreloadModule = parcel.ReadBool();
+
+
+
+    return true;
+
+}
+
+
+
+AppStateData *AppStateData::Unmarshalling(Parcel &parcel)
+
+{
+
+    AppStateData *appStateData = new (std::nothrow) AppStateData();
+
+    if (appStateData && !appStateData->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "appStateData failed, because ReadFromParcel failed");
+
+        delete appStateData;
+
+        appStateData = nullptr;
+
+    }
+
+    return appStateData;
+
+}
+
+
+
+bool AppStateData::IsUIExtension(const AppExecFwk::ExtensionAbilityType type)
+
+{
+
+    return AAFwk::UIExtensionUtils::IsUIExtension(type);
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_data.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+bool AppStateData::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteString(bundleName) && parcel.WriteInt32(uid) && parcel.WriteInt32(state)
+
+        && parcel.WriteInt32(pid) && parcel.WriteUint32(accessTokenId) && parcel.WriteBool(isFocused)
+
+        && parcel.WriteInt32(static_cast<int32_t>(extensionType)) && parcel.WriteInt32Vector(renderPids)
+
+        && parcel.WriteString(callerBundleName) && parcel.WriteBool(isSplitScreenMode)
+
+        && parcel.WriteBool(isFloatingWindowMode) && parcel.WriteInt32(appIndex) && parcel.WriteBool(isPreloadModule));
+
+}
+
+
+
+bool AppStateData::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName = parcel.ReadString();
+
+    uid = parcel.ReadInt32();
+
+    state = parcel.ReadInt32();
+
+    pid = parcel.ReadInt32();
+
+    accessTokenId = parcel.ReadUint32();
+
+    isFocused = parcel.ReadBool();
+
+    extensionType = static_cast<ExtensionAbilityType>(parcel.ReadInt32());
+
+    parcel.ReadInt32Vector(&renderPids);
+
+    callerBundleName = parcel.ReadString();
+
+    isSplitScreenMode = parcel.ReadBool();
+
+    isFloatingWindowMode = parcel.ReadBool();
+
+    appIndex = parcel.ReadInt32();
+
+    isPreloadModule = parcel.ReadBool();
+
+
+
+    return true;
+
+}
+
+
+
+AppStateData *AppStateData::Unmarshalling(Parcel &parcel)
+
+{
+
+    AppStateData *appStateData = new (std::nothrow) AppStateData();
+
+    if (appStateData && !appStateData->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "appStateData failed, because ReadFromParcel failed");
+
+        delete appStateData;
+
+        appStateData = nullptr;
+
+    }
+
+    return appStateData;
+
+}
+
+
+
+bool AppStateData::IsUIExtension(const AppExecFwk::ExtensionAbilityType type)
+
+{
+
+    return AAFwk::UIExtensionUtils::IsUIExtension(type);
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

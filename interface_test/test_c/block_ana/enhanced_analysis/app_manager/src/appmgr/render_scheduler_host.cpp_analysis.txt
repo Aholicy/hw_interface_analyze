@@ -1,0 +1,156 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+RenderSchedulerHost::RenderSchedulerHost() {}
+
+
+
+RenderSchedulerHost::~RenderSchedulerHost() {}
+
+
+
+int RenderSchedulerHost::OnRemoteRequest(uint32_t code, MessageParcel &data,
+
+    MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+
+        option.GetFlags());
+
+    std::u16string descriptor = RenderSchedulerHost::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(IRenderScheduler::Message::NOTIFY_BROWSER_FD)) {
+
+        return HandleNotifyBrowserFd(data, reply);
+
+    }
+
+
+
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnRemoteRequest end");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int RenderSchedulerHost::HandleNotifyBrowserFd(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t ipcFd = data.ReadFileDescriptor();
+
+    int32_t sharedFd = data.ReadFileDescriptor();
+
+    int32_t crashFd = data.ReadFileDescriptor();
+
+    sptr<IRemoteObject> browser = data.ReadRemoteObject();
+
+    NotifyBrowserFd(ipcFd, sharedFd, crashFd, browser);
+
+    return 0;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+RenderSchedulerHost::RenderSchedulerHost() {}
+
+
+
+RenderSchedulerHost::~RenderSchedulerHost() {}
+
+
+
+int RenderSchedulerHost::OnRemoteRequest(uint32_t code, MessageParcel &data,
+
+    MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+
+        option.GetFlags());
+
+    std::u16string descriptor = RenderSchedulerHost::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(IRenderScheduler::Message::NOTIFY_BROWSER_FD)) {
+
+        return HandleNotifyBrowserFd(data, reply);
+
+    }
+
+
+
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnRemoteRequest end");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int RenderSchedulerHost::HandleNotifyBrowserFd(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t ipcFd = data.ReadFileDescriptor();
+
+    int32_t sharedFd = data.ReadFileDescriptor();
+
+    int32_t crashFd = data.ReadFileDescriptor();
+
+    sptr<IRemoteObject> browser = data.ReadRemoteObject();
+
+    NotifyBrowserFd(ipcFd, sharedFd, crashFd, browser);
+
+    return 0;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

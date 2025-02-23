@@ -1,0 +1,1373 @@
+代码块类型: Method Declaration
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:31:57
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+UriPermissionManagerClient& UriPermissionManagerClient::GetInstance()
+{
+    static UriPermissionManagerClient instance;
+    return instance;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: UriPermissionManagerClient
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:33:39
+复杂度: 0
+定义变量: instance
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    static UriPermissionManagerClient instance;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:34:5
+复杂度: 0
+定义变量: 
+使用变量: instance
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return instance;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GrantUriPermission
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:37:33
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int UriPermissionManagerClient::GrantUriPermission(const Uri &uri, unsigned int flag,
+    const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "targetBundleName:%{public}s", targetBundleName.c_str());
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->GrantUriPermission(uri, flag, targetBundleName, appIndex, initiatorTokenId);
+    }
+    return INNER_ERR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:40:5
+复杂度: 0
+定义变量: logTag
+使用变量: _Cache, _Intl, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "targetBundleName:%{public}s", targetBundleName.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->GrantUriPermission(uri, flag, targetBundleName, appIndex, initiatorTokenId);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:45:5
+复杂度: 0
+定义变量: __i
+使用变量: __it1, __refs, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GrantUriPermission
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:48:33
+复杂度: 2
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int UriPermissionManagerClient::GrantUriPermission(const std::vector<Uri> &uriVec, unsigned int flag,
+    const std::string targetBundleName, int32_t appIndex, uint32_t initiatorTokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "targetBundleName:%{public}s, uriVecSize:%{public}zu", targetBundleName.c_str(),
+        uriVec.size());
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->GrantUriPermission(uriVec, flag, targetBundleName, appIndex, initiatorTokenId);
+    }
+    return INNER_ERR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:51:5
+复杂度: 0
+定义变量: __n, alpha, digit, __buf_len, logTag
+使用变量: __n, __vec, uselocale, __put, __libc_single_threaded, __refs, __buf_len, __high, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "targetBundleName:%{public}s, uriVecSize:%{public}zu", targetBundleName.c_str(),
+        uriVec.size());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:53:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:54:9
+复杂度: 0
+定义变量: npos, __b3, space, __remaining, logTag
+使用变量: , __a, __n, __ret, __ptr, __builtin_strcmp, __base, __pos, __s, __bsx, __b2, _ISspace, _S_get_c_name, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:55:9
+复杂度: 0
+定义变量: __i, __len, __num, __b4, print
+使用变量: , __base, npos, __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, DEFAULT, ERR_URI_LIST_OUT_OF_RANGE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_URI_LIST_OUT_OF_RANGE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:58:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->GrantUriPermission(uriVec, flag, targetBundleName, appIndex, initiatorTokenId);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:61:5
+复杂度: 0
+定义变量: __len
+使用变量: , __value, __cont, __low, __b4, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GrantUriPermissionPrivileged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:64:37
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t UriPermissionManagerClient::GrantUriPermissionPrivileged(const std::vector<Uri> &uriVec, uint32_t flag,
+    const std::string &targetBundleName, int32_t appIndex, uint32_t initiatorTokenId, int32_t hideSensitiveType)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "targetBundleName:%{public}s, uriVecSize:%{public}zu",
+        targetBundleName.c_str(), uriVec.size());
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->GrantUriPermissionPrivileged(uriVec, flag, targetBundleName, appIndex,
+            initiatorTokenId, hideSensitiveType);
+    }
+    return INNER_ERR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:67:5
+复杂度: 0
+定义变量: __diff, __maxlen, __aligned, logTag
+使用变量: , __t, __x, __tmp, __f, __ret, __size, __num, __other, __pos, __s, __put, __throw_out_of_range_fmt, npos, _S_get_c_name, __cvt, __intptr, __align, __aligned, __gd, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "targetBundleName:%{public}s, uriVecSize:%{public}zu",
+        targetBundleName.c_str(), uriVec.size());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:69:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return ERR_URI_LIST_OUT_OF_RANGE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:70:9
+复杂度: 0
+定义变量: __is_signed, logTag
+使用变量: , __tmp, __n, __i, __m, __s, __low, __cloc, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:71:9
+复杂度: 0
+定义变量: __digits, __mp
+使用变量: terminate, __first, __val, __low, __str, __mem, __ISwupper, _Intl, _Lp, ERR_URI_LIST_OUT_OF_RANGE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_URI_LIST_OUT_OF_RANGE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:74:5
+复杂度: 1
+定义变量: 
+使用变量: __outnext
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->GrantUriPermissionPrivileged(uriVec, flag, targetBundleName, appIndex,
+            initiatorTokenId, hideSensitiveType);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:78:5
+复杂度: 0
+定义变量: MIN_TRANSACTION_ID
+使用变量: , __s, __testoff, __ISwgraph, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: RevokeAllUriPermissions
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:81:33
+复杂度: 1
+定义变量: 
+使用变量: , __ret, __location
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int UriPermissionManagerClient::RevokeAllUriPermissions(const uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->RevokeAllUriPermissions(tokenId);
+    }
+    return INNER_ERR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:83:5
+复杂度: 0
+定义变量: __ret, __pos, __cerb, __truename, RPC_QOS_MAX_LATENCY, logTag
+使用变量: , __n, __ret, __len, __s, __child, npos, __throw_invalid_argument, __name, _S_destroy_c_locale, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:85:5
+复杂度: 1
+定义变量: 
+使用变量: , __s2, __mem
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->RevokeAllUriPermissions(tokenId);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:88:5
+复杂度: 0
+定义变量: 
+使用变量: , __tmp, __p, __first, __digits, __result, __pos, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: RevokeUriPermissionManually
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:91:33
+复杂度: 1
+定义变量: 
+使用变量: , __first
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int UriPermissionManagerClient::RevokeUriPermissionManually(const Uri &uri, const std::string bundleName,
+    int32_t appIndex)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->RevokeUriPermissionManually(uri, bundleName, appIndex);
+    }
+    return INNER_ERR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:94:5
+复杂度: 0
+定义变量: __num, logTag
+使用变量: , __x, __a, __args, __first, __val, __c, __last, __comp, __left, __builtin_va_start, __fmt, __outstr, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:96:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->RevokeUriPermissionManually(uri, bundleName, appIndex);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:99:5
+复杂度: 0
+定义变量: __g
+使用变量: , __val, __result, __exchange_and_add_single, __outstr, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: VerifyUriPermission
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:102:34
+复杂度: 1
+定义变量: 
+使用变量: __len
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool UriPermissionManagerClient::VerifyUriPermission(const Uri& uri, uint32_t flag, uint32_t tokenId)
+{
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->VerifyUriPermission(uri, flag, tokenId);
+    }
+    return false;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:105:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->VerifyUriPermission(uri, flag, tokenId);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:108:5
+复杂度: 0
+定义变量: tagNames
+使用变量: __a, __ret, __len, __is_single_threaded
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: CheckUriAuthorization
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:111:47
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __ptr, __builtin_unreachable, __c1
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+std::vector<bool> UriPermissionManagerClient::CheckUriAuthorization(const std::vector<std::string> &uriVec,
+    uint32_t flag, uint32_t tokenId)
+{
+    uint32_t size = uriVec.size();
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "flag:%{public}u, tokenId:%{public}u", flag, tokenId);
+    std::vector<bool> errorRes(size, false);
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return errorRes;
+    }
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->CheckUriAuthorization(uriVec, flag, tokenId);
+    }
+    return errorRes;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:115:5
+复杂度: 0
+定义变量: __i, logTag
+使用变量: , __x, __a, __tmp, __fn, __i, __sz, allocator_arg, __uhead, __arg, __nh, _S_iend, memory_order_seq_cst, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "flag:%{public}u, tokenId:%{public}u", flag, tokenId);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:117:5
+复杂度: 1
+定义变量: 
+使用变量: , __nh
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (uriVec.empty() || uriVec.size() > MAX_URI_COUNT) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+        return errorRes;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:118:9
+复杂度: 0
+定义变量: _M_max_align, __tmp_ptr, __facets, tagNames, logTag
+使用变量: , __a, __args, __first, __last, __state, __st, __loc, __o, __truename, _S_get_c_name, __outstr, __cvt, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "uriVec empty or exceed maxSize %{public}d", MAX_URI_COUNT);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:122:5
+复杂度: 1
+定义变量: 
+使用变量: __size
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->CheckUriAuthorization(uriVec, flag, tokenId);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ConnectUriPermService
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:128:57
+复杂度: 3
+定义变量: 
+使用变量: __ne_ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+sptr<IUriPermissionManager> UriPermissionManagerClient::ConnectUriPermService()
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    auto uriPermMgr = GetUriPermMgr();
+    if (uriPermMgr == nullptr) {
+        if (!LoadUriPermService()) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadUriPermService failed");
+            return nullptr;
+        }
+        uriPermMgr = GetUriPermMgr();
+        if (uriPermMgr == nullptr || uriPermMgr->AsObject() == nullptr) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "GetUriPermMgr failed");
+            return nullptr;
+        }
+        const auto& onClearProxyCallback = [] {
+            UriPermissionManagerClient::GetInstance().ClearProxy();
+        };
+        sptr<UpmsDeathRecipient> recipient(new UpmsDeathRecipient(onClearProxyCallback));
+        uriPermMgr->AsObject()->AddDeathRecipient(recipient);
+    }
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "End");
+    return uriPermMgr;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:130:5
+复杂度: 0
+定义变量: __n, offset, logTag
+使用变量: tag, GetOffset, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:132:5
+复杂度: 3
+定义变量: 
+使用变量: , __first, __position, __atomic_thread_fence, __atomic_signal_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (uriPermMgr == nullptr) {
+        if (!LoadUriPermService()) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadUriPermService failed");
+            return nullptr;
+        }
+        uriPermMgr = GetUriPermMgr();
+        if (uriPermMgr == nullptr || uriPermMgr->AsObject() == nullptr) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "GetUriPermMgr failed");
+            return nullptr;
+        }
+        const auto& onClearProxyCallback = [] {
+            UriPermissionManagerClient::GetInstance().ClearProxy();
+        };
+        sptr<UpmsDeathRecipient> recipient(new UpmsDeathRecipient(onClearProxyCallback));
+        uriPermMgr->AsObject()->AddDeathRecipient(recipient);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:133:9
+复杂度: 1
+定义变量: 
+使用变量: __str, __ws
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!LoadUriPermService()) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadUriPermService failed");
+            return nullptr;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: LoadUriPermService
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:133:14
+复杂度: 0
+定义变量: 
+使用变量: __m, __s
+关键位置: 否
+日志评分: 0
+代码:
+        if (!LoadUriPermService()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:134:13
+复杂度: 0
+定义变量: __j, logTag
+使用变量: __x, __a, __b, __ret, __len, __s, __j, __str, offset, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadUriPermService failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:135:13
+复杂度: 0
+定义变量: 
+使用变量: , __x, __y, __p, __nh, __j
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:138:9
+复杂度: 1
+定义变量: 
+使用变量: __c
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (uriPermMgr == nullptr || uriPermMgr->AsObject() == nullptr) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "GetUriPermMgr failed");
+            return nullptr;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:139:13
+复杂度: 0
+定义变量: __parent, npos, tagNames, logTag
+使用变量: , __x, __a, __p, __f, __fn, __cont, __holeIndex, memory_order_seq_cst, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "GetUriPermMgr failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:140:13
+复杂度: 0
+定义变量: __n, __p, descriptor
+使用变量: , __len, __cont, __holeIndex
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ClearProxy
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:143:13
+复杂度: 0
+定义变量: stdin
+使用变量: , __x, __a, __b, __y, __nh, __pos, __parent, operator|, __ineof, __sbin, __sbout, _Intl, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+            UriPermissionManagerClient::GetInstance().ClearProxy();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:143:13
+复杂度: 0
+定义变量: stdin
+使用变量: , __x, __a, __b, __y, __nh, __pos, __parent, operator|, __ineof, __sbin, __sbout, _Intl, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+            UriPermissionManagerClient::GetInstance().ClearProxy();
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:148:5
+复杂度: 0
+定义变量: __uc, logTag
+使用变量: _Indices, __c, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "End");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: LoadUriPermService
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:152:34
+复杂度: 4
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_operator_delete, __builtin_unreachable, __res, __nh, __pos, __position
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool UriPermissionManagerClient::LoadUriPermService()
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    auto systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (systemAbilityMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "GetSystemAbilityManager failed");
+        return false;
+    }
+
+    sptr<UriPermissionLoadCallback> loadCallback = new (std::nothrow) UriPermissionLoadCallback();
+    if (loadCallback == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Create loadCallback failed");
+        return false;
+    }
+
+    auto ret = systemAbilityMgr->LoadSystemAbility(URI_PERMISSION_MGR_SERVICE_ID, loadCallback);
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadSystemAbility %{public}d failed:%{public}d",
+            URI_PERMISSION_MGR_SERVICE_ID, ret);
+        return false;
+    }
+
+    {
+        std::unique_lock<std::mutex> lock(saLoadMutex_);
+        auto waitStatus = loadSaVariable_.wait_for(lock, std::chrono::milliseconds(LOAD_SA_TIMEOUT_MS),
+            [this]() {
+                return saLoadFinished_;
+            });
+        if (!waitStatus) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Wait for load sa timeout");
+            return false;
+        }
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:154:5
+复杂度: 0
+定义变量: __p1, __uc, logTag
+使用变量: , __tmp, __y, __ptr, __first2, operator=, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:156:5
+复杂度: 1
+定义变量: 
+使用变量: __size
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (systemAbilityMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "GetSystemAbilityManager failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:157:9
+复杂度: 0
+定义变量: __lit, __mandatory_sign, logTag
+使用变量: , __a, __b, __first2, __pos, __x_copy, __predicate, __shift, __off, __lc, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "GetSystemAbilityManager failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:158:9
+复杂度: 0
+定义变量: __c
+使用变量: , __a, __size, __nodes, __pos, __gthread_active_p, __lc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:162:5
+复杂度: 1
+定义变量: __last_pos
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (loadCallback == nullptr) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Create loadCallback failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:163:9
+复杂度: 0
+定义变量: logTag
+使用变量: __r, , __b, __size, __first, __s, __shift, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Create loadCallback failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:164:9
+复杂度: 0
+定义变量: offset
+使用变量: __x, eq_int_type, __testeof
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:168:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadSystemAbility %{public}d failed:%{public}d",
+            URI_PERMISSION_MGR_SERVICE_ID, ret);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:169:9
+复杂度: 0
+定义变量: __len, __node, logTag
+使用变量: __r, , __x, __n, __y, __c, __last1, __lc, IPCRPC_SUB_MODULE_CODE, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "LoadSystemAbility %{public}d failed:%{public}d",
+            URI_PERMISSION_MGR_SERVICE_ID, ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:171:9
+复杂度: 0
+定义变量: __capacity
+使用变量: __param, __off
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:180:9
+复杂度: 1
+定义变量: 
+使用变量: __last1
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!waitStatus) {
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Wait for load sa timeout");
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:181:13
+复杂度: 0
+定义变量: __assignable, __r, BASE_DEFAULT, logTag
+使用变量: , __a, _Idx, __ptr, __args, __s, __which, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::URIPERMMGR, "Wait for load sa timeout");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:182:13
+复杂度: 0
+定义变量: BASE_APPDFR
+使用变量: __r, , __a, __b, __other
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:185:5
+复杂度: 0
+定义变量: __n
+使用变量: __r, __first, __get_type_info, __first1, __node, __lc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetUriPermMgr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:188:57
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+sptr<IUriPermissionManager> UriPermissionManagerClient::GetUriPermMgr()
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    return uriPermMgr_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetUriPermMgr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:194:34
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __i, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionManagerClient::SetUriPermMgr(const sptr<IRemoteObject> &remoteObject)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    std::lock_guard<std::mutex> lock(mutex_);
+    uriPermMgr_ = iface_cast<IUriPermissionManager>(remoteObject);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:196:5
+复杂度: 0
+定义变量: logTag
+使用变量: value, , __a, __first, __val, __arg, __last, __it, __comp, __from, BASE_JSENV, GetDomainName2, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnLoadSystemAbilitySuccess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:201:34
+复杂度: 0
+定义变量: 
+使用变量: __guard
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionManagerClient::OnLoadSystemAbilitySuccess(const sptr<IRemoteObject> &remoteObject)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    SetUriPermMgr(remoteObject);
+    std::unique_lock<std::mutex> lock(saLoadMutex_);
+    saLoadFinished_ = true;
+    loadSaVariable_.notify_one();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:203:5
+复杂度: 0
+定义变量: _Nd_ull, logTag
+使用变量: , __first, __dest, __last, __comp, __res, __len, __end, __beg, __cur, _S_word_bit, __j, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SetUriPermMgr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:204:5
+复杂度: 0
+定义变量: __tmp, _Nd_ul
+使用变量: , __a, __size, __from, __res, __pos, __beg, __state, __atomic_add_dispatch, __lc, __gthread_recursive_mutex_lock, remoteObject
+关键位置: 否
+日志评分: 0
+代码:
+    SetUriPermMgr(remoteObject);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnLoadSystemAbilityFail
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:210:34
+复杂度: 0
+定义变量: __cmp
+使用变量: , __found_grouping
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionManagerClient::OnLoadSystemAbilityFail()
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    SetUriPermMgr(nullptr);
+    std::unique_lock<std::mutex> lock(saLoadMutex_);
+    saLoadFinished_ = true;
+    loadSaVariable_.notify_one();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:212:5
+复杂度: 0
+定义变量: __lit_zero, logTag
+使用变量: , __x, __y, __first1, __first2, __cur, __q, __exchange_and_add_dispatch, __qend, __lit, __atomic_test_and_set, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ClearProxy
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:219:34
+复杂度: 0
+定义变量: 
+使用变量: , __date, __time
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionManagerClient::ClearProxy()
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        uriPermMgr_ = nullptr;
+    }
+    std::unique_lock<std::mutex> lock(saLoadMutex_);
+    saLoadFinished_ = false;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:221:5
+复杂度: 0
+定义变量: __size, __dnew, logTag
+使用变量: __a, __n, __f, __hint, __digit, _Lp, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:230:54
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void UriPermissionManagerClient::UpmsDeathRecipient::OnRemoteDied([[maybe_unused]] const wptr<IRemoteObject>& remote)
+{
+    TAG_LOGE(AAFwkTag::URIPERMMGR, "call");
+    proxy_();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:232:5
+复杂度: 0
+定义变量: __tmp, logTag
+使用变量: , __a, __n, __first, __l, __comp, __hf, __eql, __secondChild, __found_mantissa, __found_sci, __testvalid, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGE(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ClearPermissionTokenByMap
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:236:37
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __pos, __dt
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t UriPermissionManagerClient::ClearPermissionTokenByMap(const uint32_t tokenId)
+{
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+    auto uriPermMgr = ConnectUriPermService();
+    if (uriPermMgr) {
+        return uriPermMgr->ClearPermissionTokenByMap(tokenId);
+    }
+    return INNER_ERR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:238:5
+复杂度: 0
+定义变量: __remainder, logTag
+使用变量: , __ptr, __count, __len, __secondChild, __throw_logic_error, __msg, URIPERMMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:240:5
+复杂度: 1
+定义变量: 
+使用变量: __first
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (uriPermMgr) {
+        return uriPermMgr->ClearPermissionTokenByMap(tokenId);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_manager_client.cpp:243:5
+复杂度: 0
+定义变量: 
+使用变量: , __a, __c, __secondChild, __remainder, __plus, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return INNER_ERR;
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,200 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_resident_process_info.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+AppResidentProcessInfo *AppResidentProcessInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    AppResidentProcessInfo *residentProcess = new (std::nothrow) OHOS::AppExecFwk::AppResidentProcessInfo();
+
+    if (residentProcess && !residentProcess->ReadFromParcel(parcel)) {
+
+        delete residentProcess;
+
+        residentProcess = nullptr;
+
+    }
+
+    return residentProcess;
+
+}
+
+
+
+bool AppResidentProcessInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    TAG_LOGW(AAFwkTag::APPMGR, "Marshalling");
+
+    parcel.WriteBool(isKeepAliveApp_);
+
+    parcel.WriteInt32(abilityStage_.size());
+
+    for (auto &info : abilityStage_) {
+
+        if (!parcel.WriteParcelable(&info)) {
+
+            return false;
+
+        }
+
+    }
+
+    return true;
+
+}
+
+
+
+bool AppResidentProcessInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    isKeepAliveApp_ = parcel.ReadBool();
+
+    auto size = parcel.ReadInt32();
+
+    if (size > CYCLE_LIMIT) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "size is too large");
+
+        return false;
+
+    }
+
+    for (int32_t i = 0; i < size; i++) {
+
+        std::unique_ptr<HapModuleInfo> hapModuleInfo(parcel.ReadParcelable<HapModuleInfo>());
+
+        if (!hapModuleInfo) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityInfo> failed");
+
+            return false;
+
+        }
+
+        abilityStage_.emplace_back(*hapModuleInfo);
+
+    }
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_resident_process_info.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+AppResidentProcessInfo *AppResidentProcessInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    AppResidentProcessInfo *residentProcess = new (std::nothrow) OHOS::AppExecFwk::AppResidentProcessInfo();
+
+    if (residentProcess && !residentProcess->ReadFromParcel(parcel)) {
+
+        delete residentProcess;
+
+        residentProcess = nullptr;
+
+    }
+
+    return residentProcess;
+
+}
+
+
+
+bool AppResidentProcessInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    TAG_LOGW(AAFwkTag::APPMGR, "Marshalling");
+
+    parcel.WriteBool(isKeepAliveApp_);
+
+    parcel.WriteInt32(abilityStage_.size());
+
+    for (auto &info : abilityStage_) {
+
+        if (!parcel.WriteParcelable(&info)) {
+
+            return false;
+
+        }
+
+    }
+
+    return true;
+
+}
+
+
+
+bool AppResidentProcessInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    isKeepAliveApp_ = parcel.ReadBool();
+
+    auto size = parcel.ReadInt32();
+
+    if (size > CYCLE_LIMIT) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "size is too large");
+
+        return false;
+
+    }
+
+    for (int32_t i = 0; i < size; i++) {
+
+        std::unique_ptr<HapModuleInfo> hapModuleInfo(parcel.ReadParcelable<HapModuleInfo>());
+
+        if (!hapModuleInfo) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityInfo> failed");
+
+            return false;
+
+        }
+
+        abilityStage_.emplace_back(*hapModuleInfo);
+
+    }
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_resident_process_info.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+================================================================================

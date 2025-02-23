@@ -1,0 +1,306 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_proxy.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+namespace {
+
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+}
+
+AppDebugListenerProxy::AppDebugListenerProxy(
+
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAppDebugListener>(impl)
+
+{}
+
+
+
+bool AppDebugListenerProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(AppDebugListenerProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void AppDebugListenerProxy::OnAppDebugStarted(const std::vector<AppDebugInfo> &debugInfos)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    SendRequest(IAppDebugListener::Message::ON_APP_DEBUG_STARTED, debugInfos);
+
+}
+
+
+
+void AppDebugListenerProxy::OnAppDebugStoped(const std::vector<AppDebugInfo> &debugInfos)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    SendRequest(IAppDebugListener::Message::ON_APP_DEBUG_STOPED, debugInfos);
+
+}
+
+
+
+void AppDebugListenerProxy::SendRequest(
+
+    const IAppDebugListener::Message &message, const std::vector<AppDebugInfo> &debugInfos)
+
+{
+
+    MessageParcel data;
+
+    if (!WriteInterfaceToken(data)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+        return;
+
+    }
+
+
+
+    if (debugInfos.size() <= CYCLE_LIMIT_MIN || debugInfos.size() > CYCLE_LIMIT_MAX ||
+
+        !data.WriteInt32(debugInfos.size())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write debug info size failed.");
+
+        return;
+
+    }
+
+    for (auto &debugInfo : debugInfos) {
+
+        if (!data.WriteParcelable(&debugInfo)) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "Write debug info failed.");
+
+            return;
+
+        }
+
+    };
+
+
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+
+        return;
+
+    }
+
+
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    int32_t ret = remote->SendRequest(static_cast<uint32_t>(message), data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+    }
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_proxy.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+namespace {
+
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+}
+
+AppDebugListenerProxy::AppDebugListenerProxy(
+
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAppDebugListener>(impl)
+
+{}
+
+
+
+bool AppDebugListenerProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(AppDebugListenerProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void AppDebugListenerProxy::OnAppDebugStarted(const std::vector<AppDebugInfo> &debugInfos)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    SendRequest(IAppDebugListener::Message::ON_APP_DEBUG_STARTED, debugInfos);
+
+}
+
+
+
+void AppDebugListenerProxy::OnAppDebugStoped(const std::vector<AppDebugInfo> &debugInfos)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    SendRequest(IAppDebugListener::Message::ON_APP_DEBUG_STOPED, debugInfos);
+
+}
+
+
+
+void AppDebugListenerProxy::SendRequest(
+
+    const IAppDebugListener::Message &message, const std::vector<AppDebugInfo> &debugInfos)
+
+{
+
+    MessageParcel data;
+
+    if (!WriteInterfaceToken(data)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+        return;
+
+    }
+
+
+
+    if (debugInfos.size() <= CYCLE_LIMIT_MIN || debugInfos.size() > CYCLE_LIMIT_MAX ||
+
+        !data.WriteInt32(debugInfos.size())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write debug info size failed.");
+
+        return;
+
+    }
+
+    for (auto &debugInfo : debugInfos) {
+
+        if (!data.WriteParcelable(&debugInfo)) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "Write debug info failed.");
+
+            return;
+
+        }
+
+    };
+
+
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+
+        return;
+
+    }
+
+
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    int32_t ret = remote->SendRequest(static_cast<uint32_t>(message), data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+    }
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_proxy.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace {
+
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_proxy.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_proxy.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+================================================================================

@@ -1,0 +1,115 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AAFwk {
+
+void SessionHandlerProxy::OnSessionMovedToFront(int32_t sessionId)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    if (!data.WriteInterfaceToken(ISessionHandler::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "write token failed");
+
+        return;
+
+    }
+
+    if (!data.WriteInt32(sessionId)) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "sessionId write failed");
+
+        return;
+
+    }
+
+    auto remote = Remote();
+
+    if (!remote) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "remote null");
+
+        return;
+
+    }
+
+    int32_t ret = remote->SendRequest(ISessionHandler::ON_SESSION_MOVED_TO_FRONT, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "request failed: %{public}d", ret);
+
+    }
+
+}
+
+}
+
+}
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/session_handler/src/session_handler_proxy.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AAFwk {
+
+void SessionHandlerProxy::OnSessionMovedToFront(int32_t sessionId)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    if (!data.WriteInterfaceToken(ISessionHandler::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "write token failed");
+
+        return;
+
+    }
+
+    if (!data.WriteInt32(sessionId)) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "sessionId write failed");
+
+        return;
+
+    }
+
+    auto remote = Remote();
+
+    if (!remote) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "remote null");
+
+        return;
+
+    }
+
+    int32_t ret = remote->SendRequest(ISessionHandler::ON_SESSION_MOVED_TO_FRONT, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "request failed: %{public}d", ret);
+
+    }
+
+}
+
+}
+
+================================================================================

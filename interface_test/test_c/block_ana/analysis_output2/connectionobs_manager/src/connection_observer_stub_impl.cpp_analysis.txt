@@ -1,0 +1,102 @@
+代码块类型: Method Declaration
+块名称: OnExtensionConnected
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub_impl.cpp:22:34
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ConnectionObserverStubImpl::OnExtensionConnected(const ConnectionData &data)
+{
+    auto owner = owner_.lock();
+    if (!owner) {
+        return;
+    }
+    owner->HandleExtensionConnected(data);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub_impl.cpp:25:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!owner) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub_impl.cpp:26:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnExtensionDisconnected
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub_impl.cpp:31:34
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ConnectionObserverStubImpl::OnExtensionDisconnected(const ConnectionData &data)
+{
+    auto owner = owner_.lock();
+    if (!owner) {
+        return;
+    }
+    owner->HandleExtensionDisconnected(data);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub_impl.cpp:34:5
+复杂度: 1
+定义变量: metaDescriptor_
+使用变量: metaDescriptor_
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!owner) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub_impl.cpp:35:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------

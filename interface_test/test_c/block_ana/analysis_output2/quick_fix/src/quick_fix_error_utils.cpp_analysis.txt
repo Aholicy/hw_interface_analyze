@@ -1,0 +1,310 @@
+代码块类型: Method Declaration
+块名称: GetErrorCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:78:28
+复杂度: 2
+定义变量: 
+使用变量: , __ret, __location
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t QuickFixErrorUtil::GetErrorCode(int32_t errCode)
+{
+    // no need to convert is errCode is external error code.
+    auto iter = EXTERNAL_ERR_MSG_MAP.find(errCode);
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        return errCode;
+    }
+
+    auto iterInternal = INTERNAL_ERR_CODE_MAP.find(errCode);
+    if (iterInternal != INTERNAL_ERR_CODE_MAP.end()) {
+        return iterInternal->second;
+    }
+
+    return ERR_QUICKFIX_INTERNAL_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: find
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:81:17
+复杂度: 0
+定义变量: 
+使用变量: EXTERNAL_ERR_MSG_MAP, errCode
+关键位置: 否
+日志评分: 0
+代码:
+    auto iter = EXTERNAL_ERR_MSG_MAP.find(errCode);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:82:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        return errCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator!=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:82:9
+复杂度: 0
+定义变量: 
+使用变量: , __s, __str, __endptr, EXTERNAL_ERR_MSG_MAP, iter, operator!=
+关键位置: 否
+日志评分: 0
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: end
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:82:17
+复杂度: 0
+定义变量: 
+使用变量: , __s, __str, EXTERNAL_ERR_MSG_MAP
+关键位置: 否
+日志评分: 0
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:83:9
+复杂度: 0
+定义变量: __pos, __ret
+使用变量: , errCode
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return errCode;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:87:5
+复杂度: 1
+定义变量: 
+使用变量: __ret
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (iterInternal != INTERNAL_ERR_CODE_MAP.end()) {
+        return iterInternal->second;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:91:5
+复杂度: 0
+定义变量: __left
+使用变量: __n, , __out, __ret, __ils, __h, ERR_QUICKFIX_INTERNAL_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return ERR_QUICKFIX_INTERNAL_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetErrorMessage
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:94:32
+复杂度: 3
+定义变量: 
+使用变量: , __first
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::string QuickFixErrorUtil::GetErrorMessage(int32_t errCode)
+{
+    std::string errMsg;
+    auto externalErrCode = GetErrorCode(errCode);
+    auto iter = EXTERNAL_ERR_MSG_MAP.find(externalErrCode);
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        errMsg = iter->second;
+    } else {
+        errMsg = EXTERNAL_ERR_MSG_MAP.at(ERR_QUICKFIX_INTERNAL_ERROR);
+    }
+
+    auto iterInternal = INTERNAL_ERR_MSG_MAP.find(errCode);
+    if (iterInternal != INTERNAL_ERR_MSG_MAP.end()) {
+        errMsg += " " + iterInternal->second;
+    }
+
+    return errMsg;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:96:17
+复杂度: 0
+定义变量: errMsg
+使用变量: __digits, __nh
+关键位置: 否
+日志评分: 0
+代码:
+    std::string errMsg;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetErrorCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:97:28
+复杂度: 0
+定义变量: 
+使用变量: __n, __s, __out, errCode, GetErrorCode
+关键位置: 否
+日志评分: 0
+代码:
+    auto externalErrCode = GetErrorCode(errCode);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: find
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:98:17
+复杂度: 0
+定义变量: 
+使用变量: __v, , __x, __it, __out, EXTERNAL_ERR_MSG_MAP, externalErrCode
+关键位置: 否
+日志评分: 0
+代码:
+    auto iter = EXTERNAL_ERR_MSG_MAP.find(externalErrCode);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:99:5
+复杂度: 2
+定义变量: 
+使用变量: __s, __builtin_va_end
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+        errMsg = iter->second;
+    } else {
+        errMsg = EXTERNAL_ERR_MSG_MAP.at(ERR_QUICKFIX_INTERNAL_ERROR);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator!=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:99:9
+复杂度: 0
+定义变量: nothrow, __tmp_capacity
+使用变量: __n, , __i, __s, __out, __w, __val, EXTERNAL_ERR_MSG_MAP, iter, operator!=
+关键位置: 否
+日志评分: 0
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: end
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:99:17
+复杂度: 0
+定义变量: nothrow, __tmp_capacity
+使用变量: __n, , __i, __s, __out, __w, __val, EXTERNAL_ERR_MSG_MAP
+关键位置: 否
+日志评分: 0
+代码:
+    if (iter != EXTERNAL_ERR_MSG_MAP.end()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:102:9
+复杂度: 0
+定义变量: 
+使用变量: __n, , __s, __args, __out, __ils, ERR_QUICKFIX_INTERNAL_ERROR, EXTERNAL_ERR_MSG_MAP, errMsg, operator=
+关键位置: 否
+日志评分: 0
+代码:
+        errMsg = EXTERNAL_ERR_MSG_MAP.at(ERR_QUICKFIX_INTERNAL_ERROR);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: at
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:102:18
+复杂度: 0
+定义变量: 
+使用变量: __n, , __s, __args, __out, ERR_QUICKFIX_INTERNAL_ERROR, EXTERNAL_ERR_MSG_MAP
+关键位置: 否
+日志评分: 0
+代码:
+        errMsg = EXTERNAL_ERR_MSG_MAP.at(ERR_QUICKFIX_INTERNAL_ERROR);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:106:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (iterInternal != INTERNAL_ERR_MSG_MAP.end()) {
+        errMsg += " " + iterInternal->second;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:110:5
+复杂度: 0
+定义变量: 
+使用变量: , errMsg
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return errMsg;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_error_utils.cpp:110:12
+复杂度: 0
+定义变量: 
+使用变量: , errMsg
+关键位置: 否
+日志评分: 0
+代码:
+    return errMsg;
+
+--------------------------------------------------------------------------------

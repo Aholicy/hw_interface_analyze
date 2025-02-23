@@ -1,0 +1,394 @@
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:24:19
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ProcessData::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteString(bundleName) && parcel.WriteInt32(pid) &&
+        parcel.WriteInt32(uid) && parcel.WriteInt32(hostPid) && parcel.WriteInt32(gpuPid) &&
+        parcel.WriteInt32(static_cast<int32_t>(state)) && parcel.WriteBool(isContinuousTask) &&
+        parcel.WriteBool(isKeepAlive) && parcel.WriteBool(isFocused) && parcel.WriteInt32(requestProcCode) &&
+        parcel.WriteInt32(processChangeReason) && parcel.WriteString(processName) &&
+        parcel.WriteInt32(static_cast<int32_t>(processType)) && parcel.WriteInt32(static_cast<int32_t>(extensionType))
+        && parcel.WriteInt32(renderUid) && parcel.WriteUint32(accessTokenId) &&
+        parcel.WriteBool(isTestMode) && parcel.WriteInt32(exitReason) && parcel.WriteString16(Str8ToStr16(exitMsg)) &&
+        parcel.WriteInt32(childUid) && parcel.WriteBool(isPreload)  && parcel.WriteBool(isPreloadModule));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:37:19
+复杂度: 0
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ProcessData::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    pid = parcel.ReadInt32();
+    uid = parcel.ReadInt32();
+    hostPid = parcel.ReadInt32();
+    gpuPid = parcel.ReadInt32();
+    state = static_cast<AppProcessState>(parcel.ReadInt32());
+    isContinuousTask = parcel.ReadBool();
+    isKeepAlive = parcel.ReadBool();
+    isFocused = parcel.ReadBool();
+    requestProcCode = parcel.ReadInt32();
+    processChangeReason = parcel.ReadInt32();
+    processName = parcel.ReadString();
+    processType = static_cast<ProcessType>(parcel.ReadInt32());
+    extensionType = static_cast<ExtensionAbilityType>(parcel.ReadInt32());
+    renderUid = parcel.ReadInt32();
+    accessTokenId = parcel.ReadUint32();
+    isTestMode = parcel.ReadBool();
+    exitReason = parcel.ReadInt32();
+    exitMsg = Str16ToStr8(parcel.ReadString16());
+    childUid = parcel.ReadInt32();
+    isPreload = parcel.ReadBool();
+    isPreloadModule = parcel.ReadBool();
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:40:11
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    pid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:41:11
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    uid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:42:15
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    hostPid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:43:14
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    gpuPid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:44:42
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    state = static_cast<AppProcessState>(parcel.ReadInt32());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:45:24
+复杂度: 0
+定义变量: 
+使用变量: __it2, _Intl, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isContinuousTask = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:46:19
+复杂度: 0
+定义变量: __caches
+使用变量: __loc, _S_get_c_name, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isKeepAlive = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:47:17
+复杂度: 0
+定义变量: 
+使用变量: __other, , parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isFocused = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:48:23
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    requestProcCode = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:49:27
+复杂度: 0
+定义变量: __tmp
+使用变量: _ISupper, __cache, _Intl, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    processChangeReason = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:51:44
+复杂度: 0
+定义变量: 
+使用变量: __n, , __s, __low, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    processType = static_cast<ProcessType>(parcel.ReadInt32());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:53:17
+复杂度: 0
+定义变量: __b2, xdigit
+使用变量: __pos, , npos, __base, __loc, _ISxdigit, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    renderUid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:54:21
+复杂度: 0
+定义变量: __b3, space, __remaining
+使用变量: __n, __s, __a, __base, __b2, _ISspace, _S_get_c_name, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    accessTokenId = parcel.ReadUint32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:55:18
+复杂度: 0
+定义变量: __len, __b4, __num, print
+使用变量: __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isTestMode = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:56:18
+复杂度: 0
+定义变量: graph, __caches
+使用变量: __builtin_strlen, __s, __t, __builtin_labs, PTHREAD_MUTEX_RECURSIVE_NP, __loc, _ISalpha, __ucont, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    exitReason = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:58:16
+复杂度: 0
+定义变量: __first, punct
+使用变量: , __s, __tmp, __last, __len, __base, PTHREAD_MUTEX_NORMAL, _ISpunct, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    childUid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:59:17
+复杂度: 0
+定义变量: __tmp, __last, alnum
+使用变量: __n, __s, __tmp, __len, __b2, _ISalpha, __high, _S_get_c_name, __iter, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isPreload = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:60:23
+复杂度: 0
+定义变量: 
+使用变量: __n, __pos, __tmp, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isPreloadModule = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:61:5
+复杂度: 0
+定义变量: 
+使用变量: , __value, __cont, __low
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:64:27
+复杂度: 1
+定义变量: 
+使用变量: , __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ProcessData *ProcessData::Unmarshalling(Parcel &parcel)
+{
+    ProcessData *processData = new (std::nothrow) ProcessData();
+    if (processData && !processData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "processData failed, because ReadFromParcel failed");
+        delete processData;
+        processData = nullptr;
+    }
+    return processData;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:67:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (processData && !processData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "processData failed, because ReadFromParcel failed");
+        delete processData;
+        processData = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:67:25
+复杂度: 0
+定义变量: 
+使用变量: __args, __c, , __s, __t, __put, __f, __cvt, __intptr, __align, __gd, parcel, processData
+关键位置: 否
+日志评分: 0
+代码:
+    if (processData && !processData->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:68:9
+复杂度: 0
+定义变量: __diff, logTag
+使用变量: __size, __pos, __other, , __s, __intptr, __aligned, __gd, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "processData failed, because ReadFromParcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/process_data.cpp:72:5
+复杂度: 0
+定义变量: __tmp_data
+使用变量: , __first, _S_local_capacity, __builtin_fabs, __ISwlower, __low, __outstr, DEFAULT, processData
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return processData;
+
+--------------------------------------------------------------------------------

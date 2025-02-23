@@ -1,0 +1,240 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AbilityRuntime {
+
+ConnectionObserverClient::ConnectionObserverClient()
+
+{
+
+    clientImpl_ = std::make_shared<ConnectionObserverClientImpl>();
+
+}
+
+
+
+ConnectionObserverClient& ConnectionObserverClient::GetInstance()
+
+{
+
+    static ConnectionObserverClient instance;
+
+    return instance;
+
+}
+
+
+
+int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+
+{
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->RegisterObserver(observer);
+
+}
+
+
+
+int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+
+{
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->UnregisterObserver(observer);
+
+}
+
+
+
+int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+
+{
+
+#ifdef WITH_DLP
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->GetDlpConnectionInfos(infos);
+
+#else
+
+    return ERR_READ_INFO_FAILED;
+
+#endif // WITH_DLP
+
+}
+
+
+
+int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
+
+{
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->GetConnectionData(connectionData);
+
+}
+
+}
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AbilityRuntime {
+
+ConnectionObserverClient::ConnectionObserverClient()
+
+{
+
+    clientImpl_ = std::make_shared<ConnectionObserverClientImpl>();
+
+}
+
+
+
+ConnectionObserverClient& ConnectionObserverClient::GetInstance()
+
+{
+
+    static ConnectionObserverClient instance;
+
+    return instance;
+
+}
+
+
+
+int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+
+{
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->RegisterObserver(observer);
+
+}
+
+
+
+int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+
+{
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->UnregisterObserver(observer);
+
+}
+
+
+
+int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+
+{
+
+#ifdef WITH_DLP
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->GetDlpConnectionInfos(infos);
+
+#else
+
+    return ERR_READ_INFO_FAILED;
+
+#endif // WITH_DLP
+
+}
+
+
+
+int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
+
+{
+
+    if (!clientImpl_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+        return ERR_NO_CLIENT_IMPL;
+
+    }
+
+
+
+    return clientImpl_->GetConnectionData(connectionData);
+
+}
+
+}
+
+================================================================================

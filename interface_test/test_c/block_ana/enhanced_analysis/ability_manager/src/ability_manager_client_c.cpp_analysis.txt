@@ -1,0 +1,278 @@
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:22
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+int RecordAppExitReason(int exitReason, const char *exitMsg)
+
+{
+
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+
+        return -1;
+
+    }
+
+
+
+    OHOS::AAFwk::Reason reason = static_cast<OHOS::AAFwk::Reason>(exitReason);
+
+    std::string exitMsgStr(exitMsg);
+
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+
+
+    auto instance = OHOS::AAFwk::AbilityManagerClient::GetInstance();
+
+    if (!instance) {
+
+        return -1;
+
+    }
+
+    return instance->RecordAppExitReason(exitReasonData);
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+int RecordAppExitReason(int exitReason, const char *exitMsg)
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+int RecordAppExitReason(int exitReason, const char *exitMsg)
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+
+        return -1;
+
+    }
+
+
+
+    OHOS::AAFwk::Reason reason = static_cast<OHOS::AAFwk::Reason>(exitReason);
+
+    std::string exitMsgStr(exitMsg);
+
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+
+
+    auto instance = OHOS::AAFwk::AbilityManagerClient::GetInstance();
+
+    if (!instance) {
+
+        return -1;
+
+    }
+
+    return instance->RecordAppExitReason(exitReasonData);
+
+}
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:24
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+
+        return -1;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+
+        return -1;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:26
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return -1;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return -1;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return -1;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:29
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS::AAFwk::Reason reason = static_cast<OHOS::AAFwk::Reason>(exitReason);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:29
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS::AAFwk::Reason reason = static_cast<OHOS::AAFwk::Reason>(exitReason);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:33
+重要性权重: 1
+综合评分: 0
+代码片段:
+    auto instance = OHOS::AAFwk::AbilityManagerClient::GetInstance();
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:33
+重要性权重: 1
+综合评分: 0
+代码片段:
+    auto instance = OHOS::AAFwk::AbilityManagerClient::GetInstance();
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:34
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (!instance) {
+
+        return -1;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (!instance) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (!instance) {
+
+        return -1;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:35
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return -1;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:35
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return -1;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:35
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return -1;
+
+================================================================================

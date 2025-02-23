@@ -1,0 +1,431 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:26:32
+复杂度: 4
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StatusBarDelegateStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = StatusBarDelegateStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code < static_cast<uint32_t>(StatusBarDelegateCmd::END)) {
+        switch (code) {
+            case static_cast<uint32_t>(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS):
+                return HandleCheckIfStatusBarItemExists(data, reply);
+            case static_cast<uint32_t>(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM):
+                return HandleAttachPidToStatusBarItem(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:30:39
+复杂度: 0
+定义变量: 
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:31:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:32:9
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: proxy, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:36:5
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (code < static_cast<uint32_t>(StatusBarDelegateCmd::END)) {
+        switch (code) {
+            case static_cast<uint32_t>(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS):
+                return HandleCheckIfStatusBarItemExists(data, reply);
+            case static_cast<uint32_t>(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM):
+                return HandleAttachPidToStatusBarItem(data, reply);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:37:9
+复杂度: 2
+定义变量: 
+使用变量: __x, __bsx
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+        switch (code) {
+            case static_cast<uint32_t>(StatusBarDelegateCmd::CHECK_IF_STATUS_BAR_ITEM_EXISTS):
+                return HandleCheckIfStatusBarItemExists(data, reply);
+            case static_cast<uint32_t>(StatusBarDelegateCmd::ATTACH_PID_TO_STATUS_BAR_ITEM):
+                return HandleAttachPidToStatusBarItem(data, reply);
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:39:17
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return HandleCheckIfStatusBarItemExists(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleCheckIfStatusBarItemExists
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:39:24
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+                return HandleCheckIfStatusBarItemExists(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:41:17
+复杂度: 0
+定义变量: AAFWK_SERVICE_ERR_OFFSET
+使用变量: IF_PROT_DEFAULT, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return HandleAttachPidToStatusBarItem(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleAttachPidToStatusBarItem
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:41:24
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+                return HandleAttachPidToStatusBarItem(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleCheckIfStatusBarItemExists
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:47:32
+复杂度: 2
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StatusBarDelegateStub::HandleCheckIfStatusBarItemExists(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    uint32_t accessTokenId = data.ReadUint32();
+    bool isExist = false;
+    auto result = CheckIfStatusBarItemExists(accessTokenId, isExist);
+    if (!reply.WriteBool(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    if (!reply.WriteBool(isExist)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write isExist failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:49:5
+复杂度: 0
+定义变量: __tmp, upper, logTag
+使用变量: , __n, __ret, __refs, _ISupper, __cache, _Intl, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:53:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteBool(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:54:9
+复杂度: 0
+定义变量: npos, __b3, space, __remaining, logTag
+使用变量: , __ptr, __a, __n, __pos, __s, __ret, __bsx, __base, __b2, __builtin_strcmp, _ISspace, _S_get_c_name, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:55:9
+复杂度: 0
+定义变量: __i, __len, __b4, __num, print
+使用变量: min, npos, __base, __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, __buf_len, DEFAULT, ERR_NATIVE_IPC_PARCEL_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:57:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteBool(isExist)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write isExist failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:58:9
+复杂度: 0
+定义变量: __ret, __first, punct, logTag
+使用变量: , __tmp, __n, __first, __last, __len, __pos, __s, __base, PTHREAD_MUTEX_NORMAL, _ISpunct, _Pn, _Base, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write isExist failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:59:9
+复杂度: 0
+定义变量: __tmp, __last, alnum
+使用变量: , __tmp, __n, __pred, __len, __s, __b2, __builtin_strcmp, _ISalpha, _ISdigit, __low, __high, _S_get_c_name, __iter, ERR_NATIVE_IPC_PARCEL_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:61:5
+复杂度: 0
+定义变量: __len
+使用变量: , __value, __cont, __b4, __low, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleAttachPidToStatusBarItem
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:64:32
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StatusBarDelegateStub::HandleAttachPidToStatusBarItem(MessageParcel &data, MessageParcel &reply)
+{
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+    uint32_t accessTokenId = data.ReadUint32();
+    int32_t pid = data.ReadInt32();
+    auto instanceKey = data.ReadString();
+    auto result = AttachPidToStatusBarItem(accessTokenId, pid, instanceKey);
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:66:5
+复杂度: 0
+定义变量: __put, __save_errno, __next, __intptr, logTag
+使用变量: __v, __first, __val, __pos, __size, __mem, _Base, _Val, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::ABILITYMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:71:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!reply.WriteInt32(result)) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:72:9
+复杂度: 0
+定义变量: __tmp_data, logTag
+使用变量: , __is_signed, __x, __n, __first, __last, _S_local_capacity, __builtin_fabs, PTHREAD_MUTEX_STALLED, __loc, __ISwlower, __low, __caches, _Intl, __maxlen, __outstr, __next, _Pn, DEFAULT, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "write result failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:73:9
+复杂度: 0
+定义变量: __tmp, __outnext
+使用变量: , __p, __first, __last, __cur, __s, __diff, __tmp_data, __ISwalpha, _S_get_c_name, __dir, __outstr, __outchars, _Pn, ERR_NATIVE_IPC_PARCEL_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return AAFwk::ERR_NATIVE_IPC_PARCEL_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/status_bar_delegate/status_bar_delegate_stub.cpp:75:5
+复杂度: 0
+定义变量: __tmp, __val
+使用变量: , __tmp, __val, __cont, npos, __bsx, __ISwxdigit, __cvt, _Base, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

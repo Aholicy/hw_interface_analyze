@@ -1,0 +1,2096 @@
+代码块类型: Function Call
+块名称: mutex
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:24:42
+复杂度: 0
+定义变量: callbackMutex_
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+std::mutex ApplicationStateObserverStub::callbackMutex_;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:25:35
+复杂度: 17
+定义变量: 
+使用变量: rethrow_exception, __out, __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int ApplicationStateObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = ApplicationStateObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (static_cast<Message>(code)) {
+        case Message::TRANSACT_ON_FOREGROUND_APPLICATION_CHANGED:
+            return HandleOnForegroundApplicationChanged(data, reply);
+        case Message::TRANSACT_ON_ABILITY_STATE_CHANGED:
+            return HandleOnAbilityStateChanged(data, reply);
+        case Message::TRANSACT_ON_EXTENSION_STATE_CHANGED:
+            return HandleOnExtensionStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_CREATED:
+            return HandleOnProcessCreated(data, reply);
+        case Message::TRANSACT_ON_PROCESS_STATE_CHANGED:
+            return HandleOnProcessStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_DIED:
+            return HandleOnProcessDied(data, reply);
+        case Message::TRANSACT_ON_APPLICATION_STATE_CHANGED:
+            return HandleOnApplicationStateChanged(data, reply);
+        case Message::TRANSACT_ON_APP_STATE_CHANGED:
+            return HandleOnAppStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_REUSED:
+            return HandleOnProcessReused(data, reply);
+        case Message::TRANSACT_ON_APP_STARTED:
+            return HandleOnAppStarted(data, reply);
+        case Message::TRANSACT_ON_APP_STOPPED:
+            return HandleOnAppStopped(data, reply);
+        case Message::TRANSACT_ON_PAGE_SHOW:
+            return HandleOnPageShow(data, reply);
+        case Message::TRANSACT_ON_PAGE_HIDE:
+            return HandleOnPageHide(data, reply);
+        case Message::TRANSACT_ON_APP_CACHE_STATE_CHANGED:
+            return HandleOnAppCacheStateChanged(data, reply);
+        case Message::TRANSACT_ON_WINDOW_SHOW:
+            return HandleOnWindowShow(data, reply);
+        case Message::TRANSACT_ON_WINDOW_HIDDEN:
+            return HandleOnWindowHidden(data, reply);
+    }
+    TAG_LOGW(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnRemoteRequest, default case, need check");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:29:39
+复杂度: 0
+定义变量: 
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:30:5
+复杂度: 1
+定义变量: metaDescriptor_
+使用变量: metaDescriptor_
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:31:9
+复杂度: 0
+定义变量: logTag
+使用变量: TF_SYNC, TF_WAIT_TIME, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:32:9
+复杂度: 0
+定义变量: proxy
+使用变量: nothrow, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:35:5
+复杂度: 16
+定义变量: 
+使用变量: __num, __s, __loc
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (static_cast<Message>(code)) {
+        case Message::TRANSACT_ON_FOREGROUND_APPLICATION_CHANGED:
+            return HandleOnForegroundApplicationChanged(data, reply);
+        case Message::TRANSACT_ON_ABILITY_STATE_CHANGED:
+            return HandleOnAbilityStateChanged(data, reply);
+        case Message::TRANSACT_ON_EXTENSION_STATE_CHANGED:
+            return HandleOnExtensionStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_CREATED:
+            return HandleOnProcessCreated(data, reply);
+        case Message::TRANSACT_ON_PROCESS_STATE_CHANGED:
+            return HandleOnProcessStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_DIED:
+            return HandleOnProcessDied(data, reply);
+        case Message::TRANSACT_ON_APPLICATION_STATE_CHANGED:
+            return HandleOnApplicationStateChanged(data, reply);
+        case Message::TRANSACT_ON_APP_STATE_CHANGED:
+            return HandleOnAppStateChanged(data, reply);
+        case Message::TRANSACT_ON_PROCESS_REUSED:
+            return HandleOnProcessReused(data, reply);
+        case Message::TRANSACT_ON_APP_STARTED:
+            return HandleOnAppStarted(data, reply);
+        case Message::TRANSACT_ON_APP_STOPPED:
+            return HandleOnAppStopped(data, reply);
+        case Message::TRANSACT_ON_PAGE_SHOW:
+            return HandleOnPageShow(data, reply);
+        case Message::TRANSACT_ON_PAGE_HIDE:
+            return HandleOnPageHide(data, reply);
+        case Message::TRANSACT_ON_APP_CACHE_STATE_CHANGED:
+            return HandleOnAppCacheStateChanged(data, reply);
+        case Message::TRANSACT_ON_WINDOW_SHOW:
+            return HandleOnWindowShow(data, reply);
+        case Message::TRANSACT_ON_WINDOW_HIDDEN:
+            return HandleOnWindowHidden(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:37:13
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnForegroundApplicationChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnForegroundApplicationChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:37:20
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnForegroundApplicationChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:39:13
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAbilityStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAbilityStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:39:20
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAbilityStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:41:13
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnExtensionStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnExtensionStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:41:20
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnExtensionStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:43:13
+复杂度: 0
+定义变量: 
+使用变量: __refs, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnProcessCreated(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnProcessCreated
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:43:20
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnProcessCreated(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:45:13
+复杂度: 0
+定义变量: __i
+使用变量: , __it1, __it2, __refs, _S_get_c_locale, _Intl, serialInvokeFlag, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnProcessStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnProcessStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:45:20
+复杂度: 0
+定义变量: 
+使用变量: , __it2, _S_get_c_locale, _Intl, serialInvokeFlag, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnProcessStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:47:13
+复杂度: 0
+定义变量: 
+使用变量: , __i, __other, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnProcessDied(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnProcessDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:47:20
+复杂度: 0
+定义变量: 
+使用变量: , __other, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnProcessDied(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:49:13
+复杂度: 0
+定义变量: __tmp, upper
+使用变量: , __n, __ret, __cache, __refs, _ISupper, _Intl, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnApplicationStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnApplicationStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:49:20
+复杂度: 0
+定义变量: __tmp, upper
+使用变量: , __n, __cache, _ISupper, _Intl, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnApplicationStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:51:13
+复杂度: 0
+定义变量: __put, alpha, __buf_len
+使用变量: , __low, __s, __out, _ISalpha, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:51:20
+复杂度: 0
+定义变量: __put, alpha, __buf_len
+使用变量: , __low, __s, __out, _ISalpha, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:53:13
+复杂度: 0
+定义变量: allocator_arg, __b2, xdigit, __default_lock_policy
+使用变量: , __p, __pos, __cont, npos, __base, __loc, _ISxdigit, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnProcessReused(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnProcessReused
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:53:20
+复杂度: 0
+定义变量: allocator_arg, __b2, xdigit, __default_lock_policy
+使用变量: __p, __pos, npos, __base, _ISxdigit, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnProcessReused(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:55:13
+复杂度: 0
+定义变量: __i, __len, __num, __b4, print
+使用变量: min, __base, __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, __buf_len, DEFAULT, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppStarted(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppStarted
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:55:20
+复杂度: 0
+定义变量: __len, __num, __b4, print
+使用变量: min, __base, __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, __buf_len, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppStarted(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:57:13
+复杂度: 0
+定义变量: __elem0, cntrl
+使用变量: , __i, __last, __len, current_exception, __str, PTHREAD_MUTEX_ERRORCHECK_NP, _IScntrl, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppStopped(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppStopped
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:57:20
+复杂度: 0
+定义变量: __elem0, cntrl
+使用变量: , __len, current_exception, __str, PTHREAD_MUTEX_ERRORCHECK_NP, _IScntrl, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppStopped(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:59:13
+复杂度: 0
+定义变量: __tmp, __last, alnum
+使用变量: , __tmp, __n, __len, __high, __iter, __s, __b2, _ISalpha, _ISdigit, _S_get_c_name, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnPageShow(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnPageShow
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:59:20
+复杂度: 0
+定义变量: __tmp, __last, alnum
+使用变量: , __tmp, __n, __len, __high, __s, _ISalpha, _ISdigit, _S_get_c_name, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnPageShow(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:61:13
+复杂度: 0
+定义变量: __len, blank
+使用变量: , __x, __a, __n, __f, __iter, __builtin_strlen, __s, __builtin_llabs, __b4, _ISblank, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnPageHide(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnPageHide
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:61:20
+复杂度: 0
+定义变量: blank
+使用变量: , __x, __a, __n, __f, __iter, __builtin_strlen, __s, __builtin_llabs, _ISblank, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnPageHide(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:63:13
+复杂度: 0
+定义变量: __c
+使用变量: , __a, __tmp, __i, __len, __l, __cont, __s, __out, _Pn, PTHREAD_MUTEX_TIMED_NP, __loc, __caches, _Intl, NORMAL, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppCacheStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppCacheStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:63:20
+复杂度: 0
+定义变量: __c
+使用变量: , __tmp, __i, __len, __l, __cont, __s, __out, _Pn, PTHREAD_MUTEX_TIMED_NP, __caches, _Intl, NORMAL, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppCacheStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:65:13
+复杂度: 0
+定义变量: __tmp, __outchars
+使用变量: __t, __n, __first, __c, __len, __cloc, _S_clone_c_locale, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnWindowShow(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnWindowShow
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:65:20
+复杂度: 0
+定义变量: 
+使用变量: __t, __n, __first, __c, __len, __cloc, _S_clone_c_locale, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnWindowShow(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:67:13
+复杂度: 0
+定义变量: __maxlen, __aligned
+使用变量: , __t, __x, __f, __m, __s, __put, npos, _S_get_c_name, __cvt, __intptr, __align, __gd, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnWindowHidden(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnWindowHidden
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:67:20
+复杂度: 0
+定义变量: 
+使用变量: , __t, __x, __f, __m, __s, __put, _S_get_c_name, __cvt, __intptr, __align, __gd, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnWindowHidden(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:69:5
+复杂度: 0
+定义变量: __result, logTag
+使用变量: , __it, __first, __last, __val, __pos, __low, __high, __size, __out, __diff, _Intl, __space, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGW(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnRemoteRequest, default case, need check");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnForegroundApplicationChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:73:36
+复杂度: 0
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnForegroundApplicationChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAbilityStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:76:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnAbilityStateChanged(const AbilityStateData &abilityStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnExtensionStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:79:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnExtensionStateChanged(const AbilityStateData &abilityStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnProcessCreated
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:82:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnProcessCreated(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnProcessStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:85:36
+复杂度: 0
+定义变量: 
+使用变量: , __s
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnProcessStateChanged(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnWindowShow
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:88:36
+复杂度: 0
+定义变量: 
+使用变量: , __location, __ret
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ApplicationStateObserverStub::OnWindowShow(const ProcessData &processData)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowShow called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:90:5
+复杂度: 0
+定义变量: __digits, __c, __left, logTag
+使用变量: , __value, __v, __n, __first, __result, __c, __len, __ret, __ils, __h, __m, __s, __out, _Base, __atime, __grouping, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowShow called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnWindowHidden
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:94:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ApplicationStateObserverStub::OnWindowHidden(const ProcessData &processData)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowHidden called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:96:5
+复杂度: 0
+定义变量: __ret, __comp, __b1, __tn, __positive_sign, __negative_sign, logTag
+使用变量: , __digits, __a, __b, __tmp, __n, __p, __comp, __num, __result, __c, __args, __fn, __nh, __ret, __old_size, __size, __m, __arr, __s, __fmt, __builtin_vsnprintf, __out, _Qn, __mp, __np, __tn, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "ApplicationStateObserverStub::OnWindowHidden called, bundleName:%{public}s,"
+        "pid:%{public}d, uid:%{public}d.", processData.bundleName.c_str(), processData.pid, processData.uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnProcessDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:100:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnProcessDied(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnApplicationStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:103:36
+复杂度: 0
+定义变量: 
+使用变量: __throw_system_error
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnApplicationStateChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:106:36
+复杂度: 0
+定义变量: 
+使用变量: __len
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnAppStateChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnProcessReused
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:109:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnProcessReused(const ProcessData &processData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAppStarted
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:112:36
+复杂度: 0
+定义变量: 
+使用变量: __u, __throw_system_error
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnAppStarted(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAppStopped
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:115:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnAppStopped(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnPageShow
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:118:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnPageShow(const PageStateData &pageStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnPageHide
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:121:36
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnPageHide(const PageStateData &pageStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAppCacheStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:124:36
+复杂度: 0
+定义变量: 
+使用变量: , __val, __u
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void ApplicationStateObserverStub::OnAppCacheStateChanged(const AppStateData &appStateData)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnForegroundApplicationChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:127:39
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnForegroundApplicationChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnForegroundApplicationChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:130:5
+复杂度: 1
+定义变量: 
+使用变量: __ret, __atomic_thread_fence, __xnode
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:131:9
+复杂度: 0
+定义变量: __lock, logTag
+使用变量: , __it, __a, __b, __n, __p, __first, __last, __val, __shift, _Base, __state, __outstr, __cvt, offset, tagNames, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:136:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __tmp, __y, __s, __lo1, __lo2, operator=, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAbilityStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:139:39
+复杂度: 1
+定义变量: 
+使用变量: __nh, __pos, __ne_ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    AbilityStateData* abilityStateData = nullptr;
+    {
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        abilityStateData = data.ReadParcelable<AbilityStateData>();
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+    }
+    OnAbilityStateChanged(*abilityStateData);
+    {
+        // Protect Multi Thread Deconstruct IRemoteObject
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        delete abilityStateData;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:145:9
+复杂度: 1
+定义变量: 
+使用变量: __x, __first
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:146:13
+复杂度: 0
+定义变量: __x1, __facets, __ctype, logTag
+使用变量: , __value, __r, __x, __c, __l, __holeIndex, __loc, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnAbilityStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:150:5
+复杂度: 0
+定义变量: __x0y1, __lit, tagNames
+使用变量: , __first, __last, __first1, __first2, __last1, __cont, __capacity, __x0, resource_deadlock_would_occur, __lc, __throw_concurrence_lock_error, _Lp, abilityStateData
+关键位置: 否
+日志评分: 0
+代码:
+    OnAbilityStateChanged(*abilityStateData);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:156:5
+复杂度: 0
+定义变量: __pos
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __e, __c, __size, __c1, __mix, tagNames, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnExtensionStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:159:39
+复杂度: 1
+定义变量: 
+使用变量: __res, __pos
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnExtensionStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    AbilityStateData* abilityStateData = nullptr;
+    {
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        abilityStateData = data.ReadParcelable<AbilityStateData>();
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+    }
+    OnExtensionStateChanged(*abilityStateData);
+    {
+        // Protect Multi Thread Deconstruct IRemoteObject
+        std::unique_lock<std::mutex> lock(callbackMutex_);
+        delete abilityStateData;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:165:9
+复杂度: 1
+定义变量: 
+使用变量: __x, __plus, offset
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!abilityStateData) {
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+            return ERR_APPEXECFWK_PARCEL_ERROR;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:166:13
+复杂度: 0
+定义变量: __max_exponent10, _S_timezones, logTag
+使用变量: , __r, __x, __first2, __args, __alloc, _Base, _Dig, __predicate, _Nd, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AbilityStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnExtensionStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:170:5
+复杂度: 0
+定义变量: __len, __node, __pos, __testdecfound
+使用变量: , __x, __y, __c, operator(), __abs_time, __lc, abilityStateData
+关键位置: 否
+日志评分: 0
+代码:
+    OnExtensionStateChanged(*abilityStateData);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:176:5
+复杂度: 0
+定义变量: __lit_zero
+使用变量: __predicate, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnProcessCreated
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:179:39
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __position, __old
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessCreated(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessCreated(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:182:5
+复杂度: 1
+定义变量: 
+使用变量: __first1, __r1z, __atomic_thread_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:183:9
+复杂度: 0
+定义变量: __lock, BASE_JSENV, logTag
+使用变量: __x, __a, __b, __p, __d, __len, __position, __m, __cont, __r1y, __r1z, _Base, __rtime, __op, operator|, __testeof, symbol, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:188:5
+复杂度: 0
+定义变量: 
+使用变量: , __r, __x, __lhs, __c, __pos, operator&, __io, __lit, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnProcessStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:191:39
+复杂度: 1
+定义变量: 
+使用变量: , __i, __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:194:5
+复杂度: 1
+定义变量: 
+使用变量: , __first, __last, __is_constant_evaluated, __builtin_unreachable, __alloc, __r0z
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:195:9
+复杂度: 0
+定义变量: __q0, __cur, __qend, logTag
+使用变量: , _Nm, __i, __p, __first, __is_constant_evaluated, __from, __two, __alloc, __arr, __sep_pos, tag, BASE_APPDFR, GetDomainName1, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:200:5
+复杂度: 0
+定义变量: __now, __old_p
+使用变量: , __x, __a, __n, BASE_LOCAL_CALL, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnWindowShow
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:203:39
+复杂度: 1
+定义变量: 
+使用变量: , __guard, __found_grouping
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnWindowShow(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnWindowShow(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:206:5
+复杂度: 1
+定义变量: 
+使用变量: , __i, __is_constant_evaluated, __builtin_unreachable, __first1, __first2, __other
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:207:9
+复杂度: 0
+定义变量: __found_dec, logTag
+使用变量: , __r, __x, __first, __h, __q, __next, operator&, showbase, __io, _S_min_alignment, _Nd, _Nd_u, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:212:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __first1, __first2, __last2, __q, __cur, __exchange_and_add_dispatch, __qend, __atomic_test_and_set, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnWindowHidden
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:215:39
+复杂度: 1
+定义变量: 
+使用变量: , __date
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnWindowHidden(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnWindowHidden(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:218:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:219:9
+复杂度: 0
+定义变量: __diff, __shift, max_digits10, logTag
+使用变量: , __max, __tmp, __first, __last, __d, __rhs, __comp, __from, __c, __builtin_clzll, __count, __end, __uhead, wcspbrk, __s1, __s2, __beg, __eof, __state, __lc, __digit, _Nd, _Nd_ull, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:224:5
+复杂度: 0
+定义变量: __lock
+使用变量: , __a, __b, __n, __lhs, __rhs, __c, __pos, allocator_arg, __size, __beg, _Nd, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnProcessDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:227:39
+复杂度: 1
+定义变量: 
+使用变量: __throw_system_error, __time, __dt
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessDied(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessDied(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:230:5
+复杂度: 1
+定义变量: 
+使用变量: __negative, __testvalid
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:231:9
+复杂度: 0
+定义变量: is_exact, __pend, logTag
+使用变量: , __ptr, __x, __a, __tmp, __n, __i, __p, __e, __comp, __c, __builtin_clzll, __high, __size, __m, wmemchr, __str, __diff, _Digs, __mp, __secondChild, __lit, _S_iE, __mandatory_sign, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:236:5
+复杂度: 0
+定义变量: 
+使用变量: __x, __b, operator==, _Digs, __secondChild, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnApplicationStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:239:39
+复杂度: 1
+定义变量: __cmp
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __pos, __guard, __ampm_format
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnApplicationStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnApplicationStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:242:5
+复杂度: 1
+定义变量: 
+使用变量: __n, __p
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:243:9
+复杂度: 0
+定义变量: min_exponent10, logTag
+使用变量: , __x, __a, __b, __c, __end, __beg, __secondChild, __remainder, __lit, __plus, _S_iminus, _S_single, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:248:5
+复杂度: 0
+定义变量: 
+使用变量: , __value, __x, __first, __res, __testdecfound, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:251:39
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __ampm, __days
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:254:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:255:9
+复杂度: 0
+定义变量: has_infinity, logTag
+使用变量: , __a, __n, __first, __last, __e, __cxa_free_exception, __hf, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:260:5
+复杂度: 0
+定义变量: 
+使用变量: , __v, __b, __p, __low, __range, __testeof, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:263:41
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __days
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ApplicationStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+    if (handler_) {
+        handler_(remote);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:265:5
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __n, _Idx, __p, __first, __last, __c, __count, __cont, __g, __range, __product, _M_i, __builtin_ctzll, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:266:5
+复杂度: 1
+定义变量: 
+使用变量: , __value, __low
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (handler_) {
+        handler_(remote);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnProcessReused
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:271:39
+复杂度: 1
+定义变量: 
+使用变量: , __n, __is_constant_evaluated, __builtin_unreachable, __days, __atomic_store
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnProcessReused(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ProcessData> processData(data.ReadParcelable<ProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnProcessReused(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:274:5
+复杂度: 1
+定义变量: 
+使用变量: __dest, __testvalid
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:275:9
+复杂度: 0
+定义变量: __high, __this_alloc, __add, logTag
+使用变量: , _Nm, __x, __n, __first, __last, _Val, __ref, operator+=, __sep_pos, memory_order_seq_cst, _Nd_ull, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<ProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:280:5
+复杂度: 0
+定义变量: 
+使用变量: __gthread_active_p, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppStarted
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:283:39
+复杂度: 1
+定义变量: 
+使用变量: __val, __sv, __months, __atomic_load
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppStarted(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStarted(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:286:5
+复杂度: 1
+定义变量: 
+使用变量: __ptr, __digits
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:287:9
+复杂度: 0
+定义变量: _3, logTag
+使用变量: , __t, __it1, __val, __u, _Rb_tree_increment, __new_capacity, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:292:5
+复杂度: 0
+定义变量: 
+使用变量: , __comp, __ret, __l, __gthread_cond_wait, __pcvt, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppStopped
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:295:39
+复杂度: 1
+定义变量: 
+使用变量: __pos, __throw_system_error, __months, __atomic_exchange
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppStopped(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStopped(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:298:5
+复杂度: 1
+定义变量: 
+使用变量: __first
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:299:9
+复杂度: 0
+定义变量: round_style, _15, logTag
+使用变量: , __x, __a, __n, __first, __last, __e, __comp, __first1, generic_category, __cur, __lc, memory_order_seq_cst, __builtin_popcount, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:304:5
+复杂度: 0
+定义变量: 
+使用变量: , __ptr, __r, __b, __tmp, __i, __m, __str, __gthread_recursive_mutex_trylock, __sign_size, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnPageShow
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:307:39
+复杂度: 1
+定义变量: 
+使用变量: __pos, __months, __atomic_exchange
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnPageShow(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<PageStateData> pageStateData(data.ReadParcelable<PageStateData>());
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnPageShow(*pageStateData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:310:5
+复杂度: 1
+定义变量: 
+使用变量: terminate
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:311:9
+复杂度: 0
+定义变量: __tmp, __high, _27, __less, logTag
+使用变量: , __x, __obj, __tmp, __pred, __res, __pos, __sv_check, __capacity, _Nd_ull, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:316:5
+复杂度: 0
+定义变量: __u32erange
+使用变量: , __ptr, __x, _Idx, __first1, __res, __found_sci, __only_zeros, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnPageHide
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:319:39
+复杂度: 1
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __f, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnPageHide(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<PageStateData> pageStateData(data.ReadParcelable<PageStateData>());
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnPageHide(*pageStateData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:322:5
+复杂度: 1
+定义变量: 
+使用变量: , __lhs, __builtin_expect, __atomic_always_lock_free
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!pageStateData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:323:9
+复杂度: 0
+定义变量: __ret, __scaling, _S_categories, logTag
+使用变量: , __r, __a, _Num, __lhs, __rhs, __ret, __tag, __cont, operator==, __urngrange, __uerange, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<pageStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:328:5
+复杂度: 0
+定义变量: __r, __plus
+使用变量: , __i, __first, __last, __s, __scaling, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppCacheStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:331:39
+复杂度: 1
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __f, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ApplicationStateObserverStub::HandleOnAppCacheStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppStateData> processData(data.ReadParcelable<AppStateData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppCacheStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:334:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:335:9
+复杂度: 0
+定义变量: __result, logTag
+使用变量: , __value, __r, __first, __comp, __c, __len2, __pos, __mid, __rresult, __dfault, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppStateData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/application_state_observer_stub.cpp:340:5
+复杂度: 0
+定义变量: __out
+使用变量: , __first, __s, __new_capacity, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

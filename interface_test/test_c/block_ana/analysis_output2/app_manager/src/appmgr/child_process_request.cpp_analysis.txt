@@ -1,0 +1,275 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:24:27
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
+{
+    std::u16string srcEntryTemp;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, srcEntryTemp);
+    srcEntry = Str16ToStr8(srcEntryTemp);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessType);
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessCount);
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+    std::unique_ptr<ChildProcessArgs> argsRead(parcel.ReadParcelable<ChildProcessArgs>());
+    if (!argsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+        return false;
+    }
+    args = *argsRead;
+
+    std::unique_ptr<ChildProcessOptions> optionsRead(parcel.ReadParcelable<ChildProcessOptions>());
+    if (!optionsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+        return false;
+    }
+    options = *optionsRead;
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:26:20
+复杂度: 0
+定义变量: srcEntryTemp
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string srcEntryTemp;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:35:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!argsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:36:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:37:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!optionsRead) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:43:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:48:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:51:43
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
+{
+    ChildProcessRequest *data = new (std::nothrow) ChildProcessRequest();
+    if (data && !data->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+        delete data;
+        data = nullptr;
+    }
+    return data;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:54:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (data && !data->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+        delete data;
+        data = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:54:18
+复杂度: 0
+定义变量: npos, __b3
+使用变量: __base, __b2, data, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (data && !data->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:55:9
+复杂度: 0
+定义变量: __b4, __num, logTag
+使用变量: npos, __base, __b3, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:59:5
+复杂度: 0
+定义变量: 
+使用变量: , __value, __pred, data
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return data;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:62:27
+复杂度: 0
+定义变量: 
+使用变量: __throw_length_error
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ChildProcessRequest::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(srcEntry));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessType));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessCount));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &args);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &options);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:70:5
+复杂度: 0
+定义变量: 
+使用变量: __n, 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,251 @@
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:21:22
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool JsHeapDumpInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+        && parcel.WriteBool(needLeakobj));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:23:5
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+        && parcel.WriteBool(needLeakobj));
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:23:13
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:23:40
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:24:12
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:24:40
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:25:12
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+        && parcel.WriteBool(needLeakobj));
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:28:33
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
+{
+    JsHeapDumpInfo *info = new (std::nothrow) JsHeapDumpInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+        return nullptr;
+    }
+    info->pid = parcel.ReadUint32();
+    info->tid = parcel.ReadUint32();
+    info->needGc = parcel.ReadBool();
+    info->needSnapshot = parcel.ReadBool();
+    info->needLeakobj = parcel.ReadBool();
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:31:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:32:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:35:17
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    info->pid = parcel.ReadUint32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:36:17
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    info->tid = parcel.ReadUint32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:37:20
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    info->needGc = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:38:26
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    info->needSnapshot = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:39:25
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    info->needLeakobj = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:40:5
+复杂度: 0
+定义变量: 
+使用变量: info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------

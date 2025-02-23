@@ -1,0 +1,1192 @@
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:22:24
+复杂度: 12
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool AbilityStateData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(moduleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(bundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(abilityName)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(abilityState)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(pid)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(uid)) {
+        return false;
+    }
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+    }
+    if (!MarshallingOne(parcel)) {
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:24:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString(moduleName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:25:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:27:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString(bundleName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:28:9
+复杂度: 0
+定义变量: REGISTRY_HANDLE
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:30:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString(abilityName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:31:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:33:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(abilityState)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:33:10
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(abilityState)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:34:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:36:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(pid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:36:10
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(pid)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:37:9
+复杂度: 0
+定义变量: have_error
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:39:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(uid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:39:10
+复杂度: 0
+定义变量: 
+使用变量: __bsx, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(uid)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:40:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:42:5
+复杂度: 5
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:42:9
+复杂度: 0
+定义变量: 
+使用变量: operator==
+关键位置: 否
+日志评分: 0
+代码:
+    if (token == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:43:9
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (!parcel.WriteBool(false)) {
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:43:14
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(false)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:44:13
+复杂度: 0
+定义变量: 
+使用变量: _S_get_c_name
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:47:9
+复杂度: 1
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (!parcel.WriteBool(true)) {
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:47:14
+复杂度: 0
+定义变量: 
+使用变量: __other, , __i, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(true)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:48:13
+复杂度: 0
+定义变量: __ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:50:9
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (!parcel.WriteRemoteObject(token)) {
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:51:13
+复杂度: 0
+定义变量: __put, alpha, __buf_len
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:54:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!MarshallingOne(parcel)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MarshallingOne
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:54:10
+复杂度: 0
+定义变量: __b3, space, __remaining
+使用变量: __bsx, __pos, , __s, __b2, __builtin_strcmp, _ISspace, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!MarshallingOne(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:55:9
+复杂度: 0
+定义变量: __i
+使用变量: npos, DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:57:5
+复杂度: 0
+定义变量: __tmp
+使用变量: __ret, , __i, __tmp, __caches, __iter
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: MarshallingOne
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:60:24
+复杂度: 8
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool AbilityStateData::MarshallingOne(Parcel &parcel) const
+{
+    if (!parcel.WriteInt32(abilityType)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isFocused)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerBundleName)) {
+        return false;
+    }
+    if (!parcel.WriteString(callerAbilityName)) {
+        return false;
+    }
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(appCloneIndex)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+        return false;
+    }
+    if (!parcel.WriteInt32(processType)) {
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:62:5
+复杂度: 1
+定义变量: 
+使用变量: __num
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(abilityType)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:62:10
+复杂度: 0
+定义变量: __tmp, _S_timezones
+使用变量: __n, , __s, __len, __b4, PTHREAD_MUTEX_TIMED_NP, __low, _S_get_c_name, DEFAULT, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(abilityType)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:63:9
+复杂度: 0
+定义变量: __c
+使用变量: __a, __tmp, __loc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteBool(isFocused)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:65:10
+复杂度: 0
+定义变量: __tmp, __outchars
+使用变量: __t, __first, _S_clone_c_locale, __iter, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(isFocused)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:66:9
+复杂度: 0
+定义变量: __save_errno, __next, __intptr
+使用变量: __size, __pos, __first
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:68:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __loc
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString(callerBundleName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:69:9
+复杂度: 0
+定义变量: 
+使用变量: __pos, __it, __first, __low, __high, __space
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:71:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString(callerAbilityName)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:72:9
+复杂度: 0
+定义变量: __tmp_data
+使用变量: , __first, _S_local_capacity, __builtin_fabs, __ISwlower, __low, __outstr, DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:74:5
+复杂度: 1
+定义变量: 
+使用变量: __outnext
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:74:10
+复杂度: 0
+定义变量: __enable_hash_call, __old_size, __outlast
+使用变量: __ret, , __s, __t, __ptr, __f, __cont, __os, PTHREAD_MUTEX_ROBUST, __loc, __ISwdigit, _S_left, _S_right, __outstr, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:74:48
+复杂度: 0
+定义变量: 
+使用变量: __args, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(isAtomicService) || !parcel.WriteInt32(abilityRecordId)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:75:9
+复杂度: 0
+定义变量: __tmp
+使用变量: __bsx, , __s, __tmp, __val, __cont, npos, __ISwxdigit, __cvt
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:77:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(appCloneIndex)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:77:10
+复杂度: 0
+定义变量: __digits, __testoff
+使用变量: __size, __off, , __tmp_data, __ISwprint, __outstr, __outnext, _S_use_relocate, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(appCloneIndex)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:78:9
+复杂度: 0
+定义变量: MIN_TRANSACTION_ID
+使用变量: , __testoff, __ISwgraph
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:80:5
+复杂度: 1
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:80:10
+复杂度: 0
+定义变量: __old, __tmp, __np, INVALID_FD, __child
+使用变量: __x, __uselocale, __cloc, __n, , __i, __s, __t, __first, __last, __f, __builtin_fabsl, __ISwcntrl, __outstr, __outchars, __child, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(extensionAbilityType)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:81:9
+复杂度: 0
+定义变量: 
+使用变量: __x, __str, __ISwpunct
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:83:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(processType)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:83:10
+复杂度: 0
+定义变量: __ret, __pos, __cerb, __truename, RPC_QOS_MAX_LATENCY
+使用变量: __ret, __n, , __len, npos, __name, __child, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(processType)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:84:9
+复杂度: 0
+定义变量: __result, __x, __falsename, RPC_QOS_MIN_LATENCY
+使用变量: __pos, , __s, __cerb, __val, __next, __child
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:86:5
+复杂度: 0
+定义变量: __num
+使用变量: , __tmp, __result, __cont, __throw_out_of_range, __collate, __buf_len
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:89:24
+复杂度: 1
+定义变量: 
+使用变量: , __c1, __first, __len
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool AbilityStateData::ReadFromParcel(Parcel &parcel)
+{
+    moduleName = parcel.ReadString();
+
+    bundleName = parcel.ReadString();
+
+    abilityName = parcel.ReadString();
+
+    abilityState = parcel.ReadInt32();
+
+    pid = parcel.ReadInt32();
+
+    uid = parcel.ReadInt32();
+
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+    abilityType = parcel.ReadInt32();
+
+    isFocused = parcel.ReadBool();
+
+    callerBundleName = parcel.ReadString();
+
+    callerAbilityName = parcel.ReadString();
+    isAtomicService = parcel.ReadBool();
+    abilityRecordId = parcel.ReadInt32();
+    appCloneIndex = parcel.ReadInt32();
+    extensionAbilityType = parcel.ReadInt32();
+    processType = parcel.ReadInt32();
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:97:20
+复杂度: 0
+定义变量: 
+使用变量: __args, __builtin_vsnprintf, __out, __p, __c, __n, , __s, __tmp, __old_size, __tn, __mp, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    abilityState = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:99:11
+复杂度: 0
+定义变量: nothrow, __tmp_capacity, ctype, __g, is_always_lock_free
+使用变量: __out, , __i, __b, __w, __val, __result, __exchange_and_add_single, __truename, __mp, __outchars, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    pid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:101:11
+复杂度: 0
+定义变量: collate, __grouping
+使用变量: __n, , __a, __exchange_and_add, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    uid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:103:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:103:9
+复杂度: 0
+定义变量: __max
+使用变量: , __s, min, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (parcel.ReadBool()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:104:9
+复杂度: 0
+定义变量: messages
+使用变量: __off, , __i, __a, __b, __max, __tmp_capacity, operator&, operator=, __m, __falsename, _Move, _MoveAssignment, __nh, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:104:17
+复杂度: 0
+定义变量: messages
+使用变量: , __i, __a, __b, __max, __tmp_capacity, operator&, __m, _Move, _MoveAssignment, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:107:19
+复杂度: 0
+定义变量: 
+使用变量: __x, , _Nm, __comp, __np, __g_size, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    abilityType = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:109:17
+复杂度: 0
+定义变量: __ct
+使用变量: , __t, __first, __val, PTHREAD_RWLOCK_PREFER_READER_NP, __mem, __grouping, tag, GetOffset, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isFocused = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:114:23
+复杂度: 0
+定义变量: __tmp
+使用变量: __x, , __s, __tmp, __e, __len, __mp, memory_order_relaxed, _S_mutex, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isAtomicService = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:115:23
+复杂度: 0
+定义变量: 
+使用变量: __i, __a, __tmp, __fn, __sz, __arg, memory_order_seq_cst, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    abilityRecordId = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:116:21
+复杂度: 0
+定义变量: __cur
+使用变量: __args, , __first, __result, __m, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    appCloneIndex = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:117:28
+复杂度: 0
+定义变量: __ret
+使用变量: __x, __p, __o, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    extensionAbilityType = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:118:19
+复杂度: 0
+定义变量: __facets, _M_max_align
+使用变量: __args, __st, , __a, __first, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    processType = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:119:5
+复杂度: 0
+定义变量: 
+使用变量: __x, __ret, __n, __i, __s, __first, __count
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:122:37
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+AbilityStateData *AbilityStateData::Unmarshalling(Parcel &parcel)
+{
+    AbilityStateData *abilityStateData = new (std::nothrow) AbilityStateData();
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+        delete abilityStateData;
+        abilityStateData = nullptr;
+    }
+    return abilityStateData;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:125:5
+复杂度: 1
+定义变量: 
+使用变量: __m
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+        delete abilityStateData;
+        abilityStateData = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:125:30
+复杂度: 0
+定义变量: 
+使用变量: __size, __c, , __i, __s, __b, __last, __m, _S_atoms, __shift, __k, parcel, abilityStateData
+关键位置: 否
+日志评分: 0
+代码:
+    if (abilityStateData && !abilityStateData->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:126:9
+复杂度: 0
+定义变量: __tmp, __tmp_length, logTag
+使用变量: __x, __size, __c, , __c1, __c2, __throw_bad_alloc, __arg, _S_end, __falsename, _S_atoms, _M_max_size, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "ReadFromParcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_state_data.cpp:130:5
+复杂度: 0
+定义变量: __n, offset
+使用变量: GetOffset, abilityStateData
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return abilityStateData;
+
+--------------------------------------------------------------------------------

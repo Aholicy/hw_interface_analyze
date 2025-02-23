@@ -1,0 +1,340 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:26:29
+复杂度: 6
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int ConnectionObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    std::u16string descriptor = ConnectionObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+    if (code < IConnectionObserver::CMD_MAX && code >= 0) {
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:30:39
+复杂度: 0
+定义变量: 
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:31:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:32:9
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGI(AAFwkTag::CONNECTION, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: proxy, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:35:5
+复杂度: 5
+定义变量: metaDescriptor_
+使用变量: metaDescriptor_
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (code < IConnectionObserver::CMD_MAX && code >= 0) {
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:36:9
+复杂度: 4
+定义变量: 
+使用变量: __x, __bsx
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+        switch (code) {
+            case ON_EXTENSION_CONNECTED:
+                return OnExtensionConnectedInner(data, reply);
+            case ON_EXTENSION_DISCONNECTED:
+                return OnExtensionDisconnectedInner(data, reply);
+#ifdef WITH_DLP
+            case ON_DLP_ABILITY_OPENED:
+                return OnDlpAbilityOpenedInner(data, reply);
+            case ON_DLP_ABILITY_CLOSED:
+                return OnDlpAbilityClosedInner(data, reply);
+#endif // WITH_DLP
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:38:17
+复杂度: 0
+定义变量: progname
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return OnExtensionConnectedInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnExtensionConnectedInner
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:38:24
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+                return OnExtensionConnectedInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:40:17
+复杂度: 0
+定义变量: 
+使用变量: _Cache, _Intl, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return OnExtensionDisconnectedInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnExtensionDisconnectedInner
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:40:24
+复杂度: 0
+定义变量: 
+使用变量: _Cache, _Intl, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+                return OnExtensionDisconnectedInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnExtensionConnectedInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:52:29
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int ConnectionObserverStub::OnExtensionConnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionConnected(*connectionData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:55:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:56:9
+复杂度: 0
+定义变量: __len, __iter, __last, graph, __caches, logTag
+使用变量: __t, __i, __len, __s, __ucont, __builtin_strlen, __builtin_labs, PTHREAD_MUTEX_RECURSIVE_NP, __refs, __loc, _ISalpha, _ISdigit, _ISpunct, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:61:5
+复杂度: 0
+定义变量: __len
+使用变量: , __value, __cont, __low, __b4, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnExtensionDisconnectedInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:64:29
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int ConnectionObserverStub::OnExtensionDisconnectedInner(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<ConnectionData> connectionData(data.ReadParcelable<ConnectionData>());
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnExtensionDisconnected(*connectionData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:67:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!connectionData) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:68:9
+复杂度: 0
+定义变量: __diff, logTag
+使用变量: , __pos, __s, __size, __other, __intptr, __aligned, __gd, _Qn, _Pn, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "error connectionData");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_stub.cpp:73:5
+复杂度: 0
+定义变量: __tmp, __outnext
+使用变量: , __p, __last, __diff, __os, __ISwalpha, __space, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

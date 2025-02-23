@@ -1,0 +1,619 @@
+代码块类型: Method Declaration
+块名称: OnLoadPatchDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:24:29
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void QuickFixCallbackProxy::OnLoadPatchDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_LOAD_PATCH, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:26:5
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:28:19
+复杂度: 0
+定义变量: data
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:29:19
+复杂度: 0
+定义变量: reply
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:33:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_LOAD_PATCH, data, reply)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequestWithCmd
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:33:10
+复杂度: 0
+定义变量: 
+使用变量: proxy, ON_NOTIFY_LOAD_PATCH, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_LOAD_PATCH, data, reply)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:34:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:37:5
+复杂度: 0
+定义变量: have_error, logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:38:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnUnloadPatchDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:41:29
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void QuickFixCallbackProxy::OnUnloadPatchDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_UNLOAD_PATCH, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:43:5
+复杂度: 0
+定义变量: logTag
+使用变量: __refs, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:45:19
+复杂度: 0
+定义变量: data
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:46:19
+复杂度: 0
+定义变量: __caches, reply
+使用变量: _S_get_c_name
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:50:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_UNLOAD_PATCH, data, reply)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequestWithCmd
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:50:10
+复杂度: 0
+定义变量: lower
+使用变量: , __builtin_addressof, __r, __f, __low, _ISlower, __high, _S_get_c_name, data, reply, ON_NOTIFY_UNLOAD_PATCH
+关键位置: 否
+日志评分: 0
+代码:
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_UNLOAD_PATCH, data, reply)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:51:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:54:5
+复杂度: 0
+定义变量: npos, __b3, space, __remaining, logTag
+使用变量: , __a, __n, __ptr, __ret, __base, __pos, __builtin_strcmp, __s, __bsx, __b2, _ISspace, _S_get_c_name, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:55:5
+复杂度: 0
+定义变量: 
+使用变量: npos
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnReloadPageDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:58:29
+复杂度: 1
+定义变量: 
+使用变量: , __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void QuickFixCallbackProxy::OnReloadPageDone(int32_t resultCode, int32_t recordId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    MessageParcel data;
+    MessageParcel reply;
+    WRITE_PARCEL_AND_RETURN(InterfaceToken, data, QuickFixCallbackProxy::GetDescriptor());
+    WRITE_PARCEL_AND_RETURN(Int32, data, resultCode);
+    WRITE_PARCEL_AND_RETURN(Int32, data, recordId);
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_RELOAD_PAGE, data, reply)) {
+        return;
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+    return;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:60:5
+复杂度: 0
+定义变量: __len, __endptr, logTag
+使用变量: , __tmp, __n, __value, __pos, __b3, __loc, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:62:19
+复杂度: 0
+定义变量: data
+使用变量: , __n, _S_get_c_name
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:63:19
+复杂度: 0
+定义变量: __c, reply
+使用变量: __tmp, __loc
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:67:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_RELOAD_PAGE, data, reply)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequestWithCmd
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:67:10
+复杂度: 0
+定义变量: __maxlen, __aligned
+使用变量: value, , __t, __x, __tmp, __args, __c, __f, __s, __put, npos, _S_get_c_name, __cvt, __intptr, __align, __gd, data, reply, ON_NOTIFY_RELOAD_PAGE
+关键位置: 否
+日志评分: 0
+代码:
+    if (!SendRequestWithCmd(IQuickFixCallback::QuickFixCallbackCmd::ON_NOTIFY_RELOAD_PAGE, data, reply)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:68:9
+复杂度: 0
+定义变量: __diff
+使用变量: __gd
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:71:5
+复杂度: 0
+定义变量: __digits, __mp, logTag
+使用变量: terminate, , __n, __first, __val, __low, __str, __mem, __ISwupper, _Intl, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "function finished.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:72:5
+复杂度: 0
+定义变量: __tmp_data
+使用变量: DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SendRequestWithCmd
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:75:29
+复杂度: 2
+定义变量: 
+使用变量: , __location, __ret
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool QuickFixCallbackProxy::SendRequestWithCmd(uint32_t code, MessageParcel &data, MessageParcel &reply)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return false;
+    }
+
+    MessageOption option(MessageOption::TF_SYNC);
+    auto ret = remote->SendRequest(code, data, reply, option);
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: Remote
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:77:34
+复杂度: 0
+定义变量: 
+使用变量: , __size, __tmp_data
+关键位置: 否
+日志评分: 0
+代码:
+    sptr<IRemoteObject> remote = Remote();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:78:5
+复杂度: 1
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:78:9
+复杂度: 0
+定义变量: MIN_TRANSACTION_ID
+使用变量: , _Idx, operator==, __off, __testoff, __ISwgraph, remote
+关键位置: 否
+日志评分: 0
+代码:
+    if (remote == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:79:9
+复杂度: 0
+定义变量: __parent, MAX_TRANSACTION_ID, logTag
+使用变量: , __n, __result, __next, __ISwblank, partial, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is nullptr.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:80:9
+复杂度: 0
+定义变量: __tmp, __old, INVALID_FD
+使用变量: , __s, __builtin_fabsl, __ISwcntrl, __outstr
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:83:19
+复杂度: 0
+定义变量: __cerb, RPC_QOS_MAX_LATENCY, option
+使用变量: , __n, __len, __out, npos, __name, TF_SYNC
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option(MessageOption::TF_SYNC);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:84:16
+复杂度: 0
+定义变量: __result, RPC_QOS_MIN_LATENCY
+使用变量: , __a, __first, __i, __location, __h, __mem, data, reply, remote, operator->, code, option
+关键位置: 否
+日志评分: 0
+代码:
+    auto ret = remote->SendRequest(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator->
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:84:16
+复杂度: 0
+定义变量: __result, RPC_QOS_MIN_LATENCY
+使用变量: , __first, __location, __h, remote, operator->
+关键位置: 否
+日志评分: 0
+代码:
+    auto ret = remote->SendRequest(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:85:5
+复杂度: 1
+定义变量: 
+使用变量: , __s2, __mem
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:86:9
+复杂度: 0
+定义变量: __n, __num, SOCKET_ID_INVALID, logTag
+使用变量: , __n, __args, __val, __result, __pos, __cont, __s1, __name, __collate, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Send request failed with error %{public}d.", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:87:9
+复杂度: 0
+定义变量: __p, __g
+使用变量: __b, __n, __c, __s2
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_proxy.cpp:90:5
+复杂度: 0
+定义变量: 
+使用变量: , __first, __grouping
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

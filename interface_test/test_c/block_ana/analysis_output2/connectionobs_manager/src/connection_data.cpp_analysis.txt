@@ -1,0 +1,873 @@
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:24:22
+复杂度: 9
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ConnectionData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteInt32(extensionPid)) {
+        return false;
+    }
+
+    if (!parcel.WriteInt32(extensionUid)) {
+        return false;
+    }
+
+    if (!parcel.WriteString16(Str8ToStr16(extensionBundleName))) {
+        return false;
+    }
+
+    if (!parcel.WriteString16(Str8ToStr16(extensionModuleName))) {
+        return false;
+    }
+
+    if (!parcel.WriteString16(Str8ToStr16(extensionName))) {
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(extensionType))) {
+        return false;
+    }
+
+    if (!parcel.WriteInt32(callerUid)) {
+        return false;
+    }
+
+    if (!parcel.WriteInt32(callerPid)) {
+        return false;
+    }
+
+    if (!parcel.WriteString16(Str8ToStr16(callerName))) {
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:26:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(extensionPid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:27:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:30:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(extensionUid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:31:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:34:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString16(Str8ToStr16(extensionBundleName))) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:35:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:38:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString16(Str8ToStr16(extensionModuleName))) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:39:9
+复杂度: 0
+定义变量: 
+使用变量: __bsx
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString16(Str8ToStr16(extensionName))) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:43:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:46:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(static_cast<int32_t>(extensionType))) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:47:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:50:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(callerUid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:51:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:54:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteInt32(callerPid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:55:9
+复杂度: 0
+定义变量: 
+使用变量: DEFAULT, npos
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:58:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteString16(Str8ToStr16(callerName))) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:59:9
+复杂度: 0
+定义变量: 
+使用变量: , __pred, __iter, __b2
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:62:5
+复杂度: 0
+定义变量: 
+使用变量: , __num, __len, __b4
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:65:22
+复杂度: 9
+定义变量: 
+使用变量: , __first, __is_constant_evaluated, __builtin_unreachable, __location, __ret, __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool ConnectionData::ReadFromParcel(Parcel &parcel)
+{
+    if (!parcel.ReadInt32(extensionPid)) {
+        return false;
+    }
+
+    if (!parcel.ReadInt32(extensionUid)) {
+        return false;
+    }
+
+    std::u16string strValue;
+    if (!parcel.ReadString16(strValue)) {
+        return false;
+    }
+    extensionBundleName = Str16ToStr8(strValue);
+
+    if (!parcel.ReadString16(strValue)) {
+        return false;
+    }
+    extensionModuleName = Str16ToStr8(strValue);
+
+    if (!parcel.ReadString16(strValue)) {
+        return false;
+    }
+    extensionName = Str16ToStr8(strValue);
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        return false;
+    }
+    extensionType = static_cast<ExtensionAbilityType>(type);
+
+    if (!parcel.ReadInt32(callerUid)) {
+        TAG_LOGW(AAFwkTag::CONNECTION, "read callerUid failed");
+        return false;
+    }
+
+    if (!parcel.ReadInt32(callerPid)) {
+        TAG_LOGW(AAFwkTag::CONNECTION, "read callerPid failed");
+        return false;
+    }
+
+    if (!parcel.ReadString16(strValue)) {
+        TAG_LOGW(AAFwkTag::CONNECTION, "read strValue failed");
+        return false;
+    }
+    callerName = Str16ToStr8(strValue);
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:67:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.ReadInt32(extensionPid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:68:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:71:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.ReadInt32(extensionUid)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:72:9
+复杂度: 0
+定义变量: __tmp_data
+使用变量: , __first, DEFAULT, _S_local_capacity, __builtin_fabs
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:76:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.ReadString16(strValue)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:76:10
+复杂度: 0
+定义变量: 
+使用变量: , __digits, __x, __builtin_fabsf, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString16(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:77:9
+复杂度: 0
+定义变量: __testoff
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:81:5
+复杂度: 1
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.ReadString16(strValue)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:81:10
+复杂度: 0
+定义变量: 
+使用变量: parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString16(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:82:9
+复杂度: 0
+定义变量: 
+使用变量: , DEFAULT, __endptr
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:86:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.ReadString16(strValue)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:86:10
+复杂度: 0
+定义变量: __n, __num
+使用变量: , __n, __val, __args, __cont, __name, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString16(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:87:9
+复杂度: 0
+定义变量: __p
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:92:5
+复杂度: 1
+定义变量: 
+使用变量: __builtin_va_start
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.ReadInt32(type)) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:92:10
+复杂度: 0
+定义变量: 
+使用变量: , __val, parcel, type
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadInt32(type)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:93:9
+复杂度: 0
+定义变量: 
+使用变量: , __n, __nh, __ret
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:97:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadInt32(callerUid)) {
+        TAG_LOGW(AAFwkTag::CONNECTION, "read callerUid failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:98:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __it, __x, __a, __n, __val, __out, __left, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::CONNECTION, "read callerUid failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:99:9
+复杂度: 0
+定义变量: 
+使用变量: , __val
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:102:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __builtin_va_end
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadInt32(callerPid)) {
+        TAG_LOGW(AAFwkTag::CONNECTION, "read callerPid failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:103:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __n, __pos, tag, base, __s, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::CONNECTION, "read callerPid failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:104:9
+复杂度: 0
+定义变量: 
+使用变量: , __nh, __off, __tmp_capacity
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:107:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString16(strValue)) {
+        TAG_LOGW(AAFwkTag::CONNECTION, "read strValue failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:107:10
+复杂度: 0
+定义变量: 
+使用变量: , __x, _Nm, __nh, __pos, __arr, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString16(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:108:9
+复杂度: 0
+定义变量: tagNames, __tmp_capacity, logTag
+使用变量: __x, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::CONNECTION, "read strValue failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:109:9
+复杂度: 0
+定义变量: offset
+使用变量: __pos
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:113:5
+复杂度: 0
+定义变量: 
+使用变量: , __ret, tagNames, __s, __out
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:116:33
+复杂度: 1
+定义变量: 
+使用变量: __c1
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ConnectionData *ConnectionData::Unmarshalling(Parcel &parcel)
+{
+    ConnectionData *data = new ConnectionData();
+    if (!data->ReadFromParcel(parcel)) {
+        delete data;
+        data = nullptr;
+    }
+    return data;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ConnectionData
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:118:32
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    ConnectionData *data = new ConnectionData();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:119:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!data->ReadFromParcel(parcel)) {
+        delete data;
+        data = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:119:10
+复杂度: 0
+定义变量: __size
+使用变量: , __x, __n, __sz, __p, __y, __first, __last, __s, parcel, data
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_data.cpp:123:5
+复杂度: 0
+定义变量: 
+使用变量: __pos, __size, data
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return data;
+
+--------------------------------------------------------------------------------

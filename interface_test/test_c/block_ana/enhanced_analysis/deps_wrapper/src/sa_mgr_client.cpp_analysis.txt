@@ -1,0 +1,196 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AAFwk {
+
+SaMgrClient::SaMgrClient() : saMgr_(nullptr)
+
+{}
+
+
+
+SaMgrClient::~SaMgrClient()
+
+{}
+
+
+
+sptr<IRemoteObject> SaMgrClient::GetSystemAbility(const int32_t systemAbilityId)
+
+{
+
+    // use single instance of saMgr_
+
+    if (saMgr_ == nullptr) {
+
+        std::lock_guard<std::mutex> lock(saMutex_);
+
+        if (saMgr_ == nullptr) {
+
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+            if (saMgr_ == nullptr) {
+
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+                return nullptr;
+
+            }
+
+        }
+
+    }
+
+    return saMgr_->GetSystemAbility(systemAbilityId);
+
+}
+
+
+
+sptr<IRemoteObject> SaMgrClient::CheckSystemAbility(const int32_t systemAbilityId)
+
+{
+
+    // use single instance of saMgr_
+
+    if (saMgr_ == nullptr) {
+
+        std::lock_guard<std::mutex> lock(saMutex_);
+
+        if (saMgr_ == nullptr) {
+
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+            if (saMgr_ == nullptr) {
+
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+                return nullptr;
+
+            }
+
+        }
+
+    }
+
+    return saMgr_->CheckSystemAbility(systemAbilityId);
+
+}
+
+
+
+void SaMgrClient::RegisterSystemAbility(
+
+    const int32_t __attribute__((unused)) systemAbilityId, sptr<IRemoteObject> __attribute__((unused)) broker)
+
+{
+
+    (void)servicesMap_;
+
+}
+
+}  // namespace AAFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AAFwk {
+
+SaMgrClient::SaMgrClient() : saMgr_(nullptr)
+
+{}
+
+
+
+SaMgrClient::~SaMgrClient()
+
+{}
+
+
+
+sptr<IRemoteObject> SaMgrClient::GetSystemAbility(const int32_t systemAbilityId)
+
+{
+
+    // use single instance of saMgr_
+
+    if (saMgr_ == nullptr) {
+
+        std::lock_guard<std::mutex> lock(saMutex_);
+
+        if (saMgr_ == nullptr) {
+
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+            if (saMgr_ == nullptr) {
+
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+                return nullptr;
+
+            }
+
+        }
+
+    }
+
+    return saMgr_->GetSystemAbility(systemAbilityId);
+
+}
+
+
+
+sptr<IRemoteObject> SaMgrClient::CheckSystemAbility(const int32_t systemAbilityId)
+
+{
+
+    // use single instance of saMgr_
+
+    if (saMgr_ == nullptr) {
+
+        std::lock_guard<std::mutex> lock(saMutex_);
+
+        if (saMgr_ == nullptr) {
+
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+            if (saMgr_ == nullptr) {
+
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+                return nullptr;
+
+            }
+
+        }
+
+    }
+
+    return saMgr_->CheckSystemAbility(systemAbilityId);
+
+}
+
+
+
+void SaMgrClient::RegisterSystemAbility(
+
+    const int32_t __attribute__((unused)) systemAbilityId, sptr<IRemoteObject> __attribute__((unused)) broker)
+
+{
+
+    (void)servicesMap_;
+
+}
+
+}  // namespace AAFwk
+
+================================================================================

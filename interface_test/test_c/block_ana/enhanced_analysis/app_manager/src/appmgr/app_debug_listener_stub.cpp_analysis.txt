@@ -1,0 +1,346 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+namespace {
+
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+}
+
+AppDebugListenerStub::AppDebugListenerStub() {}
+
+
+
+AppDebugListenerStub::~AppDebugListenerStub() {}
+
+
+
+int AppDebugListenerStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
+
+    std::u16string descriptor = AppDebugListenerStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    switch (code) {
+
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STARTED):
+
+            return HandleOnAppDebugStarted(data, reply);
+
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STOPED):
+
+            return HandleOnAppDebugStoped(data, reply);
+
+    }
+
+
+
+    TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    auto infoSize = data.ReadInt32();
+
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+
+        return ERR_INVALID_DATA;
+
+    }
+
+
+
+    std::vector<AppDebugInfo> appDebugInfos;
+
+    for (int32_t index = 0; index < infoSize; index++) {
+
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+
+        if (appDebugInfo == nullptr) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+
+            return ERR_INVALID_DATA;
+
+        }
+
+        appDebugInfos.emplace_back(*appDebugInfo);
+
+    }
+
+
+
+    OnAppDebugStarted(appDebugInfos);
+
+    return NO_ERROR;
+
+}
+
+
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    auto infoSize = data.ReadInt32();
+
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+
+        return ERR_INVALID_DATA;
+
+    }
+
+
+
+    std::vector<AppDebugInfo> appDebugInfos;
+
+    for (int32_t index = 0; index < infoSize; index++) {
+
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+
+        if (appDebugInfo == nullptr) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+
+            return ERR_INVALID_DATA;
+
+        }
+
+        appDebugInfos.emplace_back(*appDebugInfo);
+
+    }
+
+
+
+    OnAppDebugStoped(appDebugInfos);
+
+    return NO_ERROR;
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+namespace {
+
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+}
+
+AppDebugListenerStub::AppDebugListenerStub() {}
+
+
+
+AppDebugListenerStub::~AppDebugListenerStub() {}
+
+
+
+int AppDebugListenerStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "code = %{public}u, flags= %{public}d", code, option.GetFlags());
+
+    std::u16string descriptor = AppDebugListenerStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    switch (code) {
+
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STARTED):
+
+            return HandleOnAppDebugStarted(data, reply);
+
+        case static_cast<uint32_t>(IAppDebugListener::Message::ON_APP_DEBUG_STOPED):
+
+            return HandleOnAppDebugStoped(data, reply);
+
+    }
+
+
+
+    TAG_LOGD(AAFwkTag::APPMGR, "AppDebugListenerStub::OnRemoteRequest end");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStarted(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    auto infoSize = data.ReadInt32();
+
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+
+        return ERR_INVALID_DATA;
+
+    }
+
+
+
+    std::vector<AppDebugInfo> appDebugInfos;
+
+    for (int32_t index = 0; index < infoSize; index++) {
+
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+
+        if (appDebugInfo == nullptr) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+
+            return ERR_INVALID_DATA;
+
+        }
+
+        appDebugInfos.emplace_back(*appDebugInfo);
+
+    }
+
+
+
+    OnAppDebugStarted(appDebugInfos);
+
+    return NO_ERROR;
+
+}
+
+
+
+int32_t AppDebugListenerStub::HandleOnAppDebugStoped(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    auto infoSize = data.ReadInt32();
+
+    if (infoSize <= CYCLE_LIMIT_MIN || infoSize > CYCLE_LIMIT_MAX) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Token size exceeds limit.");
+
+        return ERR_INVALID_DATA;
+
+    }
+
+
+
+    std::vector<AppDebugInfo> appDebugInfos;
+
+    for (int32_t index = 0; index < infoSize; index++) {
+
+        std::unique_ptr<AppDebugInfo> appDebugInfo(data.ReadParcelable<AppDebugInfo>());
+
+        if (appDebugInfo == nullptr) {
+
+            TAG_LOGE(AAFwkTag::APPMGR, "Read app debug infos failed.");
+
+            return ERR_INVALID_DATA;
+
+        }
+
+        appDebugInfos.emplace_back(*appDebugInfo);
+
+    }
+
+
+
+    OnAppDebugStoped(appDebugInfos);
+
+    return NO_ERROR;
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace {
+
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr int32_t CYCLE_LIMIT_MIN = 0;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_debug_listener_stub.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr int32_t CYCLE_LIMIT_MAX = 1000;
+
+================================================================================

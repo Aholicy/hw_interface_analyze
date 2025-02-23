@@ -1,0 +1,124 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/profile.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+Profile::Profile(const std::string &name) : profileName_(name)
+
+{}
+
+
+
+bool Profile::ReadFromParcel(Parcel &parcel)
+
+{
+
+    profileName_ = Str16ToStr8(parcel.ReadString16());
+
+
+
+    return true;
+
+}
+
+
+
+Profile *Profile::Unmarshalling(Parcel &parcel)
+
+{
+
+    Profile *profile = new (std::nothrow) Profile();
+
+    if (profile && !profile->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+
+        delete profile;
+
+        profile = nullptr;
+
+    }
+
+    return profile;
+
+}
+
+
+
+bool Profile::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteString16(Str8ToStr16(profileName_)));
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/profile.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+Profile::Profile(const std::string &name) : profileName_(name)
+
+{}
+
+
+
+bool Profile::ReadFromParcel(Parcel &parcel)
+
+{
+
+    profileName_ = Str16ToStr8(parcel.ReadString16());
+
+
+
+    return true;
+
+}
+
+
+
+Profile *Profile::Unmarshalling(Parcel &parcel)
+
+{
+
+    Profile *profile = new (std::nothrow) Profile();
+
+    if (profile && !profile->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+
+        delete profile;
+
+        profile = nullptr;
+
+    }
+
+    return profile;
+
+}
+
+
+
+bool Profile::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteString16(Str8ToStr16(profileName_)));
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

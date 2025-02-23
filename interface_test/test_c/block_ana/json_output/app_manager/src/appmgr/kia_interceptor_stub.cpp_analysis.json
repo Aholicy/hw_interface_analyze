@@ -1,0 +1,576 @@
+[
+  {
+    "block_type": "Method Declaration",
+    "block_name": "OnRemoteRequest",
+    "context_chain": [],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 26,
+      "column": 25
+    },
+    "complexity": 2,
+    "defined_variables": [],
+    "used_variables": [],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 5,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Method Declaration 日志存在",
+          "count": 1,
+          "score": 5
+        }
+      ]
+    },
+    "source_code": "int KiaInterceptorStub::OnRemoteRequest(uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)\n{\n    TAG_LOGD(AAFwkTag::APPMGR, \"cmd=%d,flags=%d\", code, option.GetFlags());\n    std::u16string descriptor = KiaInterceptorStub::GetDescriptor();\n    std::u16string remoteDescriptor = data.ReadInterfaceToken();\n    if (descriptor != remoteDescriptor) {\n        TAG_LOGI(AAFwkTag::APPMGR, \"local descriptor is not equal to remote\");\n        return ERR_INVALID_STATE;\n    }\n\n    if (code == KIA_INTERCEPTOR_ON_INTERCEPT) {\n        return OnInterceptInner(data, reply);\n    }\n    TAG_LOGW(AAFwkTag::APPMGR, \"KiaInterceptorStub::OnRemoteRequest, default case, need check.\");\n    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);\n}\n"
+  },
+  {
+    "block_type": "Loop Block (do-while)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "DO_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 28,
+      "column": 5
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "REGISTRY_HANDLE",
+      "logTag"
+    ],
+    "used_variables": [
+      "APPMGR"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 2,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Loop Block (do-while) 日志存在",
+          "count": 1,
+          "score": 2
+        }
+      ]
+    },
+    "source_code": "    TAG_LOGD(AAFwkTag::APPMGR, \"cmd=%d,flags=%d\", code, option.GetFlags());\n"
+  },
+  {
+    "block_type": "Function Call",
+    "block_name": "ReadInterfaceToken",
+    "context_chain": [],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 30,
+      "column": 39
+    },
+    "complexity": 0,
+    "defined_variables": [],
+    "used_variables": [
+      "data"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 0,
+      "has_logging": false,
+      "is_critical": false,
+      "details": []
+    },
+    "source_code": "    std::u16string remoteDescriptor = data.ReadInterfaceToken();\n"
+  },
+  {
+    "block_type": "Conditional Block (if)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 31,
+      "column": 5
+    },
+    "complexity": 1,
+    "defined_variables": [
+      "metaDescriptor_"
+    ],
+    "used_variables": [
+      "metaDescriptor_"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 3,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Conditional Block (if) 日志存在",
+          "count": 1,
+          "score": 3
+        }
+      ]
+    },
+    "source_code": "    if (descriptor != remoteDescriptor) {\n        TAG_LOGI(AAFwkTag::APPMGR, \"local descriptor is not equal to remote\");\n        return ERR_INVALID_STATE;\n    }\n"
+  },
+  {
+    "block_type": "Loop Block (do-while)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      },
+      {
+        "kind": "DO_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 32,
+      "column": 9
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "proxy",
+      "logTag"
+    ],
+    "used_variables": [
+      "nothrow",
+      "object",
+      "APPMGR"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 2,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Loop Block (do-while) 日志存在",
+          "count": 1,
+          "score": 2
+        }
+      ]
+    },
+    "source_code": "        TAG_LOGI(AAFwkTag::APPMGR, \"local descriptor is not equal to remote\");\n"
+  },
+  {
+    "block_type": "Return Statement",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 33,
+      "column": 9
+    },
+    "complexity": 0,
+    "defined_variables": [],
+    "used_variables": [
+      "proxy",
+      "ERR_INVALID_STATE"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": -2,
+      "has_logging": false,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Return Statement 缺少日志",
+          "count": 1,
+          "score": -2
+        }
+      ]
+    },
+    "source_code": "        return ERR_INVALID_STATE;\n"
+  },
+  {
+    "block_type": "Conditional Block (if)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 36,
+      "column": 5
+    },
+    "complexity": 1,
+    "defined_variables": [],
+    "used_variables": [],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": -2,
+      "has_logging": false,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Conditional Block (if) 缺少日志",
+          "count": 1,
+          "score": -2
+        }
+      ]
+    },
+    "source_code": "    if (code == KIA_INTERCEPTOR_ON_INTERCEPT) {\n        return OnInterceptInner(data, reply);\n    }\n"
+  },
+  {
+    "block_type": "Return Statement",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 37,
+      "column": 9
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "have_error"
+    ],
+    "used_variables": [
+      "data",
+      "reply"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": -2,
+      "has_logging": false,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Return Statement 缺少日志",
+          "count": 1,
+          "score": -2
+        }
+      ]
+    },
+    "source_code": "        return OnInterceptInner(data, reply);\n"
+  },
+  {
+    "block_type": "Function Call",
+    "block_name": "OnInterceptInner",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 37,
+      "column": 16
+    },
+    "complexity": 0,
+    "defined_variables": [],
+    "used_variables": [
+      "data",
+      "reply"
+    ],
+    "namespace": [],
+    "parent_block": {
+      "type": "Return Statement",
+      "name": ""
+    },
+    "log_analysis": {
+      "total_score": 0,
+      "has_logging": false,
+      "is_critical": false,
+      "details": []
+    },
+    "source_code": "        return OnInterceptInner(data, reply);\n"
+  },
+  {
+    "block_type": "Loop Block (do-while)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "DO_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 39,
+      "column": 5
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "logTag"
+    ],
+    "used_variables": [
+      "__bsx",
+      "APPMGR"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 2,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Loop Block (do-while) 日志存在",
+          "count": 1,
+          "score": 2
+        }
+      ]
+    },
+    "source_code": "    TAG_LOGW(AAFwkTag::APPMGR, \"KiaInterceptorStub::OnRemoteRequest, default case, need check.\");\n"
+  },
+  {
+    "block_type": "Method Declaration",
+    "block_name": "OnInterceptInner",
+    "context_chain": [],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 43,
+      "column": 25
+    },
+    "complexity": 2,
+    "defined_variables": [],
+    "used_variables": [
+      "__out"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 5,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Method Declaration 日志存在",
+          "count": 1,
+          "score": 5
+        }
+      ]
+    },
+    "source_code": "int KiaInterceptorStub::OnInterceptInner(MessageParcel &data, MessageParcel &reply)\n{\n    sptr<AAFwk::Want> want = data.ReadParcelable<AAFwk::Want>();\n    int resultCode = OnIntercept(*want);\n    if (!reply.WriteInt32(resultCode)) {\n        TAG_LOGE(AAFwkTag::APPMGR, \"write resultCode failed.\");\n        return ERR_INVALID_VALUE;\n    }\n    if (!reply.WriteParcelable(want)) {\n        TAG_LOGE(AAFwkTag::APPMGR, \"write want failed.\");\n        return ERR_INVALID_VALUE;\n    }\n\n    return NO_ERROR;\n}\n"
+  },
+  {
+    "block_type": "Conditional Block (if)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 47,
+      "column": 5
+    },
+    "complexity": 1,
+    "defined_variables": [],
+    "used_variables": [],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 3,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Conditional Block (if) 日志存在",
+          "count": 1,
+          "score": 3
+        }
+      ]
+    },
+    "source_code": "    if (!reply.WriteInt32(resultCode)) {\n        TAG_LOGE(AAFwkTag::APPMGR, \"write resultCode failed.\");\n        return ERR_INVALID_VALUE;\n    }\n"
+  },
+  {
+    "block_type": "Loop Block (do-while)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      },
+      {
+        "kind": "DO_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 48,
+      "column": 9
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "__ret",
+      "logTag"
+    ],
+    "used_variables": [
+      "APPMGR"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 2,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Loop Block (do-while) 日志存在",
+          "count": 1,
+          "score": 2
+        }
+      ]
+    },
+    "source_code": "        TAG_LOGE(AAFwkTag::APPMGR, \"write resultCode failed.\");\n"
+  },
+  {
+    "block_type": "Conditional Block (if)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 51,
+      "column": 5
+    },
+    "complexity": 1,
+    "defined_variables": [],
+    "used_variables": [],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 3,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Conditional Block (if) 日志存在",
+          "count": 1,
+          "score": 3
+        }
+      ]
+    },
+    "source_code": "    if (!reply.WriteParcelable(want)) {\n        TAG_LOGE(AAFwkTag::APPMGR, \"write want failed.\");\n        return ERR_INVALID_VALUE;\n    }\n"
+  },
+  {
+    "block_type": "Loop Block (do-while)",
+    "block_name": "",
+    "context_chain": [
+      {
+        "kind": "IF_STMT",
+        "spelling": ""
+      },
+      {
+        "kind": "DO_STMT",
+        "spelling": ""
+      }
+    ],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 52,
+      "column": 9
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "__n",
+      "digit",
+      "logTag"
+    ],
+    "used_variables": [
+      "__n",
+      "__cont",
+      "uselocale",
+      "__put",
+      "__libc_single_threaded",
+      "__refs",
+      "_ISdigit",
+      "__high",
+      "_Intl",
+      "_Base",
+      "APPMGR"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": 2,
+      "has_logging": true,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Loop Block (do-while) 日志存在",
+          "count": 1,
+          "score": 2
+        }
+      ]
+    },
+    "source_code": "        TAG_LOGE(AAFwkTag::APPMGR, \"write want failed.\");\n"
+  },
+  {
+    "block_type": "Return Statement",
+    "block_name": "",
+    "context_chain": [],
+    "location": {
+      "file": "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/kia_interceptor_stub.cpp",
+      "line": 56,
+      "column": 5
+    },
+    "complexity": 0,
+    "defined_variables": [
+      "__len",
+      "__iter"
+    ],
+    "used_variables": [
+      "__refs",
+      "NO_ERROR"
+    ],
+    "namespace": [],
+    "parent_block": null,
+    "log_analysis": {
+      "total_score": -2,
+      "has_logging": false,
+      "is_critical": true,
+      "details": [
+        {
+          "type": "Return Statement 缺少日志",
+          "count": 1,
+          "score": -2
+        }
+      ]
+    },
+    "source_code": "    return NO_ERROR;\n"
+  }
+]

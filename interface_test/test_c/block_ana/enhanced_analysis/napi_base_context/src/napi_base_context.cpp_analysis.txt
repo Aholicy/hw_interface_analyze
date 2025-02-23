@@ -1,0 +1,1198 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AbilityRuntime {
+
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+
+{
+
+    napi_value boolValue;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+
+
+    bool value = false;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+
+
+    stageMode = value;
+
+    return napi_ok;
+
+}
+
+
+
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+
+{
+
+    void* wrapped = nullptr;
+
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+
+    if (ret != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+}
+
+
+
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+
+{
+
+    napi_value global;
+
+    napi_status status = napi_get_global(env, &global);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    napi_value abilityObj;
+
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+
+    if (status != napi_ok || abilityObj == nullptr) {
+
+        return nullptr;
+
+    }
+
+
+
+    void* pointer = nullptr;
+
+    status = napi_get_value_external(env, abilityObj, &pointer);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+}
+
+}  // namespace AbilityRuntime
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:27
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AbilityRuntime {
+
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+
+{
+
+    napi_value boolValue;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+
+
+    bool value = false;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+
+
+    stageMode = value;
+
+    return napi_ok;
+
+}
+
+
+
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+
+{
+
+    void* wrapped = nullptr;
+
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+
+    if (ret != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+}
+
+
+
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+
+{
+
+    napi_value global;
+
+    napi_status status = napi_get_global(env, &global);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    napi_value abilityObj;
+
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+
+    if (status != napi_ok || abilityObj == nullptr) {
+
+        return nullptr;
+
+    }
+
+
+
+    void* pointer = nullptr;
+
+    status = napi_get_value_external(env, abilityObj, &pointer);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+}
+
+}  // namespace AbilityRuntime
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:28
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+napi_status IsStageContext(napi_env env, napi_value object, bool& stageMode)
+
+{
+
+    napi_value boolValue;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+
+
+    bool value = false;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+
+
+    stageMode = value;
+
+    return napi_ok;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:29
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    napi_value boolValue;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+
+
+    bool value = false;
+
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+
+
+    stageMode = value;
+
+    return napi_ok;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:30
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_value boolValue;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:30
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_value boolValue;
+
+================================================================================
+关键点类型: 循环结束
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 循环结束: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 循环结束 处添加日志记录
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_named_property(env, object, "stageMode", &boolValue));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:33
+重要性权重: 1
+综合评分: 0
+代码片段:
+    bool value = false;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:33
+重要性权重: 1
+综合评分: 0
+代码片段:
+    bool value = false;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:33
+重要性权重: 1
+综合评分: 0
+代码片段:
+    bool value = false;
+
+================================================================================
+关键点类型: 循环结束
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 循环结束: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 循环结束 处添加日志记录
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:34
+重要性权重: 1
+综合评分: 0
+代码片段:
+    OHOS_CALL_NAPI_RETURN(napi_get_value_bool(env, boolValue, &value));
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:36
+重要性权重: 1
+综合评分: 0
+代码片段:
+    stageMode = value;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:36
+重要性权重: 1
+综合评分: 0
+代码片段:
+    stageMode = value;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:36
+重要性权重: 1
+综合评分: 0
+代码片段:
+    stageMode = value;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:36
+重要性权重: 1
+综合评分: 0
+代码片段:
+    stageMode = value;
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:40
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+std::shared_ptr<Context> GetStageModeContext(napi_env env, napi_value object)
+
+{
+
+    void* wrapped = nullptr;
+
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+
+    if (ret != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:41
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    void* wrapped = nullptr;
+
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+
+    if (ret != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:42
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* wrapped = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:42
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* wrapped = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:42
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* wrapped = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:42
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* wrapped = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:43
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:43
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_status ret = napi_unwrap(env, object, &wrapped);
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:44
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (ret != napi_ok) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:44
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (ret != napi_ok) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:44
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (ret != napi_ok) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:45
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:45
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:45
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:48
+重要性权重: 1
+综合评分: 0
+代码片段:
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:48
+重要性权重: 1
+综合评分: 0
+代码片段:
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:48
+重要性权重: 1
+综合评分: 0
+代码片段:
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:48
+重要性权重: 1
+综合评分: 0
+代码片段:
+    auto weakContext = static_cast<std::weak_ptr<Context>*>(wrapped);
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 关键调用
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 关键调用: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 关键调用 处添加日志记录
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:49
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return weakContext != nullptr ? weakContext->lock() : nullptr;
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:52
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+AppExecFwk::Ability* GetCurrentAbility(napi_env env)
+
+{
+
+    napi_value global;
+
+    napi_status status = napi_get_global(env, &global);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    napi_value abilityObj;
+
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+
+    if (status != napi_ok || abilityObj == nullptr) {
+
+        return nullptr;
+
+    }
+
+
+
+    void* pointer = nullptr;
+
+    status = napi_get_value_external(env, abilityObj, &pointer);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:53
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    napi_value global;
+
+    napi_status status = napi_get_global(env, &global);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    napi_value abilityObj;
+
+    status = napi_get_named_property(env, global, "ability", &abilityObj);
+
+    if (status != napi_ok || abilityObj == nullptr) {
+
+        return nullptr;
+
+    }
+
+
+
+    void* pointer = nullptr;
+
+    status = napi_get_value_external(env, abilityObj, &pointer);
+
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+
+
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:54
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_value global;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:54
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_value global;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:55
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_status status = napi_get_global(env, &global);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:55
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_status status = napi_get_global(env, &global);
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:56
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:56
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (status != napi_ok) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:56
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:57
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:57
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:57
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:60
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_value abilityObj;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:60
+重要性权重: 1
+综合评分: 0
+代码片段:
+    napi_value abilityObj;
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:62
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (status != napi_ok || abilityObj == nullptr) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:62
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (status != napi_ok || abilityObj == nullptr) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:62
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (status != napi_ok || abilityObj == nullptr) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:63
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:63
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:63
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:66
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* pointer = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:66
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* pointer = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:66
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* pointer = nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:66
+重要性权重: 1
+综合评分: 0
+代码片段:
+    void* pointer = nullptr;
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:68
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:68
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (status != napi_ok) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:68
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (status != napi_ok) {
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:69
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:69
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:69
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:72
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:72
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/napi_base_context/src/napi_base_context.cpp:72
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return static_cast<AppExecFwk::Ability*>(pointer);
+
+================================================================================

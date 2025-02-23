@@ -1,0 +1,262 @@
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:33:5
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:40:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:51:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!flags.empty()) {
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:54:5
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!wants.empty()) {
+        for (auto want : wants) {
+            if (want != nullptr) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:61:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (extraInfo != nullptr) {
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:68:5
+复杂度: 4
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (paramInfo != nullptr) {
+        requestCode_ = paramInfo->GetRequestCode();
+        operationType_ = paramInfo->GetOperationType();
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+        if (!paramInfo->GetWants().empty()) {
+            for (auto want : paramInfo->GetWants()) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+        if (paramInfo->GetExtraInfo() != nullptr) {
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:73:9
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (!paramInfo->GetWants().empty()) {
+            for (auto want : paramInfo->GetWants()) {
+                wants_.push_back(std::make_shared<Want>(*want));
+            }
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:78:9
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (paramInfo->GetExtraInfo() != nullptr) {
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetRequestCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:84:20
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int WantAgentInfo::GetRequestCode() const
+{
+    return requestCode_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:86:5
+复杂度: 0
+定义变量: 
+使用变量: , __tmp, __result, __cont
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return requestCode_;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetOperationType
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:89:49
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+{
+    return operationType_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:91:5
+复杂度: 0
+定义变量: 
+使用变量: , __n, __ils
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return operationType_;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetFlags
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:94:54
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+{
+    return flags_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetWants
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:99:51
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+{
+    return wants_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetExtraInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:104:44
+复杂度: 0
+定义变量: 
+使用变量: __len
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+{
+    return extraInfo_;
+}
+
+--------------------------------------------------------------------------------

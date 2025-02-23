@@ -1,0 +1,308 @@
+代码块类型: Method Declaration
+块名称: Throw
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:155:31
+复杂度: 2
+定义变量: 
+使用变量: __pos, __builtin_operator_delete, __nh
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool AbilityRuntimeErrorUtil::Throw(napi_env env, int32_t errCode, const std::string &errMessage)
+{
+    std::string eMes = errMessage;
+    if (eMes.empty()) {
+        eMes = ERROR_MSG_MAP.at(errCode);
+    }
+    napi_value error = nullptr;
+    napi_create_error(env, CreateJsValue(env, errCode), CreateJsValue(env, eMes), &error);
+    if (error == nullptr) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "create error");
+        return false;
+    }
+    napi_throw(env, error);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:157:24
+复杂度: 0
+定义变量: 
+使用变量: , __lc, failbit, errMessage
+关键位置: 否
+日志评分: 0
+代码:
+    std::string eMes = errMessage;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:158:5
+复杂度: 1
+定义变量: 
+使用变量: __n, __size, __ret, __dest
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (eMes.empty()) {
+        eMes = ERROR_MSG_MAP.at(errCode);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: empty
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:158:9
+复杂度: 0
+定义变量: __c
+使用变量: __pos, , __a, __size, __gthread_active_p, __nodes, eMes
+关键位置: 否
+日志评分: 0
+代码:
+    if (eMes.empty()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:163:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (error == nullptr) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "create error");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:164:9
+复杂度: 0
+定义变量: __is_signed, offset, logTag
+使用变量: __c, , eq_int_type, eof, to_int_type, __x, __builtin_expect, __position, __testeof, DEFAULT, tag, GetOffset, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "create error");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:165:9
+复杂度: 0
+定义变量: __alloc
+使用变量: , __r, __x, __size, __first1, __svt, offset
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:168:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __first1, __plus, tagNames
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ThrowByInternalErrCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:171:31
+复杂度: 1
+定义变量: 
+使用变量: __pos
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool AbilityRuntimeErrorUtil::ThrowByInternalErrCode(napi_env env, int32_t errCode)
+{
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return false;
+    }
+    return Throw(env, ERROR_CODE_MAP.at(errCode));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:173:5
+复杂度: 1
+定义变量: 
+使用变量: __i
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:174:9
+复杂度: 0
+定义变量: __can_memmove, offset, logTag
+使用变量: __n, __other, __a, __ptr, _Num, __last1, __sv, __beg, allocator_arg, PTHREAD_MUTEX_RECURSIVE_NP, operator&, out, __mode, badbit, __node, DEFAULT, tag, GetOffset, LOCAL_CALL
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:175:9
+复杂度: 0
+定义变量: len
+使用变量: __p, , __comp, __end, __beg, __victim, offset
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: CreateErrorByInternalErrCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:180:37
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __old, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+napi_value AbilityRuntimeErrorUtil::CreateErrorByInternalErrCode(napi_env env, int32_t errCode)
+{
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return nullptr;
+    }
+    int32_t externalErrCode = ERROR_CODE_MAP.at(errCode);
+    return CreateJsError(env, externalErrCode, ERROR_MSG_MAP.at(externalErrCode));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:182:5
+复杂度: 1
+定义变量: 
+使用变量: __first1, __atomic_thread_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ERROR_CODE_MAP.find(errCode) == ERROR_CODE_MAP.end()) {
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:183:9
+复杂度: 0
+定义变量: __cerb, __lock, numberValue, BASE_JSENV, logTag
+使用变量: __p, __n, __a, __x, __b, __cont, __position, operator|, __testeof, __op, DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::DEFAULT, "Invalid errCode");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:184:9
+复杂度: 0
+定义变量: __r, __newoffi, BASE_DELEGATOR
+使用变量: , __s, __r, __cerb, __cont
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetErrMessage
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:190:38
+复杂度: 0
+定义变量: 
+使用变量: __i
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::string AbilityRuntimeErrorUtil::GetErrMessage(int32_t errCode)
+{
+    auto iter = ERROR_MSG_MAP.find(errCode);
+    std::string errMsg = (iter != ERROR_MSG_MAP.end()) ? iter->second : "";
+    return errMsg;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:194:5
+复杂度: 0
+定义变量: 
+使用变量: __n, , __builtin_launder, __last, __len, __dest, __testin, BASE_DEFAULT, errMsg
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return errMsg;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/error_utils/src/ability_runtime_error_util.cpp:194:12
+复杂度: 0
+定义变量: 
+使用变量: , __builtin_launder, BASE_DEFAULT, errMsg
+关键位置: 否
+日志评分: 0
+代码:
+    return errMsg;
+
+--------------------------------------------------------------------------------

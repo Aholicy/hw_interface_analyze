@@ -1,0 +1,1114 @@
+代码块类型: Method Declaration
+块名称: ApplyQuickFix
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:35:32
+复杂度: 3
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t QuickFixManagerClient::ApplyQuickFix(const std::vector<std::string> &quickFixFiles, bool isDebug)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+    auto quickFixMgr = GetQuickFixMgrProxy();
+    if (quickFixMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+    auto bundleQuickFixMgr = QuickFixUtil::GetBundleQuickFixMgrProxy();
+    if (bundleQuickFixMgr == nullptr) {
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+    TAG_LOGD(AAFwkTag::QUICKFIX, "hqf file number need to apply: %{public}zu", quickFixFiles.size());
+    std::vector<std::string> destFiles;
+    auto copyRet = bundleQuickFixMgr->CopyFiles(quickFixFiles, destFiles);
+    if (copyRet != 0) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Copy files failed.");
+        return (copyRet == ERR_BUNDLEMANAGER_QUICK_FIX_PERMISSION_DENIED) ? QUICK_FIX_VERIFY_PERMISSION_FAILED :
+            QUICK_FIX_COPY_FILES_FAILED;
+    }
+
+    return quickFixMgr->ApplyQuickFix(destFiles, isDebug);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:38:5
+复杂度: 0
+定义变量: progname, metaDescriptor_, logTag
+使用变量: metaDescriptor_, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:41:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (quickFixMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:42:9
+复杂度: 0
+定义变量: logTag
+使用变量: _Intl, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:43:9
+复杂度: 0
+定义变量: 
+使用变量: __refs, QUICK_FIX_CONNECT_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return QUICK_FIX_CONNECT_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:47:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (bundleQuickFixMgr == nullptr) {
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:48:9
+复杂度: 0
+定义变量: __ret, THREAD_BLOCK_6S
+使用变量: QUICK_FIX_CONNECT_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return QUICK_FIX_CONNECT_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:51:5
+复杂度: 0
+定义变量: __put, alpha, __buf_len, BUSSINESS_THREAD_BLOCK_6S, logTag
+使用变量: , __n, __s, __out, __vec, __low, _ISalpha, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "hqf file number need to apply: %{public}zu", quickFixFiles.size());
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:54:5
+复杂度: 1
+定义变量: metaDescriptor_
+使用变量: metaDescriptor_
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (copyRet != 0) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Copy files failed.");
+        return (copyRet == ERR_BUNDLEMANAGER_QUICK_FIX_PERMISSION_DENIED) ? QUICK_FIX_VERIFY_PERMISSION_FAILED :
+            QUICK_FIX_COPY_FILES_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:55:9
+复杂度: 0
+定义变量: __i, __len, __b4, __num, print, logTag
+使用变量: , npos, __base, __b3, PTHREAD_MUTEX_TIMED_NP, DEFAULT, _ISprint, __buf_len, __remaining, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Copy files failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetApplyedQuickFixInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:63:32
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, rethrow_exception, __builtin_unreachable, __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t QuickFixManagerClient::GetApplyedQuickFixInfo(const std::string &bundleName,
+    ApplicationQuickFixInfo &quickFixInfo)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+    auto quickFixMgr = GetQuickFixMgrProxy();
+    if (quickFixMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+    return quickFixMgr->GetApplyedQuickFixInfo(bundleName, quickFixInfo);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:67:5
+复杂度: 0
+定义变量: __aligned, __maxlen, logTag
+使用变量: , __x, __m, __s, __t, __tmp, __put, __f, __num, __throw_out_of_range_fmt, npos, __gd, __intptr, __align, _S_get_c_name, __cvt, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:70:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (quickFixMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:71:9
+复杂度: 0
+定义变量: __digits, __mp, logTag
+使用变量: terminate, , __n, _Base, __first, __val, __str, __mem, _Lp, __low, __ISwupper, _Intl, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:72:9
+复杂度: 0
+定义变量: __tmp_data
+使用变量: , _Pn, __x, __n, __first, __last, _S_local_capacity, __builtin_fabs, PTHREAD_MUTEX_STALLED, __low, DEFAULT, __loc, __ISwlower, _Intl, __outstr, QUICK_FIX_CONNECT_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return QUICK_FIX_CONNECT_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetQuickFixMgrProxy
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:78:47
+复杂度: 4
+定义变量: 
+使用变量: , __ret, __first, __len, __location, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+sptr<IQuickFixManager> QuickFixManagerClient::GetQuickFixMgrProxy()
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+    auto quickFixMgr = GetQuickFixMgr();
+    if (quickFixMgr != nullptr) {
+        TAG_LOGD(AAFwkTag::QUICKFIX, "Quick fix manager has been started");
+        return quickFixMgr;
+    }
+
+    if (!LoadQuickFixMgrService()) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Load quick fix manager service failed");
+        return nullptr;
+    }
+
+    quickFixMgr = GetQuickFixMgr();
+    if (quickFixMgr == nullptr || quickFixMgr->AsObject() == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get quick fix manager");
+        return nullptr;
+    }
+
+    auto self = weak_from_this();
+    const auto &onClearProxyCallback = [self](const wptr<IRemoteObject> &remote) {
+        auto impl = self.lock();
+        if (impl && impl->quickFixMgr_ == remote) {
+            impl->ClearProxy();
+        }
+    };
+
+    sptr<QfmsDeathRecipient> recipient(new (std::nothrow) QfmsDeathRecipient(onClearProxyCallback));
+    quickFixMgr->AsObject()->AddDeathRecipient(recipient);
+
+    return quickFixMgr;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:81:5
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __tmp, __first, __ISwpunct, _S_get_c_name, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:83:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (quickFixMgr != nullptr) {
+        TAG_LOGD(AAFwkTag::QUICKFIX, "Quick fix manager has been started");
+        return quickFixMgr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:84:9
+复杂度: 0
+定义变量: __result, __x, __falsename, RPC_QOS_MIN_LATENCY, logTag
+使用变量: , __b, __s, __pos, __a, __i, __cerb, __first, __val, __location, __h, __mem, __next, __child, UNKNOWN, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGD(AAFwkTag::QUICKFIX, "Quick fix manager has been started");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:88:5
+复杂度: 1
+定义变量: 
+使用变量: , __n, __ret, __first
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!LoadQuickFixMgrService()) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Load quick fix manager service failed");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: LoadQuickFixMgrService
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:88:10
+复杂度: 0
+定义变量: __w, __remaining
+使用变量: , __x, __b, __g, __digits, __pos, __tmp, __out, __first, __last, __num, __result
+关键位置: 否
+日志评分: 0
+代码:
+    if (!LoadQuickFixMgrService()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:89:9
+复杂度: 0
+定义变量: __len, logTag
+使用变量: , __c, __n, __digits, __p, __pos, __a, __ex, __i, __w, __comp, __num, __element, __buf_len, __remaining, b, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Load quick fix manager service failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:90:9
+复杂度: 0
+定义变量: 
+使用变量: , __s, __result, __grouping
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:94:5
+复杂度: 1
+定义变量: 
+使用变量: , __builtin_va_start, __count, __outstr
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (quickFixMgr == nullptr || quickFixMgr->AsObject() == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get quick fix manager");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:95:9
+复杂度: 0
+定义变量: __b0, __curr_symbol, logTag
+使用变量: , _Nm, _Qn, __c, __n, __b, __ptr, __digits, _Base, __p, __a, __i, __out, __w, __first, __last, __val, __num, __result, __mp, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get quick fix manager");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:96:9
+复杂度: 0
+定义变量: __positive_sign
+使用变量: , __n, __b, __digits, __out, __comp, __arr, __nh, DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:102:9
+复杂度: 1
+定义变量: 
+使用变量: __lock
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (impl && impl->quickFixMgr_ == remote) {
+            impl->ClearProxy();
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: RevokeQuickFix
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:113:32
+复杂度: 1
+定义变量: 
+使用变量: , __c1, __ptr, __is_constant_evaluated, __builtin_unreachable, __u
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t QuickFixManagerClient::RevokeQuickFix(const std::string &bundleName)
+{
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+    auto quickFixMgr = GetQuickFixMgrProxy();
+    if (quickFixMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+    auto retval = quickFixMgr->RevokeQuickFix(bundleName);
+    TAG_LOGD(AAFwkTag::QUICKFIX, "Function call end, retval is %{public}d", retval);
+    return retval;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:115:5
+复杂度: 0
+定义变量: __i, logTag
+使用变量: , __x, _Base, __arg, __a, __tmp, __i, __fn, __sz, allocator_arg, __nh, memory_order_seq_cst, _S_iend, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:118:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (quickFixMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+        return QUICK_FIX_CONNECT_FAILED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:119:9
+复杂度: 0
+定义变量: __size, logTag
+使用变量: , __x, __y, __n, _Base, __s, __p, __i, __args, __ret, __first, __last, __fn, __sz, __count, PTHREAD_MUTEX_TIMED_NP, __cur, __gthread_recursive_mutex_trylock, memory_order_seq_cst, __loc, __falsename, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Get quick fix manager service failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:120:9
+复杂度: 0
+定义变量: __ret, mutex_, offset
+使用变量: _Cond, , __size, __sz, __tmp_ptr, __mp, __cur, __cmpexch_failure_order2, tag, GetOffset, QUICK_FIX_CONNECT_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return QUICK_FIX_CONNECT_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:124:5
+复杂度: 0
+定义变量: __hi, __ct, __stored_locally, logTag
+使用变量: , __hi1, __hi2, __n, __b, __ptr, __size, __first, __comp, __from, __alloc, __default_lock_policy, __state, memory_order_seq_cst, offset, tagNames, __loc, __from_end, __from_next, __grouping, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "Function call end, retval is %{public}d", retval);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ClearProxy
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:128:29
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void QuickFixManagerClient::ClearProxy()
+{
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+    std::lock_guard<std::mutex> lock(mutex_);
+    quickFixMgr_ = nullptr;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:130:5
+复杂度: 0
+定义变量: __n, __delta, offset, logTag
+使用变量: , __atime, __c_entry, tag, GetOffset, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: lock_guard
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:131:33
+复杂度: 0
+定义变量: lock
+使用变量: , _Base, __a, __last
+关键位置: 否
+日志评分: 0
+代码:
+    std::lock_guard<std::mutex> lock(mutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:135:49
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void QuickFixManagerClient::QfmsDeathRecipient::OnRemoteDied([[maybe_unused]] const wptr<IRemoteObject> &remote)
+{
+    if (proxy_ != nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "quick fix manager service died");
+        proxy_(remote);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:137:5
+复杂度: 1
+定义变量: 
+使用变量: __atomic_signal_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (proxy_ != nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "quick fix manager service died");
+        proxy_(remote);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:138:9
+复杂度: 0
+定义变量: __f, logTag
+使用变量: , __c, __n, __p, __pos, __source, memory_order_seq_cst, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "quick fix manager service died");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: LoadQuickFixMgrService
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:143:29
+复杂度: 4
+定义变量: 
+使用变量: , __pos, __ne_ptr, __builtin_operator_delete, __res, __position, __nh
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool QuickFixManagerClient::LoadQuickFixMgrService()
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    {
+        std::unique_lock<std::mutex> lock(loadSaMutex_);
+        loadSaFinished_ = false;
+    }
+
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, "GetSystemAbilityManager");
+    auto systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (systemAbilityMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get SystemAbilityManager");
+        return false;
+    }
+
+    sptr<QuickFixLoadCallback> loadCallback = new (std::nothrow) QuickFixLoadCallback();
+    if (loadCallback == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create load callback failed");
+        return false;
+    }
+
+    auto ret = systemAbilityMgr->LoadSystemAbility(QUICK_FIX_MGR_SERVICE_ID, loadCallback);
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Load system ability %{public}d failed with %{public}d", QUICK_FIX_MGR_SERVICE_ID,
+            ret);
+        return false;
+    }
+
+    {
+        std::unique_lock<std::mutex> lock(loadSaMutex_);
+        auto waitStatus = loadSaCondation_.wait_for(lock, std::chrono::milliseconds(LOAD_SA_TIMEOUT_MS),
+            [this]() {
+                return loadSaFinished_;
+            });
+        if (!waitStatus) {
+            TAG_LOGE(AAFwkTag::QUICKFIX, "Wait for load sa timeout");
+            return false;
+        }
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: unique_lock
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:147:38
+复杂度: 0
+定义变量: lock
+使用变量: __c, __y, _Base, __result
+关键位置: 否
+日志评分: 0
+代码:
+        std::unique_lock<std::mutex> lock(loadSaMutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:153:5
+复杂度: 1
+定义变量: 
+使用变量: __builtin_operator_delete
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (systemAbilityMgr == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get SystemAbilityManager");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:154:9
+复杂度: 0
+定义变量: __mix_lo, __e, __p1, __uc, logTag
+使用变量: , __c, __mix, __ptr, __tmp, __first2, __nh, operator=, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get SystemAbilityManager");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:155:9
+复杂度: 0
+定义变量: __size, __loc, __sign_size
+使用变量: , __x, __n, __last2, __nh, __hf, __p1
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:159:5
+复杂度: 1
+定义变量: 
+使用变量: __size, __throw_concurrence_unlock_error, __dest, __lc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (loadCallback == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create load callback failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:160:9
+复杂度: 0
+定义变量: __lo, __s, __current, __fn, __grouping_tmp, broker, logTag
+使用变量: , __c, __x, _Val, __to, __r, __new_val, __a, __ex, __first1, __atime, __state, __uNd, __throw_bad_cast, __to_end, __to_next, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create load callback failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:161:9
+复杂度: 0
+定义变量: __ns, tagNames, __testeof
+使用变量: , __n, __old_val
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:165:5
+复杂度: 1
+定义变量: __n
+使用变量: , __throw_system_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ret != 0) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Load system ability %{public}d failed with %{public}d", QUICK_FIX_MGR_SERVICE_ID,
+            ret);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:166:9
+复杂度: 0
+定义变量: instance_, __plus, logTag
+使用变量: , __x, npos, __beg, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Load system ability %{public}d failed with %{public}d", QUICK_FIX_MGR_SERVICE_ID,
+            ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:168:9
+复杂度: 0
+定义变量: __lock
+使用变量: , __c, __ptr, __last1, __l, offset, tagNames, __plus
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: unique_lock
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:172:38
+复杂度: 0
+定义变量: lock
+使用变量: __y, __cont
+关键位置: 否
+日志评分: 0
+代码:
+        std::unique_lock<std::mutex> lock(loadSaMutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:175:17
+复杂度: 0
+定义变量: _Nd, mutex_
+使用变量: , now, __p, __args, __fn, __len, __capacity, __end, _S_red, tagNames
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return loadSaFinished_;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:177:9
+复杂度: 1
+定义变量: __s, __ns
+使用变量: __first, __u, __first1, __len, instance_
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!waitStatus) {
+            TAG_LOGE(AAFwkTag::QUICKFIX, "Wait for load sa timeout");
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:178:13
+复杂度: 0
+定义变量: __m, __value, logTag
+使用变量: , __q1x, __d0, __n, __s, __p, __pos, __arg, __builtin_strcmp, __r, __i, __args, __last, __last2, __l, __str, __base, __cat, __atime, operation_not_permitted, offset, operator^, __testvalid, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::QUICKFIX, "Wait for load sa timeout");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:179:13
+复杂度: 0
+定义变量: 
+使用变量: __first
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:183:5
+复杂度: 0
+定义变量: 
+使用变量: __x, __d, __r1z, __a, __u, __first1, __position, __op, instance_, __testeof
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetQuickFixMgr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:186:29
+复杂度: 0
+定义变量: 
+使用变量: __old
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void QuickFixManagerClient::SetQuickFixMgr(const sptr<IRemoteObject> &remoteObject)
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    quickFixMgr_ = iface_cast<IQuickFixManager>(remoteObject);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: lock_guard
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:188:33
+复杂度: 0
+定义变量: __r0x, lock
+使用变量: __r1, __pos, __a, __svw, _S_izero, __sign_size
+关键位置: 否
+日志评分: 0
+代码:
+    std::lock_guard<std::mutex> lock(mutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetQuickFixMgr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:192:47
+复杂度: 0
+定义变量: 
+使用变量: __i
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+sptr<IQuickFixManager> QuickFixManagerClient::GetQuickFixMgr()
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    return quickFixMgr_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: lock_guard
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:194:33
+复杂度: 0
+定义变量: lock
+使用变量: __n, _Base, _Pow, _M_get_pointer, GetDomainName0
+关键位置: 否
+日志评分: 0
+代码:
+    std::lock_guard<std::mutex> lock(mutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnLoadSystemAbilitySuccess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:198:29
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void QuickFixManagerClient::OnLoadSystemAbilitySuccess(const sptr<IRemoteObject> &remoteObject)
+{
+    SetQuickFixMgr(remoteObject);
+    std::unique_lock<std::mutex> lock(loadSaMutex_);
+    loadSaFinished_ = true;
+    loadSaCondation_.notify_one();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: unique_lock
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:201:34
+复杂度: 0
+定义变量: __rem, lock
+使用变量: __r0, __last, __unary_pred, instance_
+关键位置: 否
+日志评分: 0
+代码:
+    std::unique_lock<std::mutex> lock(loadSaMutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: notify_one
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:203:5
+复杂度: 0
+定义变量: _Nd_ull
+使用变量: , _Base, _Pow, __first, __last, __u, __res, __end, __beg, __j, __rtime, __old_p, no_timeout, __dest, __cur, _S_word_bit
+关键位置: 否
+日志评分: 0
+代码:
+    loadSaCondation_.notify_one();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnLoadSystemAbilityFail
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:206:29
+复杂度: 0
+定义变量: 
+使用变量: , __guard, __found_grouping
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void QuickFixManagerClient::OnLoadSystemAbilityFail()
+{
+    SetQuickFixMgr(nullptr);
+    std::unique_lock<std::mutex> lock(loadSaMutex_);
+    loadSaFinished_ = true;
+    loadSaCondation_.notify_one();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: unique_lock
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:209:34
+复杂度: 0
+定义变量: defer_lock, lock
+使用变量: , _Dig, __first, __comp
+关键位置: 否
+日志评分: 0
+代码:
+    std::unique_lock<std::mutex> lock(loadSaMutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: notify_one
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_manager_client.cpp:211:5
+复杂度: 0
+定义变量: __prev
+使用变量: , __n, __p, __size, __val, __first1, __last1, __cur, sign
+关键位置: 否
+日志评分: 0
+代码:
+    loadSaCondation_.notify_one();
+
+--------------------------------------------------------------------------------

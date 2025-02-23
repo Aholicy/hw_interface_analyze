@@ -1,0 +1,260 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+AbilityControllerStub::AbilityControllerStub() {}
+
+
+
+AbilityControllerStub::~AbilityControllerStub() {}
+
+
+
+int AbilityControllerStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "OnReceived, code:%{public}u, flags:%{public}d", code,
+
+        option.GetFlags());
+
+    std::u16string descriptor = AbilityControllerStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    switch (code) {
+
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_START):
+
+            return HandleAllowAbilityStart(data, reply);
+
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_BACKGROUND):
+
+            return HandleAllowAbilityBackground(data, reply);
+
+    }
+
+    
+
+    TAG_LOGI(AAFwkTag::APPMGR, "finish");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+bool AbilityControllerStub::AllowAbilityStart(const Want &want, const std::string &bundleName)
+
+{
+
+    return true;
+
+}
+
+
+
+bool AbilityControllerStub::AllowAbilityBackground(const std::string &bundleName)
+
+{
+
+    return true;
+
+}
+
+
+
+int32_t AbilityControllerStub::HandleAllowAbilityStart(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+    std::unique_ptr<Want> want(data.ReadParcelable<Want>());
+
+    if (!want) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+    std::string pkg = data.ReadString();
+
+    bool ret = AllowAbilityStart(*want, pkg);
+
+    reply.WriteBool(ret);
+
+    return NO_ERROR;
+
+}
+
+
+
+int32_t AbilityControllerStub::HandleAllowAbilityBackground(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+    std::string pkg = data.ReadString();
+
+    bool ret = AllowAbilityBackground(pkg);
+
+    reply.WriteBool(ret);
+
+    return NO_ERROR;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_controller_stub.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+AbilityControllerStub::AbilityControllerStub() {}
+
+
+
+AbilityControllerStub::~AbilityControllerStub() {}
+
+
+
+int AbilityControllerStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "OnReceived, code:%{public}u, flags:%{public}d", code,
+
+        option.GetFlags());
+
+    std::u16string descriptor = AbilityControllerStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    switch (code) {
+
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_START):
+
+            return HandleAllowAbilityStart(data, reply);
+
+        case static_cast<uint32_t>(IAbilityController::Message::TRANSACT_ON_ALLOW_ABILITY_BACKGROUND):
+
+            return HandleAllowAbilityBackground(data, reply);
+
+    }
+
+    
+
+    TAG_LOGI(AAFwkTag::APPMGR, "finish");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+bool AbilityControllerStub::AllowAbilityStart(const Want &want, const std::string &bundleName)
+
+{
+
+    return true;
+
+}
+
+
+
+bool AbilityControllerStub::AllowAbilityBackground(const std::string &bundleName)
+
+{
+
+    return true;
+
+}
+
+
+
+int32_t AbilityControllerStub::HandleAllowAbilityStart(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+    std::unique_ptr<Want> want(data.ReadParcelable<Want>());
+
+    if (!want) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Want> failed");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+    std::string pkg = data.ReadString();
+
+    bool ret = AllowAbilityStart(*want, pkg);
+
+    reply.WriteBool(ret);
+
+    return NO_ERROR;
+
+}
+
+
+
+int32_t AbilityControllerStub::HandleAllowAbilityBackground(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "called");
+
+    std::string pkg = data.ReadString();
+
+    bool ret = AllowAbilityBackground(pkg);
+
+    reply.WriteBool(ret);
+
+    return NO_ERROR;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

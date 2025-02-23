@@ -1,0 +1,250 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:27:26
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int RenderSchedulerHost::OnRemoteRequest(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+    std::u16string descriptor = RenderSchedulerHost::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IRenderScheduler::Message::NOTIFY_BROWSER_FD)) {
+        return HandleNotifyBrowserFd(data, reply);
+    }
+
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:30:5
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:33:39
+复杂度: 0
+定义变量: 
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:34:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:35:9
+复杂度: 0
+定义变量: logTag
+使用变量: __x, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "A local descriptor is not equivalent to a remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:36:9
+复杂度: 0
+定义变量: 
+使用变量: ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:39:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (code == static_cast<uint32_t>(IRenderScheduler::Message::NOTIFY_BROWSER_FD)) {
+        return HandleNotifyBrowserFd(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:40:9
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return HandleNotifyBrowserFd(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyBrowserFd
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:40:16
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+        return HandleNotifyBrowserFd(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:43:5
+复杂度: 0
+定义变量: logTag
+使用变量: __refs, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "RenderSchedulerHost::OnRemoteRequest end");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyBrowserFd
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:47:26
+复杂度: 0
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int RenderSchedulerHost::HandleNotifyBrowserFd(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t ipcFd = data.ReadFileDescriptor();
+    int32_t sharedFd = data.ReadFileDescriptor();
+    int32_t crashFd = data.ReadFileDescriptor();
+    sptr<IRemoteObject> browser = data.ReadRemoteObject();
+    NotifyBrowserFd(ipcFd, sharedFd, crashFd, browser);
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFileDescriptor
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:49:21
+复杂度: 0
+定义变量: __tmp, upper
+使用变量: , __n, __cache, _ISupper, _Intl, data
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t ipcFd = data.ReadFileDescriptor();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFileDescriptor
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:50:24
+复杂度: 0
+定义变量: 
+使用变量: , __r, __f, _ISlower, _S_get_c_name, data
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t sharedFd = data.ReadFileDescriptor();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFileDescriptor
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:51:23
+复杂度: 0
+定义变量: __put, alpha
+使用变量: , __out, _ISalpha, data
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t crashFd = data.ReadFileDescriptor();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:52:35
+复杂度: 0
+定义变量: 
+使用变量: __cont, _Intl, data
+关键位置: 否
+日志评分: 0
+代码:
+    sptr<IRemoteObject> browser = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_scheduler_host.cpp:54:5
+复杂度: 0
+定义变量: 
+使用变量: __pos, __builtin_strcmp, __bsx
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return 0;
+
+--------------------------------------------------------------------------------

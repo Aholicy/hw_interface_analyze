@@ -1,0 +1,496 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_info_callback_proxy.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+AbilityInfoCallbackProxy::AbilityInfoCallbackProxy(
+
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityInfoCallback>(impl)
+
+{}
+
+
+
+bool AbilityInfoCallbackProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(AbilityInfoCallbackProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_SYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteRemoteObject(token);
+
+    data.WriteParcelable(&want);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_ABILITY_TOKEN, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+
+        return;
+
+    }
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyRestartSpecifiedAbility(const sptr<IRemoteObject> &token)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_SYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteRemoteObject(token);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_RESTART_SPECIFIED_ABILITY, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+
+    }
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyStartSpecifiedAbility(const sptr<IRemoteObject> &callerToken,
+
+    const Want &want, int requestCode, sptr<Want> &extraParam)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_SYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteRemoteObject(callerToken);
+
+    data.WriteParcelable(&want);
+
+    data.WriteInt32(requestCode);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_SPECIFIED_ABILITY, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest failed, err: %{public}d", ret);
+
+        return;
+
+    }
+
+    sptr<Want> tempWant = reply.ReadParcelable<Want>();
+
+    if (tempWant != nullptr) {
+
+        SetExtraParam(tempWant, extraParam);
+
+    }
+
+}
+
+
+
+void AbilityInfoCallbackProxy::SetExtraParam(const sptr<Want> &want, sptr<Want> &extraParam)
+
+{
+
+    if (!want || !extraParam) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid param");
+
+        return;
+
+    }
+
+
+
+    sptr<IRemoteObject> tempCallBack = want->GetRemoteObject(Want::PARAM_RESV_ABILITY_INFO_CALLBACK);
+
+    if (tempCallBack == nullptr) {
+
+        return;
+
+    }
+
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_PROC_CODE,
+
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_PROC_CODE, 0));
+
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE,
+
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE, 0));
+
+    extraParam->SetParam(Want::PARAM_RESV_ABILITY_INFO_CALLBACK, tempCallBack);
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyStartAbilityResult(const Want &want, int result)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteParcelable(&want);
+
+    data.WriteInt32(result);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_ABILITY_RESULT, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "err: %{public}d", ret);
+
+        return;
+
+    }
+
+}
+
+
+
+int32_t AbilityInfoCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+
+    MessageParcel &reply, MessageOption &option)
+
+{
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+
+        return ERR_NULL_OBJECT;
+
+    }
+
+
+
+    return remote->SendRequest(code, data, reply, option);
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_info_callback_proxy.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+AbilityInfoCallbackProxy::AbilityInfoCallbackProxy(
+
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IAbilityInfoCallback>(impl)
+
+{}
+
+
+
+bool AbilityInfoCallbackProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(AbilityInfoCallbackProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "write token failed");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyAbilityToken(const sptr<IRemoteObject> token, const Want &want)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_SYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteRemoteObject(token);
+
+    data.WriteParcelable(&want);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_ABILITY_TOKEN, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+
+        return;
+
+    }
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyRestartSpecifiedAbility(const sptr<IRemoteObject> &token)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_SYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteRemoteObject(token);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_RESTART_SPECIFIED_ABILITY, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest err: %{public}d", ret);
+
+    }
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyStartSpecifiedAbility(const sptr<IRemoteObject> &callerToken,
+
+    const Want &want, int requestCode, sptr<Want> &extraParam)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_SYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteRemoteObject(callerToken);
+
+    data.WriteParcelable(&want);
+
+    data.WriteInt32(requestCode);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_SPECIFIED_ABILITY, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest failed, err: %{public}d", ret);
+
+        return;
+
+    }
+
+    sptr<Want> tempWant = reply.ReadParcelable<Want>();
+
+    if (tempWant != nullptr) {
+
+        SetExtraParam(tempWant, extraParam);
+
+    }
+
+}
+
+
+
+void AbilityInfoCallbackProxy::SetExtraParam(const sptr<Want> &want, sptr<Want> &extraParam)
+
+{
+
+    if (!want || !extraParam) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid param");
+
+        return;
+
+    }
+
+
+
+    sptr<IRemoteObject> tempCallBack = want->GetRemoteObject(Want::PARAM_RESV_ABILITY_INFO_CALLBACK);
+
+    if (tempCallBack == nullptr) {
+
+        return;
+
+    }
+
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_PROC_CODE,
+
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_PROC_CODE, 0));
+
+    extraParam->SetParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE,
+
+        want->GetIntParam(Want::PARAM_RESV_REQUEST_TOKEN_CODE, 0));
+
+    extraParam->SetParam(Want::PARAM_RESV_ABILITY_INFO_CALLBACK, tempCallBack);
+
+}
+
+
+
+void AbilityInfoCallbackProxy::NotifyStartAbilityResult(const Want &want, int result)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+
+
+    data.WriteParcelable(&want);
+
+    data.WriteInt32(result);
+
+    int32_t ret = SendTransactCmd(IAbilityInfoCallback::Notify_START_ABILITY_RESULT, data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "err: %{public}d", ret);
+
+        return;
+
+    }
+
+}
+
+
+
+int32_t AbilityInfoCallbackProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+
+    MessageParcel &reply, MessageOption &option)
+
+{
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "null remote");
+
+        return ERR_NULL_OBJECT;
+
+    }
+
+
+
+    return remote->SendRequest(code, data, reply, option);
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

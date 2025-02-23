@@ -1,0 +1,59 @@
+代码块类型: Method Declaration
+块名称: Create
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_record_id.cpp:21:22
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppRecordId::Create()
+{
+    // Make it atomic to avoid multi app creating concurrently.
+    static std::atomic_int id(0);
+    return ++id;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: atomic
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_record_id.cpp:24:28
+复杂度: 0
+定义变量: id
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    static std::atomic_int id(0);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_record_id.cpp:25:5
+复杂度: 0
+定义变量: 
+使用变量: id, operator++
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return ++id;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator++
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_record_id.cpp:25:12
+复杂度: 0
+定义变量: 
+使用变量: id, operator++
+关键位置: 否
+日志评分: 0
+代码:
+    return ++id;
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,246 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:24:24
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool SystemMemoryAttr::ReadFromParcel(Parcel &parcel)
+{
+    parcel.ReadInt64(availSysMem_);
+    parcel.ReadInt64(totalSysMem_);
+    parcel.ReadInt64(threshold_);
+    isSysInlowMem_ = parcel.ReadBool();
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:29:22
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isSysInlowMem_ = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:31:5
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::ReadFromParcel %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:37:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:40:37
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+SystemMemoryAttr *SystemMemoryAttr::Unmarshalling(Parcel &parcel)
+{
+    SystemMemoryAttr *info = new (std::nothrow) SystemMemoryAttr();
+    if (info == nullptr) {
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:43:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (info == nullptr) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:47:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:47:10
+复杂度: 0
+定义变量: 
+使用变量: parcel, info
+关键位置: 否
+日志评分: 0
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:51:5
+复杂度: 0
+定义变量: 
+使用变量: info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:54:24
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool SystemMemoryAttr::Marshalling(Parcel &parcel) const
+{
+    parcel.WriteInt64(availSysMem_);
+    parcel.WriteInt64(totalSysMem_);
+    parcel.WriteInt64(threshold_);
+    parcel.WriteBool(isSysInlowMem_);
+
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:59:5
+复杂度: 0
+定义变量: 
+使用变量: __pred, __iter, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    parcel.WriteBool(isSysInlowMem_);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:61:5
+复杂度: 0
+定义变量: value, logTag
+使用变量: , __a, __num, __f, __l, __cont, __iter, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "SystemMemoryAttr::Marshalling %{public}zu %{public}zu %{public}zu %{public}s",
+        static_cast<size_t>(availSysMem_),
+        static_cast<size_t>(totalSysMem_),
+        static_cast<size_t>(threshold_),
+        (isSysInlowMem_ ? "true" : "false"));
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/system_memory_attr.cpp:67:5
+复杂度: 0
+定义变量: 
+使用变量: , __num
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

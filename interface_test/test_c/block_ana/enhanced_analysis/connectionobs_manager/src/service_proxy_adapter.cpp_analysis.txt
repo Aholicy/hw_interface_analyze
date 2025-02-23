@@ -1,0 +1,794 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AbilityRuntime {
+
+namespace {
+
+const std::u16string ABILITY_MGR_DESCRIPTOR = u"ohos.aafwk.AbilityManager";
+
+constexpr uint32_t REGISTER_CONNECTION_OBSERVER = 2502;
+
+constexpr uint32_t UNREGISTER_CONNECTION_OBSERVER = 2503;
+
+#ifdef WITH_DLP
+
+constexpr uint32_t GET_DLP_CONNECTION_INFOS = 2504;
+
+#endif // WITH_DLP
+
+constexpr uint32_t GET_CONNECTION_DATA = 2505;
+
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+}
+
+int32_t ServiceProxyAdapter::RegisterObserver(const sptr<IConnectionObserver> &observer)
+
+{
+
+    if (!observer) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid IConnectObserver");
+
+        return ERR_INVALID_OBSERVER;
+
+    }
+
+
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(REGISTER_CONNECTION_OBSERVER, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+    return reply.ReadInt32();
+
+}
+
+
+
+int32_t ServiceProxyAdapter::UnregisterObserver(const sptr<IConnectionObserver> &observer)
+
+{
+
+    if (!observer) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "IConnectObserver invalid");
+
+        return ERR_INVALID_OBSERVER;
+
+    }
+
+
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(UNREGISTER_CONNECTION_OBSERVER, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+    return reply.ReadInt32();
+
+}
+
+
+
+#ifdef WITH_DLP
+
+int32_t ServiceProxyAdapter::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+
+{
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(GET_DLP_CONNECTION_INFOS, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+
+
+    auto result = reply.ReadInt32();
+
+    if (result != 0) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+
+        return result;
+
+    }
+
+
+
+    int32_t infoSize = reply.ReadInt32();
+
+    if (infoSize > CYCLE_LIMIT) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    for (int32_t i = 0; i < infoSize; i++) {
+
+        std::unique_ptr<DlpConnectionInfo> info(reply.ReadParcelable<DlpConnectionInfo>());
+
+        if (info == nullptr) {
+
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+
+            return ERR_READ_INFO_FAILED;
+
+        }
+
+        infos.emplace_back(*info);
+
+    }
+
+
+
+    return result;
+
+}
+
+#endif // WITH_DLP
+
+
+
+int32_t ServiceProxyAdapter::GetConnectionData(std::vector<ConnectionData> &connectionData)
+
+{
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(GET_CONNECTION_DATA, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+
+
+    auto result = reply.ReadInt32();
+
+    if (result != 0) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+
+        return result;
+
+    }
+
+
+
+    int32_t infoSize = reply.ReadInt32();
+
+    if (infoSize > CYCLE_LIMIT) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    for (int32_t i = 0; i < infoSize; i++) {
+
+        std::unique_ptr<ConnectionData> item(reply.ReadParcelable<ConnectionData>());
+
+        if (item == nullptr) {
+
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+
+            return ERR_READ_INFO_FAILED;
+
+        }
+
+        connectionData.emplace_back(*item);
+
+    }
+
+
+
+    return result;
+
+}
+
+
+
+sptr<IRemoteObject> ServiceProxyAdapter::GetProxyObject() const
+
+{
+
+    return remoteObj_;
+
+}
+
+}  // namespace AbilityRuntime
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AbilityRuntime {
+
+namespace {
+
+const std::u16string ABILITY_MGR_DESCRIPTOR = u"ohos.aafwk.AbilityManager";
+
+constexpr uint32_t REGISTER_CONNECTION_OBSERVER = 2502;
+
+constexpr uint32_t UNREGISTER_CONNECTION_OBSERVER = 2503;
+
+#ifdef WITH_DLP
+
+constexpr uint32_t GET_DLP_CONNECTION_INFOS = 2504;
+
+#endif // WITH_DLP
+
+constexpr uint32_t GET_CONNECTION_DATA = 2505;
+
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+}
+
+int32_t ServiceProxyAdapter::RegisterObserver(const sptr<IConnectionObserver> &observer)
+
+{
+
+    if (!observer) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "invalid IConnectObserver");
+
+        return ERR_INVALID_OBSERVER;
+
+    }
+
+
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(REGISTER_CONNECTION_OBSERVER, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+    return reply.ReadInt32();
+
+}
+
+
+
+int32_t ServiceProxyAdapter::UnregisterObserver(const sptr<IConnectionObserver> &observer)
+
+{
+
+    if (!observer) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "IConnectObserver invalid");
+
+        return ERR_INVALID_OBSERVER;
+
+    }
+
+
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    if (!data.WriteRemoteObject(observer->AsObject())) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write remote obj failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(UNREGISTER_CONNECTION_OBSERVER, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+    return reply.ReadInt32();
+
+}
+
+
+
+#ifdef WITH_DLP
+
+int32_t ServiceProxyAdapter::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+
+{
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(GET_DLP_CONNECTION_INFOS, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+
+
+    auto result = reply.ReadInt32();
+
+    if (result != 0) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+
+        return result;
+
+    }
+
+
+
+    int32_t infoSize = reply.ReadInt32();
+
+    if (infoSize > CYCLE_LIMIT) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    for (int32_t i = 0; i < infoSize; i++) {
+
+        std::unique_ptr<DlpConnectionInfo> info(reply.ReadParcelable<DlpConnectionInfo>());
+
+        if (info == nullptr) {
+
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+
+            return ERR_READ_INFO_FAILED;
+
+        }
+
+        infos.emplace_back(*info);
+
+    }
+
+
+
+    return result;
+
+}
+
+#endif // WITH_DLP
+
+
+
+int32_t ServiceProxyAdapter::GetConnectionData(std::vector<ConnectionData> &connectionData)
+
+{
+
+    if (!remoteObj_) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "no abilityms proxy");
+
+        return ERR_NO_PROXY;
+
+    }
+
+
+
+    int error;
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option;
+
+    if (!data.WriteInterfaceToken(ABILITY_MGR_DESCRIPTOR)) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "write token failed");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    error = remoteObj_->SendRequest(GET_CONNECTION_DATA, data, reply, option);
+
+    if (error != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "Send request error: %{public}d", error);
+
+        return error;
+
+    }
+
+
+
+    auto result = reply.ReadInt32();
+
+    if (result != 0) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "fail, result: %{public}d", result);
+
+        return result;
+
+    }
+
+
+
+    int32_t infoSize = reply.ReadInt32();
+
+    if (infoSize > CYCLE_LIMIT) {
+
+        TAG_LOGE(AAFwkTag::CONNECTION, "infoSize too large");
+
+        return ERR_INVALID_VALUE;
+
+    }
+
+
+
+    for (int32_t i = 0; i < infoSize; i++) {
+
+        std::unique_ptr<ConnectionData> item(reply.ReadParcelable<ConnectionData>());
+
+        if (item == nullptr) {
+
+            TAG_LOGE(AAFwkTag::CONNECTION, "Read infos failed");
+
+            return ERR_READ_INFO_FAILED;
+
+        }
+
+        connectionData.emplace_back(*item);
+
+    }
+
+
+
+    return result;
+
+}
+
+
+
+sptr<IRemoteObject> ServiceProxyAdapter::GetProxyObject() const
+
+{
+
+    return remoteObj_;
+
+}
+
+}  // namespace AbilityRuntime
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace {
+
+const std::u16string ABILITY_MGR_DESCRIPTOR = u"ohos.aafwk.AbilityManager";
+
+constexpr uint32_t REGISTER_CONNECTION_OBSERVER = 2502;
+
+constexpr uint32_t UNREGISTER_CONNECTION_OBSERVER = 2503;
+
+#ifdef WITH_DLP
+
+constexpr uint32_t GET_DLP_CONNECTION_INFOS = 2504;
+
+#endif // WITH_DLP
+
+constexpr uint32_t GET_CONNECTION_DATA = 2505;
+
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+const std::u16string ABILITY_MGR_DESCRIPTOR = u"ohos.aafwk.AbilityManager";
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr uint32_t REGISTER_CONNECTION_OBSERVER = 2502;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr uint32_t UNREGISTER_CONNECTION_OBSERVER = 2503;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:30
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr uint32_t GET_CONNECTION_DATA = 2505;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/service_proxy_adapter.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+constexpr int32_t CYCLE_LIMIT = 1000;
+
+================================================================================

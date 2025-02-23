@@ -1,0 +1,186 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:18
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+
+{}
+
+
+
+void CompletedDispatcher::Send(const int32_t resultCode)
+
+{}
+
+
+
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+
+{
+
+    want_ = want;
+
+    resultCode_ = resultCode;
+
+    resultData_ = data;
+
+    resultExtras_ = extras;
+
+    if (handler_ == nullptr) {
+
+        Run();
+
+    }
+
+}
+
+
+
+void CompletedDispatcher::Run()
+
+{
+
+    if (callback_ != nullptr) {
+
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+
+    }
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:18
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+
+{}
+
+
+
+void CompletedDispatcher::Send(const int32_t resultCode)
+
+{}
+
+
+
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+
+{
+
+    want_ = want;
+
+    resultCode_ = resultCode;
+
+    resultData_ = data;
+
+    resultExtras_ = extras;
+
+    if (handler_ == nullptr) {
+
+        Run();
+
+    }
+
+}
+
+
+
+void CompletedDispatcher::Run()
+
+{
+
+    if (callback_ != nullptr) {
+
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+
+    }
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:18
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+CompletedDispatcher::CompletedDispatcher(const std::shared_ptr<PendingWant> &pendingWant,
+
+    const std::shared_ptr<CompletedCallback> &callback, const std::shared_ptr<AppExecFwk::EventHandler> &handler)
+
+    : pendingWant_(pendingWant), callback_(callback), handler_(handler)
+
+{}
+
+
+
+void CompletedDispatcher::Send(const int32_t resultCode)
+
+{}
+
+
+
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+
+{
+
+    want_ = want;
+
+    resultCode_ = resultCode;
+
+    resultData_ = data;
+
+    resultExtras_ = extras;
+
+    if (handler_ == nullptr) {
+
+        Run();
+
+    }
+
+}
+
+
+
+void CompletedDispatcher::Run()
+
+{
+
+    if (callback_ != nullptr) {
+
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+
+    }
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================

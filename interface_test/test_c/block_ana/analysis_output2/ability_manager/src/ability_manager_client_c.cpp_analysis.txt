@@ -1,0 +1,104 @@
+代码块类型: Function Declaration
+块名称: RecordAppExitReason
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:22:5
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Function Declaration 缺少日志: 得分 -2
+代码:
+int RecordAppExitReason(int exitReason, const char *exitMsg)
+{
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+        return -1;
+    }
+
+    OHOS::AAFwk::Reason reason = static_cast<OHOS::AAFwk::Reason>(exitReason);
+    std::string exitMsgStr(exitMsg);
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+    auto instance = OHOS::AAFwk::AbilityManagerClient::GetInstance();
+    if (!instance) {
+        return -1;
+    }
+    return instance->RecordAppExitReason(exitReasonData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:24:5
+复杂度: 1
+定义变量: metaDescriptor_
+使用变量: metaDescriptor_
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (exitReason < static_cast<int>(OHOS::AAFwk::Reason::REASON_MIN) ||
+        exitReason > static_cast<int>(OHOS::AAFwk::Reason::REASON_MAX)) {
+        return -1;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:26:9
+复杂度: 0
+定义变量: INSIGHT_INTENT_EXECUTE_RESULT_CODE
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return -1;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ExitReason
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:31:46
+复杂度: 0
+定义变量: 
+使用变量: TF_WAIT_TIME, reason, exitMsgStr
+关键位置: 否
+日志评分: 0
+代码:
+    OHOS::AAFwk::ExitReason exitReasonData = { reason, exitMsgStr };
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:34:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!instance) {
+        return -1;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_manager_client_c.cpp:35:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return -1;
+
+--------------------------------------------------------------------------------

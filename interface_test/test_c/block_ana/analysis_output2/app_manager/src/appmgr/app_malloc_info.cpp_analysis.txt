@@ -1,0 +1,206 @@
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:20:18
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool MallocInfo::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:22:5
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:22:13
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:22:44
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:23:12
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:23:44
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:26:25
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+MallocInfo *MallocInfo::Unmarshalling(Parcel &parcel)
+{
+    MallocInfo *mallocInfo = new (std::nothrow) MallocInfo();
+    if (mallocInfo == nullptr) {
+        return nullptr;
+    }
+    mallocInfo->usmblks = parcel.ReadUint64();
+    mallocInfo->uordblks = parcel.ReadUint64();
+    mallocInfo->fordblks = parcel.ReadUint64();
+    mallocInfo->hblkhd = parcel.ReadUint64();
+    return mallocInfo;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:29:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (mallocInfo == nullptr) {
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:30:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:32:27
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    mallocInfo->usmblks = parcel.ReadUint64();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:33:28
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    mallocInfo->uordblks = parcel.ReadUint64();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:34:28
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    mallocInfo->fordblks = parcel.ReadUint64();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint64
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:35:26
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    mallocInfo->hblkhd = parcel.ReadUint64();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:36:5
+复杂度: 0
+定义变量: 
+使用变量: mallocInfo
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return mallocInfo;
+
+--------------------------------------------------------------------------------

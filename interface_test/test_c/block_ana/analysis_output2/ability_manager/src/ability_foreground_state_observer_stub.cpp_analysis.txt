@@ -1,0 +1,263 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:29:45
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::ABILITYMGR, "called");
+    std::u16string descriptor = AbilityForegroundStateObserverStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+    if (code == static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED)) {
+        return HandleOnAbilityStateChanged(data, reply);
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:32:5
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::ABILITYMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:34:39
+复杂度: 0
+定义变量: 
+使用变量: proxy, data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:35:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:36:9
+复杂度: 0
+定义变量: logTag
+使用变量: ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "invalid descriptor");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:37:9
+复杂度: 0
+定义变量: have_error
+使用变量: ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:40:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (code == static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED)) {
+        return HandleOnAbilityStateChanged(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:41:9
+复杂度: 0
+定义变量: 
+使用变量: __x, IF_PROT_DEFAULT, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return HandleOnAbilityStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAbilityStateChanged
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:41:16
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+        return HandleOnAbilityStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAbilityStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:46:45
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AbilityStateData> abilityStateData(data.ReadParcelable<AbilityStateData>());
+    if (abilityStateData == nullptr) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAbilityStateChanged(*abilityStateData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:49:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (abilityStateData == nullptr) {
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:50:9
+复杂度: 0
+定义变量: lower, logTag
+使用变量: , __builtin_addressof, __r, __f, __low, __high, _ISlower, _S_get_c_name, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::ABILITYMGR, "null abilityStateData");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:55:5
+复杂度: 0
+定义变量: __i
+使用变量: npos, DEFAULT, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:62:47
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+{
+    TAG_LOGE(AAFwkTag::ABILITYMGR, "Remote died");
+    if (handler_) {
+        handler_(remote);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:64:5
+复杂度: 0
+定义变量: value, __c, __enable_hash_call, logTag
+使用变量: , __tmp, __n, __size, __cont, __space, ABILITYMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGE(AAFwkTag::ABILITYMGR, "Remote died");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/ability_manager/src/ability_foreground_state_observer_stub.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (handler_) {
+        handler_(remote);
+    }
+
+--------------------------------------------------------------------------------

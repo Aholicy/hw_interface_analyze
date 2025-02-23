@@ -270,7 +270,7 @@ def analyze_directory(directory_path, output_ast_dir, output_analysis_dir):
 
 def main():
     """主函数"""
-    source_dir = "../ability_ability_runtime/interfaces/inner_api"
+    source_dir = "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api"
     ast_output_dir = "ast_output"
     analysis_output_dir = "analysis_output"
 

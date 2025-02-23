@@ -1,0 +1,108 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+bool JsHeapDumpInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+
+        && parcel.WriteBool(needLeakobj));
+
+}
+
+
+
+JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    JsHeapDumpInfo *info = new (std::nothrow) JsHeapDumpInfo();
+
+    if (info == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+
+        return nullptr;
+
+    }
+
+    info->pid = parcel.ReadUint32();
+
+    info->tid = parcel.ReadUint32();
+
+    info->needGc = parcel.ReadBool();
+
+    info->needSnapshot = parcel.ReadBool();
+
+    info->needLeakobj = parcel.ReadBool();
+
+    return info;
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_jsheap_mem_info.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+bool JsHeapDumpInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteUint32(pid) && parcel.WriteUint32(tid)
+
+        && parcel.WriteBool(needGc) && parcel.WriteBool(needSnapshot)
+
+        && parcel.WriteBool(needLeakobj));
+
+}
+
+
+
+JsHeapDumpInfo *JsHeapDumpInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    JsHeapDumpInfo *info = new (std::nothrow) JsHeapDumpInfo();
+
+    if (info == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "info nullptr");
+
+        return nullptr;
+
+    }
+
+    info->pid = parcel.ReadUint32();
+
+    info->tid = parcel.ReadUint32();
+
+    info->needGc = parcel.ReadBool();
+
+    info->needSnapshot = parcel.ReadBool();
+
+    info->needLeakobj = parcel.ReadBool();
+
+    return info;
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================

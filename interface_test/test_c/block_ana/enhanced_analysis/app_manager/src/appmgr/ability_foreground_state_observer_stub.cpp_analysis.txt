@@ -1,0 +1,199 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+AbilityForegroundStateObserverStub::AbilityForegroundStateObserverStub() {}
+
+
+
+AbilityForegroundStateObserverStub::~AbilityForegroundStateObserverStub() {}
+
+
+
+int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    std::u16string descriptor = AbilityForegroundStateObserverStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED)) {
+
+        return HandleOnAbilityStateChanged(data, reply);
+
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    std::unique_ptr<AbilityStateData> processData(data.ReadParcelable<AbilityStateData>());
+
+    if (processData == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "null processData");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+
+
+    OnAbilityStateChanged(*processData);
+
+    return NO_ERROR;
+
+}
+
+
+
+AbilityForegroundStateObserverRecipient::AbilityForegroundStateObserverRecipient(RemoteDiedHandler handler)
+
+    : handler_(handler)
+
+{}
+
+
+
+void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+
+{
+
+    TAG_LOGE(AAFwkTag::APPMGR, "Remote died");
+
+    if (handler_) {
+
+        handler_(remote);
+
+    }
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/ability_foreground_state_observer_stub.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+AbilityForegroundStateObserverStub::AbilityForegroundStateObserverStub() {}
+
+
+
+AbilityForegroundStateObserverStub::~AbilityForegroundStateObserverStub() {}
+
+
+
+int32_t AbilityForegroundStateObserverStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+    std::u16string descriptor = AbilityForegroundStateObserverStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "invalid descriptor");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(IAbilityForegroundStateObserver::Message::ON_ABILITY_STATE_CHANGED)) {
+
+        return HandleOnAbilityStateChanged(data, reply);
+
+    }
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t AbilityForegroundStateObserverStub::HandleOnAbilityStateChanged(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    std::unique_ptr<AbilityStateData> processData(data.ReadParcelable<AbilityStateData>());
+
+    if (processData == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "null processData");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+
+
+    OnAbilityStateChanged(*processData);
+
+    return NO_ERROR;
+
+}
+
+
+
+AbilityForegroundStateObserverRecipient::AbilityForegroundStateObserverRecipient(RemoteDiedHandler handler)
+
+    : handler_(handler)
+
+{}
+
+
+
+void AbilityForegroundStateObserverRecipient::OnRemoteDied(const wptr<IRemoteObject> &__attribute__((unused)) remote)
+
+{
+
+    TAG_LOGE(AAFwkTag::APPMGR, "Remote died");
+
+    if (handler_) {
+
+        handler_(remote);
+
+    }
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================

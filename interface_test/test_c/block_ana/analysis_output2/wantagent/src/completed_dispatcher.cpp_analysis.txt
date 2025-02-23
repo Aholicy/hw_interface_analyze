@@ -1,0 +1,103 @@
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:24:27
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void CompletedDispatcher::Send(const int32_t resultCode)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: PerformReceive
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:27:27
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void CompletedDispatcher::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+{
+    want_ = want;
+    resultCode_ = resultCode;
+    resultData_ = data;
+    resultExtras_ = extras;
+    if (handler_ == nullptr) {
+        Run();
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:34:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (handler_ == nullptr) {
+        Run();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: Run
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:35:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 否
+日志评分: 0
+代码:
+        Run();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Run
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:39:27
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void CompletedDispatcher::Run()
+{
+    if (callback_ != nullptr) {
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/completed_dispatcher.cpp:41:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (callback_ != nullptr) {
+        callback_->OnSendFinished(want_, resultCode_, resultData_, resultExtras_);
+    }
+
+--------------------------------------------------------------------------------

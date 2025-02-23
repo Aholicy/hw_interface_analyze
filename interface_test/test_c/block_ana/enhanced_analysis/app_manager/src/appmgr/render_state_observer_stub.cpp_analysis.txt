@@ -1,0 +1,151 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_state_observer_stub.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+RenderStateObserverStub::RenderStateObserverStub() {}
+
+
+
+RenderStateObserverStub::~RenderStateObserverStub() {}
+
+
+
+int32_t RenderStateObserverStub::OnRenderStateChangedInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    std::unique_ptr<RenderStateData> renderStateData(data.ReadParcelable<RenderStateData>());
+
+    if (renderStateData == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "renderStateData is null");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+
+
+    OnRenderStateChanged(*renderStateData);
+
+    return NO_ERROR;
+
+}
+
+
+
+int RenderStateObserverStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    std::u16string descriptor = RenderStateObserverStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == IRenderStateObserver::ON_RENDER_STATE_CHANGED) {
+
+        return OnRenderStateChangedInner(data, reply);
+
+    }
+
+
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_state_observer_stub.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+RenderStateObserverStub::RenderStateObserverStub() {}
+
+
+
+RenderStateObserverStub::~RenderStateObserverStub() {}
+
+
+
+int32_t RenderStateObserverStub::OnRenderStateChangedInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    std::unique_ptr<RenderStateData> renderStateData(data.ReadParcelable<RenderStateData>());
+
+    if (renderStateData == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "renderStateData is null");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+
+
+    OnRenderStateChanged(*renderStateData);
+
+    return NO_ERROR;
+
+}
+
+
+
+int RenderStateObserverStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    std::u16string descriptor = RenderStateObserverStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == IRenderStateObserver::ON_RENDER_STATE_CHANGED) {
+
+        return OnRenderStateChangedInner(data, reply);
+
+    }
+
+
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================

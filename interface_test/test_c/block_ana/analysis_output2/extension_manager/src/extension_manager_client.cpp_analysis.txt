@@ -1,0 +1,1165 @@
+代码块类型: Method Declaration
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:35:49
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ExtensionManagerClient& ExtensionManagerClient::GetInstance()
+{
+    static ExtensionManagerClient instance;
+    return instance;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ExtensionManagerClient
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:37:35
+复杂度: 0
+定义变量: instance
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    static ExtensionManagerClient instance;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:38:5
+复杂度: 0
+定义变量: progname
+使用变量: instance
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return instance;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetExtensionManager
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:41:49
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+sptr<IExtensionManager> ExtensionManagerClient::GetExtensionManager()
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (proxy_ == nullptr) {
+        Connect();
+    }
+
+    return proxy_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: lock_guard
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:43:33
+复杂度: 0
+定义变量: lock
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    std::lock_guard<std::mutex> lock(mutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:44:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (proxy_ == nullptr) {
+        Connect();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: operator==, _S_get_c_name
+关键位置: 否
+日志评分: 0
+代码:
+    if (proxy_ == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: Connect
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:45:9
+复杂度: 0
+定义变量: __i
+使用变量: __it1, __refs
+关键位置: 否
+日志评分: 0
+代码:
+        Connect();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:48:5
+复杂度: 0
+定义变量: __ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return proxy_;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: sptr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:48:12
+复杂度: 0
+定义变量: __ret
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    return proxy_;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Connect
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:51:30
+复杂度: 3
+定义变量: 
+使用变量: , rethrow_exception, __out, __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ExtensionManagerClient::Connect()
+{
+    auto systemManager = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+    if (systemManager == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Get SAMgr failed");
+        return;
+    }
+    auto remoteObj = systemManager->GetSystemAbility(ABILITY_MGR_SERVICE_ID);
+    if (remoteObj == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect AMS failed");
+        return;
+    }
+
+    deathRecipient_ = new ExtensionMgrDeathRecipient();
+    if (remoteObj->IsProxyObject() && !remoteObj->AddDeathRecipient(deathRecipient_)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "AddDeathRecipient failed");
+        return;
+    }
+
+    proxy_ = sptr<IExtensionManager>(new ExtensionManagerProxy(remoteObj));
+    TAG_LOGD(AAFwkTag::EXTMGR, "Connect AMS success");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:54:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (systemManager == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Get SAMgr failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:55:9
+复杂度: 0
+定义变量: __i, __len, __b4, __num, print, logTag
+使用变量: min, npos, __base, __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, __buf_len, __remaining, DEFAULT, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Get SAMgr failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:56:9
+复杂度: 0
+定义变量: __iter
+使用变量: __refs
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:59:5
+复杂度: 1
+定义变量: 
+使用变量: __num, __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (remoteObj == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect AMS failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:60:9
+复杂度: 0
+定义变量: __len, __endptr, logTag
+使用变量: , __tmp, __n, __i, __pos, __b3, __m, __low, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect AMS failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:61:9
+复杂度: 0
+定义变量: 
+使用变量: , __cont, __low
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:64:5
+复杂度: 0
+定义变量: value, __c, __enable_hash_call
+使用变量: __v, , __tmp, __n, __size, __cont, _Val, operator=, __space
+关键位置: 否
+日志评分: 0
+代码:
+    deathRecipient_ = new ExtensionMgrDeathRecipient();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ExtensionMgrDeathRecipient
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:64:27
+复杂度: 0
+定义变量: value, __enable_hash_call
+使用变量: __v, , _Val
+关键位置: 否
+日志评分: 0
+代码:
+    deathRecipient_ = new ExtensionMgrDeathRecipient();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (remoteObj->IsProxyObject() && !remoteObj->AddDeathRecipient(deathRecipient_)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "AddDeathRecipient failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:66:9
+复杂度: 0
+定义变量: __put, __save_errno, __next, __intptr, logTag
+使用变量: __v, __ptr, __size, __first, __pos, __out, __val, _Base, _Val, __mem, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "AddDeathRecipient failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:67:9
+复杂度: 0
+定义变量: __aligned
+使用变量: , __x, __tmp, __num, npos
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:71:5
+复杂度: 0
+定义变量: __digits, __mp, logTag
+使用变量: terminate, , __n, __first, __val, __str, _Base, __mem, __low, __ISwupper, _Intl, _Lp, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::EXTMGR, "Connect AMS success");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ResetProxy
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:74:30
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ExtensionManagerClient::ResetProxy(const wptr<IRemoteObject>& remote)
+{
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (proxy_ == nullptr) {
+        TAG_LOGI(AAFwkTag::EXTMGR, "null proxy_, no need reset");
+        return;
+    }
+
+    auto serviceRemote = proxy_->AsObject();
+    if (serviceRemote != nullptr && serviceRemote == remote.promote()) {
+        serviceRemote->RemoveDeathRecipient(deathRecipient_);
+        proxy_ = nullptr;
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: lock_guard
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:76:33
+复杂度: 0
+定义变量: lock
+使用变量: , _S_fixed
+关键位置: 否
+日志评分: 0
+代码:
+    std::lock_guard<std::mutex> lock(mutex_);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:77:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (proxy_ == nullptr) {
+        TAG_LOGI(AAFwkTag::EXTMGR, "null proxy_, no need reset");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:77:9
+复杂度: 0
+定义变量: __testoff
+使用变量: operator==, __ISwprint, __outnext
+关键位置: 否
+日志评分: 0
+代码:
+    if (proxy_ == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:78:9
+复杂度: 0
+定义变量: __min, MIN_TRANSACTION_ID, logTag
+使用变量: , __t, _Idx, __size, __off, __pos, __is_signed, __max, __testoff, _Qn, __m, __ISwgraph, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGI(AAFwkTag::EXTMGR, "null proxy_, no need reset");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:79:9
+复杂度: 0
+定义变量: MAX_TRANSACTION_ID
+使用变量: __result, __ISwblank
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator->
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:82:26
+复杂度: 0
+定义变量: 
+使用变量: __p, _S_get_c_name, operator->
+关键位置: 否
+日志评分: 0
+代码:
+    auto serviceRemote = proxy_->AsObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:83:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (serviceRemote != nullptr && serviceRemote == remote.promote()) {
+        serviceRemote->RemoveDeathRecipient(deathRecipient_);
+        proxy_ = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:85:9
+复杂度: 0
+定义变量: __buf_len, RPC_QOS_MAX_IDLE_TIME
+使用变量: , __x, __a, __b, __ex, __val, __comp, operator=
+关键位置: 否
+日志评分: 0
+代码:
+        proxy_ = nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:89:58
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ExtensionManagerClient::ExtensionMgrDeathRecipient::OnRemoteDied(const wptr<IRemoteObject>& remote)
+{
+    TAG_LOGI(AAFwkTag::EXTMGR, "called");
+    ExtensionManagerClient::GetInstance().ResetProxy(remote);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:91:5
+复杂度: 0
+定义变量: __c, __left, logTag
+使用变量: , __n, __ret, __h, __out, __len, __ils, _Base, __atime, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::EXTMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ResetProxy
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:92:5
+复杂度: 0
+定义变量: 
+使用变量: , __a, __s, __val, __result, __len, __mem, __grouping, noconv, GetInstance, remote
+关键位置: 否
+日志评分: 0
+代码:
+    ExtensionManagerClient::GetInstance().ResetProxy(remote);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:92:5
+复杂度: 0
+定义变量: 
+使用变量: , __a, __s, __val, __result, __len, __mem, __grouping, noconv, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    ExtensionManagerClient::GetInstance().ResetProxy(remote);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ConnectServiceExtensionAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:95:33
+复杂度: 1
+定义变量: 
+使用变量: , __first, __len, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode ExtensionManagerClient::ConnectServiceExtensionAbility(const Want &want,
+    const sptr<IRemoteObject> &connect, int32_t userId)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    auto abms = GetExtensionManager();
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+    TAG_LOGD(AAFwkTag::EXTMGR, "name:%{public}s %{public}s, userId:%{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+    return abms->ConnectAbilityCommon(want, connect, nullptr, AppExecFwk::ExtensionAbilityType::SERVICE,
+        userId, false);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetExtensionManager
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:99:17
+复杂度: 0
+定义变量: nothrow, __tmp_capacity, __g, ctype, is_always_lock_free
+使用变量: , __b, __n, __i, __c, __out, __w, __val, __result, _Base, __mp, __outchars
+关键位置: 否
+日志评分: 0
+代码:
+    auto abms = GetExtensionManager();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:100:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __builtin_va_end
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:100:9
+复杂度: 0
+定义变量: __e, __g_size
+使用变量: , __a, __b, allocator_arg, __s, operator==, __a0, __gthread_mutex_lock, __next, operator|, abms
+关键位置: 否
+日志评分: 0
+代码:
+    if (abms == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:101:9
+复杂度: 0
+定义变量: collate, time, __grouping, __fn, logTag
+使用变量: , __t, __x, __a, __b, __n, __i, __args, __fn, __s, __out, __val, __ils, __a0, __b0, __mem, __exchange_and_add, _Default, _Destructor, __np, __grouping, __g_size, _Lp, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:103:9
+复杂度: 0
+定义变量: __max, monetary
+使用变量: , __e, __s, min, _Base, _Copy, _CopyAssignment, memory_order_seq_cst, tag, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ABILITY_SERVICE_NOT_CONNECTED;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:105:5
+复杂度: 0
+定义变量: all, logTag
+使用变量: , _Nm, __t, __x, __a, __n, __p, __first, __pos, __builtin_memcmp, __uselocale, __old, __last, __max, __first1, __first2, __num, __len, __str, __a0, __b0, __m, __gthread_active_p, __nh, ctype, numeric, collate, time, monetary, messages, __refs, __np, __grouping, __mod, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::EXTMGR, "name:%{public}s %{public}s, userId:%{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ConnectServiceExtensionAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:111:33
+复杂度: 1
+定义变量: 
+使用变量: , __u, __c1, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode ExtensionManagerClient::ConnectServiceExtensionAbility(const Want &want,
+    const sptr<IRemoteObject> &connect, const sptr<IRemoteObject> &callerToken, int32_t userId)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    auto abms = GetExtensionManager();
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+    TAG_LOGI(AAFwkTag::EXTMGR, "name:%{public}s %{public}s, userId:%{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+    return abms->ConnectAbilityCommon(
+        want, connect, callerToken, AppExecFwk::ExtensionAbilityType::SERVICE, userId, false);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetExtensionManager
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:115:17
+复杂度: 0
+定义变量: __i
+使用变量: __a, __tmp, __i, __sz, allocator_arg, __fn, __arg, _Base, __nh, _S_iend, memory_order_seq_cst
+关键位置: 否
+日志评分: 0
+代码:
+    auto abms = GetExtensionManager();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:116:5
+复杂度: 1
+定义变量: 
+使用变量: , __nh
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:116:9
+复杂度: 0
+定义变量: __cur
+使用变量: , __x, __tmp, _S_propagate_on_move_assign, operator==, __nh, abms
+关键位置: 否
+日志评分: 0
+代码:
+    if (abms == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:117:9
+复杂度: 0
+定义变量: __i, __ret, __tmp_ptr, _M_max_size, _M_max_align, __facets, __fn, tagNames, logTag
+使用变量: , __x, __a, __i, __p, __args, __first, __o, __st, __c2, __last, __it1, __it2, __hi1, __hi2, __lo1, __lo2, __state, __loc, __grouping, __truename, _S_get_c_name, __outstr, __cvt, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:119:9
+复杂度: 0
+定义变量: __size
+使用变量: , __x, __n, __i, __sz, __p, __y, __ret, __fn, __first, __s, __last, __count, _Base, PTHREAD_MUTEX_TIMED_NP, __gthread_recursive_mutex_trylock, __loc, __falsename, memory_order_seq_cst, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ABILITY_SERVICE_NOT_CONNECTED;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:121:5
+复杂度: 0
+定义变量: __c, npos, logTag
+使用变量: , __x, __a, __n, __i, __uhead, __u, __size, __first, _Hash_bytes, __builtin_strlen, __builtin_strcmp, __pos, __c1, __c2, __s, __len, __m, __mp, __cur, __refs, __facets, operator|, operator&, __ineof, __sbin, __memory_order_modifier_mask, offset, tagNames, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::EXTMGR, "name:%{public}s %{public}s, userId:%{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ConnectEnterpriseAdminExtensionAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:127:33
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode ExtensionManagerClient::ConnectEnterpriseAdminExtensionAbility(const Want &want,
+    const sptr<IRemoteObject> &connect, const sptr<IRemoteObject> &callerToken, int32_t userId)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    auto abms = GetExtensionManager();
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+    TAG_LOGI(AAFwkTag::EXTMGR, "name:%{public}s %{public}s, userId:%{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+    return abms->ConnectAbilityCommon(
+        want, connect, callerToken, AppExecFwk::ExtensionAbilityType::ENTERPRISE_ADMIN, userId, true);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetExtensionManager
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:131:17
+复杂度: 0
+定义变量: __lock
+使用变量: , __p, __first, __it, __val, _Base, tagNames
+关键位置: 否
+日志评分: 0
+代码:
+    auto abms = GetExtensionManager();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:132:5
+复杂度: 1
+定义变量: 
+使用变量: __atomic_thread_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:132:9
+复杂度: 0
+定义变量: __al
+使用变量: , __p, __ptr, __off, operator==, __sbin, abms
+关键位置: 否
+日志评分: 0
+代码:
+    if (abms == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:133:9
+复杂度: 0
+定义变量: __tmp, __lo, __j, logTag
+使用变量: __x, __a, __b, __ret, __s, __len, __str, __j, __lo1, __lo2, __m, operation_not_permitted, __nh, offset, tagNames, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s.",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:135:9
+复杂度: 0
+定义变量: __hi
+使用变量: , __x, __a, __p, __y, __str, __i1, __j, __hi1, _Base, __nh, operator=, __ws, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ABILITY_SERVICE_NOT_CONNECTED;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:137:5
+复杂度: 0
+定义变量: __f, logTag
+使用变量: , __n, __p, __first, __c, __pos, __s, __last, __result, __m, __k, __node_gen, __nh, __source, __atomic_signal_fence, memory_order_seq_cst, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::EXTMGR, "name:%{public}s %{public}s, userId:%{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ConnectExtensionAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:143:33
+复杂度: 1
+定义变量: 
+使用变量: __ne_ptr, __pos, __nh
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode ExtensionManagerClient::ConnectExtensionAbility(const Want &want, const sptr<IRemoteObject> &connect,
+    int32_t userId)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    auto abms = GetExtensionManager();
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+
+    TAG_LOGI(AAFwkTag::EXTMGR, "bundleName: %{public}s, abilityName: %{public}s, userId: %{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+    return abms->ConnectAbilityCommon(want, connect, nullptr, AppExecFwk::ExtensionAbilityType::UNSPECIFIED, userId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetExtensionManager
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:147:17
+复杂度: 0
+定义变量: __y0
+使用变量: , __a, __b, __first, __last, __old_capacity, _Base, operator&
+关键位置: 否
+日志评分: 0
+代码:
+    auto abms = GetExtensionManager();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:148:5
+复杂度: 1
+定义变量: 
+使用变量: __capacity, __throw_concurrence_lock_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (abms == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+        return ABILITY_SERVICE_NOT_CONNECTED;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:148:9
+复杂度: 0
+定义变量: 
+使用变量: operator==, abms
+关键位置: 否
+日志评分: 0
+代码:
+    if (abms == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:149:9
+复杂度: 0
+定义变量: __x0y0, __x0y1, __rt, __lc, __lit, lockGuard, tagNames, logTag
+使用变量: , __first, __last, __first1, __first2, __last1, __last2, __cont, __i1, __i2, __x0, __y0, __y1, __rtime, resource_deadlock_would_occur, __loc, __uc, __lc, __m2, __m1, _Lp, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Connect failed, bundleName:%{public}s, abilityName:%{public}s",
+            want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:151:9
+复杂度: 0
+定义变量: __c, __x1y0, registration
+使用变量: , __a, __b, __p, __first, __comp, __first1, __cont, __x1, __facets, operator^, memory_order_seq_cst, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ABILITY_SERVICE_NOT_CONNECTED;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:154:5
+复杂度: 0
+定义变量: __size, __e, __mix_lo, __mix_hi, __p1, __uc, __loc, __sign_size, logTag
+使用变量: , __x, __a, __tmp, __n, __y, __ptr, __c, __first2, __last2, __capacity, __i1, __i2, __mix, __m, __nh, __hf, __eql, operator=, __p1, __io, __m2, __m1, _Nd, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::EXTMGR, "bundleName: %{public}s, abilityName: %{public}s, userId: %{public}d.",
+        want.GetElement().GetBundleName().c_str(), want.GetElement().GetAbilityName().c_str(), userId);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: DisconnectAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:159:33
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode ExtensionManagerClient::DisconnectAbility(const sptr<IRemoteObject> &connect)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    auto abms = GetExtensionManager();
+    CHECK_POINTER_RETURN_NOT_CONNECTED(abms);
+    TAG_LOGI(AAFwkTag::EXTMGR, "call");
+    return abms->DisconnectAbility(connect);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetExtensionManager
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:162:17
+复杂度: 0
+定义变量: __r
+使用变量: , __x, __a, __n, __fn, __first, __s, __last, __str, _Nd
+关键位置: 否
+日志评分: 0
+代码:
+    auto abms = GetExtensionManager();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:163:5
+复杂度: 11
+定义变量: __ts, logTag
+使用变量: , __r, __b, __size, __first, __s, __shift, __throw_system_error, operation_not_permitted, EXTMGR, abms, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    CHECK_POINTER_RETURN_NOT_CONNECTED(abms);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator bool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:163:5
+复杂度: 0
+定义变量: logTag
+使用变量: EXTMGR, abms, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 否
+日志评分: 0
+代码:
+    CHECK_POINTER_RETURN_NOT_CONNECTED(abms);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:163:5
+复杂度: 0
+定义变量: __ts, logTag
+使用变量: , __r, __b, __size, __first, __s, __shift, __throw_system_error, operation_not_permitted, EXTMGR, abms, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Loop Block (do-while) 缺少日志: 得分 -2
+代码:
+    CHECK_POINTER_RETURN_NOT_CONNECTED(abms);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:163:5
+复杂度: 10
+定义变量: __ts, logTag
+使用变量: , __r, __b, __size, __first, __s, __shift, __throw_system_error, operation_not_permitted, EXTMGR, abms, ABILITY_SERVICE_NOT_CONNECTED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    CHECK_POINTER_RETURN_NOT_CONNECTED(abms);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:164:5
+复杂度: 0
+定义变量: __is_signed, __last_pos, offset, logTag
+使用变量: , __x, __c, eq_int_type, eof, __s, __position, __testeof, memory_order_seq_cst, tag, GetOffset, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::EXTMGR, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:165:5
+复杂度: 0
+定义变量: __digits10, __alloc
+使用变量: , __r, __x, __size, __comp, __first1, __last1, __svt, _Base, __throw_system_error, resource_deadlock_would_occur, __ns, offset, tagNames, operator->, abms, connect
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return abms->DisconnectAbility(connect);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: DisconnectAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:165:12
+复杂度: 0
+定义变量: __digits10, __alloc
+使用变量: , __r, __x, __comp, __first1, __last1, __svt, _Base, resource_deadlock_would_occur, __ns, tagNames, operator->, abms, connect
+关键位置: 否
+日志评分: 0
+代码:
+    return abms->DisconnectAbility(connect);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator->
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_client.cpp:165:12
+复杂度: 0
+定义变量: __alloc
+使用变量: __r, __svt, operator->, abms
+关键位置: 否
+日志评分: 0
+代码:
+    return abms->DisconnectAbility(connect);
+
+--------------------------------------------------------------------------------

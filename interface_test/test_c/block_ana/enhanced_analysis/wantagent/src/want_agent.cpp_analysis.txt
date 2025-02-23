@@ -1,0 +1,658 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+WantAgent::WantAgent(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+
+
+std::shared_ptr<PendingWant> WantAgent::GetPendingWant()
+
+{
+
+    return pendingWant_;
+
+}
+
+
+
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+
+
+bool WantAgent::Marshalling(Parcel &parcel) const
+
+{
+
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+
+
+    return true;
+
+}
+
+
+
+WantAgent *WantAgent::Unmarshalling(Parcel &parcel)
+
+{
+
+    WantAgent *agent = new (std::nothrow) WantAgent();
+
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+    std::shared_ptr<PendingWant> pendingWant(parcel.ReadParcelable<PendingWant>());
+
+    agent->SetPendingWant(pendingWant);
+
+
+
+    return agent;
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+WantAgent::WantAgent(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+
+
+std::shared_ptr<PendingWant> WantAgent::GetPendingWant()
+
+{
+
+    return pendingWant_;
+
+}
+
+
+
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+
+
+bool WantAgent::Marshalling(Parcel &parcel) const
+
+{
+
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+
+
+    return true;
+
+}
+
+
+
+WantAgent *WantAgent::Unmarshalling(Parcel &parcel)
+
+{
+
+    WantAgent *agent = new (std::nothrow) WantAgent();
+
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+    std::shared_ptr<PendingWant> pendingWant(parcel.ReadParcelable<PendingWant>());
+
+    agent->SetPendingWant(pendingWant);
+
+
+
+    return agent;
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+WantAgent::WantAgent(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+
+
+std::shared_ptr<PendingWant> WantAgent::GetPendingWant()
+
+{
+
+    return pendingWant_;
+
+}
+
+
+
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+
+
+bool WantAgent::Marshalling(Parcel &parcel) const
+
+{
+
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+
+
+    return true;
+
+}
+
+
+
+WantAgent *WantAgent::Unmarshalling(Parcel &parcel)
+
+{
+
+    WantAgent *agent = new (std::nothrow) WantAgent();
+
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+    std::shared_ptr<PendingWant> pendingWant(parcel.ReadParcelable<PendingWant>());
+
+    agent->SetPendingWant(pendingWant);
+
+
+
+    return agent;
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:20
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+WantAgent::WantAgent(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+WantAgent::WantAgent(const std::shared_ptr<PendingWant> &pendingWant)
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:25
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+std::shared_ptr<PendingWant> WantAgent::GetPendingWant()
+
+{
+
+    return pendingWant_;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+std::shared_ptr<PendingWant> WantAgent::GetPendingWant()
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    return pendingWant_;
+
+}
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:30
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:30
+重要性权重: 1
+综合评分: 0
+代码片段:
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:30
+重要性权重: 1
+综合评分: 0
+代码片段:
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:31
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    pendingWant_ = pendingWant;
+
+}
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:35
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+bool WantAgent::Marshalling(Parcel &parcel) const
+
+{
+
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+
+
+    return true;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:35
+重要性权重: 1
+综合评分: 0
+代码片段:
+bool WantAgent::Marshalling(Parcel &parcel) const
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:35
+重要性权重: 1
+综合评分: 0
+代码片段:
+bool WantAgent::Marshalling(Parcel &parcel) const
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:36
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+
+
+    return true;
+
+}
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:37
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:37
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:37
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+        return false;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:39
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return false;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:39
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return false;
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:42
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+    return true;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:42
+重要性权重: 1
+综合评分: 0
+代码片段:
+    return true;
+
+================================================================================
+关键点类型: 函数入口
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:45
+重要性权重: 5
+综合评分: 0
+评分明细:
+  - 函数入口: ❌ 无日志 (得分: 0/5)
+优化建议:
+  * 建议在 函数入口 处添加日志记录
+代码片段:
+WantAgent *WantAgent::Unmarshalling(Parcel &parcel)
+
+{
+
+    WantAgent *agent = new (std::nothrow) WantAgent();
+
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+    std::shared_ptr<PendingWant> pendingWant(parcel.ReadParcelable<PendingWant>());
+
+    agent->SetPendingWant(pendingWant);
+
+
+
+    return agent;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:45
+重要性权重: 1
+综合评分: 0
+代码片段:
+WantAgent *WantAgent::Unmarshalling(Parcel &parcel)
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:46
+重要性权重: 1
+综合评分: 0
+代码片段:
+{
+
+    WantAgent *agent = new (std::nothrow) WantAgent();
+
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+    std::shared_ptr<PendingWant> pendingWant(parcel.ReadParcelable<PendingWant>());
+
+    agent->SetPendingWant(pendingWant);
+
+
+
+    return agent;
+
+}
+
+================================================================================
+关键点类型: 条件分支
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:48
+重要性权重: 4
+综合评分: 0
+评分明细:
+  - 条件分支: ❌ 无日志 (得分: 0/4)
+优化建议:
+  * 建议在 条件分支 处添加日志记录
+代码片段:
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:48
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (agent == nullptr) {
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:48
+重要性权重: 1
+综合评分: 0
+代码片段:
+    if (agent == nullptr) {
+
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+        return nullptr;
+
+    }
+
+================================================================================
+关键点类型: 返回语句
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:50
+重要性权重: 3
+综合评分: 0
+评分明细:
+  - 返回语句: ❌ 无日志 (得分: 0/3)
+优化建议:
+  * 建议在 返回语句 处添加日志记录
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:50
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:50
+重要性权重: 1
+综合评分: 0
+代码片段:
+        return nullptr;
+
+================================================================================

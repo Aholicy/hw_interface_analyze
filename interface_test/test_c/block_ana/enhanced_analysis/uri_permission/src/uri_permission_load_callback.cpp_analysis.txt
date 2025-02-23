@@ -1,0 +1,131 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AAFwk {
+
+void UriPermissionLoadCallback::OnLoadSystemAbilitySuccess(
+
+    int32_t systemAbilityId, const sptr<IRemoteObject> &remoteObject)
+
+{
+
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+
+        return;
+
+    }
+
+
+
+    if (remoteObject == nullptr) {
+
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Object null");
+
+        return;
+
+    }
+
+
+
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d succeed", systemAbilityId);
+
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilitySuccess(remoteObject);
+
+}
+
+
+
+void UriPermissionLoadCallback::OnLoadSystemAbilityFail(int32_t systemAbilityId)
+
+{
+
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+
+        return;
+
+    }
+
+
+
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d failed", systemAbilityId);
+
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilityFail();
+
+}
+
+}  // namespace AAFwk
+
+}  // namespace OHOS
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/uri_permission/src/uri_permission_load_callback.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AAFwk {
+
+void UriPermissionLoadCallback::OnLoadSystemAbilitySuccess(
+
+    int32_t systemAbilityId, const sptr<IRemoteObject> &remoteObject)
+
+{
+
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+
+        return;
+
+    }
+
+
+
+    if (remoteObject == nullptr) {
+
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "Object null");
+
+        return;
+
+    }
+
+
+
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d succeed", systemAbilityId);
+
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilitySuccess(remoteObject);
+
+}
+
+
+
+void UriPermissionLoadCallback::OnLoadSystemAbilityFail(int32_t systemAbilityId)
+
+{
+
+    if (systemAbilityId != URI_PERMISSION_MGR_SERVICE_ID) {
+
+        TAG_LOGE(AAFwkTag::URIPERMMGR, "abilityId:%{public}d mismatch", systemAbilityId);
+
+        return;
+
+    }
+
+
+
+    TAG_LOGD(AAFwkTag::URIPERMMGR, "abilityId:%{public}d failed", systemAbilityId);
+
+    UriPermissionManagerClient::GetInstance().OnLoadSystemAbilityFail();
+
+}
+
+}  // namespace AAFwk
+
+================================================================================

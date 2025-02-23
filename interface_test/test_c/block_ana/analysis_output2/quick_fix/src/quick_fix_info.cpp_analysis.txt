@@ -1,0 +1,459 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:22:31
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    bundleVersionCode = parcel.ReadUint32();
+    bundleVersionName = parcel.ReadString();
+    std::unique_ptr<AppExecFwk::AppqfInfo> qfInfo(parcel.ReadParcelable<AppExecFwk::AppqfInfo>());
+    if (qfInfo == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+        return false;
+    }
+    appqfInfo = *qfInfo;
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:28:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (qfInfo == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:29:9
+复杂度: 0
+定义变量: logTag
+使用变量: QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:30:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:33:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:36:31
+复杂度: 4
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+        return false;
+    }
+    if (!parcel.WriteUint32(bundleVersionCode)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+        return false;
+    }
+    if (!parcel.WriteString(bundleVersionName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+        return false;
+    }
+    if (!parcel.WriteParcelable(&appqfInfo)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:38:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(bundleName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:39:9
+复杂度: 0
+定义变量: logTag
+使用变量: QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:40:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteUint32(bundleVersionCode)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:43:9
+复杂度: 0
+定义变量: logTag
+使用变量: QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:46:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(bundleVersionName)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:47:9
+复杂度: 0
+定义变量: logTag
+使用变量: QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:48:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:50:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteParcelable(&appqfInfo)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:51:9
+复杂度: 0
+定义变量: logTag
+使用变量: QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:52:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:54:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:57:51
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
+{
+    ApplicationQuickFixInfo *info = new (std::nothrow) ApplicationQuickFixInfo();
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+        return nullptr;
+    }
+
+    if (!info->ReadFromParcel(parcel)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+        delete info;
+        return nullptr;
+    }
+
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:60:5
+复杂度: 1
+定义变量: 
+使用变量: __num
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (info == nullptr) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:61:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __f, __cont, __iter, QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:62:9
+复杂度: 0
+定义变量: 
+使用变量: DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+        delete info;
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:65:10
+复杂度: 0
+定义变量: 
+使用变量: __iter, info, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:66:9
+复杂度: 0
+定义变量: logTag
+使用变量: QUICKFIX
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:68:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:71:5
+复杂度: 0
+定义变量: 
+使用变量: info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------

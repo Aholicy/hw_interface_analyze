@@ -1,0 +1,83 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AbilityRuntime {
+
+AutoFillEventHandler::AutoFillEventHandler(const std::shared_ptr<AppExecFwk::EventRunner> &runner)
+
+    : AppExecFwk::EventHandler(runner)
+
+{}
+
+
+
+void AutoFillEventHandler::ProcessEvent(const AppExecFwk::InnerEvent::Pointer &event)
+
+{
+
+    TAG_LOGD(AAFwkTag::AUTOFILLMGR, "called");
+
+    if (event == nullptr) {
+
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+
+        return;
+
+    }
+
+#ifdef SUPPORT_GRAPHICS
+
+    AutoFillManager::GetInstance().HandleTimeOut(event->GetInnerEventId());
+
+#endif // SUPPORT_GRAPHICS
+
+}
+
+} // namespace AbilityRuntime
+
+} // namespace OHOS
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AbilityRuntime {
+
+AutoFillEventHandler::AutoFillEventHandler(const std::shared_ptr<AppExecFwk::EventRunner> &runner)
+
+    : AppExecFwk::EventHandler(runner)
+
+{}
+
+
+
+void AutoFillEventHandler::ProcessEvent(const AppExecFwk::InnerEvent::Pointer &event)
+
+{
+
+    TAG_LOGD(AAFwkTag::AUTOFILLMGR, "called");
+
+    if (event == nullptr) {
+
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+
+        return;
+
+    }
+
+#ifdef SUPPORT_GRAPHICS
+
+    AutoFillManager::GetInstance().HandleTimeOut(event->GetInnerEventId());
+
+#endif // SUPPORT_GRAPHICS
+
+}
+
+} // namespace AbilityRuntime
+
+================================================================================

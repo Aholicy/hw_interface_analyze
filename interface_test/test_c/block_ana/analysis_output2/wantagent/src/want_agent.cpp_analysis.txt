@@ -1,0 +1,199 @@
+代码块类型: Method Declaration
+块名称: GetPendingWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:25:41
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<PendingWant> WantAgent::GetPendingWant()
+{
+    return pendingWant_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetPendingWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:30:17
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void WantAgent::SetPendingWant(const std::shared_ptr<PendingWant> &pendingWant)
+{
+    pendingWant_ = pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:35:17
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool WantAgent::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:37:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteParcelable(pendingWant_.get())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:38:9
+复杂度: 0
+定义变量: logTag
+使用变量: WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "parcel WriteString failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:39:9
+复杂度: 0
+定义变量: 
+使用变量: __bsx
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:42:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:45:23
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+WantAgent *WantAgent::Unmarshalling(Parcel &parcel)
+{
+    WantAgent *agent = new (std::nothrow) WantAgent();
+    if (agent == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+        return nullptr;
+    }
+    std::shared_ptr<PendingWant> pendingWant(parcel.ReadParcelable<PendingWant>());
+    agent->SetPendingWant(pendingWant);
+
+    return agent;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:48:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (agent == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:49:9
+复杂度: 0
+定义变量: logTag
+使用变量: , WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:50:9
+复杂度: 0
+定义变量: 
+使用变量: , __builtin_addressof
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent.cpp:55:5
+复杂度: 0
+定义变量: 
+使用变量: DEFAULT, npos, agent
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return agent;
+
+--------------------------------------------------------------------------------

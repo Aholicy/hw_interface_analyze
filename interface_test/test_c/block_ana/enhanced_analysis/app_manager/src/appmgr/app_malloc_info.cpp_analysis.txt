@@ -1,0 +1,96 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:18
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+bool MallocInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+
+}
+
+
+
+MallocInfo *MallocInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    MallocInfo *mallocInfo = new (std::nothrow) MallocInfo();
+
+    if (mallocInfo == nullptr) {
+
+        return nullptr;
+
+    }
+
+    mallocInfo->usmblks = parcel.ReadUint64();
+
+    mallocInfo->uordblks = parcel.ReadUint64();
+
+    mallocInfo->fordblks = parcel.ReadUint64();
+
+    mallocInfo->hblkhd = parcel.ReadUint64();
+
+    return mallocInfo;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_malloc_info.cpp:19
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+bool MallocInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    return (parcel.WriteUint64(usmblks) && parcel.WriteUint64(uordblks)
+
+        && parcel.WriteUint64(fordblks) && parcel.WriteUint64(hblkhd));
+
+}
+
+
+
+MallocInfo *MallocInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    MallocInfo *mallocInfo = new (std::nothrow) MallocInfo();
+
+    if (mallocInfo == nullptr) {
+
+        return nullptr;
+
+    }
+
+    mallocInfo->usmblks = parcel.ReadUint64();
+
+    mallocInfo->uordblks = parcel.ReadUint64();
+
+    mallocInfo->fordblks = parcel.ReadUint64();
+
+    mallocInfo->hblkhd = parcel.ReadUint64();
+
+    return mallocInfo;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

@@ -1,0 +1,56 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_service_manager.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+sptr<IRemoteObject> AppServiceManager::GetAppMgrService() const
+
+{
+
+    sptr<ISystemAbilityManager> systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+    if (!systemAbilityMgr) {
+
+        return nullptr;
+
+    }
+
+    return systemAbilityMgr->GetSystemAbility(APP_MGR_SERVICE_ID);
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_service_manager.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+sptr<IRemoteObject> AppServiceManager::GetAppMgrService() const
+
+{
+
+    sptr<ISystemAbilityManager> systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+    if (!systemAbilityMgr) {
+
+        return nullptr;
+
+    }
+
+    return systemAbilityMgr->GetSystemAbility(APP_MGR_SERVICE_ID);
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

@@ -1,0 +1,243 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:25:24
+复杂度: 0
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ChildProcessInfo::ReadFromParcel(Parcel &parcel)
+{
+    int32_t pidData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, pidData);
+    pid = static_cast<int32_t>(pidData);
+
+    int32_t hostPidData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, hostPidData);
+    hostPid = static_cast<int32_t>(hostPidData);
+
+    int32_t uidData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, uidData);
+    uid = static_cast<int32_t>(uidData);
+
+    int32_t hostUidData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, hostUidData);
+    hostUid = static_cast<int32_t>(hostUidData);
+
+    int32_t userIdData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, userIdData);
+    userId = static_cast<int32_t>(userIdData);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessType);
+
+    bundleName = Str16ToStr8(parcel.ReadString16());
+    processName = Str16ToStr8(parcel.ReadString16());
+    srcEntry = Str16ToStr8(parcel.ReadString16());
+    entryFunc = Str16ToStr8(parcel.ReadString16());
+    entryParams = Str16ToStr8(parcel.ReadString16());
+    jitEnabled = parcel.ReadBool();
+    isDebugApp = parcel.ReadBool();
+    isStartWithDebug = parcel.ReadBool();
+    isStartWithNative = parcel.ReadBool();
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:54:18
+复杂度: 0
+定义变量: __b3
+使用变量: __b2, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    jitEnabled = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:55:18
+复杂度: 0
+定义变量: __b4, __num
+使用变量: __b3, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isDebugApp = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:56:24
+复杂度: 0
+定义变量: __last
+使用变量: __i, __t, __builtin_labs, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isStartWithDebug = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:57:25
+复杂度: 0
+定义变量: 
+使用变量: , __str, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isStartWithNative = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:59:5
+复杂度: 0
+定义变量: 
+使用变量: , __value, __pred
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:62:37
+复杂度: 1
+定义变量: 
+使用变量: __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ChildProcessInfo *ChildProcessInfo::Unmarshalling(Parcel &parcel)
+{
+    ChildProcessInfo *info = new (std::nothrow) ChildProcessInfo();
+    if (info && !info->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:65:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (info && !info->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete info;
+        info = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:65:18
+复杂度: 0
+定义变量: 
+使用变量: __first, __len, parcel, info
+关键位置: 否
+日志评分: 0
+代码:
+    if (info && !info->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:66:9
+复杂度: 0
+定义变量: __put, __save_errno, logTag
+使用变量: __pos, __v, __out, __size, __first, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:70:5
+复杂度: 0
+定义变量: 
+使用变量: __n, , info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:73:24
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __ret, __builtin_unreachable, __location
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool ChildProcessInfo::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(pid));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(hostPid));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(uid));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(hostUid));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(userId));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessType));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(bundleName));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(processName));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(srcEntry));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(entryFunc));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(entryParams));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, jitEnabled);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isDebugApp);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithNative);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_info.cpp:90:5
+复杂度: 0
+定义变量: 
+使用变量: __first
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

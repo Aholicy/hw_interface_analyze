@@ -1,0 +1,216 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+QuickFixCallbackStub::QuickFixCallbackStub() {}
+
+
+
+QuickFixCallbackStub::~QuickFixCallbackStub() {}
+
+
+
+int QuickFixCallbackStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    if (data.ReadInterfaceToken() != IQuickFixCallback::GetDescriptor()) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    switch (code) {
+
+        case ON_NOTIFY_LOAD_PATCH:
+
+            return HandleOnLoadPatchDoneInner(data, reply);
+
+        case ON_NOTIFY_UNLOAD_PATCH:
+
+            return HandleOnUnloadPatchDoneInner(data, reply);
+
+        case ON_NOTIFY_RELOAD_PAGE:
+
+            return HandleOnReloadPageDoneInner(data, reply);
+
+    }
+
+
+
+    TAG_LOGW(AAFwkTag::APPMGR, "default case, need check value of code!");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t QuickFixCallbackStub::HandleOnLoadPatchDoneInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t resultCode = data.ReadInt32();
+
+    int32_t recordId = data.ReadInt32();
+
+    OnLoadPatchDone(resultCode, recordId);
+
+    return ERR_OK;
+
+}
+
+
+
+int32_t QuickFixCallbackStub::HandleOnUnloadPatchDoneInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t resultCode = data.ReadInt32();
+
+    int32_t recordId = data.ReadInt32();
+
+    OnUnloadPatchDone(resultCode, recordId);
+
+    return ERR_OK;
+
+}
+
+
+
+int32_t QuickFixCallbackStub::HandleOnReloadPageDoneInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t resultCode = data.ReadInt32();
+
+    int32_t recordId = data.ReadInt32();
+
+    OnReloadPageDone(resultCode, recordId);
+
+    return ERR_OK;
+
+}
+
+} // namespace AAFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+QuickFixCallbackStub::QuickFixCallbackStub() {}
+
+
+
+QuickFixCallbackStub::~QuickFixCallbackStub() {}
+
+
+
+int QuickFixCallbackStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    if (data.ReadInterfaceToken() != IQuickFixCallback::GetDescriptor()) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    switch (code) {
+
+        case ON_NOTIFY_LOAD_PATCH:
+
+            return HandleOnLoadPatchDoneInner(data, reply);
+
+        case ON_NOTIFY_UNLOAD_PATCH:
+
+            return HandleOnUnloadPatchDoneInner(data, reply);
+
+        case ON_NOTIFY_RELOAD_PAGE:
+
+            return HandleOnReloadPageDoneInner(data, reply);
+
+    }
+
+
+
+    TAG_LOGW(AAFwkTag::APPMGR, "default case, need check value of code!");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+int32_t QuickFixCallbackStub::HandleOnLoadPatchDoneInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t resultCode = data.ReadInt32();
+
+    int32_t recordId = data.ReadInt32();
+
+    OnLoadPatchDone(resultCode, recordId);
+
+    return ERR_OK;
+
+}
+
+
+
+int32_t QuickFixCallbackStub::HandleOnUnloadPatchDoneInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t resultCode = data.ReadInt32();
+
+    int32_t recordId = data.ReadInt32();
+
+    OnUnloadPatchDone(resultCode, recordId);
+
+    return ERR_OK;
+
+}
+
+
+
+int32_t QuickFixCallbackStub::HandleOnReloadPageDoneInner(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    int32_t resultCode = data.ReadInt32();
+
+    int32_t recordId = data.ReadInt32();
+
+    OnReloadPageDone(resultCode, recordId);
+
+    return ERR_OK;
+
+}
+
+} // namespace AAFwk
+
+================================================================================

@@ -1,0 +1,2016 @@
+代码块类型: Method Declaration
+块名称: GetType
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:40:47
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+WantAgentConstant::OperationType PendingWant::GetType(sptr<AAFwk::IWantSender> target)
+{
+    int32_t operationType = 0;
+    WantAgentClient::GetInstance().GetPendingWantType(target, operationType);
+    return static_cast<WantAgentConstant::OperationType>(operationType);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:44:5
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, __state, _S_get_c_name, operationType
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return static_cast<WantAgentConstant::OperationType>(operationType);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:47:43
+复杂度: 0
+定义变量: 
+使用变量: __out, __os, __throw_bad_cast, __throw_ios_failure
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<PendingWant> PendingWant::GetAbility(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want, unsigned int flags)
+{
+    std::shared_ptr<PendingWant> pendingWant = nullptr;
+    GetAbility(context, requestCode, want, flags, nullptr, pendingWant);
+    return pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:56:22
+复杂度: 3
+定义变量: 
+使用变量: , __is_constant_evaluated, __ret, __builtin_unreachable, __location, __os, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode PendingWant::GetAbility(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    const std::shared_ptr<AAFwk::Want> &want, unsigned int flags,
+    const std::shared_ptr<AAFwk::WantParams> &options,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantsInfo wantsInfo;
+    wantsInfo.want = *want;
+    wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+    if (options != nullptr && !options->IsEmpty()) {
+        wantsInfo.want.SetParams(*options);
+    }
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(WantAgentConstant::OperationType::START_ABILITY);
+    wantSenderInfo.allWants.push_back(wantsInfo);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:62:5
+复杂度: 1
+定义变量: 
+使用变量: __ret, __num
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:63:9
+复杂度: 0
+定义变量: __c, logTag
+使用变量: __c, , __i, __s, __a, __tmp, __out, __len, __l, __cont, __eof, _Pn, PTHREAD_MUTEX_TIMED_NP, __loc, __caches, __testeq, WANTAGENT, _Intl
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:64:9
+复杂度: 0
+定义变量: value, __c, __enable_hash_call
+使用变量: __c, __n, __v, , __tmp, __size, __cont, _Val, space, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantsInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:67:15
+复杂度: 0
+定义变量: __maxlen, wantsInfo
+使用变量: , __x, __gd, _S_get_c_name
+关键位置: 否
+日志评分: 0
+代码:
+    WantsInfo wantsInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:70:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (options != nullptr && !options->IsEmpty()) {
+        wantsInfo.want.SetParams(*options);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantSenderInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:74:20
+复杂度: 0
+定义变量: __enable_hash_call, __old_size, wantSenderInfo
+使用变量: , PTHREAD_MUTEX_ROBUST, _S_left, __outstr
+关键位置: 否
+日志评分: 0
+代码:
+    WantSenderInfo wantSenderInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:76:5
+复杂度: 0
+定义变量: 
+使用变量: __p, , __x, __digits, __max, __val, __builtin_fabsf, PTHREAD_MUTEX_RECURSIVE_NP, _S_scientific, _S_fixed, __ISwspace, JS, __outnext, __outlast, wantSenderInfo, wantsInfo
+关键位置: 否
+日志评分: 0
+代码:
+    wantSenderInfo.allWants.push_back(wantsInfo);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:83:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetAbilities
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:90:43
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<PendingWant> PendingWant::GetAbilities(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    std::vector<std::shared_ptr<Want>> &wants, unsigned int flags)
+{
+    std::shared_ptr<PendingWant> pendingWant = nullptr;
+    GetAbilities(context, requestCode, wants, flags, nullptr, pendingWant);
+    return pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetAbilities
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:99:22
+复杂度: 5
+定义变量: 
+使用变量: , __c1, __is_constant_evaluated, __first, __builtin_unreachable, __ptr, __u, __pf, __len, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode PendingWant::GetAbilities(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    std::vector<std::shared_ptr<Want>> &wants, unsigned int flags, const std::shared_ptr<WantParams> &options,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(WantAgentConstant::OperationType::START_ABILITIES);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    for (auto want : wants) {
+        WantsInfo wantsInfo;
+        if (want != nullptr) {
+            wantsInfo.want = *want;
+        }
+        wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+        if (options != nullptr && !options->IsEmpty()) {
+            wantsInfo.want.SetParams(*options);
+        }
+        wantSenderInfo.allWants.push_back(wantsInfo);
+    }
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:104:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:105:9
+复杂度: 0
+定义变量: all, logTag
+使用变量: __p, __n, , __builtin_memcmp, __a, __uselocale, __old, __first, __last, __max, __first1, __first2, __num, __len, __a0, __b0, __gthread_active_p, ctype, numeric, collate, __refs, __nh, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:106:9
+复杂度: 0
+定义变量: __ng
+使用变量: __c, __n, __pos, __rhs, , _Nm, __x, __max, __str, __m, __mod, time, monetary, messages, __np, __grouping, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantSenderInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:109:20
+复杂度: 0
+定义变量: value, __ct, wantSenderInfo
+使用变量: , __t, __first, __val, PTHREAD_RWLOCK_PREFER_READER_NP, __mem, tag, GetOffset
+关键位置: 否
+日志评分: 0
+代码:
+    WantSenderInfo wantSenderInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:128:5
+复杂度: 1
+定义变量: 
+使用变量: __m
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetCommonEvent
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:135:22
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetCommonEvent(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return GetCommonEventAsUser(context, requestCode, want, flags, 0, pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetCommonEventAsUser
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:143:22
+复杂度: 3
+定义变量: 
+使用变量: __pos, __builtin_operator_delete, __err, __ne_ptr, __nh
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode PendingWant::GetCommonEventAsUser(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want, unsigned int flags, int uid,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantsInfo wantsInfo;
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+    wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(WantAgentConstant::OperationType::SEND_COMMON_EVENT);
+    wantSenderInfo.allWants.push_back(wantsInfo);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:148:5
+复杂度: 1
+定义变量: 
+使用变量: __capacity, __throw_concurrence_lock_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:149:9
+复杂度: 0
+定义变量: __x0y0, __rt, __lc, lockGuard, logTag
+使用变量: __rhs, , __x0, __y0, __rtime, _Lp, __loc, __uc, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:150:9
+复杂度: 0
+定义变量: __x0y1, __lit, tagNames
+使用变量: __rhs, , __first, __last, __first1, __first2, __last1, __last2, __cont, __x0, __y1, resource_deadlock_would_occur, _Lp, __lc, goodbit, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantsInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:153:15
+复杂度: 0
+定义变量: __pos, _Nd, __testin, wantsInfo
+使用变量: __comp
+关键位置: 否
+日志评分: 0
+代码:
+    WantsInfo wantsInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:154:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantSenderInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:159:20
+复杂度: 0
+定义变量: __hi, registration, wantSenderInfo
+使用变量: __other, , __s, __obj, memory_order_seq_cst
+关键位置: 否
+日志评分: 0
+代码:
+    WantSenderInfo wantSenderInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:161:5
+复杂度: 0
+定义变量: __max_digits10, __ns, __testeof, tagNames
+使用变量: __n, , __old_val, __first, __last, __f, __l, __end, __beg, __throw_concurrence_unlock_error, __lc, __outstr, wantSenderInfo, wantsInfo
+关键位置: 否
+日志评分: 0
+代码:
+    wantSenderInfo.allWants.push_back(wantsInfo);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:168:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetService
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:175:22
+复杂度: 0
+定义变量: 
+使用变量: , __position
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetService(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<AAFwk::Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return BuildServicePendingWant(context, requestCode, want, flags,
+        WantAgentConstant::OperationType::START_SERVICE, pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetServiceExtension
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:184:22
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __old, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetServiceExtension(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<AAFwk::Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return BuildServicePendingWant(context, requestCode, want, flags,
+        WantAgentConstant::OperationType::START_SERVICE_EXTENSION, pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetForegroundService
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:193:22
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __i, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetForegroundService(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context, int requestCode,
+    const std::shared_ptr<Want> &want, unsigned int flags,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    return BuildServicePendingWant(
+        context, requestCode, want, flags, WantAgentConstant::OperationType::START_FOREGROUND_SERVICE,
+        pendingWant);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: BuildServicePendingWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:203:22
+复杂度: 3
+定义变量: __cmp
+使用变量: __rhs, , __guard, __throw_system_error, __found_grouping, __date, __time
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode PendingWant::BuildServicePendingWant(
+    const std::shared_ptr<OHOS::AbilityRuntime::ApplicationContext> &context,
+    int requestCode, const std::shared_ptr<Want> &want,
+    unsigned int flags, WantAgentConstant::OperationType serviceKind,
+    std::shared_ptr<PendingWant> &pendingWant)
+{
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+    WantsInfo wantsInfo;
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+    wantsInfo.resolvedTypes = want != nullptr ? want->GetType() : "";
+
+    WantSenderInfo wantSenderInfo;
+    wantSenderInfo.type = static_cast<int32_t>(serviceKind);
+    wantSenderInfo.allWants.push_back(wantsInfo);
+    wantSenderInfo.bundleName = context->GetBundleName();
+    wantSenderInfo.flags = flags;
+    wantSenderInfo.userId = -1; // -1 : invalid user id
+    wantSenderInfo.requestCode = requestCode;
+    sptr<IWantSender> target = nullptr;
+    ErrCode result = WantAgentClient::GetInstance().GetWantSender(wantSenderInfo, nullptr, target);
+    if (result != ERR_OK) {
+        return result;
+    }
+    pendingWant = std::make_shared<PendingWant>(target);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:209:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (context == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:210:9
+复杂度: 0
+定义变量: __ret, logTag
+使用变量: __p, , __i, __x, __ret, __y, __len, __builtin_clz, __seed, __diff, __base, memory_order_seq_cst, __pend, __lc, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:211:9
+复杂度: 0
+定义变量: digits, __prev
+使用变量: __p, __n, __rhs, , __size, __val, __first1, __first2, __last1, __l, __cur, _Base, _Dig, sign, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantsInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:214:15
+复杂度: 0
+定义变量: __diff, wantsInfo
+使用变量: , __a, __d, __q, __lc
+关键位置: 否
+日志评分: 0
+代码:
+    WantsInfo wantsInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:215:5
+复杂度: 1
+定义变量: 
+使用变量: , __prev, __throw_concurrence_unlock_error
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (want != nullptr) {
+        wantsInfo.want = *want;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WantSenderInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:220:20
+复杂度: 0
+定义变量: __coshift_, wantSenderInfo
+使用变量: __rhs, , _Nm, __t, __x, __first, __y, __f, __diff, __cur, _Base
+关键位置: 否
+日志评分: 0
+代码:
+    WantSenderInfo wantSenderInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:222:5
+复杂度: 0
+定义变量: __beg, __c1, __r_st
+使用变量: __n, __rhs, , __i, __a, __size, __d, __hint, __m, __lo, __hi, __negative, __testin, wantSenderInfo, wantsInfo
+关键位置: 否
+日志评分: 0
+代码:
+    wantSenderInfo.allWants.push_back(wantsInfo);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:229:5
+复杂度: 1
+定义变量: 
+使用变量: __negative
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (result != ERR_OK) {
+        return result;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Cancel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:236:22
+复杂度: 0
+定义变量: 
+使用变量: __pos, , __is_constant_evaluated, __builtin_unreachable, __dt
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::Cancel(const sptr<AAFwk::IWantSender> &target, uint32_t flags)
+{
+    return WantAgentClient::GetInstance().CancelWantSender(target, flags);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:238:5
+复杂度: 0
+定义变量: __remainder
+使用变量: , __d, __ptr, __len, __cont, __count, __throw_logic_error, __err, __quot_hi, __gthread_mutex_trylock, operator|=, __ineof, __sbout, badbit, __secondChild, __msg, flags, GetInstance, target
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return WantAgentClient::GetInstance().CancelWantSender(target, flags);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:238:12
+复杂度: 0
+定义变量: __remainder
+使用变量: , __d, __ptr, __len, __cont, __count, __quot_hi, __gthread_mutex_trylock, operator|=, __ineof, __sbout, badbit, __secondChild, __msg, flags, GetInstance, target
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().CancelWantSender(target, flags);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:238:12
+复杂度: 0
+定义变量: __remainder
+使用变量: , __d, __ptr, __len, __count, __quot_hi, __gthread_mutex_trylock, operator|=, badbit, __secondChild, __msg, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().CancelWantSender(target, flags);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:241:19
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::Send(const sptr<AAFwk::IWantSender> &target)
+{
+    Send(0, nullptr, nullptr, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:246:19
+复杂度: 0
+定义变量: __cmp
+使用变量: __ampm_format
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::Send(int resultCode, const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, nullptr, nullptr, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:251:19
+复杂度: 0
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __err, __ampm
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, want, nullptr, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:257:19
+复杂度: 0
+定义变量: 
+使用变量: __days
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::Send(
+    int resultCode, const sptr<CompletedDispatcher> &onCompleted, const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, nullptr, onCompleted, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:263:19
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __days
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, want, onCompleted, "", nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:269:19
+复杂度: 0
+定义变量: 
+使用变量: __days, __atomic_store
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const std::string &requiredPermission,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    Send(resultCode, want, onCompleted, requiredPermission, nullptr, nullptr, target);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:276:22
+复杂度: 1
+定义变量: 
+使用变量: __n, , __is_constant_evaluated, __builtin_unreachable, __days, __months, __atomic_store, __atomic_load
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::Send(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const std::string &requiredPermission,
+    const std::shared_ptr<WantParams> &options, const std::shared_ptr<StartOptions> &startOptions,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    int result =
+        SendAndReturnResult(resultCode, want, onCompleted, requiredPermission, options, startOptions, target);
+    if (result != 0) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+    }
+    return result;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:283:5
+复杂度: 1
+定义变量: 
+使用变量: __throw_concurrence_broadcast_error, __testvalid
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (result != 0) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:284:9
+复杂度: 0
+定义变量: __tmp, __urngmin
+使用变量: __n, , __s, __a, __x, __first, __cont, __capacity, __new_capacity, __buf, __tail, __head, __memory_order_mask, ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_ABILITY_RUNTIME_EXTERNAL_SERVICE_BUSY;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:286:5
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __b, __tmp, __builtin_unreachable, __ptr, __last1, memory_order_acquire, __urngmin, result
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return result;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SendAndReturnResult
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:289:18
+复杂度: 3
+定义变量: 
+使用变量: __pos, __out, __sv, __throw_system_error, __months, __atomic_load, __atomic_exchange
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int PendingWant::SendAndReturnResult(int resultCode, const std::shared_ptr<Want> &want,
+    const sptr<CompletedDispatcher> &onCompleted, const std::string &requiredPermission,
+    const std::shared_ptr<WantParams> &options, const std::shared_ptr<StartOptions> &startOptions,
+    const sptr<AAFwk::IWantSender> &target)
+{
+    TAG_LOGD(AAFwkTag::WANTAGENT, "call");
+    SenderInfo senderInfo;
+    senderInfo.resolvedType = want != nullptr ? want->GetType() : "";
+    if (want != nullptr) {
+        senderInfo.want = *want;
+    }
+    if (options != nullptr) {
+        senderInfo.want.SetParams(*options);
+    }
+    if (startOptions != nullptr) {
+        senderInfo.startOptions = new (std::nothrow) StartOptions(*startOptions);
+    }
+    senderInfo.requiredPermission = requiredPermission;
+    senderInfo.code = resultCode;
+    senderInfo.finishedReceiver = onCompleted;
+    return WantAgentClient::GetInstance().SendWantSender(target, senderInfo);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:294:5
+复杂度: 0
+定义变量: __tmp, __cur, tinyness_before, _Nd_ull, _10, logTag
+使用变量: __n, , __first, __ptr, __it2, __result, __urngrange, __urange, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::WANTAGENT, "call");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SenderInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:295:16
+复杂度: 0
+定义变量: __p, _Nd_ul, senderInfo
+使用变量: , __first, __last
+关键位置: 否
+日志评分: 0
+代码:
+    SenderInfo senderInfo;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:297:5
+复杂度: 1
+定义变量: 
+使用变量: __first, __last, __cur
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (want != nullptr) {
+        senderInfo.want = *want;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:300:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (options != nullptr) {
+        senderInfo.want.SetParams(*options);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:303:5
+复杂度: 1
+定义变量: 
+使用变量: __ptr, __throw_concurrence_wait_error
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (startOptions != nullptr) {
+        senderInfo.startOptions = new (std::nothrow) StartOptions(*startOptions);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:309:5
+复杂度: 0
+定义变量: __tmp, __old, __x, den, __max_ull, _25
+使用变量: , __s, __ret, __max, npos, _Lp, __exchange_and_add_dispatch, GetInstance, target, senderInfo
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return WantAgentClient::GetInstance().SendWantSender(target, senderInfo);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:309:12
+复杂度: 0
+定义变量: __old, __x, den, __max_ull, _25
+使用变量: , __s, __max, npos, _Lp, __exchange_and_add_dispatch, GetInstance, target, senderInfo
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().SendWantSender(target, senderInfo);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:309:12
+复杂度: 0
+定义变量: __old, __x, den, __max_ull, _25
+使用变量: , __s, _Lp, __exchange_and_add_dispatch, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().SendWantSender(target, senderInfo);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: IsEquals
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:312:22
+复杂度: 4
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __f, __err, __is_valid_cmpexch_failure_order, __months, __atomic_exchange
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::IsEquals(
+    const std::shared_ptr<PendingWant> &targetPendingWant, const std::shared_ptr<PendingWant> &otherPendingWant)
+{
+    if ((targetPendingWant == nullptr) && (otherPendingWant == nullptr)) {
+        return ERR_OK;
+    }
+    if ((targetPendingWant == nullptr) || (otherPendingWant == nullptr)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+    int targetCode = -1;
+    int otherCode = -1;
+    ErrCode targetErrCode = targetPendingWant->GetHashCode(targetPendingWant->GetTarget(), targetCode);
+    ErrCode otherErrCode = otherPendingWant->GetHashCode(otherPendingWant->GetTarget(), otherCode);
+    if (targetErrCode != ERR_OK) {
+        return targetErrCode;
+    }
+    if (otherErrCode != ERR_OK) {
+        return otherErrCode;
+    }
+    return targetCode == otherCode ? ERR_OK : NOTEQ;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:315:5
+复杂度: 1
+定义变量: 
+使用变量: __p, __ptr, __res, __len, _S_check_init_len
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if ((targetPendingWant == nullptr) && (otherPendingWant == nullptr)) {
+        return ERR_OK;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:318:5
+复杂度: 1
+定义变量: __ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if ((targetPendingWant == nullptr) || (otherPendingWant == nullptr)) {
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:319:9
+复杂度: 0
+定义变量: __tmp, __rlen, __can_fill
+使用变量: __p, , __a, __x, __str, __found_grouping, __found_dec, ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_ABILITY_RUNTIME_EXTERNAL_INVALID_PARAMETER;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:325:5
+复杂度: 1
+定义变量: 
+使用变量: __ret, __builtin_expect
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (targetErrCode != ERR_OK) {
+        return targetErrCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:328:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (otherErrCode != ERR_OK) {
+        return otherErrCode;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetTarget
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:334:32
+复杂度: 0
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __f, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+sptr<IWantSender> PendingWant::GetTarget()
+{
+    return target_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SetTarget
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:339:19
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::SetTarget(const sptr<AAFwk::IWantSender> &target)
+{
+    target_ = target;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: PerformReceive
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:348:35
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::CancelReceiver::PerformReceive(const AAFwk::Want &want, int resultCode, const std::string &data,
+    const AAFwk::WantParams &extras, bool serialized, bool sticky, int sendingUser)
+{}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Send
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:352:35
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::CancelReceiver::Send(const int32_t resultCode)
+{
+    if (outerInstance_.lock() != nullptr) {
+        outerInstance_.lock()->NotifyCancelListeners(resultCode);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:354:5
+复杂度: 1
+定义变量: 
+使用变量: __c, __position
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (outerInstance_.lock() != nullptr) {
+        outerInstance_.lock()->NotifyCancelListeners(resultCode);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: RegisterCancelListener
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:359:19
+复杂度: 3
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __f, __err, __is_valid_cmpexch_failure_order
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void PendingWant::RegisterCancelListener(
+    const std::shared_ptr<CancelListener> &cancelListener, const sptr<AAFwk::IWantSender> &target)
+{
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+    std::scoped_lock<std::mutex> lock(lock_object);
+    if (cancelReceiver_ == nullptr) {
+        cancelReceiver_ = new (std::nothrow) CancelReceiver(weak_from_this());
+    }
+    bool isEmpty = cancelListeners_.empty();
+    cancelListeners_.push_back(cancelListener);
+    if (isEmpty) {
+        WantAgentClient::GetInstance().RegisterCancelListener(target, cancelReceiver_);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:362:5
+复杂度: 1
+定义变量: 
+使用变量: __err
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:363:9
+复杂度: 0
+定义变量: __tmp, internal, logTag
+使用变量: __p, __n, , __c1, __c2, __i, __s, __a, __x, __args, __ptr, __y, __alloc, _S_internal, __found_grouping, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:364:9
+复杂度: 0
+定义变量: 
+使用变量: __i, operator-=
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:367:5
+复杂度: 1
+定义变量: 
+使用变量: __to
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (cancelReceiver_ == nullptr) {
+        cancelReceiver_ = new (std::nothrow) CancelReceiver(weak_from_this());
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:372:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (isEmpty) {
+        WantAgentClient::GetInstance().RegisterCancelListener(target, cancelReceiver_);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: NotifyCancelListeners
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:377:19
+复杂度: 2
+定义变量: 
+使用变量: __throw_range_error
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void PendingWant::NotifyCancelListeners(int32_t resultCode)
+{
+    std::vector<std::shared_ptr<CancelListener>> cancelListeners;
+    {
+        std::scoped_lock<std::mutex> lock(lock_object);
+        cancelListeners = std::vector<std::shared_ptr<CancelListener>>(cancelListeners_);
+    }
+    for (auto cancelListener : cancelListeners) {
+        if (cancelListener != nullptr) {
+            cancelListener->OnCancelled(resultCode);
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: UnregisterCancelListener
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:391:19
+复杂度: 2
+定义变量: 
+使用变量: , __ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void PendingWant::UnregisterCancelListener(
+    const std::shared_ptr<CancelListener> &cancelListener, const sptr<AAFwk::IWantSender> &target)
+{
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+
+    std::scoped_lock<std::mutex> lock(lock_object);
+    bool isEmpty = cancelListeners_.empty();
+    cancelListeners_.erase(remove_if(cancelListeners_.begin(),
+        cancelListeners_.end(),
+        [cancelListener](std::shared_ptr<CancelListener> x) { return x == cancelListener; }),
+        cancelListeners_.end());
+    if (cancelListeners_.empty() && !isEmpty) {
+        WantAgentClient::GetInstance().UnregisterCancelListener(target, cancelReceiver_);
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:394:5
+复杂度: 1
+定义变量: 
+使用变量: __ptr, __sb
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (cancelListener == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:395:9
+复杂度: 0
+定义变量: __len, __gcount, logTag
+使用变量: __n, __rhs, , __t, __tmp, __it, __f, _Idx, __str, __end, __beg, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "invalid input param");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:396:9
+复杂度: 0
+定义变量: 
+使用变量: , __len
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:405:5
+复杂度: 1
+定义变量: 
+使用变量: __n, __builtin_expect
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (cancelListeners_.empty() && !isEmpty) {
+        WantAgentClient::GetInstance().UnregisterCancelListener(target, cancelReceiver_);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetHashCode
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:410:22
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetHashCode(const sptr<AAFwk::IWantSender> &target, int &code)
+{
+    return WantAgentClient::GetInstance().GetPendingWantCode(target, code);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:412:5
+复杂度: 0
+定义变量: __len, __t1, __cmp
+使用变量: __n, , __a, __x, __b, __ret, __f, __max, __comp, __alloc, __cur, __t0, __param, __scaling, GetInstance, target, code
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantCode(target, code);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:412:12
+复杂度: 0
+定义变量: __len, __cmp
+使用变量: __n, , __a, __x, __b, __ret, __max, __comp, __alloc, __cur, __t0, __param, __scaling, GetInstance, target, code
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantCode(target, code);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:412:12
+复杂度: 0
+定义变量: __len
+使用变量: __n, , __a, __b, __ret, __alloc, __t0, __param, __scaling, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantCode(target, code);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetUid
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:415:22
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetUid(const sptr<AAFwk::IWantSender> &target, int32_t &uid)
+{
+    return WantAgentClient::GetInstance().GetPendingWantUid(target, uid);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:417:5
+复杂度: 0
+定义变量: __tmp, max_exponent10, __sep_pos
+使用变量: __n, , __i, __s, _Idx, npos, __t0, memory_order_seq_cst, __atomic_and_fetch, GetInstance, target, uid
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantUid(target, uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:417:12
+复杂度: 0
+定义变量: __tmp, max_exponent10
+使用变量: __n, , __i, __s, _Idx, npos, memory_order_seq_cst, __atomic_and_fetch, GetInstance, target, uid
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantUid(target, uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:417:12
+复杂度: 0
+定义变量: __tmp, max_exponent10
+使用变量: , __i, _Idx, __atomic_and_fetch, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantUid(target, uid);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetBundleName
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:420:22
+复杂度: 0
+定义变量: 
+使用变量: __err
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetBundleName(const sptr<AAFwk::IWantSender> &target, std::string &bundleName)
+{
+    return WantAgentClient::GetInstance().GetPendingWantBundleName(target, bundleName);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:422:5
+复杂度: 0
+定义变量: has_denorm
+使用变量: __p, , __a, __b, __first, __last, __len, __t0, GetInstance, target, bundleName
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantBundleName(target, bundleName);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:422:12
+复杂度: 0
+定义变量: has_denorm
+使用变量: __p, , __a, __b, __first, __last, __len, GetInstance, target, bundleName
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantBundleName(target, bundleName);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:422:12
+复杂度: 0
+定义变量: 
+使用变量: __p, , __a, __b, __first, __last, __len, GetInstance
+关键位置: 否
+日志评分: 0
+代码:
+    return WantAgentClient::GetInstance().GetPendingWantBundleName(target, bundleName);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:425:36
+复杂度: 0
+定义变量: 
+使用变量: __pos, , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<Want> PendingWant::GetWant(const sptr<AAFwk::IWantSender> &target)
+{
+    HITRACE_METER_NAME(HITRACE_TAG_ABILITY_MANAGER, __PRETTY_FUNCTION__);
+    std::shared_ptr<Want> want = std::make_shared<Want>();
+    int ret = WantAgentClient::GetInstance().GetPendingRequestWant(target, want);
+    return ret ? nullptr : want;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:433:19
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool PendingWant::Marshalling(Parcel &parcel) const
+{
+    if (target_ == nullptr || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(target_->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "failed");
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:435:5
+复杂度: 1
+定义变量: 
+使用变量: __n, __ret, __d, __builtin_expect, __base
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (target_ == nullptr || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(target_->AsObject())) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:436:9
+复杂度: 0
+定义变量: __cerb, goodbit, __lit, logTag
+使用变量: __c, __pos, , __comp, _S_goodbit, __lc, __pptr, WANTAGENT, _S_putback_length
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:437:9
+复杂度: 0
+定义变量: __s
+使用变量: , __cerb, __d, __atomic_xor_fetch
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:440:5
+复杂度: 0
+定义变量: 
+使用变量: , __s, __x, __ret, __urng
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:443:27
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+PendingWant *PendingWant::Unmarshalling(Parcel &parcel)
+{
+    PendingWant *pendingWant = new (std::nothrow) PendingWant();
+    if (pendingWant == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+        return nullptr;
+    }
+    sptr<AAFwk::IWantSender> target =
+        iface_cast<AAFwk::IWantSender>((static_cast<MessageParcel*>(&parcel))->ReadRemoteObject());
+    if (target == nullptr) {
+        delete pendingWant;
+        return nullptr;
+    }
+    pendingWant->SetTarget(target);
+
+    return pendingWant;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:446:5
+复杂度: 1
+定义变量: 
+使用变量: __p, __n, , __sign_size, __sign
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (pendingWant == nullptr) {
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:447:9
+复杂度: 0
+定义变量: __c, round_style, logTag
+使用变量: __c, __n, __lhs, __rhs, , __i, __s, __a, __builtin_memset, __eof, __cur, operator+=, _S_single, __sb, __lc, WANTAGENT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::WANTAGENT, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:448:9
+复杂度: 0
+定义变量: __len
+使用变量: __p, , __t, __x, __f, round_toward_zero, __lc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:452:5
+复杂度: 1
+定义变量: 
+使用变量: __p, __sign_size, __sign
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (target == nullptr) {
+        delete pendingWant;
+        return nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:454:9
+复杂度: 0
+定义变量: __p, __new_finish
+使用变量: , __is_constant_evaluated, operator+, operator*, __lc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:458:5
+复杂度: 0
+定义变量: __b
+使用变量: __from, __sb, pendingWant
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return pendingWant;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetWantSenderInfo
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:461:46
+复杂度: 0
+定义变量: 
+使用变量: __is_constant_evaluated, __b, __builtin_unreachable, memory_order_acq_rel, memory_order_consume, __atomic_store_n
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+std::shared_ptr<WantSenderInfo> PendingWant::GetWantSenderInfo(const sptr<AAFwk::IWantSender> &target)
+{
+    std::shared_ptr<WantSenderInfo> info = std::make_shared<WantSenderInfo>();
+    int ret = WantAgentClient::GetInstance().GetWantSenderInfo(target, info);
+    return ret ? nullptr : info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetType
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:468:22
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetType(const sptr<AAFwk::IWantSender> &target, int32_t &operType)
+{
+    ErrCode result = WantAgentClient::GetInstance().GetPendingWantType(target, operType);
+    return result;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetWant
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/pending_want.cpp:474:22
+复杂度: 0
+定义变量: 
+使用变量: __is_constant_evaluated, __b, __builtin_unreachable, memory_order_acq_rel, memory_order_consume, __atomic_store_n
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ErrCode PendingWant::GetWant(const sptr<AAFwk::IWantSender> &target, std::shared_ptr<AAFwk::Want> &want)
+{
+    ErrCode result = WantAgentClient::GetInstance().GetPendingRequestWant(target, want);
+    return result;
+}
+
+--------------------------------------------------------------------------------

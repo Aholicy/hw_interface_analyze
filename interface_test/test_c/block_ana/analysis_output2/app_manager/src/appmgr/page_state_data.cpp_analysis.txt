@@ -1,0 +1,142 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:23:21
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool PageStateData::ReadFromParcel(Parcel &parcel)
+{
+    bundleName = parcel.ReadString();
+    moduleName = parcel.ReadString();
+    abilityName = parcel.ReadString();
+    pageName = parcel.ReadString();
+    targetBundleName = parcel.ReadString();
+    targetModuleName = parcel.ReadString();
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:32:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:35:21
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool PageStateData::Marshalling(Parcel &parcel) const
+{
+    return (parcel.WriteString(bundleName) &&
+        parcel.WriteString(moduleName) &&
+        parcel.WriteString(abilityName) &&
+        parcel.WriteString(pageName) &&
+        parcel.WriteString(targetBundleName) &&
+        parcel.WriteString(targetModuleName));
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:45:31
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+PageStateData *PageStateData::Unmarshalling(Parcel &parcel)
+{
+    PageStateData *pageStateData = new (std::nothrow) PageStateData();
+    if (pageStateData && !pageStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete pageStateData;
+        pageStateData = nullptr;
+    }
+    return pageStateData;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:48:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (pageStateData && !pageStateData->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+        delete pageStateData;
+        pageStateData = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:48:27
+复杂度: 0
+定义变量: 
+使用变量: pageStateData, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (pageStateData && !pageStateData->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:49:9
+复杂度: 0
+定义变量: __tmp, upper, logTag
+使用变量: __ret, __n, , __refs, _ISupper, __cache, _Intl, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "failed, because ReadFromParcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/page_state_data.cpp:53:5
+复杂度: 0
+定义变量: __b2, xdigit
+使用变量: __pos, , __cont, __loc, pageStateData
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return pageStateData;
+
+--------------------------------------------------------------------------------

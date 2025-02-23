@@ -1,0 +1,180 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_utils.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AAFwk {
+
+sptr<IRemoteObject> QuickFixUtil::GetRemoteObjectOfSystemAbility(const int32_t systemAbilityId)
+
+{
+
+    auto systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+    if (systemAbilityMgr == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get SystemAbilityManager");
+
+        return nullptr;
+
+    }
+
+
+
+    auto remoteObj = systemAbilityMgr->GetSystemAbility(systemAbilityId);
+
+    if (remoteObj == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Remote object is nullptr");
+
+        return nullptr;
+
+    }
+
+
+
+    return remoteObj;
+
+}
+
+
+
+sptr<AppExecFwk::IAppMgr> QuickFixUtil::GetAppManagerProxy()
+
+{
+
+    return iface_cast<AppExecFwk::IAppMgr>(GetRemoteObjectOfSystemAbility(APP_MGR_SERVICE_ID));
+
+}
+
+
+
+sptr<AppExecFwk::IQuickFixManager> QuickFixUtil::GetBundleQuickFixMgrProxy()
+
+{
+
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+    auto bundleMgrHelper = DelayedSingleton<AppExecFwk::BundleMgrHelper>::GetInstance();
+
+    if (bundleMgrHelper == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "The bundleMgrHelper is nullptr");
+
+        return nullptr;
+
+    }
+
+
+
+    auto bundleQuickFixMgr = bundleMgrHelper->GetQuickFixManagerProxy();
+
+    if (bundleQuickFixMgr == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "The bundleQuickFixMgr is nullptr");
+
+        return nullptr;
+
+    }
+
+
+
+    return bundleQuickFixMgr;
+
+}
+
+} // namespace AAFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_utils.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AAFwk {
+
+sptr<IRemoteObject> QuickFixUtil::GetRemoteObjectOfSystemAbility(const int32_t systemAbilityId)
+
+{
+
+    auto systemAbilityMgr = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+
+    if (systemAbilityMgr == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Failed to get SystemAbilityManager");
+
+        return nullptr;
+
+    }
+
+
+
+    auto remoteObj = systemAbilityMgr->GetSystemAbility(systemAbilityId);
+
+    if (remoteObj == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Remote object is nullptr");
+
+        return nullptr;
+
+    }
+
+
+
+    return remoteObj;
+
+}
+
+
+
+sptr<AppExecFwk::IAppMgr> QuickFixUtil::GetAppManagerProxy()
+
+{
+
+    return iface_cast<AppExecFwk::IAppMgr>(GetRemoteObjectOfSystemAbility(APP_MGR_SERVICE_ID));
+
+}
+
+
+
+sptr<AppExecFwk::IQuickFixManager> QuickFixUtil::GetBundleQuickFixMgrProxy()
+
+{
+
+    TAG_LOGD(AAFwkTag::QUICKFIX, "called");
+
+    auto bundleMgrHelper = DelayedSingleton<AppExecFwk::BundleMgrHelper>::GetInstance();
+
+    if (bundleMgrHelper == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "The bundleMgrHelper is nullptr");
+
+        return nullptr;
+
+    }
+
+
+
+    auto bundleQuickFixMgr = bundleMgrHelper->GetQuickFixManagerProxy();
+
+    if (bundleQuickFixMgr == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "The bundleQuickFixMgr is nullptr");
+
+        return nullptr;
+
+    }
+
+
+
+    return bundleQuickFixMgr;
+
+}
+
+} // namespace AAFwk
+
+================================================================================

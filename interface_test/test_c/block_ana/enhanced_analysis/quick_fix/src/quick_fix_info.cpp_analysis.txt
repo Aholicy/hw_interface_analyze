@@ -1,0 +1,227 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:20
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AAFwk {
+
+bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName = parcel.ReadString();
+
+    bundleVersionCode = parcel.ReadUint32();
+
+    bundleVersionName = parcel.ReadString();
+
+    std::unique_ptr<AppExecFwk::AppqfInfo> qfInfo(parcel.ReadParcelable<AppExecFwk::AppqfInfo>());
+
+    if (qfInfo == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+
+        return false;
+
+    }
+
+    appqfInfo = *qfInfo;
+
+    return true;
+
+}
+
+
+
+bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    if (!parcel.WriteString(bundleName)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+
+        return false;
+
+    }
+
+    if (!parcel.WriteUint32(bundleVersionCode)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+
+        return false;
+
+    }
+
+    if (!parcel.WriteString(bundleVersionName)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+
+        return false;
+
+    }
+
+    if (!parcel.WriteParcelable(&appqfInfo)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    ApplicationQuickFixInfo *info = new (std::nothrow) ApplicationQuickFixInfo();
+
+    if (info == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+
+        return nullptr;
+
+    }
+
+
+
+    if (!info->ReadFromParcel(parcel)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+
+        delete info;
+
+        return nullptr;
+
+    }
+
+
+
+    return info;
+
+}
+
+} // namespace AAFwk
+
+} // namespace OHOS
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/quick_fix/src/quick_fix_info.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AAFwk {
+
+bool ApplicationQuickFixInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName = parcel.ReadString();
+
+    bundleVersionCode = parcel.ReadUint32();
+
+    bundleVersionName = parcel.ReadString();
+
+    std::unique_ptr<AppExecFwk::AppqfInfo> qfInfo(parcel.ReadParcelable<AppExecFwk::AppqfInfo>());
+
+    if (qfInfo == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "ReadParcelable<AppqfInfo> failed");
+
+        return false;
+
+    }
+
+    appqfInfo = *qfInfo;
+
+    return true;
+
+}
+
+
+
+bool ApplicationQuickFixInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    if (!parcel.WriteString(bundleName)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleName failed");
+
+        return false;
+
+    }
+
+    if (!parcel.WriteUint32(bundleVersionCode)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionCode failed");
+
+        return false;
+
+    }
+
+    if (!parcel.WriteString(bundleVersionName)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write bundleVersionName failed");
+
+        return false;
+
+    }
+
+    if (!parcel.WriteParcelable(&appqfInfo)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Write appQfInfo failed");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+ApplicationQuickFixInfo *ApplicationQuickFixInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    ApplicationQuickFixInfo *info = new (std::nothrow) ApplicationQuickFixInfo();
+
+    if (info == nullptr) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Create failed");
+
+        return nullptr;
+
+    }
+
+
+
+    if (!info->ReadFromParcel(parcel)) {
+
+        TAG_LOGE(AAFwkTag::QUICKFIX, "Read from parcel failed");
+
+        delete info;
+
+        return nullptr;
+
+    }
+
+
+
+    return info;
+
+}
+
+} // namespace AAFwk
+
+================================================================================

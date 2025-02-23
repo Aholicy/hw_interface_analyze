@@ -1,0 +1,172 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_proxy.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+AppForegroundStateObserverProxy::AppForegroundStateObserverProxy(const sptr<IRemoteObject> &impl)
+
+    : IRemoteProxy<IAppForegroundStateObserver>(impl)
+
+{}
+
+
+
+bool AppForegroundStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(AppForegroundStateObserverProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void AppForegroundStateObserverProxy::OnAppStateChanged(const AppStateData &appStateData)
+
+{
+
+    MessageParcel data;
+
+    if (!WriteInterfaceToken(data)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write Token failed.");
+
+        return;
+
+    }
+
+    if (!data.WriteParcelable(&appStateData)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write appStateData.");
+
+        return;
+
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is NULL.");
+
+        return;
+
+    }
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    int32_t ret = remote->SendRequest(
+
+        static_cast<uint32_t>(IAppForegroundStateObserver::Message::ON_APP_STATE_CHANGED), data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
+
+    }
+
+}
+
+} // namespace AppExecFwk
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_foreground_state_observer_proxy.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+AppForegroundStateObserverProxy::AppForegroundStateObserverProxy(const sptr<IRemoteObject> &impl)
+
+    : IRemoteProxy<IAppForegroundStateObserver>(impl)
+
+{}
+
+
+
+bool AppForegroundStateObserverProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(AppForegroundStateObserverProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write interface token failed.");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void AppForegroundStateObserverProxy::OnAppStateChanged(const AppStateData &appStateData)
+
+{
+
+    MessageParcel data;
+
+    if (!WriteInterfaceToken(data)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Write Token failed.");
+
+        return;
+
+    }
+
+    if (!data.WriteParcelable(&appStateData)) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Fail to write appStateData.");
+
+        return;
+
+    }
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote is NULL.");
+
+        return;
+
+    }
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    int32_t ret = remote->SendRequest(
+
+        static_cast<uint32_t>(IAppForegroundStateObserver::Message::ON_APP_STATE_CHANGED), data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d.", ret);
+
+    }
+
+}
+
+} // namespace AppExecFwk
+
+================================================================================

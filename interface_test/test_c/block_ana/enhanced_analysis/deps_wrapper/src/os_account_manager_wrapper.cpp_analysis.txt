@@ -1,0 +1,483 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+namespace {
+
+const int32_t DEFAULT_OS_ACCOUNT_ID = 0; // default id when there is no os_account part
+
+const int32_t USER_ID_U100 = 100;
+
+const int32_t UID_TRANSFORM_DIVISOR = 200000;
+
+}
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+
+
+ErrCode OsAccountManagerWrapper::QueryActiveOsAccountIds(std::vector<int32_t>& ids)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    ids.emplace_back(DEFAULT_OS_ACCOUNT_ID);
+
+    return ERR_OK;
+
+#else
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::QueryActiveOsAccountIds(ids);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::GetOsAccountLocalIdFromUid(const int32_t uid, int32_t &id)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    id = uid / UID_TRANSFORM_DIVISOR;
+
+    return ERR_OK;
+
+#else
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::GetOsAccountLocalIdFromUid(uid, id);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::GetOsAccountLocalIdFromProcess(int &id)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    id = DEFAULT_OS_ACCOUNT_ID;
+
+    return ERR_OK;
+
+#else
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::GetOsAccountLocalIdFromProcess(id);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::IsOsAccountExists(const int id, bool &isOsAccountExists)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    isOsAccountExists = (id == DEFAULT_OS_ACCOUNT_ID);
+
+    return ERR_OK;
+
+#else // OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::IsOsAccountExists(id, isOsAccountExists);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::CreateOsAccount(const std::string &name, int32_t &osAccountUserId)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    osAccountUserId = USER_ID_U100;
+
+    return ERR_OK;
+
+#else // OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    AccountSA::OsAccountInfo osAccountInfo;
+
+    ErrCode errCode = AccountSA::OsAccountManager::CreateOsAccount(name,
+
+        AccountSA::OsAccountType::NORMAL, osAccountInfo);
+
+    osAccountUserId = osAccountInfo.GetLocalId();
+
+    return errCode;
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::RemoveOsAccount(const int id)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    return ERR_OK;
+
+#else // OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::RemoveOsAccount(id);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+int32_t OsAccountManagerWrapper::GetCurrentActiveAccountId()
+
+{
+
+    std::vector<int32_t> accountIds;
+
+    auto instance = DelayedSingleton<AppExecFwk::OsAccountManagerWrapper>::GetInstance();
+
+    if (instance == nullptr) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "Get OsAccountManager Failed");
+
+        return 0;
+
+    }
+
+
+
+    ErrCode ret = instance->QueryActiveOsAccountIds(accountIds);
+
+    if (ret != ERR_OK) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "Query active id failed");
+
+        return 0;
+
+    }
+
+
+
+    if (accountIds.empty()) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "account empty");
+
+        return 0;
+
+    }
+
+
+
+    return accountIds[0];
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+namespace {
+
+const int32_t DEFAULT_OS_ACCOUNT_ID = 0; // default id when there is no os_account part
+
+const int32_t USER_ID_U100 = 100;
+
+const int32_t UID_TRANSFORM_DIVISOR = 200000;
+
+}
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+
+
+ErrCode OsAccountManagerWrapper::QueryActiveOsAccountIds(std::vector<int32_t>& ids)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    ids.emplace_back(DEFAULT_OS_ACCOUNT_ID);
+
+    return ERR_OK;
+
+#else
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::QueryActiveOsAccountIds(ids);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::GetOsAccountLocalIdFromUid(const int32_t uid, int32_t &id)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    id = uid / UID_TRANSFORM_DIVISOR;
+
+    return ERR_OK;
+
+#else
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::GetOsAccountLocalIdFromUid(uid, id);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::GetOsAccountLocalIdFromProcess(int &id)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    id = DEFAULT_OS_ACCOUNT_ID;
+
+    return ERR_OK;
+
+#else
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::GetOsAccountLocalIdFromProcess(id);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::IsOsAccountExists(const int id, bool &isOsAccountExists)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    isOsAccountExists = (id == DEFAULT_OS_ACCOUNT_ID);
+
+    return ERR_OK;
+
+#else // OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::IsOsAccountExists(id, isOsAccountExists);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::CreateOsAccount(const std::string &name, int32_t &osAccountUserId)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    osAccountUserId = USER_ID_U100;
+
+    return ERR_OK;
+
+#else // OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    AccountSA::OsAccountInfo osAccountInfo;
+
+    ErrCode errCode = AccountSA::OsAccountManager::CreateOsAccount(name,
+
+        AccountSA::OsAccountType::NORMAL, osAccountInfo);
+
+    osAccountUserId = osAccountInfo.GetLocalId();
+
+    return errCode;
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+ErrCode OsAccountManagerWrapper::RemoveOsAccount(const int id)
+
+{
+
+#ifndef OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "Without os account subsystem");
+
+    return ERR_OK;
+
+#else // OS_ACCOUNT_PART_ENABLED
+
+    TAG_LOGD(AAFwkTag::DEFAULT, "os account subsystem");
+
+    return AccountSA::OsAccountManager::RemoveOsAccount(id);
+
+#endif // OS_ACCOUNT_PART_ENABLED
+
+}
+
+
+
+int32_t OsAccountManagerWrapper::GetCurrentActiveAccountId()
+
+{
+
+    std::vector<int32_t> accountIds;
+
+    auto instance = DelayedSingleton<AppExecFwk::OsAccountManagerWrapper>::GetInstance();
+
+    if (instance == nullptr) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "Get OsAccountManager Failed");
+
+        return 0;
+
+    }
+
+
+
+    ErrCode ret = instance->QueryActiveOsAccountIds(accountIds);
+
+    if (ret != ERR_OK) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "Query active id failed");
+
+        return 0;
+
+    }
+
+
+
+    if (accountIds.empty()) {
+
+        TAG_LOGE(AAFwkTag::DEFAULT, "account empty");
+
+        return 0;
+
+    }
+
+
+
+    return accountIds[0];
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp:26
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace {
+
+const int32_t DEFAULT_OS_ACCOUNT_ID = 0; // default id when there is no os_account part
+
+const int32_t USER_ID_U100 = 100;
+
+const int32_t UID_TRANSFORM_DIVISOR = 200000;
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp:27
+重要性权重: 1
+综合评分: 0
+代码片段:
+const int32_t DEFAULT_OS_ACCOUNT_ID = 0; // default id when there is no os_account part
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp:28
+重要性权重: 1
+综合评分: 0
+代码片段:
+const int32_t USER_ID_U100 = 100;
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/os_account_manager_wrapper.cpp:29
+重要性权重: 1
+综合评分: 0
+代码片段:
+const int32_t UID_TRANSFORM_DIVISOR = 200000;
+
+================================================================================

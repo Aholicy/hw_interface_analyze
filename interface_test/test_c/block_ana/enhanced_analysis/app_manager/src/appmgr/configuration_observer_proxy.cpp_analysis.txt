@@ -1,0 +1,160 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp:21
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+ConfigurationObserverProxy::ConfigurationObserverProxy(
+
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IConfigurationObserver>(impl)
+
+{}
+
+
+
+bool ConfigurationObserverProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(ConfigurationObserverProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void ConfigurationObserverProxy::OnConfigurationUpdated(const Configuration& configuration)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+    data.WriteParcelable(&configuration);
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+
+        return;
+
+    }
+
+    int32_t ret = remote->SendRequest(
+
+        static_cast<uint32_t>(IConfigurationObserver::Message::TRANSACT_ON_CONFIGURATION_UPDATED),
+
+        data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+    }
+
+}
+
+}
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_proxy.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+ConfigurationObserverProxy::ConfigurationObserverProxy(
+
+    const sptr<IRemoteObject> &impl) : IRemoteProxy<IConfigurationObserver>(impl)
+
+{}
+
+
+
+bool ConfigurationObserverProxy::WriteInterfaceToken(MessageParcel &data)
+
+{
+
+    if (!data.WriteInterfaceToken(ConfigurationObserverProxy::GetDescriptor())) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "write interface token failed");
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+
+void ConfigurationObserverProxy::OnConfigurationUpdated(const Configuration& configuration)
+
+{
+
+    MessageParcel data;
+
+    MessageParcel reply;
+
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    if (!WriteInterfaceToken(data)) {
+
+        return;
+
+    }
+
+    data.WriteParcelable(&configuration);
+
+    sptr<IRemoteObject> remote = Remote();
+
+    if (remote == nullptr) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Remote() is NULL");
+
+        return;
+
+    }
+
+    int32_t ret = remote->SendRequest(
+
+        static_cast<uint32_t>(IConfigurationObserver::Message::TRANSACT_ON_CONFIGURATION_UPDATED),
+
+        data, reply, option);
+
+    if (ret != NO_ERROR) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "SendRequest is failed, error code: %{public}d", ret);
+
+    }
+
+}
+
+}
+
+================================================================================

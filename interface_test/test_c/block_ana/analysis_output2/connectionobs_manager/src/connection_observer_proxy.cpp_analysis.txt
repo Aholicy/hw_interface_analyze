@@ -1,0 +1,659 @@
+代码块类型: Method Declaration
+块名称: OnExtensionConnected
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:24:31
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ConnectionObserverProxy::OnExtensionConnected(const ConnectionData& connectionData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_CONNECTED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:26:19
+复杂度: 0
+定义变量: data
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:27:19
+复杂度: 0
+定义变量: reply
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:28:19
+复杂度: 0
+定义变量: option
+使用变量: TF_ASYNC
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option(MessageOption::TF_ASYNC);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:30:5
+复杂度: 0
+定义变量: logTag
+使用变量: CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:31:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:31:10
+复杂度: 0
+定义变量: 
+使用变量: TF_SYNC, TF_WAIT_TIME, data, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetDescriptor
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:31:35
+复杂度: 0
+定义变量: 
+使用变量: TF_WAIT_TIME, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:32:9
+复杂度: 0
+定义变量: proxy, logTag
+使用变量: nothrow, object, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: proxy
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:36:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:37:9
+复杂度: 0
+定义变量: have_error, logTag
+使用变量: CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:38:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendTransactCmd
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:41:17
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT, data, ON_EXTENSION_CONNECTED, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_CONNECTED, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:43:9
+复杂度: 0
+定义变量: logTag
+使用变量: __refs, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnExtensionDisconnected
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:48:31
+复杂度: 3
+定义变量: 
+使用变量: __out, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void ConnectionObserverProxy::OnExtensionDisconnected(const ConnectionData& connectionData)
+{
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_DISCONNECTED, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:50:19
+复杂度: 0
+定义变量: lower, data
+使用变量: , __high
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:51:19
+复杂度: 0
+定义变量: __put, alpha, __buf_len, reply
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:52:19
+复杂度: 0
+定义变量: digit, option
+使用变量: __n, uselocale, __cont, _ISdigit, _Intl, TF_ASYNC
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option(MessageOption::TF_ASYNC);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:54:5
+复杂度: 0
+定义变量: npos, __b3, space, __remaining, logTag
+使用变量: __n, __pos, , __s, __a, __ret, __bsx, __base, __b2, __builtin_strcmp, _ISspace, _S_get_c_name, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::CONNECTION, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:55:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:55:10
+复杂度: 0
+定义变量: __i, __len, __b4, __num, print
+使用变量: , __base, __b3, PTHREAD_MUTEX_TIMED_NP, _ISprint, __buf_len, __remaining, DEFAULT, data, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetDescriptor
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:55:35
+复杂度: 0
+定义变量: 
+使用变量: __base, __buf_len, __remaining, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(IConnectionObserver::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:56:9
+复杂度: 0
+定义变量: __len, __last, __iter, graph, __caches, logTag
+使用变量: __i, __builtin_strlen, __s, __t, __len, __builtin_labs, __ucont, PTHREAD_MUTEX_RECURSIVE_NP, __refs, __loc, _ISalpha, _ISdigit, _ISpunct, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:57:9
+复杂度: 0
+定义变量: __tmp
+使用变量: , __tmp
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:60:5
+复杂度: 1
+定义变量: 
+使用变量: __num, __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteParcelable(&connectionData)) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:61:9
+复杂度: 0
+定义变量: __len, blank, logTag
+使用变量: __n, , __builtin_strlen, __s, __a, __x, __args, __f, __cont, __builtin_llabs, __b4, __iter, __low, _ISblank, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "Write ConnectionData error");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:62:9
+复杂度: 0
+定义变量: __tmp
+使用变量: __len, __b4, __low
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendTransactCmd
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:65:17
+复杂度: 0
+定义变量: 
+使用变量: __c, __n, __s, __t, __cloc, __first, __len, __elem0, _S_clone_c_locale, data, reply, option, ON_EXTENSION_DISCONNECTED
+关键位置: 否
+日志评分: 0
+代码:
+    int error = SendTransactCmd(IConnectionObserver::ON_EXTENSION_DISCONNECTED, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:66:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:67:9
+复杂度: 0
+定义变量: __maxlen, __aligned, logTag
+使用变量: __c, value, , __s, __t, __x, __tmp, __args, __put, __f, __num, npos, _S_get_c_name, __cvt, __intptr, __align, __gd, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:68:9
+复杂度: 0
+定义变量: __diff
+使用变量: __gd
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SendTransactCmd
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:122:34
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ConnectionObserverProxy::SendTransactCmd(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption &option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
+        return ret;
+    }
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:126:5
+复杂度: 1
+定义变量: 
+使用变量: __m
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
+        return ERR_NULL_OBJECT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:127:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __s, __a, __cont, _M_max_align, __m, operator&, memory_order_release, __memory_order_mask, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:128:9
+复杂度: 0
+定义变量: 
+使用变量: , __x, __cont, npos, __tmp_length, operator&, __memory_order_mask, ERR_NULL_OBJECT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_NULL_OBJECT;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:132:5
+复杂度: 1
+定义变量: 
+使用变量: __atomic_thread_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
+        return ret;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:133:9
+复杂度: 0
+定义变量: logTag
+使用变量: __s, __m, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "SendRequest failed. code: %{public}d, ret: %{public}d.", code, ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:134:9
+复杂度: 0
+定义变量: __tmp, __j
+使用变量: __ret, __nh, tagNames, ret
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ret;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_proxy.cpp:136:5
+复杂度: 0
+定义变量: 
+使用变量: , __s, __x, __tmp, __y, operator=, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------

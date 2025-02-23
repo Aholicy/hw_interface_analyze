@@ -1,0 +1,1068 @@
+代码块类型: Method Declaration
+块名称: WriteInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:25:29
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool ExtensionManagerProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(ExtensionManagerProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "write token failed");
+        return false;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:27:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInterfaceToken(ExtensionManagerProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "write token failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:27:10
+复杂度: 0
+定义变量: DEFAULT_INVALID_USER_ID
+使用变量: data, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(ExtensionManagerProxy::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetDescriptor
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:27:35
+复杂度: 0
+定义变量: 
+使用变量: GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(ExtensionManagerProxy::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:28:9
+复杂度: 0
+定义变量: REGISTRY_HANDLE, logTag
+使用变量: EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "write token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:29:9
+复杂度: 0
+定义变量: __libc_single_threaded
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:31:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ConnectAbilityCommon
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:34:28
+复杂度: 12
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, __out, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int ExtensionManagerProxy::ConnectAbilityCommon(const Want &want, const sptr<IRemoteObject> &connect,
+    const sptr<IRemoteObject> &callerToken, AppExecFwk::ExtensionAbilityType extensionType, int32_t userId,
+    bool isQueryExtensionOnly)
+{
+    if (connect == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "null connect");
+        return ERR_INVALID_VALUE;
+    }
+
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        return INNER_ERR;
+    }
+    if (!data.WriteParcelable(&want)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "want write failed");
+        return ERR_INVALID_VALUE;
+    }
+    if (!data.WriteBool(true) || !data.WriteRemoteObject(connect)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "flag or connect write failed");
+        return ERR_INVALID_VALUE;
+    }
+    if (callerToken) {
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag or callerToken write failed");
+            return ERR_INVALID_VALUE;
+        }
+    } else {
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag write failed");
+            return ERR_INVALID_VALUE;
+        }
+    }
+    if (!data.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "userId write failed.");
+        return INNER_ERR;
+    }
+    if (!data.WriteInt32(static_cast<int32_t>(extensionType))) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "extensionType write failed.");
+        return INNER_ERR;
+    }
+    if (!data.WriteBool(isQueryExtensionOnly)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "isQueryExtensionOnly write failed");
+        return INNER_ERR;
+    }
+
+    MessageParcel reply;
+    MessageOption option;
+    int error = SendRequest(AbilityManagerInterfaceCode::CONNECT_ABILITY_WITH_TYPE, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Send request error: %{public}d", error);
+        return error;
+    }
+    return reply.ReadInt32();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:38:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (connect == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "null connect");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:38:9
+复杂度: 0
+定义变量: progname
+使用变量: operator==, connect
+关键位置: 否
+日志评分: 0
+代码:
+    if (connect == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:39:9
+复杂度: 0
+定义变量: logTag
+使用变量: __bsx, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "null connect");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:43:19
+复杂度: 0
+定义变量: data
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:44:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:44:10
+复杂度: 0
+定义变量: 
+使用变量: _S_get_c_name, data
+关键位置: 否
+日志评分: 0
+代码:
+    if (!WriteInterfaceToken(data)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:45:9
+复杂度: 0
+定义变量: __i
+使用变量: , __it1, __refs, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:47:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteParcelable(&want)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "want write failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:48:9
+复杂度: 0
+定义变量: __ret, logTag
+使用变量: EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "want write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:51:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteBool(true) || !data.WriteRemoteObject(connect)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "flag or connect write failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:51:35
+复杂度: 0
+定义变量: 
+使用变量: , __n, __s, __low, data, connect
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteBool(true) || !data.WriteRemoteObject(connect)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:52:9
+复杂度: 0
+定义变量: __n, digit, logTag
+使用变量: __n, __cont, uselocale, __put, __libc_single_threaded, __refs, _ISdigit, __high, _Intl, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "flag or connect write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:55:5
+复杂度: 4
+定义变量: 
+使用变量: __num, __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (callerToken) {
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag or callerToken write failed");
+            return ERR_INVALID_VALUE;
+        }
+    } else {
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag write failed");
+            return ERR_INVALID_VALUE;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator bool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:55:9
+复杂度: 0
+定义变量: __i
+使用变量: npos, DEFAULT, callerToken
+关键位置: 否
+日志评分: 0
+代码:
+    if (callerToken) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:56:9
+复杂度: 1
+定义变量: __tmp
+使用变量: __tmp, __pred
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag or callerToken write failed");
+            return ERR_INVALID_VALUE;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteRemoteObject
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:56:39
+复杂度: 0
+定义变量: 
+使用变量: __i, __len, __ucont, __s, _ISdigit, _ISpunct, data, callerToken
+关键位置: 否
+日志评分: 0
+代码:
+        if (!data.WriteBool(true) || !data.WriteRemoteObject(callerToken)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:57:13
+复杂度: 0
+定义变量: __elem0, cntrl, logTag
+使用变量: , __last, __i, __len, _Cache, __str, PTHREAD_MUTEX_ERRORCHECK_NP, _IScntrl, current_exception, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag or callerToken write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:61:9
+复杂度: 1
+定义变量: __tmp
+使用变量: __low
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!data.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag write failed");
+            return ERR_INVALID_VALUE;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:62:13
+复杂度: 0
+定义变量: _S_timezones, logTag
+使用变量: , __n, __ptr, __len, __s, __b4, PTHREAD_MUTEX_TIMED_NP, _S_get_c_name, DEFAULT, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::EXTMGR, "flag write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:66:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInt32(userId)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "userId write failed.");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:67:9
+复杂度: 0
+定义变量: __maxlen, __aligned, logTag
+使用变量: , __t, __x, __tmp, __c, __f, __num, __s, __put, npos, _S_get_c_name, __cvt, __intptr, __align, __gd, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "userId write failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:68:9
+复杂度: 0
+定义变量: __diff
+使用变量: __aligned, __gd, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:70:5
+复杂度: 1
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInt32(static_cast<int32_t>(extensionType))) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "extensionType write failed.");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:71:9
+复杂度: 0
+定义变量: __digits, __mp, logTag
+使用变量: terminate, , __n, __first, __val, __low, __str, __mem, __ISwupper, _Intl, _Lp, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "extensionType write failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:72:9
+复杂度: 0
+定义变量: __tmp_data
+使用变量: , __first, __low, __builtin_fabs, _S_local_capacity, __ISwlower, __outstr, DEFAULT, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:74:5
+复杂度: 1
+定义变量: 
+使用变量: __outnext
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteBool(isQueryExtensionOnly)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "isQueryExtensionOnly write failed");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:75:9
+复杂度: 0
+定义变量: __tmp, __max, logTag
+使用变量: , __tmp, __first, __last, __is_signed, __fn, __val, __next, __state, __cont, __s, __bsx, __min, npos, __ISwxdigit, _S_dec, _S_oct, _S_hex, __cvt, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "isQueryExtensionOnly write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:76:9
+复杂度: 0
+定义变量: 
+使用变量: , __p, __digits, __val, __builtin_fabsf, __ISwspace, _S_scientific, __outlast, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:79:19
+复杂度: 0
+定义变量: reply
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:80:19
+复杂度: 0
+定义变量: __tmp, __child, option
+使用变量: __outstr
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:82:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Send request error: %{public}d", error);
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:83:9
+复杂度: 0
+定义变量: piecewise_construct, __ret, __pos, __cerb, __truename, RPC_QOS_MAX_LATENCY, logTag
+使用变量: , __n, __ret, __len, __child, __out, npos, __name, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:84:9
+复杂度: 0
+定义变量: __x, __result, __falsename, RPC_QOS_MIN_LATENCY
+使用变量: , __val, __next, __pos, __s, __child, __cerb, error
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return error;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:86:5
+复杂度: 0
+定义变量: __n, __num, SOCKET_ID_INVALID
+使用变量: , __tmp, __val, __result, __throw_out_of_range, __cont, __name, __collate, __buf_len, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return reply.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: DisconnectAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:89:28
+复杂度: 4
+定义变量: 
+使用变量: , __first, __len
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int ExtensionManagerProxy::DisconnectAbility(const sptr<IRemoteObject> &connect)
+{
+    if (connect == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "disconnect ability failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    MessageParcel data;
+    if (!WriteInterfaceToken(data)) {
+        return INNER_ERR;
+    }
+    if (!data.WriteRemoteObject(connect)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "connect write failed");
+        return ERR_INVALID_VALUE;
+    }
+
+    MessageParcel reply;
+    MessageOption option;
+    auto error = SendRequest(AbilityManagerInterfaceCode::DISCONNECT_ABILITY, data, reply, option);
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Send request error: %{public}d", error);
+        return error;
+    }
+    return reply.ReadInt32();
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:91:5
+复杂度: 1
+定义变量: 
+使用变量: , __n, __result, __builtin_va_start, __mem, __outstr
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (connect == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "disconnect ability failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:91:9
+复杂度: 0
+定义变量: __left
+使用变量: , __ils, __ret, __len, operator==, __out, connect
+关键位置: 否
+日志评分: 0
+代码:
+    if (connect == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:92:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __a, __val, __result, __len, __grouping, noconv, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "disconnect ability failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:96:19
+复杂度: 0
+定义变量: __positive_sign, data
+使用变量: __b, __nh
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:97:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:97:10
+复杂度: 0
+定义变量: __ret, __negative_sign
+使用变量: , __p, __tmp, __n, __args, __c, __result, __mp, __s, __out, __builtin_vsnprintf, __tn, data
+关键位置: 否
+日志评分: 0
+代码:
+    if (!WriteInterfaceToken(data)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:98:9
+复杂度: 0
+定义变量: __c
+使用变量: , __a, __it, __val, __left, __out, __is_single_threaded, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:100:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __builtin_va_end
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteRemoteObject(connect)) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "connect write failed");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:100:10
+复杂度: 0
+定义变量: numeric, __g_size
+使用变量: , __a, __b, __first, allocator_arg, __next, __m, __s, __g, operator|, __mod, data, connect
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteRemoteObject(connect)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:101:9
+复杂度: 0
+定义变量: collate, __grouping, __fn, logTag
+使用变量: , __a, __b, __n, __i, __val, _Default, __mem, __exchange_and_add, __np, __g_size, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "connect write failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:105:19
+复杂度: 0
+定义变量: reply
+使用变量: __first, __max, __refs
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:106:19
+复杂度: 0
+定义变量: option
+使用变量: _Nm, __np, __grouping
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:108:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (error != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "Send request error: %{public}d", error);
+        return error;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:109:9
+复杂度: 0
+定义变量: __ct, offset, logTag
+使用变量: , __t, __n, __first, __last, __val, __pos, __cmp, PTHREAD_RWLOCK_PREFER_READER_NP, __mem, __loc, __grouping, DEFAULT, tag, GetOffset, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "Send request error: %{public}d", error);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:112:5
+复杂度: 0
+定义变量: __sz, __len
+使用变量: , __x, __tmp, __args, __builtin_strlen, __m, __s, operator=, _S_oend, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return reply.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:115:32
+复杂度: 1
+定义变量: 
+使用变量: __c1
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+ErrCode ExtensionManagerProxy::SendRequest(AbilityManagerInterfaceCode code, MessageParcel &data,
+    MessageParcel &reply, MessageOption& option)
+{
+    auto remote = Remote();
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "null remote");
+        return INNER_ERR;
+    }
+
+    return remote->SendRequest(static_cast<uint32_t>(code), data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: Remote
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:118:19
+复杂度: 0
+定义变量: _M_max_align
+使用变量: , __st
+关键位置: 否
+日志评分: 0
+代码:
+    auto remote = Remote();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:119:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (remote == nullptr) {
+        TAG_LOGE(AAFwkTag::EXTMGR, "null remote");
+        return INNER_ERR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:119:9
+复杂度: 0
+定义变量: __size
+使用变量: , __p, __x, __n, __first, __last, __i, __count, __sz, __y, __fn, __ret, __s, operator==, __loc, __falsename, remote
+关键位置: 否
+日志评分: 0
+代码:
+    if (remote == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:120:9
+复杂度: 0
+定义变量: __ret, offset, logTag
+使用变量: _Cond, , __first, __i, __sz, __size, __mp, __cur, __m, __tmp_ptr, __cmpexch_failure_order2, tag, GetOffset, EXTMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::EXTMGR, "null remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:121:9
+复杂度: 0
+定义变量: 
+使用变量: , __x, __i, __builtin_strcmp, __mp, __cur, __s, offset, INNER_ERR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return INNER_ERR;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:124:5
+复杂度: 0
+定义变量: __stored_locally, __ct
+使用变量: , __b, __n, __first, __ptr, __alloc, __size, __comp, __from, __len, __state, __s, __loc, __from_end, __from_next, __ws, __grouping, memory_order_seq_cst, __default_lock_policy, offset, tagNames, data, reply, remote, operator->, code, option
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return remote->SendRequest(static_cast<uint32_t>(code), data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:124:12
+复杂度: 0
+定义变量: __stored_locally, __ct
+使用变量: , __b, __n, __first, __ptr, __alloc, __size, __comp, __from, __len, __state, __loc, __from_end, __from_next, __ws, __grouping, memory_order_seq_cst, __default_lock_policy, offset, tagNames, data, reply, remote, operator->, code, option
+关键位置: 否
+日志评分: 0
+代码:
+    return remote->SendRequest(static_cast<uint32_t>(code), data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator->
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/extension_manager/src/extension_manager_proxy.cpp:124:12
+复杂度: 0
+定义变量: __stored_locally
+使用变量: , __n, __ptr, __size, __ws, __grouping, tagNames, remote, operator->
+关键位置: 否
+日志评分: 0
+代码:
+    return remote->SendRequest(static_cast<uint32_t>(code), data, reply, option);
+
+--------------------------------------------------------------------------------

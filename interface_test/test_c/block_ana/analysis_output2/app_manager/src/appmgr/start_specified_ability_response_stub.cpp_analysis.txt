@@ -1,0 +1,559 @@
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:28:9
+复杂度: 0
+定义变量: REGISTRY_HANDLE
+使用变量: arg1, arg2
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return HandleOnAcceptWantResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAcceptWantResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:28:16
+复杂度: 0
+定义变量: 
+使用变量: arg1, arg2
+关键位置: 否
+日志评分: 0
+代码:
+        return HandleOnAcceptWantResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:36:9
+复杂度: 0
+定义变量: 
+使用变量: arg1, arg2
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return  HandleOnTimeoutResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnTimeoutResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:36:17
+复杂度: 0
+定义变量: 
+使用变量: arg1, arg2
+关键位置: 否
+日志评分: 0
+代码:
+        return  HandleOnTimeoutResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:44:9
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, _S_get_c_name, IF_PROT_DEFAULT, arg1, arg2
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return HandleOnNewProcessRequestResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnNewProcessRequestResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:44:16
+复杂度: 0
+定义变量: 
+使用变量: __c, __m, _S_get_c_name, IF_PROT_DEFAULT, arg1, arg2
+关键位置: 否
+日志评分: 0
+代码:
+        return HandleOnNewProcessRequestResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:52:9
+复杂度: 0
+定义变量: __n, digit
+使用变量: __n, uselocale, __put, __cont, __libc_single_threaded, __refs, _ISdigit, __high, _Intl, _Base, arg1, arg2
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return HandleOnNewProcessRequestTimeoutResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnNewProcessRequestTimeoutResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:52:16
+复杂度: 0
+定义变量: __n, digit
+使用变量: __n, uselocale, __cont, _ISdigit, _Intl, _Base, arg1, arg2
+关键位置: 否
+日志评分: 0
+代码:
+        return HandleOnNewProcessRequestTimeoutResponse(arg1, arg2);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAcceptWantResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:65:44
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnAcceptWantResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnAcceptWantResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:68:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:69:9
+复杂度: 0
+定义变量: __result, logTag
+使用变量: __pos, , __it, __size, __first, __last, __val, __low, __high, _Intl, __space, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:73:17
+复杂度: 0
+定义变量: 
+使用变量: , __s, __first, __diff, __tmp_data, __cur, _S_get_c_name, __dir, __outstr, __outchars, _Pn, data
+关键位置: 否
+日志评分: 0
+代码:
+    auto flag = Str16ToStr8(data.ReadString16());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:76:5
+复杂度: 0
+定义变量: 
+使用变量: __p, , __val, __builtin_fabsf, __ISwspace, __outnext, __outlast, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnTimeoutResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:79:44
+复杂度: 1
+定义变量: 
+使用变量: , __ret, __location
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnTimeoutResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:82:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:83:9
+复杂度: 0
+定义变量: __pos, __ret, __cerb, piecewise_construct, __truename, RPC_QOS_MAX_LATENCY, logTag
+使用变量: __n, , __out, __ret, __len, npos, __name, __child, _Base, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:89:5
+复杂度: 0
+定义变量: 
+使用变量: __p, __n, __pos, , __a, __ret, __w, __comp, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnNewProcessRequestResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:92:44
+复杂度: 1
+定义变量: 
+使用变量: , __tmp, __first, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestResponse(MessageParcel &data, MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    auto flag = Str16ToStr8(data.ReadString16());
+    OnNewProcessRequestResponse(*want, flag, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:95:5
+复杂度: 1
+定义变量: 
+使用变量: , __count
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:96:9
+复杂度: 0
+定义变量: __tn, __positive_sign, __b1, logTag
+使用变量: __c, __n, , __a, __b, __tmp, __out, __digits, __comp, __num, __arr, __nh, __mp, __np, _Qn, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:100:17
+复杂度: 0
+定义变量: numeric, __g_size
+使用变量: , __s, __a, __b, __first, allocator_arg, __a1, __next, __m, __g, __b0, __b1, __gthread_mutex_lock, operator|, __mod, b, __a0, data
+关键位置: 否
+日志评分: 0
+代码:
+    auto flag = Str16ToStr8(data.ReadString16());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:103:5
+复杂度: 0
+定义变量: 
+使用变量: __s, __out, __e, min, _Base, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnNewProcessRequestTimeoutResponse
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:106:44
+复杂度: 1
+定义变量: 
+使用变量: , __c1, __u, __len, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t StartSpecifiedAbilityResponseStub::HandleOnNewProcessRequestTimeoutResponse(MessageParcel &data,
+    MessageParcel &reply)
+{
+    AAFwk::Want *want = data.ReadParcelable<AAFwk::Want>();
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+    OnNewProcessRequestTimeoutResponse(*want, data.ReadInt32());
+    delete want;
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:110:5
+复杂度: 1
+定义变量: 
+使用变量: , __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (want == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:111:9
+复杂度: 0
+定义变量: par, logTag
+使用变量: __p, , __s, __x, __tmp, __args, __first, __e, __u, __max, __val, npos, nothrow, __gthread_mutex_trylock, __mem, _S_atoms_out, memory_order_seq_cst, _Base, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "want is nullptr");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:117:5
+复杂度: 0
+定义变量: __i, __fn
+使用变量: __c2, __i, __found, __it1, __nh, __hi1, __grouping, __positive_sign, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:120:40
+复杂度: 3
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __ptr, __u
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int StartSpecifiedAbilityResponseStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
+        code, option.GetFlags());
+    std::u16string descriptor = StartSpecifiedAbilityResponseStub::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    auto itFunc = responseFuncMap_.find(code);
+    if (itFunc != responseFuncMap_.end()) {
+        auto func = itFunc->second;
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+    }
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:123:5
+复杂度: 0
+定义变量: __ct, __it, __stored_locally, logTag
+使用变量: __n, __pos, , __s, __x, __tmp, __size, __first, __ptr, __pred, __from, __len, __alloc, __position, __tmp_capacity, __state, __ws, __grouping, memory_order_seq_cst, __default_lock_policy, _Base, offset, tagNames, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGI(AAFwkTag::APPMGR, "StartSpecifiedAbilityResponseStub::OnReceived, code = %{public}u, flags= %{public}d.",
+        code, option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:126:39
+复杂度: 0
+定义变量: 
+使用变量: _S_end, data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:127:5
+复杂度: 1
+定义变量: 
+使用变量: __m
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:128:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __cont, npos, __tmp_length, operator&, memory_order_acq_rel, __memory_order_mask, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:129:9
+复杂度: 0
+定义变量: __state, tagNames
+使用变量: __p, __x, __tmp, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:133:5
+复杂度: 2
+定义变量: 
+使用变量: __node, __atomic_thread_fence, __atomic_signal_fence, __xnode
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (itFunc != responseFuncMap_.end()) {
+        auto func = itFunc->second;
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/start_specified_ability_response_stub.cpp:135:9
+复杂度: 1
+定义变量: 
+使用变量: __str, __ws
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+        if (func != nullptr) {
+            return func(data, reply);
+        }
+
+--------------------------------------------------------------------------------

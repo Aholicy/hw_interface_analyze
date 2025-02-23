@@ -1,0 +1,687 @@
+代码块类型: Function Call
+块名称: IRemoteProxy
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:24:7
+复杂度: 0
+定义变量: AFTER_MAGIC
+使用变量: impl
+关键位置: 否
+日志评分: 0
+代码:
+    : IRemoteProxy<INativeChildNotify>(impl)
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: WriteInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:28:30
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool NativeChildNotifyProxy::WriteInterfaceToken(MessageParcel &data)
+{
+    if (!data.WriteInterfaceToken(NativeChildNotifyProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write interface token failed");
+        return false;
+    }
+
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:30:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInterfaceToken(NativeChildNotifyProxy::GetDescriptor())) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write interface token failed");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:30:10
+复杂度: 0
+定义变量: 
+使用变量: data, GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(NativeChildNotifyProxy::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetDescriptor
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:30:35
+复杂度: 0
+定义变量: 
+使用变量: GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteInterfaceToken(NativeChildNotifyProxy::GetDescriptor())) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:31:9
+复杂度: 0
+定义变量: logTag
+使用变量: TF_SYNC, TF_WAIT_TIME, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write interface token failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:32:9
+复杂度: 0
+定义变量: proxy
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:35:5
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:38:33
+复杂度: 2
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t NativeChildNotifyProxy::SendRequest(uint32_t code, MessageParcel &data,
+    MessageParcel &reply, MessageOption& option)
+{
+    sptr<IRemoteObject> remote = Remote();
+    if (!remote) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy get remote object failed");
+        return ERR_NULL_OBJECT;
+    }
+
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy SendRequest failed(%{public}d)", ret);
+        return ret;
+    }
+
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: Remote
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:41:34
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    sptr<IRemoteObject> remote = Remote();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:42:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!remote) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy get remote object failed");
+        return ERR_NULL_OBJECT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator bool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:42:10
+复杂度: 0
+定义变量: 
+使用变量: remote
+关键位置: 否
+日志评分: 0
+代码:
+    if (!remote) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:43:9
+复杂度: 0
+定义变量: IPC_ID_ON_NATIVE_CHILD_STARTED, logTag
+使用变量: __refs, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy get remote object failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:44:9
+复杂度: 0
+定义变量: IPC_ID_ON_ERROR
+使用变量: _S_get_c_name, ERR_NULL_OBJECT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_NULL_OBJECT;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:47:19
+复杂度: 0
+定义变量: 
+使用变量: , __other, data, remote, operator->, code, reply, option
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator->
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:47:19
+复杂度: 0
+定义变量: 
+使用变量: remote, operator->
+关键位置: 否
+日志评分: 0
+代码:
+    int32_t ret = remote->SendRequest(code, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:48:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (ret != NO_ERROR) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy SendRequest failed(%{public}d)", ret);
+        return ret;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:49:9
+复杂度: 0
+定义变量: __tmp, upper, logTag
+使用变量: , __n, __ret, __cache, __refs, _ISupper, _Intl, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy SendRequest failed(%{public}d)", ret);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:50:9
+复杂度: 0
+定义变量: 
+使用变量: __builtin_addressof, __low, ret
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ret;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:53:5
+复杂度: 0
+定义变量: 
+使用变量: , __pos, __cont, __loc, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnNativeChildStarted
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:56:30
+复杂度: 2
+定义变量: 
+使用变量: , __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void NativeChildNotifyProxy::OnNativeChildStarted(const sptr<IRemoteObject> &nativeChild)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "NativeChildNotifyProxy OnNativeChildStarted");
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    if (!data.WriteRemoteObject(nativeChild)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write native child ipc object failed.");
+        return;
+    }
+
+    SendRequest(INativeChildNotify::IPC_ID_ON_NATIVE_CHILD_STARTED, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:58:5
+复杂度: 0
+定义变量: __ret, __first, punct, logTag
+使用变量: , __tmp, __n, __first, __last, __value, __len, __base, __pos, __s, PTHREAD_MUTEX_NORMAL, _ISpunct, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "NativeChildNotifyProxy OnNativeChildStarted");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:59:19
+复杂度: 0
+定义变量: alnum, data
+使用变量: __tmp, __high
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:60:19
+复杂度: 0
+定义变量: reply
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:61:19
+复杂度: 0
+定义变量: blank, option
+使用变量: , __a, __x, __n, __f, __iter, __builtin_strlen, __s, __builtin_llabs, _ISblank, TF_ASYNC
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option(MessageOption::TF_ASYNC);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:62:5
+复杂度: 1
+定义变量: 
+使用变量: __num
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:62:10
+复杂度: 0
+定义变量: __tmp, _S_timezones
+使用变量: , __n, __len, __low, __b4, PTHREAD_MUTEX_TIMED_NP, _S_get_c_name, DEFAULT, data
+关键位置: 否
+日志评分: 0
+代码:
+    if (!WriteInterfaceToken(data)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:63:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:66:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteRemoteObject(nativeChild)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write native child ipc object failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:66:10
+复杂度: 0
+定义变量: __next, __put, __save_errno, __intptr
+使用变量: __v, __first, __val, __size, __out, __mem, data, nativeChild
+关键位置: 否
+日志评分: 0
+代码:
+    if (!data.WriteRemoteObject(nativeChild)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:67:9
+复杂度: 0
+定义变量: __maxlen, __aligned, logTag
+使用变量: value, , __t, __x, __tmp, __args, __c, __f, __num, __s, __put, npos, _S_get_c_name, __cvt, __intptr, __align, __gd, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write native child ipc object failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:68:9
+复杂度: 0
+定义变量: __diff
+使用变量: __gd
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:71:5
+复杂度: 0
+定义变量: __digits, __mp
+使用变量: terminate, , __n, __first, __val, __low, __str, __mem, __ISwupper, _Intl, _Lp, data, reply, option, IPC_ID_ON_NATIVE_CHILD_STARTED
+关键位置: 否
+日志评分: 0
+代码:
+    SendRequest(INativeChildNotify::IPC_ID_ON_NATIVE_CHILD_STARTED, data, reply, option);
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnError
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:74:30
+复杂度: 2
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __location, __ret
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void NativeChildNotifyProxy::OnError(int32_t errCode)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "NativeChildNotifyProxy OnError(%{public}d)", errCode);
+    MessageParcel data;
+    MessageParcel reply;
+    MessageOption option(MessageOption::TF_ASYNC);
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+    if (!data.WriteInt32(errCode)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write error code failed.");
+        return;
+    }
+
+    SendRequest(INativeChildNotify::IPC_ID_ON_ERROR, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:76:5
+复杂度: 0
+定义变量: logTag
+使用变量: , __p, __x, __i, __digits, __max, __val, __builtin_fabsf, __ISwspace, _S_scientific, _S_fixed, __outnext, __outlast, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "NativeChildNotifyProxy OnError(%{public}d)", errCode);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:77:19
+复杂度: 0
+定义变量: data
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel data;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:78:19
+复杂度: 0
+定义变量: reply
+使用变量: , _Idx, __off
+关键位置: 否
+日志评分: 0
+代码:
+    MessageParcel reply;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: MessageOption
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:79:19
+复杂度: 0
+定义变量: option
+使用变量: , __n, partial, _Lp, TF_ASYNC
+关键位置: 否
+日志评分: 0
+代码:
+    MessageOption option(MessageOption::TF_ASYNC);
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:80:5
+复杂度: 1
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!WriteInterfaceToken(data)) {
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:80:10
+复杂度: 0
+定义变量: __tmp, __child, __old, __np, INVALID_FD
+使用变量: , __t, __x, __first, __i, __f, __s, __child, __builtin_fabsl, __uselocale, __ISwcntrl, __outstr, data
+关键位置: 否
+日志评分: 0
+代码:
+    if (!WriteInterfaceToken(data)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:81:9
+复杂度: 0
+定义变量: 
+使用变量: __str, __ISwpunct
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:84:5
+复杂度: 1
+定义变量: 
+使用变量: , __s2, __mem
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!data.WriteInt32(errCode)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write error code failed.");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:85:9
+复杂度: 0
+定义变量: __max, __collate, __buf_len, RPC_QOS_MAX_IDLE_TIME, logTag
+使用变量: , __a, __p, __t, __x, __b, __y, __f, __val, __comp, __cont, __ex, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NativeChildNotifyProxy write error code failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:86:9
+复杂度: 0
+定义变量: __num
+使用变量: , __result, __cont, __collate
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: SendRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/native_child_notify_proxy.cpp:89:5
+复杂度: 0
+定义变量: __len
+使用变量: , __a, __p, __n, __c, __i, __digits, __ret, __comp, __num, min, __pos, __w, __ex, __buf_len, __remaining, b, __element, data, reply, option, IPC_ID_ON_ERROR
+关键位置: 否
+日志评分: 0
+代码:
+    SendRequest(INativeChildNotify::IPC_ID_ON_ERROR, data, reply, option);
+
+--------------------------------------------------------------------------------

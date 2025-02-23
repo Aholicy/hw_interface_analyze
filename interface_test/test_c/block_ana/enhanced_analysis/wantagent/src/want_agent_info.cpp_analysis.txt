@@ -1,0 +1,540 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+
+{}
+
+
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+
+    const std::shared_ptr<WantParams> &extraInfo)
+
+{
+
+    requestCode_ = requestCode;
+
+    operationType_ = operationType;
+
+    flags_.push_back(flag);
+
+    if (!wants.empty()) {
+
+        for (auto want : wants) {
+
+            if (want != nullptr) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+    }
+
+    if (extraInfo != nullptr) {
+
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+
+    }
+
+}
+
+
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+
+    const std::shared_ptr<WantParams> &extraInfo)
+
+{
+
+    requestCode_ = requestCode;
+
+    operationType_ = operationType;
+
+    if (!flags.empty()) {
+
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+
+    }
+
+    if (!wants.empty()) {
+
+        for (auto want : wants) {
+
+            if (want != nullptr) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+    }
+
+    if (extraInfo != nullptr) {
+
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+
+    }
+
+}
+
+
+
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+
+{
+
+    if (paramInfo != nullptr) {
+
+        requestCode_ = paramInfo->GetRequestCode();
+
+        operationType_ = paramInfo->GetOperationType();
+
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+
+        if (!paramInfo->GetWants().empty()) {
+
+            for (auto want : paramInfo->GetWants()) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+        if (paramInfo->GetExtraInfo() != nullptr) {
+
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+
+        }
+
+    }
+
+}
+
+
+
+int WantAgentInfo::GetRequestCode() const
+
+{
+
+    return requestCode_;
+
+}
+
+
+
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+
+{
+
+    return operationType_;
+
+}
+
+
+
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+
+{
+
+    return flags_;
+
+}
+
+
+
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+
+{
+
+    return wants_;
+
+}
+
+
+
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+
+{
+
+    return extraInfo_;
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+
+{}
+
+
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+
+    const std::shared_ptr<WantParams> &extraInfo)
+
+{
+
+    requestCode_ = requestCode;
+
+    operationType_ = operationType;
+
+    flags_.push_back(flag);
+
+    if (!wants.empty()) {
+
+        for (auto want : wants) {
+
+            if (want != nullptr) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+    }
+
+    if (extraInfo != nullptr) {
+
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+
+    }
+
+}
+
+
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+
+    const std::shared_ptr<WantParams> &extraInfo)
+
+{
+
+    requestCode_ = requestCode;
+
+    operationType_ = operationType;
+
+    if (!flags.empty()) {
+
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+
+    }
+
+    if (!wants.empty()) {
+
+        for (auto want : wants) {
+
+            if (want != nullptr) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+    }
+
+    if (extraInfo != nullptr) {
+
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+
+    }
+
+}
+
+
+
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+
+{
+
+    if (paramInfo != nullptr) {
+
+        requestCode_ = paramInfo->GetRequestCode();
+
+        operationType_ = paramInfo->GetOperationType();
+
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+
+        if (!paramInfo->GetWants().empty()) {
+
+            for (auto want : paramInfo->GetWants()) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+        if (paramInfo->GetExtraInfo() != nullptr) {
+
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+
+        }
+
+    }
+
+}
+
+
+
+int WantAgentInfo::GetRequestCode() const
+
+{
+
+    return requestCode_;
+
+}
+
+
+
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+
+{
+
+    return operationType_;
+
+}
+
+
+
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+
+{
+
+    return flags_;
+
+}
+
+
+
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+
+{
+
+    return wants_;
+
+}
+
+
+
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+
+{
+
+    return extraInfo_;
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/wantagent/src/want_agent_info.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS::AbilityRuntime::WantAgent {
+
+WantAgentInfo::WantAgentInfo() : WantAgentInfo(nullptr)
+
+{}
+
+
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+
+    WantAgentConstant::Flags flag, std::vector<std::shared_ptr<Want>> &wants,
+
+    const std::shared_ptr<WantParams> &extraInfo)
+
+{
+
+    requestCode_ = requestCode;
+
+    operationType_ = operationType;
+
+    flags_.push_back(flag);
+
+    if (!wants.empty()) {
+
+        for (auto want : wants) {
+
+            if (want != nullptr) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+    }
+
+    if (extraInfo != nullptr) {
+
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+
+    }
+
+}
+
+
+
+WantAgentInfo::WantAgentInfo(int requestCode, const WantAgentConstant::OperationType &operationType,
+
+    const std::vector<WantAgentConstant::Flags> &flags, std::vector<std::shared_ptr<Want>> &wants,
+
+    const std::shared_ptr<WantParams> &extraInfo)
+
+{
+
+    requestCode_ = requestCode;
+
+    operationType_ = operationType;
+
+    if (!flags.empty()) {
+
+        flags_.insert(flags_.end(), flags.begin(), flags.end());
+
+    }
+
+    if (!wants.empty()) {
+
+        for (auto want : wants) {
+
+            if (want != nullptr) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+    }
+
+    if (extraInfo != nullptr) {
+
+        extraInfo_ = std::make_shared<WantParams>(*extraInfo);
+
+    }
+
+}
+
+
+
+WantAgentInfo::WantAgentInfo(const std::shared_ptr<WantAgentInfo> &paramInfo)
+
+{
+
+    if (paramInfo != nullptr) {
+
+        requestCode_ = paramInfo->GetRequestCode();
+
+        operationType_ = paramInfo->GetOperationType();
+
+        std::vector<WantAgentConstant::Flags> tempFlags = paramInfo->GetFlags();
+
+        flags_.insert(flags_.end(), tempFlags.begin(), tempFlags.end());
+
+        if (!paramInfo->GetWants().empty()) {
+
+            for (auto want : paramInfo->GetWants()) {
+
+                wants_.push_back(std::make_shared<Want>(*want));
+
+            }
+
+        }
+
+        if (paramInfo->GetExtraInfo() != nullptr) {
+
+            extraInfo_ = std::make_shared<WantParams>(*paramInfo->GetExtraInfo());
+
+        }
+
+    }
+
+}
+
+
+
+int WantAgentInfo::GetRequestCode() const
+
+{
+
+    return requestCode_;
+
+}
+
+
+
+WantAgentConstant::OperationType WantAgentInfo::GetOperationType() const
+
+{
+
+    return operationType_;
+
+}
+
+
+
+std::vector<WantAgentConstant::Flags> WantAgentInfo::GetFlags() const
+
+{
+
+    return flags_;
+
+}
+
+
+
+std::vector<std::shared_ptr<Want>> WantAgentInfo::GetWants() const
+
+{
+
+    return wants_;
+
+}
+
+
+
+std::shared_ptr<WantParams> WantAgentInfo::GetExtraInfo() const
+
+{
+
+    return extraInfo_;
+
+}
+
+}  // namespace OHOS::AbilityRuntime::WantAgent
+
+================================================================================

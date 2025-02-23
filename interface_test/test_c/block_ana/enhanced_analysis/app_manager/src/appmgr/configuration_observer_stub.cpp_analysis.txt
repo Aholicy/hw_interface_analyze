@@ -1,0 +1,180 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_stub.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+ConfigurationObserverStub::ConfigurationObserverStub() {}
+
+
+
+ConfigurationObserverStub::~ConfigurationObserverStub() {}
+
+
+
+int ConfigurationObserverStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "ConfigurationObserverStub::OnRemoteRequest, code = %{public}u, flags= %{public}d.",
+
+        code, option.GetFlags());
+
+    std::u16string descriptor = ConfigurationObserverStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equivalent to remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(IConfigurationObserver::Message::TRANSACT_ON_CONFIGURATION_UPDATED)) {
+
+        return HandleOnConfigurationUpdated(data, reply);
+
+    }
+
+
+
+    TAG_LOGI(AAFwkTag::APPMGR, "ConfigurationObserverStub::OnRemoteRequest end");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+void ConfigurationObserverStub::OnConfigurationUpdated(const Configuration& configuration)
+
+{}
+
+
+
+int32_t ConfigurationObserverStub::HandleOnConfigurationUpdated(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    HITRACE_METER(HITRACE_TAG_APP);
+
+    std::unique_ptr<Configuration> configuration(data.ReadParcelable<Configuration>());
+
+    if (!configuration) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+
+
+    OnConfigurationUpdated(*configuration);
+
+    return NO_ERROR;
+
+}
+
+}
+
+}
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/configuration_observer_stub.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+ConfigurationObserverStub::ConfigurationObserverStub() {}
+
+
+
+ConfigurationObserverStub::~ConfigurationObserverStub() {}
+
+
+
+int ConfigurationObserverStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGI(AAFwkTag::APPMGR, "ConfigurationObserverStub::OnRemoteRequest, code = %{public}u, flags= %{public}d.",
+
+        code, option.GetFlags());
+
+    std::u16string descriptor = ConfigurationObserverStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equivalent to remote");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(IConfigurationObserver::Message::TRANSACT_ON_CONFIGURATION_UPDATED)) {
+
+        return HandleOnConfigurationUpdated(data, reply);
+
+    }
+
+
+
+    TAG_LOGI(AAFwkTag::APPMGR, "ConfigurationObserverStub::OnRemoteRequest end");
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+void ConfigurationObserverStub::OnConfigurationUpdated(const Configuration& configuration)
+
+{}
+
+
+
+int32_t ConfigurationObserverStub::HandleOnConfigurationUpdated(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    HITRACE_METER(HITRACE_TAG_APP);
+
+    std::unique_ptr<Configuration> configuration(data.ReadParcelable<Configuration>());
+
+    if (!configuration) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<Configuration> failed");
+
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+
+    }
+
+
+
+    OnConfigurationUpdated(*configuration);
+
+    return NO_ERROR;
+
+}
+
+}
+
+================================================================================

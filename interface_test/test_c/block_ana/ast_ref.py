@@ -231,7 +231,7 @@ def analyze_directory(directory_path, output_analysis_dir):
 
 def main():
     """主函数"""
-    source_dir = "../ability_ability_runtime/interfaces/inner_api/"  # 源文件夹
+    source_dir = "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api"  # 源文件夹
     analysis_output_dir = "ref_ana"  # 引用分析输出文件夹
 
     analyze_directory(source_dir, analysis_output_dir)

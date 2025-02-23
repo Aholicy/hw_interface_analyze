@@ -9,9 +9,7 @@ if not os.path.exists(libclang_path):
     raise RuntimeError(f"libclang not found at {libclang_path}")
 Config.set_library_file(libclang_path)
 
-source_root_list = ["../ability_ability_runtime/interfaces/inner_api/ability_manager", 
-                    "../ability_ability_runtime/interfaces/inner_api/app_manager",
-                    "../ability_ability_runtime/interfaces/inner_api",
+source_root_list = ["/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api", 
                     "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/frameworks/simulator/osal",
                     "/home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/services/common/",
                     "/home/user/jyw/ohos5/foundation/communication/ipc/interfaces/innerkits/ipc_core/",

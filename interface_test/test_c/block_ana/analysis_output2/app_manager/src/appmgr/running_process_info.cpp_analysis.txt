@@ -1,0 +1,379 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:32:26
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool RunningProcessInfo::ReadFromParcel(Parcel &parcel)
+{
+    processName_ = Str16ToStr8(parcel.ReadString16());
+    int32_t typeData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, typeData);
+    pid_ = static_cast<int32_t>(typeData);
+    int32_t uidData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, uidData);
+    uid_ = static_cast<int32_t>(uidData);
+    int32_t stateData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, stateData);
+    state_ = static_cast<AppProcessState>(stateData);
+    isContinuousTask = parcel.ReadBool();
+    isKeepAlive = parcel.ReadBool();
+    isFocused = parcel.ReadBool();
+    isTestProcess = parcel.ReadBool();
+    isAbilityForegrounding = parcel.ReadBool();
+    isTestMode = parcel.ReadBool();
+    int32_t bundleTypeData;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, bundleTypeData);
+    bundleType = static_cast<int32_t>(bundleTypeData);
+    if (!parcel.ReadStringVector(&bundleNames)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "read bundleNames failed.");
+        return false;
+    }
+    int32_t processType;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, processType);
+    processType_ = static_cast<ProcessType>(processType);
+    int32_t extensionType;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, extensionType);
+    extensionType_ = static_cast<ExtensionAbilityType>(extensionType);
+    appCloneIndex = parcel.ReadInt32();
+    instanceKey = Str16ToStr8(parcel.ReadString16());
+    int32_t appModeType;
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appModeType);
+    appMode = static_cast<AppExecFwk::MultiAppModeType>(appModeType);
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:44:24
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isContinuousTask = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:45:19
+复杂度: 0
+定义变量: 
+使用变量: , __it2, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isKeepAlive = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:46:17
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isFocused = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:47:21
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isTestProcess = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:48:30
+复杂度: 0
+定义变量: 
+使用变量: parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isAbilityForegrounding = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:49:18
+复杂度: 0
+定义变量: 
+使用变量: , parcel
+关键位置: 否
+日志评分: 0
+代码:
+    isTestMode = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:53:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadStringVector(&bundleNames)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "read bundleNames failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:54:9
+复杂度: 0
+定义变量: npos, __b3, logTag
+使用变量: __pos, __bsx, __base, __b2, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "read bundleNames failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:55:9
+复杂度: 0
+定义变量: 
+使用变量: npos, DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:63:21
+复杂度: 0
+定义变量: 
+使用变量: __out, __l, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    appCloneIndex = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:68:5
+复杂度: 0
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:71:41
+复杂度: 1
+定义变量: 
+使用变量: __is_constant_evaluated, __builtin_unreachable, __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+RunningProcessInfo *RunningProcessInfo::Unmarshalling(Parcel &parcel)
+{
+    RunningProcessInfo *info = new (std::nothrow) RunningProcessInfo();
+    if (info && !info->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:74:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (info && !info->ReadFromParcel(parcel)) {
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+        delete info;
+        info = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:74:18
+复杂度: 0
+定义变量: __enable_hash_call, __old_size
+使用变量: , __t, __f, __cont, NORMAL, parcel, info
+关键位置: 否
+日志评分: 0
+代码:
+    if (info && !info->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:75:9
+复杂度: 0
+定义变量: __tmp, __max, logTag
+使用变量: , __s, __is_signed, __val, __cont, npos, __min, __bsx, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:79:5
+复杂度: 0
+定义变量: 
+使用变量: __tmp, info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:82:26
+复杂度: 1
+定义变量: 
+使用变量: , __ret, __first, __location
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool RunningProcessInfo::Marshalling(Parcel &parcel) const
+{
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(processName_));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(pid_));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(uid_));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(state_));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isContinuousTask);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isKeepAlive);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isFocused);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isTestProcess);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isAbilityForegrounding);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isTestMode);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(bundleType));
+    if (!parcel.WriteStringVector(bundleNames)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundleNames failed.");
+        return false;
+    }
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(processType_));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(extensionType_));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, appCloneIndex);
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(instanceKey));
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(appMode));
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:95:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteStringVector(bundleNames)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundleNames failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:96:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __tmp, __out, __digits, __num, __arr, __nh, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "write bundleNames failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:97:9
+复杂度: 0
+定义变量: __ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/running_process_info.cpp:104:5
+复杂度: 0
+定义变量: 
+使用变量: __off, , __nh
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

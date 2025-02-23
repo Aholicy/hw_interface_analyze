@@ -1,0 +1,200 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp:24
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+bool RenderProcessInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName_ = Str16ToStr8(parcel.ReadString16());
+
+    processName_ = Str16ToStr8(parcel.ReadString16());
+
+    int32_t pidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, pidData);
+
+    pid_ = static_cast<int32_t>(pidData);
+
+    int32_t uidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, uidData);
+
+    uid_ = static_cast<int32_t>(uidData);
+
+    int32_t hostUidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, hostUidData);
+
+    hostUid_ = static_cast<int32_t>(hostUidData);
+
+    int32_t hostPidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, hostPidData);
+
+    hostPid_ = static_cast<int32_t>(hostPidData);
+
+    int32_t stateData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, stateData);
+
+    state_ = static_cast<int32_t>(stateData);
+
+    return true;
+
+}
+
+
+
+RenderProcessInfo *RenderProcessInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    RenderProcessInfo *info = new (std::nothrow) RenderProcessInfo();
+
+    if (info && !info->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+
+        delete info;
+
+        info = nullptr;
+
+    }
+
+    return info;
+
+}
+
+
+
+bool RenderProcessInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(bundleName_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(processName_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(pid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(uid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(hostUid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(hostPid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(state_));
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/render_process_info.cpp:25
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+bool RenderProcessInfo::ReadFromParcel(Parcel &parcel)
+
+{
+
+    bundleName_ = Str16ToStr8(parcel.ReadString16());
+
+    processName_ = Str16ToStr8(parcel.ReadString16());
+
+    int32_t pidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, pidData);
+
+    pid_ = static_cast<int32_t>(pidData);
+
+    int32_t uidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, uidData);
+
+    uid_ = static_cast<int32_t>(uidData);
+
+    int32_t hostUidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, hostUidData);
+
+    hostUid_ = static_cast<int32_t>(hostUidData);
+
+    int32_t hostPidData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, hostPidData);
+
+    hostPid_ = static_cast<int32_t>(hostPidData);
+
+    int32_t stateData;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, stateData);
+
+    state_ = static_cast<int32_t>(stateData);
+
+    return true;
+
+}
+
+
+
+RenderProcessInfo *RenderProcessInfo::Unmarshalling(Parcel &parcel)
+
+{
+
+    RenderProcessInfo *info = new (std::nothrow) RenderProcessInfo();
+
+    if (info && !info->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "read from parcel failed");
+
+        delete info;
+
+        info = nullptr;
+
+    }
+
+    return info;
+
+}
+
+
+
+bool RenderProcessInfo::Marshalling(Parcel &parcel) const
+
+{
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(bundleName_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(processName_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(pid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(uid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(hostUid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(hostPid_));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(state_));
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

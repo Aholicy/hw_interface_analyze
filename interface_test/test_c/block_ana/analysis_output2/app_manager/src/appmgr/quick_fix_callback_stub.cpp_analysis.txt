@@ -1,0 +1,280 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:26:27
+复杂度: 4
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int QuickFixCallbackStub::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    if (data.ReadInterfaceToken() != IQuickFixCallback::GetDescriptor()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case ON_NOTIFY_LOAD_PATCH:
+            return HandleOnLoadPatchDoneInner(data, reply);
+        case ON_NOTIFY_UNLOAD_PATCH:
+            return HandleOnUnloadPatchDoneInner(data, reply);
+        case ON_NOTIFY_RELOAD_PAGE:
+            return HandleOnReloadPageDoneInner(data, reply);
+    }
+
+    TAG_LOGW(AAFwkTag::APPMGR, "default case, need check value of code!");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:29:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (data.ReadInterfaceToken() != IQuickFixCallback::GetDescriptor()) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:29:9
+复杂度: 0
+定义变量: __libc_single_threaded
+使用变量: data
+关键位置: 否
+日志评分: 0
+代码:
+    if (data.ReadInterfaceToken() != IQuickFixCallback::GetDescriptor()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: GetDescriptor
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:29:38
+复杂度: 0
+定义变量: 
+使用变量: GetDescriptor
+关键位置: 否
+日志评分: 0
+代码:
+    if (data.ReadInterfaceToken() != IQuickFixCallback::GetDescriptor()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:30:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:31:9
+复杂度: 0
+定义变量: 
+使用变量: TF_SYNC, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:34:5
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (code) {
+        case ON_NOTIFY_LOAD_PATCH:
+            return HandleOnLoadPatchDoneInner(data, reply);
+        case ON_NOTIFY_UNLOAD_PATCH:
+            return HandleOnUnloadPatchDoneInner(data, reply);
+        case ON_NOTIFY_RELOAD_PAGE:
+            return HandleOnReloadPageDoneInner(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:36:13
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnLoadPatchDoneInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnLoadPatchDoneInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:36:20
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnLoadPatchDoneInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:38:13
+复杂度: 0
+定义变量: progname
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnUnloadPatchDoneInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnUnloadPatchDoneInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:38:20
+复杂度: 0
+定义变量: progname
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnUnloadPatchDoneInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:40:13
+复杂度: 0
+定义变量: 
+使用变量: _Cache, _Intl, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnReloadPageDoneInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnReloadPageDoneInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:40:20
+复杂度: 0
+定义变量: 
+使用变量: _Cache, _Intl, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnReloadPageDoneInner(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:43:5
+复杂度: 0
+定义变量: logTag
+使用变量: __refs, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGW(AAFwkTag::APPMGR, "default case, need check value of code!");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnLoadPatchDoneInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:47:31
+复杂度: 0
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t QuickFixCallbackStub::HandleOnLoadPatchDoneInner(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t resultCode = data.ReadInt32();
+    int32_t recordId = data.ReadInt32();
+    OnLoadPatchDone(resultCode, recordId);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnUnloadPatchDoneInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:55:31
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t QuickFixCallbackStub::HandleOnUnloadPatchDoneInner(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t resultCode = data.ReadInt32();
+    int32_t recordId = data.ReadInt32();
+    OnUnloadPatchDone(resultCode, recordId);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnReloadPageDoneInner
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/quick_fix_callback_stub.cpp:63:31
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t QuickFixCallbackStub::HandleOnReloadPageDoneInner(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t resultCode = data.ReadInt32();
+    int32_t recordId = data.ReadInt32();
+    OnReloadPageDone(resultCode, recordId);
+    return ERR_OK;
+}
+
+--------------------------------------------------------------------------------

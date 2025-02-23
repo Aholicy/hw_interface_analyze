@@ -1,0 +1,144 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_running_status_stub.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AbilityRuntime {
+
+AppRunningStatusStub::AppRunningStatusStub() {}
+
+
+
+AppRunningStatusStub::~AppRunningStatusStub() {}
+
+
+
+int AppRunningStatusStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "Called, code = %{public}u, flags= %{public}d.", code, option.GetFlags());
+
+    std::u16string descriptor = AppRunningStatusStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(AppRunningStatusListenerInterface::MessageCode::APP_RUNNING_STATUS)) {
+
+        return HandleAppRunningStatus(data, reply);
+
+    }
+
+
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+ErrCode AppRunningStatusStub::HandleAppRunningStatus(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    std::string bundle = data.ReadString();
+
+    int32_t uid = data.ReadInt32();
+
+    RunningStatus runningStatus = static_cast<RunningStatus>(data.ReadInt32());
+
+    NotifyAppRunningStatus(bundle, uid, runningStatus);
+
+    return NO_ERROR;
+
+}
+
+} // namespace AbilityRuntime
+
+} // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_running_status_stub.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AbilityRuntime {
+
+AppRunningStatusStub::AppRunningStatusStub() {}
+
+
+
+AppRunningStatusStub::~AppRunningStatusStub() {}
+
+
+
+int AppRunningStatusStub::OnRemoteRequest(
+
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+
+{
+
+    TAG_LOGD(AAFwkTag::APPMGR, "Called, code = %{public}u, flags= %{public}d.", code, option.GetFlags());
+
+    std::u16string descriptor = AppRunningStatusStub::GetDescriptor();
+
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+    if (descriptor != remoteDescriptor) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Local descriptor is not equal to remote.");
+
+        return ERR_INVALID_STATE;
+
+    }
+
+
+
+    if (code == static_cast<uint32_t>(AppRunningStatusListenerInterface::MessageCode::APP_RUNNING_STATUS)) {
+
+        return HandleAppRunningStatus(data, reply);
+
+    }
+
+
+
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+
+}
+
+
+
+ErrCode AppRunningStatusStub::HandleAppRunningStatus(MessageParcel &data, MessageParcel &reply)
+
+{
+
+    std::string bundle = data.ReadString();
+
+    int32_t uid = data.ReadInt32();
+
+    RunningStatus runningStatus = static_cast<RunningStatus>(data.ReadInt32());
+
+    NotifyAppRunningStatus(bundle, uid, runningStatus);
+
+    return NO_ERROR;
+
+}
+
+} // namespace AbilityRuntime
+
+================================================================================

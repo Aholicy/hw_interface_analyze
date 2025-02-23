@@ -1,0 +1,83 @@
+代码块类型: Method Declaration
+块名称: ProcessEvent
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:27:28
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AutoFillEventHandler::ProcessEvent(const AppExecFwk::InnerEvent::Pointer &event)
+{
+    TAG_LOGD(AAFwkTag::AUTOFILLMGR, "called");
+    if (event == nullptr) {
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+        return;
+    }
+#ifdef SUPPORT_GRAPHICS
+    AutoFillManager::GetInstance().HandleTimeOut(event->GetInnerEventId());
+#endif // SUPPORT_GRAPHICS
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:29:5
+复杂度: 0
+定义变量: __libc_single_threaded, logTag
+使用变量: AUTOFILLMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::AUTOFILLMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:30:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (event == nullptr) {
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+        return;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:31:9
+复杂度: 0
+定义变量: logTag
+使用变量: AUTOFILLMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::AUTOFILLMGR, "null Event");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/auto_fill_manager/src/auto_fill_event_handler.cpp:32:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return;
+
+--------------------------------------------------------------------------------

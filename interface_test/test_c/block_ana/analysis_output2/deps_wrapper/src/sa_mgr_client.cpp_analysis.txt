@@ -1,0 +1,250 @@
+代码块类型: Method Declaration
+块名称: GetSystemAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:32:34
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+sptr<IRemoteObject> SaMgrClient::GetSystemAbility(const int32_t systemAbilityId)
+{
+    // use single instance of saMgr_
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+    return saMgr_->GetSystemAbility(systemAbilityId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:35:5
+复杂度: 3
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:37:9
+复杂度: 2
+定义变量: 
+使用变量: __x, __bsx
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:39:13
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:40:17
+复杂度: 0
+定义变量: logTag
+使用变量: _Cache, _Intl, DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:41:17
+复杂度: 0
+定义变量: 
+使用变量: IF_PROT_DEFAULT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: CheckSystemAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:48:34
+复杂度: 3
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+sptr<IRemoteObject> SaMgrClient::CheckSystemAbility(const int32_t systemAbilityId)
+{
+    // use single instance of saMgr_
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+    return saMgr_->CheckSystemAbility(systemAbilityId);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:51:5
+复杂度: 3
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (saMgr_ == nullptr) {
+        std::lock_guard<std::mutex> lock(saMutex_);
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:53:9
+复杂度: 2
+定义变量: __tmp
+使用变量: __tmp, __pred, __pos, npos, __bsx
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (saMgr_ == nullptr) {
+            saMgr_ = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:55:13
+复杂度: 1
+定义变量: 
+使用变量: , __refs, DEFAULT
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+            if (saMgr_ == nullptr) {
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+                return nullptr;
+            }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:56:17
+复杂度: 0
+定义变量: __len, __last, graph, __caches, logTag
+使用变量: __t, __i, __len, __s, __builtin_strlen, PTHREAD_MUTEX_RECURSIVE_NP, __builtin_labs, __ucont, __loc, _ISalpha, _ISdigit, _ISpunct, DEFAULT
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+                TAG_LOGE(AAFwkTag::DEFAULT, "Get registry fialed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:57:17
+复杂度: 0
+定义变量: __elem0, cntrl
+使用变量: , __last, __len, PTHREAD_MUTEX_ERRORCHECK_NP, __str
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+                return nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: RegisterSystemAbility
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/deps_wrapper/src/sa_mgr_client.cpp:64:19
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void SaMgrClient::RegisterSystemAbility(
+    const int32_t __attribute__((unused)) systemAbilityId, sptr<IRemoteObject> __attribute__((unused)) broker)
+{
+    (void)servicesMap_;
+}
+
+--------------------------------------------------------------------------------

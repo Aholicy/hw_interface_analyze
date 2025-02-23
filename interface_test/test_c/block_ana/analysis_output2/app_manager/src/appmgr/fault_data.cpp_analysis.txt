@@ -1,0 +1,2921 @@
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:24:17
+复杂度: 6
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool FaultData::ReadFromParcel(Parcel &parcel)
+{
+    std::string strValue;
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+    errorObject.name = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+    errorObject.message = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+    errorObject.stack = strValue;
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
+        return false;
+    }
+    faultType = static_cast<FaultDataType>(type);
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+    timeoutMarkers = strValue;
+
+    waitSaveState = parcel.ReadBool();
+    notifyApp = parcel.ReadBool();
+    forceExit = parcel.ReadBool();
+    state = parcel.ReadUint32();
+    eventId = parcel.ReadInt32();
+    tid = parcel.ReadInt32();
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:26:17
+复杂度: 0
+定义变量: strValue
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    std::string strValue;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:27:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:27:10
+复杂度: 0
+定义变量: 
+使用变量: parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:28:9
+复杂度: 0
+定义变量: REGISTRY_HANDLE, logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:29:9
+复杂度: 0
+定义变量: __libc_single_threaded
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:33:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:33:10
+复杂度: 0
+定义变量: 
+使用变量: parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:34:9
+复杂度: 0
+定义变量: logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:35:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:39:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:39:10
+复杂度: 0
+定义变量: 
+使用变量: __bsx, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:40:9
+复杂度: 0
+定义变量: logTag
+使用变量: _Intl, _Cache, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:41:9
+复杂度: 0
+定义变量: 
+使用变量: __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:46:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:46:10
+复杂度: 0
+定义变量: __caches, APP_LIFECYCLE_TIMEOUT
+使用变量: _S_get_c_name, DEFAULT, parcel, type
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadInt32(type)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:47:9
+复杂度: 0
+定义变量: THREAD_BLOCK_3S, logTag
+使用变量: __other, , __i, __x, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType read int32 failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:48:9
+复杂度: 0
+定义变量: __ret
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:52:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:52:10
+复杂度: 0
+定义变量: __n, digit
+使用变量: __n, uselocale, __put, __libc_single_threaded, __refs, _ISdigit, __high, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:53:9
+复杂度: 0
+定义变量: __b2, xdigit, allocator_arg, __default_lock_policy, logTag
+使用变量: __p, __pos, , __cont, npos, __base, __loc, _ISxdigit, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:54:9
+复杂度: 0
+定义变量: 
+使用变量: __pos, , __bsx, __builtin_strcmp
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:58:21
+复杂度: 0
+定义变量: __first, punct
+使用变量: , __s, __tmp, __last, __len, __base, PTHREAD_MUTEX_NORMAL, _ISpunct, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    waitSaveState = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:59:17
+复杂度: 0
+定义变量: __tmp, __last, alnum
+使用变量: __n, __s, __tmp, __len, __b2, _ISalpha, __high, _S_get_c_name, __iter, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    notifyApp = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:60:17
+复杂度: 0
+定义变量: __len
+使用变量: __n, __pos, __b3, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    forceExit = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:61:13
+复杂度: 0
+定义变量: __len, blank
+使用变量: __n, , __builtin_strlen, __f, __builtin_llabs, __b4, _ISblank, __iter, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    state = parcel.ReadUint32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:62:15
+复杂度: 0
+定义变量: _S_timezones
+使用变量: __n, , __len, __b4, PTHREAD_MUTEX_TIMED_NP, _S_get_c_name, DEFAULT, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    eventId = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:63:11
+复杂度: 0
+定义变量: __c
+使用变量: __s, __a, __tmp, __out, __loc, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    tid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:64:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:64:9
+复杂度: 0
+定义变量: __c
+使用变量: __n, , __tmp, __size, __cont, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (parcel.ReadBool()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:65:9
+复杂度: 0
+定义变量: __tmp, __outchars
+使用变量: __c, __n, __s, __t, __cloc, __first, __len, __elem0, _S_clone_c_locale, operator=, __iter, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:65:17
+复杂度: 0
+定义变量: 
+使用变量: __c, __n, __s, __t, __cloc, __first, __len, __elem0, _S_clone_c_locale, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:67:5
+复杂度: 0
+定义变量: __aligned
+使用变量: , __x, __tmp, __num, __throw_out_of_range_fmt, npos
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:70:23
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable, __throw_length_error, rethrow_exception
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+FaultData *FaultData::Unmarshalling(Parcel &parcel)
+{
+    FaultData *info = new FaultData();
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: FaultData
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:72:27
+复杂度: 0
+定义变量: 
+使用变量: __n, , __x, PTHREAD_MUTEX_STALLED, _Intl
+关键位置: 否
+日志评分: 0
+代码:
+    FaultData *info = new FaultData();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:73:5
+复杂度: 1
+定义变量: 
+使用变量: __outnext
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:73:10
+复杂度: 0
+定义变量: 
+使用变量: __p, , __s, __first, __last, __diff, __tmp_data, __ISwalpha, _S_get_c_name, __dir, __outstr, parcel, info
+关键位置: 否
+日志评分: 0
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:77:5
+复杂度: 0
+定义变量: __testoff
+使用变量: __ISwprint, info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:80:17
+复杂度: 15
+定义变量: 
+使用变量: , __c1, __is_constant_evaluated, __ret, __first, __builtin_unreachable, __ptr, __len, __location, __ne_ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool FaultData::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+    
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(tid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
+        return false;
+    }
+
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:82:5
+复杂度: 1
+定义变量: 
+使用变量: , __mem
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:83:9
+复杂度: 0
+定义变量: __pos, __ret, __cerb, piecewise_construct, __truename, RPC_QOS_MAX_LATENCY, logTag
+使用变量: __n, , __out, __ret, __len, npos, __name, __child, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:84:9
+复杂度: 0
+定义变量: __result, __x, __falsename, RPC_QOS_MIN_LATENCY
+使用变量: __pos, , __s, __cerb, __val, __next, __child
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:87:5
+复杂度: 1
+定义变量: 
+使用变量: __s2, , __ret, __first
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:88:9
+复杂度: 0
+定义变量: __w, __is_signed, __remaining, logTag
+使用变量: __n, __pos, , __a, __x, __b, __tmp, __out, __ret, __first, __last, __digits, __num, __result, __g, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:89:9
+复杂度: 0
+定义变量: 
+使用变量: __p, __n, __pos, , __a, __w, __comp
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:92:5
+复杂度: 1
+定义变量: 
+使用变量: , __builtin_va_start, __result, __count, __mem, __outstr
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:93:9
+复杂度: 0
+定义变量: __args, logTag
+使用变量: __n, , __i, __s, __t, __ret, __len, __grouping, __nh, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:94:9
+复杂度: 0
+定义变量: __num
+使用变量: , __left, __comp
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:97:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:97:10
+复杂度: 0
+定义变量: __ret, __negative_sign, __comp
+使用变量: __p, __c, __n, , __s, __tmp, __args, __fmt, __builtin_vsnprintf, __out, __size, __result, __old_size, __tn, __mp, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:98:9
+复杂度: 0
+定义变量: __c, none, logTag
+使用变量: __n, __v, , __s, __a, __x, __it, __out, __left, __first, __val, __comp, __is_single_threaded, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:99:9
+复杂度: 0
+定义变量: __g
+使用变量: , __val, __result, __exchange_and_add_single, __truename
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:102:5
+复杂度: 1
+定义变量: 
+使用变量: __s, __builtin_va_end
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:103:9
+复杂度: 0
+定义变量: __max, monetary, logTag
+使用变量: __n, __pos, , __s, min, memory_order_seq_cst, _Copy, _CopyAssignment, tag, base, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:104:9
+复杂度: 0
+定义变量: 
+使用变量: __off, , __i, __a, __tmp_capacity, __falsename, __nh
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:107:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:107:10
+复杂度: 0
+定义变量: 
+使用变量: __pos, , _Nm, __x, __comp, __arr, __np, __g_size, memory_order_seq_cst, __nh, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(waitSaveState)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:108:9
+复杂度: 0
+定义变量: __tmp_capacity, __cmp, tagNames, logTag
+使用变量: , __i, __a, __x, __b, __ret, __comp, __len, __is_single_threaded, operator^, __m, __g_size, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:109:9
+复杂度: 0
+定义变量: offset
+使用变量: __pos, 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:112:5
+复杂度: 1
+定义变量: 
+使用变量: , __s
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:112:10
+复杂度: 0
+定义变量: __sz, __len
+使用变量: , __builtin_strlen, __x, __args, operator=, __m, _S_oend, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(notifyApp)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:113:9
+复杂度: 0
+定义变量: __tmp, __found, unseq, logTag
+使用变量: , __tmp, __out, __ret, __sz, __len, __m, _S_atoms_in, __mp, memory_order_acq_rel, memory_order_acquire, offset, tagNames, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:114:9
+复杂度: 0
+定义变量: __n
+使用变量: , __x, __sz, __len, __m, _S_atoms_in, __p2, memory_order_release, __p1
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:117:5
+复杂度: 1
+定义变量: 
+使用变量: , __nh
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:117:10
+复杂度: 0
+定义变量: __i, __fn, _M_max_size
+使用变量: , __i, __x, __it1, __it2, __o, __grouping, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(forceExit)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:118:9
+复杂度: 0
+定义变量: __tmp_ptr, __facets, _M_max_align, tagNames, logTag
+使用变量: __st, , __a, __args, __first, __last, __loc, __state, __o, __truename, _S_get_c_name, __outstr, __cvt, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:119:9
+复杂度: 0
+定义变量: __size
+使用变量: __p, __n, , __i, __s, __x, __ret, __first, __fn, __sz, __count, __loc, __falsename
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:122:5
+复杂度: 1
+定义变量: 
+使用变量: __size
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:122:10
+复杂度: 0
+定义变量: __c
+使用变量: __pos, , __c1, __c2, __builtin_strlen, __s, __x, __size, __len, _Hash_bytes, __mp, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteUint32(state)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:123:9
+复杂度: 0
+定义变量: logTag
+使用变量: __c, __pos, , __x, __args, __first, __tmp_capacity, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:124:9
+复杂度: 0
+定义变量: __stored_locally
+使用变量: __n, , __size, __ptr, __ws, __grouping, offset, tagNames
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:127:5
+复杂度: 1
+定义变量: 
+使用变量: __m
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:127:10
+复杂度: 0
+定义变量: 
+使用变量: , __s, __cont, operator&, __m, __memory_order_mask, _M_max_align, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(eventId)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:128:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __x, __cont, npos, __tmp_length, operator&, memory_order_acq_rel, __memory_order_mask, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:129:9
+复杂度: 0
+定义变量: __state, tagNames
+使用变量: __x, __tmp
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:132:5
+复杂度: 1
+定义变量: 
+使用变量: __atomic_thread_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteInt32(tid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:132:10
+复杂度: 0
+定义变量: __al
+使用变量: __p, __off, __ptr, __sbin, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(tid)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:133:9
+复杂度: 0
+定义变量: logTag
+使用变量: __s, __m, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Tid [%{public}u] write int32 failed.", tid);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:134:9
+复杂度: 0
+定义变量: __tmp, __j
+使用变量: __a, __x, __ret, __nh, offset, tagNames
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:137:5
+复杂度: 4
+定义变量: 
+使用变量: , __first, __position, __atomic_signal_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:137:9
+复杂度: 0
+定义变量: 
+使用变量: , __s, operator==, __node_gen, __nh
+关键位置: 否
+日志评分: 0
+代码:
+    if (token == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:138:9
+复杂度: 1
+定义变量: 
+使用变量: __c
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:138:14
+复杂度: 0
+定义变量: __f
+使用变量: __n, __pos, , __source, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(false)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:139:13
+复杂度: 0
+定义变量: npos, __parent, tagNames, logTag
+使用变量: __p, , __a, __x, __f, __fn, __cont, memory_order_seq_cst, __holeIndex, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:140:13
+复杂度: 0
+定义变量: __n, __p
+使用变量: , __len, __cont, __holeIndex
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:143:9
+复杂度: 1
+定义变量: 
+使用变量: __x, __first
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:143:14
+复杂度: 0
+定义变量: stdin
+使用变量: , __a, __x, __b, __y, operator|, __sbin, __nh, __parent, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteRemoteObject
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:143:41
+复杂度: 0
+定义变量: 
+使用变量: __ineof, __sbout, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:144:13
+复杂度: 0
+定义变量: stdout, __lock, logTag
+使用变量: __p, , __a, __y, memory_order_seq_cst, __holeIndex, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:145:13
+复杂度: 0
+定义变量: __i, stderr, __ne_ptr, __loc
+使用变量: __p, , __tmp, __ret, npos, __old_capacity, __ne_ptr, __io, offset
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:148:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:151:24
+复杂度: 7
+定义变量: 
+使用变量: __pos, , __is_constant_evaluated, __i, __builtin_operator_delete, __old, __builtin_unreachable, __res, __position, __nh
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool AppFaultDataBySA::ReadFromParcel(Parcel &parcel)
+{
+    std::string strValue;
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+    errorObject.name = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+    errorObject.message = strValue;
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+    errorObject.stack = strValue;
+
+    int type = 0;
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
+        return false;
+    }
+    faultType = static_cast<FaultDataType>(type);
+
+    if (!parcel.ReadInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
+        return false;
+    }
+
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+    timeoutMarkers = strValue;
+
+    waitSaveState = parcel.ReadBool();
+    notifyApp = parcel.ReadBool();
+    forceExit = parcel.ReadBool();
+    state = parcel.ReadUint32();
+    eventId = parcel.ReadInt32();
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: basic_string
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:153:17
+复杂度: 0
+定义变量: __pos, _Nd, strValue
+使用变量: __comp
+关键位置: 否
+日志评分: 0
+代码:
+    std::string strValue;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:154:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:154:10
+复杂度: 0
+定义变量: __uc, __p1
+使用变量: , __tmp, __ptr, __first2, operator=, _Nd, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:155:9
+复杂度: 0
+定义变量: __size, __loc, __sign_size, logTag
+使用变量: __n, , __a, __x, __y, __last2, __capacity, __i1, __i2, __io, __m1, __p1, __nh, __hf, __eql, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Name read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:156:9
+复杂度: 0
+定义变量: 
+使用变量: __n, , __c1, __size, offset, tagNames
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:160:5
+复杂度: 1
+定义变量: 
+使用变量: , __lc, __dest, __throw_concurrence_unlock_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:160:10
+复杂度: 0
+定义变量: __fn, __current
+使用变量: __c, , __a, __r, __x, __new_val, __first1, __state, __uNd, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:161:9
+复杂度: 0
+定义变量: __max_digits10, __testeof, _S_timezones, tagNames, logTag
+使用变量: __n, , __old_val, __first, __last, __f, __cont, __end, __beg, __state, __outstr, __cvt, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Message read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:162:9
+复杂度: 0
+定义变量: __r
+使用变量: , __first, __fn, __cont, __count
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:166:5
+复杂度: 1
+定义变量: __n
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:166:10
+复杂度: 0
+定义变量: __max_exponent10, _S_timezones
+使用变量: , __r, __x, __alloc, __beg, _Nd, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:167:9
+复杂度: 0
+定义变量: __plus, logTag
+使用变量: __c, , __a, __x, __args, __y, __alloc, npos, __lit, _S_iplus, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:168:9
+复杂度: 0
+定义变量: __lock
+使用变量: __c, , __r, __x, __ptr, __last1, __l, __plus, offset, tagNames
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:173:5
+复杂度: 1
+定义变量: 
+使用变量: __i
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadInt32(type)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:173:10
+复杂度: 0
+定义变量: __n, __p, __a, tagNames
+使用变量: __n, , __r, __last1, __l, __cont, __end, __beg, operator&, __m, __current, parcel, type
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadInt32(type)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:174:9
+复杂度: 0
+定义变量: __can_memmove, offset, logTag
+使用变量: __n, __other, , __a, __first, __last, __ptr, _Num, __last1, __sv, __beg, PTHREAD_MUTEX_RECURSIVE_NP, __outstr, __cvt, allocator_arg, __node, tag, GetOffset, LOCAL_CALL, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Type read int32 failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:175:9
+复杂度: 0
+定义变量: 
+使用变量: __p, , __comp, __end, __beg, __victim, offset
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:179:5
+复杂度: 1
+定义变量: 
+使用变量: __atomic_thread_fence
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:179:10
+复杂度: 0
+定义变量: 
+使用变量: __pos, __first, __first1, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadInt32(pid)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:180:9
+复杂度: 0
+定义变量: __which, __uNd, logTag
+使用变量: __p, , __i, __value, __comp, __last1, npos, __current, _Nd, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid read int32 failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:181:9
+复杂度: 0
+定义变量: __r, __found_mantissa, __assignable, BASE_DEFAULT
+使用变量: __ptr, __comp, __last1, __which
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:184:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.ReadString(strValue)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadString
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:184:10
+复杂度: 0
+定义变量: __r, __state, BASE_DELEGATOR
+使用变量: , __s, __r, __b, __u, __cont, _Nd, parcel, strValue
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.ReadString(strValue)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:185:9
+复杂度: 0
+定义变量: __n, BASE_EXT, logTag
+使用变量: __c, , __r, __first, __last, _Num, __first1, __result, __lc, __get_type_info, __node, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers read string failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:186:9
+复杂度: 0
+定义变量: BASE_WANTAGENT
+使用变量: __c, , __x, __alloc, __lc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:190:21
+复杂度: 0
+定义变量: __two
+使用变量: __p, __other, , __x, __y, __lo2, __hi2, __lo, __hi, __mandatory_sign, _Nd, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    waitSaveState = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:191:17
+复杂度: 0
+定义变量: 
+使用变量: __p, __a, __b, operator^, tag, GetOffset, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    notifyApp = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:192:17
+复杂度: 0
+定义变量: __p
+使用变量: , __one, __last, __end, sign, offset, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    forceExit = parcel.ReadBool();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadUint32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:193:13
+复杂度: 0
+定义变量: __pend
+使用变量: __p, __lhs, __x, __one, __h, base, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    state = parcel.ReadUint32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInt32
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:194:15
+复杂度: 0
+定义变量: __q
+使用变量: __p, , _Nm, __two, __capacity, space, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    eventId = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:195:5
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, __first, __last, __builtin_unreachable, __alloc
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (parcel.ReadBool()) {
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:195:9
+复杂度: 0
+定义变量: __qend, __cur
+使用变量: , __is_constant_evaluated, __i, __sep_pos, BASE_APPDFR, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (parcel.ReadBool()) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:196:9
+复杂度: 0
+定义变量: 
+使用变量: value, , __a, __it, __first, __last, __val, __comp, __from, __arg, operator=, tag, BASE_JSENV, GetDomainName2, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:196:17
+复杂度: 0
+定义变量: 
+使用变量: value, , __a, __it, __first, __last, __val, __from, __arg, tag, GetDomainName2, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        token = (static_cast<MessageParcel*>(&parcel))->ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:198:5
+复杂度: 0
+定义变量: __another
+使用变量: , __first, __beg, __cur, BASE_EXT
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:201:37
+复杂度: 1
+定义变量: 
+使用变量: , __guard
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+AppFaultDataBySA *AppFaultDataBySA::Unmarshalling(Parcel &parcel)
+{
+    AppFaultDataBySA *info = new AppFaultDataBySA();
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+    return info;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: AppFaultDataBySA
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:203:34
+复杂度: 0
+定义变量: 
+使用变量: , __comp, __len
+关键位置: 否
+日志评分: 0
+代码:
+    AppFaultDataBySA *info = new AppFaultDataBySA();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:204:5
+复杂度: 1
+定义变量: __n
+使用变量: , __i, __size, __throw_concurrence_lock_error
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+        delete info;
+        info = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:204:10
+复杂度: 0
+定义变量: __tmp, _Nd_ul
+使用变量: __pos, , __a, __size, __from, __res, __len, __beg, __atomic_add_dispatch, __state, __from_end, __lc, parcel, info
+关键位置: 否
+日志评分: 0
+代码:
+    if (!info->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:208:5
+复杂度: 0
+定义变量: __found_sci
+使用变量: __p, __other, , __is_constant_evaluated, __i, __ret, __first, __builtin_unreachable, __pend, __testvalid, info
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return info;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:211:24
+复杂度: 15
+定义变量: __cmp
+使用变量: __n, __pos, , __is_constant_evaluated, __builtin_unreachable, __guard, __found_grouping, __date, __time, __dt, __ampm_format, __ampm, __days, __atomic_store
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool AppFaultDataBySA::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+    
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+    if (!parcel.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
+        return false;
+    }
+
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:213:5
+复杂度: 1
+定义变量: 
+使用变量: , __prev, __throw_concurrence_unlock_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(errorObject.name)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:214:9
+复杂度: 0
+定义变量: __diff, __q, logTag
+使用变量: __p, __n, , __a, __r, __x, __first, __d, __beg, __q, __lc, __cur, _Nd, _Nd_ul, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Name [%{public}s] write string failed.", errorObject.name.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:215:9
+复杂度: 0
+定义变量: __value
+使用变量: wcschr, , __last, __builtin_clzl, memory_order_seq_cst, __functor
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:218:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(errorObject.message)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:219:9
+复杂度: 0
+定义变量: __diff, logTag
+使用变量: __c, wcspbrk, __s1, __s2, __rhs, , __tmp, __first, __last, __max, __comp, __from, __count, __end, __beg, __eof, __state, __lc, __digit, __uhead, _Nd, _Nd_ull, _Lp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Message [%{public}s] write string failed.", errorObject.message.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:220:9
+复杂度: 0
+定义变量: 
+使用变量: , _Nm, __x, __first, __builtin_clzll, __beg, __lc
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:223:5
+复杂度: 1
+定义变量: 
+使用变量: __size, __dnew
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(errorObject.stack)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:224:9
+复杂度: 0
+定义变量: MIN_RAWDATA_SIZE, __lock, logTag
+使用变量: __p, __c, __n, __pos, __rhs, , __a, __b, __size, __beg, system_category, __lc, allocator_arg, __uhead, _Nd, _Nd_ull, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Stack [%{public}s] write string failed.", errorObject.stack.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:225:9
+复杂度: 0
+定义变量: __ret
+使用变量: __pos, , __r, __first, __comp, _Fnv_hash_bytes, __found_dec
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:228:5
+复杂度: 1
+定义变量: 
+使用变量: __negative
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:228:10
+复杂度: 0
+定义变量: __str, __secondChild
+使用变量: __c, __size, __il, __lo, __hi, __holeIndex, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(static_cast<int32_t>(faultType))) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:229:9
+复杂度: 0
+定义变量: __tmp, __xlen, logTag
+使用变量: , __x, __size, __y, __len, __d1, __d2, __length, __secondChild, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "FaultType [%{public}d] write int32 failed.", static_cast<int32_t>(faultType));
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:230:9
+复杂度: 0
+定义变量: __p
+使用变量: __c, , __x
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:233:5
+复杂度: 1
+定义变量: 
+使用变量: , __first, __secondChild
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteInt32(pid)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:233:10
+复杂度: 0
+定义变量: __len, __max_ull
+使用变量: , __x, npos, __lo, __hi, __secondChild, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(pid)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:234:9
+复杂度: 0
+定义变量: __low, logTag
+使用变量: value, , __x, __e, memory_order_seq_cst, __max_ull, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "Pid [%{public}d] write int32 failed.", static_cast<int32_t>(pid));
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:235:9
+复杂度: 0
+定义变量: __c
+使用变量: , __a, __x, __b, __ptr, operator+=, __holeIndex, _Nd, _Nd_ull
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:238:5
+复杂度: 1
+定义变量: 
+使用变量: __first, __throw_logic_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteString(timeoutMarkers)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:239:9
+复杂度: 0
+定义变量: __c, logTag
+使用变量: , __tmp, __cont, __end, __beg, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "TimeoutMarkers [%{public}s] write string failed.", timeoutMarkers.c_str());
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:240:9
+复杂度: 0
+定义变量: 
+使用变量: __v, , __x, __remainder
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:243:5
+复杂度: 1
+定义变量: 
+使用变量: __p, __n, __pos
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteBool(waitSaveState)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:243:10
+复杂度: 0
+定义变量: 
+使用变量: __c, , __a, __b, __end, __beg, __lit, __plus, __secondChild, __remainder, _S_single, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(waitSaveState)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:244:9
+复杂度: 0
+定义变量: __e, logTag
+使用变量: , __x, __q, __cxa_allocate_exception, __lit, __plus, __xtrc, operator+=, _S_atoms, __destroy_functor, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "WaitSaveState [%{public}s] write bool failed.", waitSaveState ? "true" : "false");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:245:9
+复杂度: 0
+定义变量: __res
+使用变量: , __i, __first
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:248:5
+复杂度: 1
+定义变量: 
+使用变量: __len
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteBool(notifyApp)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:248:10
+复杂度: 0
+定义变量: 
+使用变量: __n, , __x, __value, __first, __last, _Np, __res, __len, __testdecfound, __cmp, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(notifyApp)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:249:9
+复杂度: 0
+定义变量: __can_fill, logTag
+使用变量: __p, __pos, , __x, __d, _Np, __cont, __remainder, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "NotifyApp [%{public}s] write bool failed.", notifyApp ? "true" : "false");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:250:9
+复杂度: 0
+定义变量: 
+使用变量: , __first, __e, __res, __count, __ex
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:253:5
+复杂度: 1
+定义变量: 
+使用变量: __res
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteBool(forceExit)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:253:10
+复杂度: 0
+定义变量: 
+使用变量: __p, __c, __n, , __x, __first, __last, __len, __l, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteBool(forceExit)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:254:9
+复杂度: 0
+定义变量: logTag
+使用变量: __first, __last, __seed, _Nd, _S_mutex, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ForceExit [%{public}s] write bool failed.", forceExit ? "true" : "false");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:255:9
+复杂度: 0
+定义变量: 
+使用变量: , __first, __cxa_free_exception
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:258:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteUint32(state)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteUint32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:258:10
+复杂度: 0
+定义变量: _Nd_u, __lock
+使用变量: __p, __c, __n, __off, __v, , __x, __y, _Idx, __beg, __exchange_and_add_dispatch, __pend, __g, __lc, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteUint32(state)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:259:9
+复杂度: 0
+定义变量: FLAG_EXTEND_LIFE_TIME, __less, logTag
+使用变量: __n, , __a, __b, _Idx, __testdecfound, __atomic_is_lock_free, __product, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "State [%{public}u] write uint32 failed.", state);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:260:9
+复杂度: 0
+定义变量: 
+使用变量: __p, __v, , __b, __range
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:263:5
+复杂度: 1
+定义变量: 
+使用变量: __p, , __value, __low, __product
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!parcel.WriteInt32(eventId)) {
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteInt32
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:263:10
+复杂度: 0
+定义变量: __cur
+使用变量: , __x, __tmp, __value, __w, __first, __testeof, __low, __threshold, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if (!parcel.WriteInt32(eventId)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:264:9
+复杂度: 0
+定义变量: is_always_lock_free, logTag
+使用变量: __n, , __first, _Idx, operator+=, _Nd, _Nd_ull, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "EventId [%{public}u] write int32 failed.", eventId);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:265:9
+复杂度: 0
+定义变量: 
+使用变量: __p, , __last, __cont, __count, __g, __builtin_ctzll
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:268:5
+复杂度: 4
+定义变量: 
+使用变量: , __testvalid, __dest, __ref
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (token == nullptr) {
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+    } else {
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator==
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:268:9
+复杂度: 0
+定义变量: 
+使用变量: , __count, operator==, __cur, _Nd, _S_atomic
+关键位置: 否
+日志评分: 0
+代码:
+    if (token == nullptr) {
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:269:9
+复杂度: 1
+定义变量: 
+使用变量: , __memory_order_mask, __op
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!parcel.WriteBool(false)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:269:14
+复杂度: 0
+定义变量: 
+使用变量: __p, __n, , __first, __last, __d, __val, __found_sci, memory_order_seq_cst, __nh, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(false)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:270:13
+复杂度: 0
+定义变量: logTag
+使用变量: , __mode, __sp, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [false] write bool failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:271:13
+复杂度: 0
+定义变量: __b, __max_ull
+使用变量: __p, __c, , __a, __nh
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:274:9
+复杂度: 1
+定义变量: 
+使用变量: __get_functor_ptr
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+            return false;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteBool
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:274:14
+复杂度: 0
+定义变量: 
+使用变量: _Nm, __x, __val, __low, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: WriteRemoteObject
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:274:41
+复杂度: 0
+定义变量: 
+使用变量: __t, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        if (!parcel.WriteBool(true) || !(static_cast<MessageParcel*>(&parcel))->WriteRemoteObject(token)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:275:13
+复杂度: 0
+定义变量: __add, __high, logTag
+使用变量: __n, , _Nm, __x, __first, __last, operator+=, __sep_pos, memory_order_seq_cst, __ref, _Nd_ull, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Token falge [true] write bool failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:276:13
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/fault_data.cpp:279:5
+复杂度: 0
+定义变量: 
+使用变量: __val, __add
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

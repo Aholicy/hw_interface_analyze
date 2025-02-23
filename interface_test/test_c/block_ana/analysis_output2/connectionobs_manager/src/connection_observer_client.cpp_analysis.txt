@@ -1,0 +1,286 @@
+代码块类型: Method Declaration
+块名称: GetInstance
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:29:53
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+ConnectionObserverClient& ConnectionObserverClient::GetInstance()
+{
+    static ConnectionObserverClient instance;
+    return instance;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ConnectionObserverClient
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:31:37
+复杂度: 0
+定义变量: instance
+使用变量: 
+关键位置: 否
+日志评分: 0
+代码:
+    static ConnectionObserverClient instance;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:32:5
+复杂度: 0
+定义变量: proxy
+使用变量: instance
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return instance;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: RegisterObserver
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:35:35
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ConnectionObserverClient::RegisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->RegisterObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:37:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:38:9
+复杂度: 0
+定义变量: progname, logTag
+使用变量: CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:39:9
+复杂度: 0
+定义变量: 
+使用变量: __bsx, ERR_NO_CLIENT_IMPL
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_NO_CLIENT_IMPL;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: UnregisterObserver
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:45:35
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ConnectionObserverClient::UnregisterObserver(const std::shared_ptr<ConnectionObserver> &observer)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->UnregisterObserver(observer);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:47:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:48:9
+复杂度: 0
+定义变量: __ret, logTag
+使用变量: CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:49:9
+复杂度: 0
+定义变量: upper
+使用变量: , __n, __ret, __cache, __refs, _Intl, ERR_NO_CLIENT_IMPL
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_NO_CLIENT_IMPL;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetDlpConnectionInfos
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:55:35
+复杂度: 2
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ConnectionObserverClient::GetDlpConnectionInfos(std::vector<DlpConnectionInfo> &infos)
+{
+#ifdef WITH_DLP
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetDlpConnectionInfos(infos);
+#else
+    return ERR_READ_INFO_FAILED;
+#endif // WITH_DLP
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:65:5
+复杂度: 0
+定义变量: __tmp, __outchars
+使用变量: __first, __iter, _S_clone_c_locale, ERR_READ_INFO_FAILED
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return ERR_READ_INFO_FAILED;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetConnectionData
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:69:35
+复杂度: 1
+定义变量: 
+使用变量: , __is_constant_evaluated, rethrow_exception, __builtin_unreachable, __throw_length_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t ConnectionObserverClient::GetConnectionData(std::vector<ConnectionData> &connectionData)
+{
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+    return clientImpl_->GetConnectionData(connectionData);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:71:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!clientImpl_) {
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+        return ERR_NO_CLIENT_IMPL;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:72:9
+复杂度: 0
+定义变量: __tmp_data, logTag
+使用变量: , __x, __n, __first, __last, __is_signed, _S_local_capacity, __builtin_fabs, _Pn, PTHREAD_MUTEX_STALLED, __next, __low, __loc, __ISwlower, __caches, _Intl, __maxlen, __outstr, DEFAULT, CONNECTION
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::CONNECTION, "null clientImpl_");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/connectionobs_manager/src/connection_observer_client.cpp:73:9
+复杂度: 0
+定义变量: __outnext
+使用变量: , __p, __first, __s, __last, __diff, __tmp_data, __ISwalpha, _S_get_c_name, __outstr, ERR_NO_CLIENT_IMPL
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_NO_CLIENT_IMPL;
+
+--------------------------------------------------------------------------------

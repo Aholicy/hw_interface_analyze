@@ -1,0 +1,216 @@
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:22
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace OHOS {
+
+namespace AppExecFwk {
+
+bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
+
+{
+
+    std::u16string srcEntryTemp;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, srcEntryTemp);
+
+    srcEntry = Str16ToStr8(srcEntryTemp);
+
+
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessType);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessCount);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+
+
+    std::unique_ptr<ChildProcessArgs> argsRead(parcel.ReadParcelable<ChildProcessArgs>());
+
+    if (!argsRead) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+
+        return false;
+
+    }
+
+    args = *argsRead;
+
+
+
+    std::unique_ptr<ChildProcessOptions> optionsRead(parcel.ReadParcelable<ChildProcessOptions>());
+
+    if (!optionsRead) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+
+        return false;
+
+    }
+
+    options = *optionsRead;
+
+
+
+    return true;
+
+}
+
+
+
+ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
+
+{
+
+    ChildProcessRequest *data = new (std::nothrow) ChildProcessRequest();
+
+    if (data && !data->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+
+        delete data;
+
+        data = nullptr;
+
+    }
+
+    return data;
+
+}
+
+
+
+bool ChildProcessRequest::Marshalling(Parcel &parcel) const
+
+{
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(srcEntry));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessType));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessCount));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &args);
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &options);
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+}  // namespace OHOS
+
+================================================================================
+关键点类型: 常规代码
+代码位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/child_process_request.cpp:23
+重要性权重: 1
+综合评分: 0
+代码片段:
+namespace AppExecFwk {
+
+bool ChildProcessRequest::ReadFromParcel(Parcel &parcel)
+
+{
+
+    std::u16string srcEntryTemp;
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, srcEntryTemp);
+
+    srcEntry = Str16ToStr8(srcEntryTemp);
+
+
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessType);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, childProcessCount);
+
+    READ_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+
+
+    std::unique_ptr<ChildProcessArgs> argsRead(parcel.ReadParcelable<ChildProcessArgs>());
+
+    if (!argsRead) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessArgs failed.");
+
+        return false;
+
+    }
+
+    args = *argsRead;
+
+
+
+    std::unique_ptr<ChildProcessOptions> optionsRead(parcel.ReadParcelable<ChildProcessOptions>());
+
+    if (!optionsRead) {
+
+        TAG_LOGE(AAFwkTag::APPMGR, "Read ChildProcessOptions failed.");
+
+        return false;
+
+    }
+
+    options = *optionsRead;
+
+
+
+    return true;
+
+}
+
+
+
+ChildProcessRequest *ChildProcessRequest::Unmarshalling(Parcel &parcel)
+
+{
+
+    ChildProcessRequest *data = new (std::nothrow) ChildProcessRequest();
+
+    if (data && !data->ReadFromParcel(parcel)) {
+
+        TAG_LOGW(AAFwkTag::APPMGR, "Read from parcel failed.");
+
+        delete data;
+
+        data = nullptr;
+
+    }
+
+    return data;
+
+}
+
+
+
+bool ChildProcessRequest::Marshalling(Parcel &parcel) const
+
+{
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(String16, parcel, Str8ToStr16(srcEntry));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessType));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Int32, parcel, static_cast<int32_t>(childProcessCount));
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Bool, parcel, isStartWithDebug);
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &args);
+
+    WRITE_PARCEL_AND_RETURN_FALSE_IF_FAIL(Parcelable, parcel, &options);
+
+    return true;
+
+}
+
+}  // namespace AppExecFwk
+
+================================================================================

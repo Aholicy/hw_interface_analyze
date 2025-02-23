@@ -1,0 +1,345 @@
+代码块类型: Method Declaration
+块名称: Marshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:30:23
+复杂度: 4
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+bool MemoryLevelInfo::Marshalling(Parcel &parcel) const
+{
+    if (!parcel.WriteUint32(procLevelMap_.size())) {
+        return false;
+    }
+    for (auto it = procLevelMap_.begin(); it != procLevelMap_.end(); ++it) {
+        if (!parcel.WriteInt32(it->first)) {
+            return false;
+        }
+        if (!parcel.WriteInt32(it->second)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:32:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (!parcel.WriteUint32(procLevelMap_.size())) {
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:33:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:43:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: Unmarshalling
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:46:35
+复杂度: 1
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+MemoryLevelInfo *MemoryLevelInfo::Unmarshalling(Parcel &parcel)
+{
+    MemoryLevelInfo *object = new (std::nothrow) MemoryLevelInfo();
+    if ((object != nullptr) && !object->ReadFromParcel(parcel)) {
+        delete object;
+        object = nullptr;
+    }
+
+    return object;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:49:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if ((object != nullptr) && !object->ReadFromParcel(parcel)) {
+        delete object;
+        object = nullptr;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadFromParcel
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:49:33
+复杂度: 0
+定义变量: 
+使用变量: object, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    if ((object != nullptr) && !object->ReadFromParcel(parcel)) {
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:54:5
+复杂度: 0
+定义变量: 
+使用变量: __pos, __bsx, object
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return object;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: GetProcLevelMap
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:57:54
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+const std::map<pid_t, MemoryLevel> &MemoryLevelInfo::GetProcLevelMap() const
+{
+    return procLevelMap_;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: ReadFromParcel
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:63:23
+复杂度: 5
+定义变量: 
+使用变量: , __is_constant_evaluated, __ret, __builtin_unreachable, __location
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+bool MemoryLevelInfo::ReadFromParcel(Parcel &parcel)
+{
+    uint32_t count = parcel.ReadUint32();
+    if (count < 0 || count > MAX_PARCEL_SIZE) {
+        count = 0;
+        return false;
+    }
+
+    for (uint32_t i = 0; i < count; ++i) {
+        pid_t pid = parcel.ReadInt32();
+        int32_t tempLevel = parcel.ReadInt32();
+        MemoryLevel level = MEMORY_LEVEL_MODERATE;
+        switch (tempLevel) {
+            case MEMORY_LEVEL_MODERATE:
+            case MEMORY_LEVEL_LOW:
+            case MEMORY_LEVEL_CRITICAL:
+                level = static_cast<MemoryLevel>(tempLevel);
+                break;
+            default:
+                TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
+                continue;
+        }
+        procLevelMap_[pid] = level;
+    }
+    return true;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:65:22
+复杂度: 0
+定义变量: 
+使用变量: __first, __len, parcel
+关键位置: 否
+日志评分: 0
+代码:
+    uint32_t count = parcel.ReadUint32();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:66:5
+复杂度: 1
+定义变量: 
+使用变量: __s
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (count < 0 || count > MAX_PARCEL_SIZE) {
+        count = 0;
+        return false;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:68:9
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return false;
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:71:5
+复杂度: 4
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 2
+  - Loop Block (for) 日志存在: 得分 2
+代码:
+    for (uint32_t i = 0; i < count; ++i) {
+        pid_t pid = parcel.ReadInt32();
+        int32_t tempLevel = parcel.ReadInt32();
+        MemoryLevel level = MEMORY_LEVEL_MODERATE;
+        switch (tempLevel) {
+            case MEMORY_LEVEL_MODERATE:
+            case MEMORY_LEVEL_LOW:
+            case MEMORY_LEVEL_CRITICAL:
+                level = static_cast<MemoryLevel>(tempLevel);
+                break;
+            default:
+                TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
+                continue;
+        }
+        procLevelMap_[pid] = level;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:72:21
+复杂度: 0
+定义变量: 
+使用变量: , __x, _S_local_capacity, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        pid_t pid = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:73:29
+复杂度: 0
+定义变量: 
+使用变量: __s, parcel
+关键位置: 否
+日志评分: 0
+代码:
+        int32_t tempLevel = parcel.ReadInt32();
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:75:9
+复杂度: 3
+定义变量: 
+使用变量: __bsx
+关键位置: 是
+日志评分: 3
+  - Switch Block 日志存在: 得分 3
+代码:
+        switch (tempLevel) {
+            case MEMORY_LEVEL_MODERATE:
+            case MEMORY_LEVEL_LOW:
+            case MEMORY_LEVEL_CRITICAL:
+                level = static_cast<MemoryLevel>(tempLevel);
+                break;
+            default:
+                TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
+                continue;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: FOR_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:82:17
+复杂度: 0
+定义变量: __min, logTag
+使用变量: , __s, __str, DEFAULT, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+                TAG_LOGE(AAFwkTag::APPMGR, "temp memory level=%{public}d is not valid.", tempLevel);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/memory_level_info.cpp:87:5
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return true;
+
+--------------------------------------------------------------------------------

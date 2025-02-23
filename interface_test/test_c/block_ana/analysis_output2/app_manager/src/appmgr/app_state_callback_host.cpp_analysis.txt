@@ -1,0 +1,1327 @@
+代码块类型: Method Declaration
+块名称: OnRemoteRequest
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:34:27
+复杂度: 8
+定义变量: 
+使用变量: __out
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int AppStateCallbackHost::OnRemoteRequest(
+    uint32_t code, MessageParcel &data, MessageParcel &reply, MessageOption &option)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "AppStateCallbackHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+    std::u16string descriptor = AppStateCallbackHost::GetDescriptor();
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+    switch (code) {
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_STATE_CHANGED):
+            return HandleOnAppStateChanged(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_ABILITY_REQUEST_DONE):
+            return HandleOnAbilityRequestDone(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_CONFIG_CHANGE):
+            return HandleNotifyConfigurationChange(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_START_RESIDENT_PROCESS):
+            return HandleNotifyStartResidentProcess(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_REMOTE_DIED):
+            return HandleOnAppRemoteDied(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_PRE_CACHE):
+            return HandleNotifyAppPreCache(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_START_KEEP_ALIVE_PROCESS):
+            return HandleNotifyStartKeepAliveProcess(data, reply);
+    }
+
+    TAG_LOGD(AAFwkTag::APPMGR, "AppStateCallbackHost::OnRemoteRequest end");
+    return IPCObjectStub::OnRemoteRequest(code, data, reply, option);
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:37:5
+复杂度: 0
+定义变量: have_error, progname, logTag
+使用变量: APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "AppStateCallbackHost::OnReceived, code = %{public}u, flags= %{public}d.", code,
+        option.GetFlags());
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadInterfaceToken
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:40:39
+复杂度: 0
+定义变量: 
+使用变量: _Cache, _Intl, data
+关键位置: 否
+日志评分: 0
+代码:
+    std::u16string remoteDescriptor = data.ReadInterfaceToken();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:41:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (descriptor != remoteDescriptor) {
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+        return ERR_INVALID_STATE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:42:9
+复杂度: 0
+定义变量: logTag
+使用变量: _Intl, AFTER_MAGIC, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "local descriptor is not equal to remote");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:43:9
+复杂度: 0
+定义变量: 
+使用变量: __refs, ERR_INVALID_STATE
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+        return ERR_INVALID_STATE;
+
+--------------------------------------------------------------------------------
+代码块类型: Switch Block
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:46:5
+复杂度: 7
+定义变量: 
+使用变量: __loc
+关键位置: 是
+日志评分: -2
+  - Switch Block 缺少日志: 得分 -2
+代码:
+    switch (code) {
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_STATE_CHANGED):
+            return HandleOnAppStateChanged(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_ABILITY_REQUEST_DONE):
+            return HandleOnAbilityRequestDone(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_CONFIG_CHANGE):
+            return HandleNotifyConfigurationChange(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_START_RESIDENT_PROCESS):
+            return HandleNotifyStartResidentProcess(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_REMOTE_DIED):
+            return HandleOnAppRemoteDied(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_APP_PRE_CACHE):
+            return HandleNotifyAppPreCache(data, reply);
+        case static_cast<uint32_t>(IAppStateCallback::Message::TRANSACT_ON_NOTIFY_START_KEEP_ALIVE_PROCESS):
+            return HandleNotifyStartKeepAliveProcess(data, reply);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:48:13
+复杂度: 0
+定义变量: __ret
+使用变量: data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:48:20
+复杂度: 0
+定义变量: 
+使用变量: data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppStateChanged(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:50:13
+复杂度: 0
+定义变量: lower
+使用变量: , __builtin_addressof, __r, __f, __high, _ISlower, _S_get_c_name, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAbilityRequestDone(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAbilityRequestDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:50:20
+复杂度: 0
+定义变量: lower
+使用变量: , __r, __f, __high, _ISlower, _S_get_c_name, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAbilityRequestDone(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:52:13
+复杂度: 0
+定义变量: __n, digit
+使用变量: __n, __cont, uselocale, __libc_single_threaded, __refs, _ISdigit, _Intl, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyConfigurationChange(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyConfigurationChange
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:52:20
+复杂度: 0
+定义变量: digit
+使用变量: __n, __cont, uselocale, _ISdigit, _Intl, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyConfigurationChange(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:54:13
+复杂度: 0
+定义变量: npos, __b3, space, __remaining
+使用变量: , __ptr, __a, __n, __ret, __s, __base, __b2, _ISspace, _S_get_c_name, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyStartResidentProcess(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyStartResidentProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:54:20
+复杂度: 0
+定义变量: npos, __b3, space, __remaining
+使用变量: __ptr, __a, __n, __ret, __s, __base, __b2, _ISspace, _S_get_c_name, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyStartResidentProcess(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:56:13
+复杂度: 0
+定义变量: __len, __last, graph, __caches
+使用变量: __t, __i, __len, __ucont, __builtin_strlen, __s, __builtin_labs, PTHREAD_MUTEX_RECURSIVE_NP, __refs, __loc, _ISalpha, _ISdigit, _ISpunct, APP_STATE_CREATE, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleOnAppRemoteDied(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleOnAppRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:56:20
+复杂度: 0
+定义变量: __last, graph, __caches
+使用变量: __t, __i, __len, __ucont, __builtin_strlen, __s, __builtin_labs, PTHREAD_MUTEX_RECURSIVE_NP, __loc, _ISalpha, _ISdigit, _ISpunct, APP_STATE_CREATE, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleOnAppRemoteDied(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:58:13
+复杂度: 0
+定义变量: __first, punct
+使用变量: , __tmp, __n, __last, __len, __pos, __s, __base, PTHREAD_MUTEX_NORMAL, _ISpunct, _Pn, _Base, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyAppPreCache(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyAppPreCache
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:58:20
+复杂度: 0
+定义变量: __first, punct
+使用变量: , __tmp, __n, __last, __len, __pos, __s, __base, PTHREAD_MUTEX_NORMAL, _ISpunct, _Pn, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyAppPreCache(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:60:13
+复杂度: 0
+定义变量: __len, __endptr
+使用变量: , __tmp, __n, __i, __pos, __low, __m, __b3, data, reply
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+            return HandleNotifyStartKeepAliveProcess(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: HandleNotifyStartKeepAliveProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:60:20
+复杂度: 0
+定义变量: 
+使用变量: __tmp, __n, __i, __pos, __low, __m, data, reply
+关键位置: 否
+日志评分: 0
+代码:
+            return HandleNotifyStartKeepAliveProcess(data, reply);
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:63:5
+复杂度: 0
+定义变量: __c, logTag
+使用变量: , __a, __tmp, __i, __len, __l, __cont, __s, __out, PTHREAD_MUTEX_TIMED_NP, __loc, __caches, _Intl, _Pn, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "AppStateCallbackHost::OnRemoteRequest end");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAbilityRequestDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:67:28
+复杂度: 0
+定义变量: 
+使用变量: rethrow_exception
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppStateCallbackHost::OnAbilityRequestDone(const sptr<IRemoteObject> &, const AbilityState)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:69:5
+复杂度: 0
+定义变量: __result, logTag
+使用变量: , __it, __first, __last, __val, __pos, __low, __high, __size, __out, __diff, _Intl, __space, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:72:28
+复杂度: 0
+定义变量: 
+使用变量: , __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppStateCallbackHost::OnAppStateChanged(const AppProcessData &)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:74:5
+复杂度: 0
+定义变量: __old_size, __enable_hash_call, __outlast, logTag
+使用变量: , __ptr, __t, __tmp, __ret, __m, __cont, __s, __os, PTHREAD_MUTEX_ROBUST, __loc, __ISwdigit, _S_left, _S_right, __outstr, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: NotifyAppPreCache
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:77:28
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppStateCallbackHost::NotifyAppPreCache(int32_t pid, int32_t userId)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:79:5
+复杂度: 0
+定义变量: __parent, MAX_TRANSACTION_ID, logTag
+使用变量: , __tmp, __n, __result, __ISwblank, partial, _Lp, _Base, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: NotifyConfigurationChange
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:82:28
+复杂度: 0
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+void AppStateCallbackHost::NotifyConfigurationChange(const AppExecFwk::Configuration &config, int32_t userId)
+{
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: NotifyStartResidentProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:86:28
+复杂度: 0
+定义变量: 
+使用变量: , __location, __ret
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppStateCallbackHost::NotifyStartResidentProcess(std::vector<AppExecFwk::BundleInfo> &bundleInfos)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:88:5
+复杂度: 0
+定义变量: __w, __remaining, logTag
+使用变量: , __digits, __x, __b, __tmp, __n, __p, __first, __last, __num, __result, __pos, __out, __g, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: NotifyStartKeepAliveProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:91:28
+复杂度: 0
+定义变量: 
+使用变量: __tmp
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppStateCallbackHost::NotifyStartKeepAliveProcess(std::vector<AppExecFwk::BundleInfo> &bundleInfos)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:93:5
+复杂度: 0
+定义变量: __args, __a0, logTag
+使用变量: , __t, __n, __i, __len, __nh, __position, __ret, __s, __grouping, textdomain, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: OnAppRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:96:28
+复杂度: 0
+定义变量: 
+使用变量: , __first
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+void AppStateCallbackHost::OnAppRemoteDied(const std::vector<sptr<IRemoteObject>> &abilityTokens)
+{
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:98:5
+复杂度: 0
+定义变量: __c, none, logTag
+使用变量: , __it, __x, __a, __first, __val, __a1, __out, __left, __b1, __is_single_threaded, __rtime, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+    TAG_LOGD(AAFwkTag::APPMGR, "called");
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppStateChanged
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:101:31
+复杂度: 1
+定义变量: 
+使用变量: , __len, __throw_system_error
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppStateCallbackHost::HandleOnAppStateChanged(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    std::unique_ptr<AppProcessData> processData(data.ReadParcelable<AppProcessData>());
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+    OnAppStateChanged(*processData);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:105:5
+复杂度: 1
+定义变量: 
+使用变量: 
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (!processData) {
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppProcessData> failed");
+        return ERR_APPEXECFWK_PARCEL_ERROR;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:106:9
+复杂度: 0
+定义变量: logTag
+使用变量: , __max, _Nm, __x, __n, __pos, __m, __str, time, monetary, messages, __np, __grouping, __mod, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "ReadParcelable<AppProcessData> failed");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:111:5
+复杂度: 0
+定义变量: 
+使用变量: , __e, __u, __out, npos, nothrow, __gthread_mutex_trylock, __mem, __atomic_add, _S_atoms_out, _Base, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAbilityRequestDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:114:31
+复杂度: 1
+定义变量: 
+使用变量: __u, __c1
+关键位置: 是
+日志评分: -2
+  - Method Declaration 缺少日志: 得分 -2
+代码:
+int32_t AppStateCallbackHost::HandleOnAbilityRequestDone(MessageParcel &data, MessageParcel &reply)
+{
+    HITRACE_METER(HITRACE_TAG_APP);
+    sptr<IRemoteObject> obj = nullptr;
+    if (data.ReadBool()) {
+        obj = data.ReadRemoteObject();
+    }
+    int32_t state = data.ReadInt32();
+    OnAbilityRequestDone(obj, static_cast<AbilityState>(state));
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: sptr
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:117:31
+复杂度: 0
+定义变量: 
+使用变量: __x, __lo1
+关键位置: 否
+日志评分: 0
+代码:
+    sptr<IRemoteObject> obj = nullptr;
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:118:5
+复杂度: 1
+定义变量: 
+使用变量: , __x
+关键位置: 是
+日志评分: -2
+  - Conditional Block (if) 缺少日志: 得分 -2
+代码:
+    if (data.ReadBool()) {
+        obj = data.ReadRemoteObject();
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator=
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:119:9
+复杂度: 0
+定义变量: __size
+使用变量: , __x, __n, __i, __sz, __p, __y, __first, __last, __fn, __count, __ret, __s, operator=, PTHREAD_MUTEX_TIMED_NP, __loc, __falsename, _Base, __gthread_recursive_mutex_trylock, data, obj
+关键位置: 否
+日志评分: 0
+代码:
+        obj = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:119:15
+复杂度: 0
+定义变量: __size
+使用变量: , __i, __sz, __p, __y, __first, __last, __fn, __s, PTHREAD_MUTEX_TIMED_NP, __loc, __falsename, _Base, __gthread_recursive_mutex_trylock, data
+关键位置: 否
+日志评分: 0
+代码:
+        obj = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: OnAbilityRequestDone
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:122:5
+复杂度: 0
+定义变量: __tmp, __c
+使用变量: , __x, __n, __first, __len, __u, __pos, __size, __c1, __c2, __builtin_strlen, __s, _Hash_bytes, __builtin_strcmp, __mp, __refs, __sbin, obj, state
+关键位置: 否
+日志评分: 0
+代码:
+    OnAbilityRequestDone(obj, static_cast<AbilityState>(state));
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:123:5
+复杂度: 0
+定义变量: __it
+使用变量: , __tmp, __first, __pred, __pos, __size, __tmp_capacity, _Base, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyConfigurationChange
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:126:31
+复杂度: 1
+定义变量: 
+使用变量: , __ptr, __is_constant_evaluated, __builtin_unreachable
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppStateCallbackHost::HandleNotifyConfigurationChange(MessageParcel &data, MessageParcel &reply)
+{
+    std::unique_ptr<AppExecFwk::Configuration> config(data.ReadParcelable<AppExecFwk::Configuration>());
+    if (config == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "To read config failed.");
+        return ERR_DEAD_OBJECT;
+    }
+    auto userId = data.ReadInt32();
+    NotifyConfigurationChange(*config, userId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:129:5
+复杂度: 1
+定义变量: 
+使用变量: __ret
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (config == nullptr) {
+        TAG_LOGE(AAFwkTag::APPMGR, "To read config failed.");
+        return ERR_DEAD_OBJECT;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:130:9
+复杂度: 0
+定义变量: __n, offset, logTag
+使用变量: __i1, __i2, __stored_locally, __m1, tag, GetOffset, JSENV, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "To read config failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:135:5
+复杂度: 0
+定义变量: 
+使用变量: , __x, __p, __y, __j, __str, operator=, __ws, _Base, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyStartResidentProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:138:31
+复杂度: 3
+定义变量: 
+使用变量: __nh, __ne_ptr
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppStateCallbackHost::HandleNotifyStartResidentProcess(MessageParcel &data, MessageParcel &reply)
+{
+    std::vector<AppExecFwk::BundleInfo> bundleInfos;
+    int32_t infoSize = data.ReadInt32();
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return ERR_INVALID_VALUE;
+    }
+    for (int32_t i = 0; i < infoSize; i++) {
+        std::unique_ptr<AppExecFwk::BundleInfo> bundleInfo(data.ReadParcelable<AppExecFwk::BundleInfo>());
+        if (!bundleInfo) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+            return ERR_INVALID_VALUE;
+        }
+        bundleInfos.emplace_back(*bundleInfo);
+    }
+    NotifyStartResidentProcess(bundleInfos);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:142:5
+复杂度: 1
+定义变量: 
+使用变量: , __x, __first, __position
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:143:9
+复杂度: 0
+定义变量: __tmp, stdin, logTag
+使用变量: , __x, __a, __b, __y, __nh, __pos, __off, __parent, operator|, __ineof, __sbin, __sbout, _Intl, _Base, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:146:5
+复杂度: 2
+定义变量: 
+使用变量: __builtin_operator_delete, __capacity, __throw_concurrence_lock_error
+关键位置: 是
+日志评分: 2
+  - Loop Block (for) 日志存在: 得分 2
+代码:
+    for (int32_t i = 0; i < infoSize; i++) {
+        std::unique_ptr<AppExecFwk::BundleInfo> bundleInfo(data.ReadParcelable<AppExecFwk::BundleInfo>());
+        if (!bundleInfo) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+            return ERR_INVALID_VALUE;
+        }
+        bundleInfos.emplace_back(*bundleInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: FOR_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:148:9
+复杂度: 1
+定义变量: __rt
+使用变量: , __first1
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!bundleInfo) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+            return ERR_INVALID_VALUE;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: FOR_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:149:13
+复杂度: 0
+定义变量: __lc, __x0y0, logTag
+使用变量: , __loc, __uc, _Lp, __x0, __y0, __rtime, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:155:5
+复杂度: 0
+定义变量: __size, __sign_size
+使用变量: , __x, __n, __nh, __hf, __p1, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyStartKeepAliveProcess
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:158:31
+复杂度: 3
+定义变量: 
+使用变量: __res, __builtin_operator_delete, __pos
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppStateCallbackHost::HandleNotifyStartKeepAliveProcess(MessageParcel &data, MessageParcel &reply)
+{
+    std::vector<AppExecFwk::BundleInfo> bundleInfos;
+    int32_t infoSize = data.ReadInt32();
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return ERR_INVALID_VALUE;
+    }
+    for (int32_t i = 0; i < infoSize; i++) {
+        std::unique_ptr<AppExecFwk::BundleInfo> bundleInfo(data.ReadParcelable<AppExecFwk::BundleInfo>());
+        if (!bundleInfo) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+            return ERR_INVALID_VALUE;
+        }
+        bundleInfos.emplace_back(*bundleInfo);
+    }
+    NotifyStartKeepAliveProcess(bundleInfos);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:162:5
+复杂度: 1
+定义变量: __last_pos
+使用变量: , __throw_system_error
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:163:9
+复杂度: 0
+定义变量: __ts, logTag
+使用变量: , __r, __b, __first, __size, __s, __shift, operation_not_permitted, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:166:5
+复杂度: 2
+定义变量: __n
+使用变量: 
+关键位置: 是
+日志评分: 2
+  - Loop Block (for) 日志存在: 得分 2
+代码:
+    for (int32_t i = 0; i < infoSize; i++) {
+        std::unique_ptr<AppExecFwk::BundleInfo> bundleInfo(data.ReadParcelable<AppExecFwk::BundleInfo>());
+        if (!bundleInfo) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+            return ERR_INVALID_VALUE;
+        }
+        bundleInfos.emplace_back(*bundleInfo);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: FOR_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:168:9
+复杂度: 1
+定义变量: 
+使用变量: __x, __plus, __abs_time
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!bundleInfo) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+            return ERR_INVALID_VALUE;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: FOR_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:169:13
+复杂度: 0
+定义变量: logTag
+使用变量: , __r, __n, __d, __last1, __c, __l, __m, __lc, IPCRPC_SUB_MODULE_CODE, swap, __clock, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Read Parcelable infos failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:175:5
+复杂度: 0
+定义变量: 
+使用变量: , __i, __p, __comp, __end, __beg, __victim, offset, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleOnAppRemoteDied
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:178:31
+复杂度: 3
+定义变量: 
+使用变量: , __i, __is_constant_evaluated, __builtin_unreachable, __position, __old
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppStateCallbackHost::HandleOnAppRemoteDied(MessageParcel &data, MessageParcel &reply)
+{
+    std::vector<sptr<IRemoteObject>> abilityTokens;
+    int32_t infoSize = data.ReadInt32();
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return ERR_INVALID_VALUE;
+    }
+    for (int32_t i = 0; i < infoSize; i++) {
+        sptr<IRemoteObject> obj = data.ReadRemoteObject();
+        if (!obj) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read token failed.");
+            return ERR_INVALID_VALUE;
+        }
+        abilityTokens.emplace_back(obj);
+    }
+    OnAppRemoteDied(abilityTokens);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:182:5
+复杂度: 1
+定义变量: 
+使用变量: __first1, __atomic_thread_fence, __r1z
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (infoSize > CYCLE_LIMIT) {
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:183:9
+复杂度: 0
+定义变量: __lock, BASE_JSENV, logTag
+使用变量: __x, __a, __b, __p, __d, __len, __position, __m, __cont, __op, operator|, __testeof, symbol, __r1y, __r1z, _Base, __rtime, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "infoSize is too large");
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (for)
+块名称: 
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:186:5
+复杂度: 2
+定义变量: 
+使用变量: __xtrc, __found_mantissa
+关键位置: 是
+日志评分: 2
+  - Loop Block (for) 日志存在: 得分 2
+代码:
+    for (int32_t i = 0; i < infoSize; i++) {
+        sptr<IRemoteObject> obj = data.ReadRemoteObject();
+        if (!obj) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read token failed.");
+            return ERR_INVALID_VALUE;
+        }
+        abilityTokens.emplace_back(obj);
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: ReadRemoteObject
+上下文链: FOR_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:187:35
+复杂度: 0
+定义变量: 
+使用变量: __d1, __args, __r1, data
+关键位置: 否
+日志评分: 0
+代码:
+        sptr<IRemoteObject> obj = data.ReadRemoteObject();
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: FOR_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:188:9
+复杂度: 1
+定义变量: 
+使用变量: __x, __i, __old
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+        if (!obj) {
+            TAG_LOGE(AAFwkTag::APPMGR, "Read token failed.");
+            return ERR_INVALID_VALUE;
+        }
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: operator bool
+上下文链: FOR_STMT[] → IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:188:14
+复杂度: 0
+定义变量: 
+使用变量: , __r, __pos, obj
+关键位置: 否
+日志评分: 0
+代码:
+        if (!obj) {
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: FOR_STMT[] → IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:189:13
+复杂度: 0
+定义变量: __n, __one, logTag
+使用变量: , __n, __c, __args, __pos, _S_word_bit, __lo1, __hi1, _Lp, __d0, __q0x, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+            TAG_LOGE(AAFwkTag::APPMGR, "Read token failed.");
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:195:5
+复杂度: 0
+定义变量: 
+使用变量: , __i, __first, __last, __is_constant_evaluated, __sep_pos, _Digs, BASE_APPDFR, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
+代码块类型: Method Declaration
+块名称: HandleNotifyAppPreCache
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:198:31
+复杂度: 2
+定义变量: 
+使用变量: , __i, __is_constant_evaluated, __builtin_unreachable, __guard, __found_grouping
+关键位置: 是
+日志评分: 5
+  - Method Declaration 日志存在: 得分 5
+代码:
+int32_t AppStateCallbackHost::HandleNotifyAppPreCache(MessageParcel &data, MessageParcel &reply)
+{
+    int32_t pid = data.ReadInt32();
+    if (pid <= 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "pid is illegal");
+        return ERR_INVALID_VALUE;
+    }
+    int32_t userId = data.ReadInt32();
+    if (userId < 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "userId is illegal");
+        return ERR_INVALID_VALUE;
+    }
+    NotifyAppPreCache(pid, userId);
+    return NO_ERROR;
+}
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:201:5
+复杂度: 1
+定义变量: 
+使用变量: __old_p
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (pid <= 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "pid is illegal");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:202:9
+复杂度: 0
+定义变量: __j, __res, _S_min_alignment, __rtime, logTag
+使用变量: , __x, __a, __p, __first, __last, __size, __capacity, __q, __umap, __destroy_functor, __gthread_active_p, __atime, __now, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "pid is illegal");
+
+--------------------------------------------------------------------------------
+代码块类型: Conditional Block (if)
+块名称: 
+上下文链: IF_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:206:5
+复杂度: 1
+定义变量: 
+使用变量: , __i, __is_constant_evaluated, __builtin_unreachable, __first1, __first2, __other
+关键位置: 是
+日志评分: 3
+  - Conditional Block (if) 日志存在: 得分 3
+代码:
+    if (userId < 0) {
+        TAG_LOGE(AAFwkTag::APPMGR, "userId is illegal");
+        return ERR_INVALID_VALUE;
+    }
+
+--------------------------------------------------------------------------------
+代码块类型: Loop Block (do-while)
+块名称: 
+上下文链: IF_STMT[] → DO_STMT[]
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:207:9
+复杂度: 0
+定义变量: __found_dec, logTag
+使用变量: , __r, __x, __first, __h, __q, __next, operator&, showbase, __io, _S_min_alignment, _Nd, _Nd_u, APPMGR
+关键位置: 是
+日志评分: 2
+  - Loop Block (do-while) 日志存在: 得分 2
+代码:
+        TAG_LOGE(AAFwkTag::APPMGR, "userId is illegal");
+
+--------------------------------------------------------------------------------
+代码块类型: Function Call
+块名称: NotifyAppPreCache
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:210:5
+复杂度: 0
+定义变量: __ret
+使用变量: , __x, __i, __p, __y, __first1, __len, __builtin_clz, __seed, __diff, __pend, __lc, pid, userId
+关键位置: 否
+日志评分: 0
+代码:
+    NotifyAppPreCache(pid, userId);
+
+--------------------------------------------------------------------------------
+代码块类型: Return Statement
+块名称: 
+上下文链: 
+位置: /home/user/yzb/hw_interface_analyze/interface_test/test_c/ability_ability_runtime/interfaces/inner_api/app_manager/src/appmgr/app_state_callback_host.cpp:211:5
+复杂度: 0
+定义变量: __prev
+使用变量: , __n, __p, __first1, __size, NO_ERROR
+关键位置: 是
+日志评分: -2
+  - Return Statement 缺少日志: 得分 -2
+代码:
+    return NO_ERROR;
+
+--------------------------------------------------------------------------------
